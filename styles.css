@@ -3,6 +3,7 @@
 :root {
   --main-bg-color: #f8f8f6;
   --default-font-family: "Poppins", sans-serif;
+  --default-header-font-family: "Helvetica", "Poppins", sans-serif;
   --default-font-size: 24px;
   --default-font-weight: 300;
   --default-padding: 0 60px;
@@ -30,6 +31,13 @@ body {
   margin: 0 auto;
 }
 
+.header-text {
+  font-family: var(--default-header-font-family);
+  font-size: 50px;
+  font-weight: 600;
+  letter-spacing: 7.5px;
+}
+
 .nav {
   height: 200px;
   padding: var(--default-padding);
@@ -52,18 +60,11 @@ body {
 .hero {
   display: flex;
   padding: var(--default-padding);
-  margin-top: 50px;
+  margin: 50px 0 100px;
 }
 
 .hero-text {
   flex: 2;
-}
-
-.hero-text h1 {
-  font-family: "Helvetica", "Poppins", sans-serif;
-  font-size: 50px;
-  font-weight: 600;
-  letter-spacing: 7.5px;
 }
 
 .hero-text p {
@@ -95,4 +96,38 @@ body {
 .hero-image img {
   width: 100%;
   height: auto;
+}
+
+.projects {
+  display: flex;
+  align-items: center;
+  height: 500px;
+  padding-left: 175px;
+}
+
+.projects-header {
+  transform: rotate(180deg);
+  translate: 0 -30px;
+  writing-mode: vertical-rl;
+  font-size: 46px;
+  width: 50px;
+  margin-right: 50px;
+}
+
+.project-card {
+  height: 410px;
+  width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+}
+
+.project-card-text {
+  margin: 10px 0;
+  font-size: 20px;
 }
