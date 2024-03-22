@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --main-bg-color: #f8f8f6;
+  --default-font-family: "Poppins", sans-serif;
+  --default-font-size: 24px;
+  --default-font-weight: 300;
+  --default-padding: 0 60px;
+  --default-letter-spacing: 2.4px;
+  --default-line-height: 36px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--default-font-family);
+  font-size: var(--default-font-size);
+  font-weight: var(--default-font-weight);
+  letter-spacing: var(--default-letter-spacing);
+  line-height: var(--default-line-height);
+}
+
+html {
+  background-color: var(--main-bg-color);
+}
+
+body {
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.nav {
+  height: 200px;
+  padding: var(--default-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left {
+  flex: 2;
+}
+
+.nav-right {
+  font-size: var(--default-font-size);
+  flex: 3;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hero {
+  display: flex;
+  padding: var(--default-padding);
+  margin-top: 50px;
+}
+
+.hero-text {
+  flex: 2;
+}
+
+.hero-text h1 {
+  font-family: "Helvetica", "Poppins", sans-serif;
+  font-size: 50px;
+  font-weight: 600;
+  letter-spacing: 7.5px;
+}
+
+.hero-text p {
+  margin: 50px 0;
+}
+
+.hero-button {
+  width: 200px;
+  height: 70px;
+  border: 1px solid #000;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+  transition: 0.3s;
+}
+
+.hero-button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.hero-image {
+  flex: 3;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+}
