@@ -6,14 +6,12 @@
   --default-header-font-family: "Helvetica", "Poppins", sans-serif;
   --default-font-size: 24px;
   --default-font-weight: 300;
-  --default-padding: 0 60px;
   --default-letter-spacing: 2.4px;
   --default-line-height: 36px;
 }
 
 * {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
   font-family: var(--default-font-family);
   font-size: var(--default-font-size);
@@ -27,11 +25,17 @@ html {
 }
 
 body {
+  padding: 60px;
   max-width: 1440px;
   margin: 0 auto;
 }
 
-.header-text {
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hero-header {
   font-family: var(--default-header-font-family);
   font-size: 50px;
   line-height: 50px;
@@ -41,7 +45,6 @@ body {
 
 .nav {
   height: 200px;
-  padding: var(--default-padding);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -60,7 +63,6 @@ body {
 
 .hero {
   display: flex;
-  padding: var(--default-padding);
   margin: 50px 0;
 }
 
@@ -97,16 +99,20 @@ body {
 }
 
 .projects {
-  margin: 50px 0;
+  margin: 30px 0 50px;
   position: relative;
   display: flex;
   align-items: center;
   height: 500px;
-  padding-left: 125px;
+  padding-left: 60px;
   border: 1px solid var(--main-bg-color);
 }
 
 .projects-header {
+  font-family: var(--default-header-font-family);
+  line-height: 50px;
+  font-weight: 600;
+  letter-spacing: 7.5px;
   transform: rotate(180deg);
   translate: 0 -30px;
   writing-mode: vertical-rl;
@@ -134,9 +140,19 @@ body {
 .project-card-container {
   display: flex;
   padding: 40px 0;
-  margin-right: 60px;
   overflow-x: scroll;
   overflow-y: hidden;
+}
+
+.project-card-container::-webkit-scrollbar {
+  -webkit-appearance: none;
+  height: 8px;
+}
+
+.project-card-container::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
 .project-card {
@@ -156,4 +172,34 @@ body {
 .project-card-text {
   margin: 10px 0;
   font-size: 20px;
+}
+
+.section {
+  display: flex;
+  margin: 50px 0;
+  justify-content: space-between;
+}
+
+.section-image {
+  max-width: 50%;
+}
+
+.section-image img {
+  max-width: 100%;
+}
+
+.section-text {
+  max-width: 47%;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 2px;
+}
+
+.section-header {
+  font-family: var(--default-header-font-family);
+  font-size: 36px;
+  line-height: 42px;
+  font-weight: 600;
+  letter-spacing: 3.6px;
+  margin-bottom: 12px;
 }
