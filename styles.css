@@ -27,13 +27,14 @@ html {
 }
 
 body {
-  width: 1440px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 
 .header-text {
   font-family: var(--default-header-font-family);
   font-size: 50px;
+  line-height: 50px;
   font-weight: 600;
   letter-spacing: 7.5px;
 }
@@ -60,11 +61,12 @@ body {
 .hero {
   display: flex;
   padding: var(--default-padding);
-  margin: 50px 0 100px;
+  margin: 50px 0;
 }
 
 .hero-text {
-  flex: 2;
+  max-width: 40%;
+  padding-right: 20px;
 }
 
 .hero-text p {
@@ -89,20 +91,19 @@ body {
   color: #fff;
 }
 
-.hero-image {
-  flex: 3;
-}
-
 .hero-image img {
   width: 100%;
   height: auto;
 }
 
 .projects {
+  margin: 50px 0;
+  position: relative;
   display: flex;
   align-items: center;
   height: 500px;
-  padding-left: 175px;
+  padding-left: 125px;
+  border: 1px solid var(--main-bg-color);
 }
 
 .projects-header {
@@ -111,15 +112,40 @@ body {
   writing-mode: vertical-rl;
   font-size: 46px;
   width: 50px;
-  margin-right: 50px;
+  position: sticky;
+  left: -180px;
+  background-color: var(--main-bg-color);
+  height: 100%;
+  min-width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects-header.sticky {
+  box-shadow: 0px 11px 10px -3px black;
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+}
+
+.project-card-container {
+  display: flex;
+  padding: 40px 0;
+  margin-right: 60px;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 
 .project-card {
   height: 410px;
-  width: 440px;
+  min-width: 440px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 25px;
 }
 
 .project-card img {
