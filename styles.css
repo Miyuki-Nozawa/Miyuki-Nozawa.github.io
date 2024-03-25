@@ -40,6 +40,13 @@ a {
   padding: 60px;
 }
 
+.separator {
+  height: 1px;
+  width: 100%;
+}
+
+/* Home */
+
 .hero-header {
   font-family: var(--default-header-font-family);
   font-size: 50px;
@@ -49,7 +56,6 @@ a {
 }
 
 .nav {
-  height: 200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -68,7 +74,7 @@ a {
 
 .hero {
   display: flex;
-  margin: 50px 0;
+  margin: 75px 0;
 }
 
 .hero-text {
@@ -104,11 +110,11 @@ a {
 }
 
 .projects {
-  margin: 30px 0 50px;
+  margin: 50px 0 75px;
   position: relative;
   display: flex;
   align-items: center;
-  height: 500px;
+  height: 611px;
   padding-left: 60px;
   border: 1px solid var(--ivory);
 }
@@ -131,6 +137,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 25px;
 }
 
 .projects-header.sticky {
@@ -144,7 +151,7 @@ a {
 
 .project-card-container {
   display: flex;
-  padding: 40px 0;
+  padding: 50px 0;
   overflow-x: scroll;
   overflow-y: hidden;
 }
@@ -161,12 +168,11 @@ a {
 }
 
 .project-card {
-  height: 410px;
-  min-width: 440px;
+  min-width: 650px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 25px;
+  margin-right: 50px;
 }
 
 .project-card img {
@@ -181,7 +187,7 @@ a {
 
 .section {
   display: flex;
-  margin: 50px 0;
+  margin: 75px 0;
   justify-content: space-between;
 }
 
@@ -232,4 +238,71 @@ a {
 .footer-text {
   font-size: 32px;
   line-height: 48px;
+}
+
+/* About Page */
+
+.about-header {
+  font-family: var(--default-header-font-family);
+  font-size: 80px;
+  line-height: 92px;
+  letter-spacing: 12px;
+  font-weight: 600;
+  margin: 50px 0;
+}
+
+.about-content {
+  display: grid;
+  column-gap: 20px;
+  grid-template-rows: repeat(7, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  height: 900px;
+}
+
+.about-content-intro {
+  grid-row: 1;
+  grid-column: 3 / 5;
+  letter-spacing: 0.72px;
+  line-height: 40px;
+}
+
+.grid-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.niigata-image-grid {
+  grid-row: 2 / 5;
+  grid-column: 1;
+}
+
+.tokyo-image-grid {
+  grid-row: 2 / 5;
+  grid-column: 2;
+}
+
+.newyork-image-grid {
+  grid-row: 2 / 5;
+  grid-column: 4;
+}
+
+.about-content-details {
+  grid-row: 5 / 8;
+  grid-column: 1 / 3;
+  padding: 30px 30px 30px 0;
+}
+
+.about-content-details p {
+  letter-spacing: 0.72px;
+  line-height: 40px;
+}
+
+.about-content-details > :first-child {
+  margin: 20px 0;
+}
+
+.strasbourg-image-grid {
+  grid-row: 5 / 8;
+  grid-column: 3;
 }
