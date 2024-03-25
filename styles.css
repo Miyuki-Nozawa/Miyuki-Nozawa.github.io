@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
-  --main-bg-color: #f8f8f6;
+  --white: #fff;
+  --ivory: #f8f8f6;
+  --green: #556c3f;
   --default-font-family: "Poppins", sans-serif;
   --default-header-font-family: "Helvetica", "Poppins", sans-serif;
   --default-font-size: 24px;
@@ -21,11 +23,10 @@
 }
 
 html {
-  background-color: var(--main-bg-color);
+  background-color: var(--ivory);
 }
 
 body {
-  padding: 60px;
   max-width: 1440px;
   margin: 0 auto;
 }
@@ -33,6 +34,10 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.main {
+  padding: 60px;
 }
 
 .hero-header {
@@ -105,7 +110,7 @@ a {
   align-items: center;
   height: 500px;
   padding-left: 60px;
-  border: 1px solid var(--main-bg-color);
+  border: 1px solid var(--ivory);
 }
 
 .projects-header {
@@ -120,7 +125,7 @@ a {
   width: 50px;
   position: sticky;
   left: -180px;
-  background-color: var(--main-bg-color);
+  background-color: var(--ivory);
   height: 100%;
   min-width: 120px;
   display: flex;
@@ -203,4 +208,28 @@ a {
   font-weight: 600;
   letter-spacing: 3.6px;
   margin-bottom: 12px;
+}
+
+.footer {
+  background: var(--green);
+  display: flex;
+  justify-content: space-between;
+  padding: 60px;
+}
+
+.footer-right {
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.footer-text-header {
+  font-size: 40px;
+  line-height: 60px;
+}
+
+.footer-text {
+  font-size: 32px;
+  line-height: 48px;
 }
