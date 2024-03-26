@@ -251,12 +251,13 @@ a {
   margin: 50px 0;
 }
 
-.about-content {
+.about-content-grid {
   display: grid;
   column-gap: 20px;
   grid-template-rows: repeat(7, 1fr);
   grid-template-columns: repeat(4, 1fr);
   height: 900px;
+  margin: 50px 0 100px;
 }
 
 .about-content-intro {
@@ -272,17 +273,23 @@ a {
   object-fit: cover;
 }
 
-.niigata-image-grid {
+.grid-text {
+  font-size: 24px;
+  letter-spacing: 0.72px;
+  line-height: 40px;
+}
+
+.niigata-image-cell {
   grid-row: 2 / 5;
   grid-column: 1;
 }
 
-.tokyo-image-grid {
+.tokyo-image-cell {
   grid-row: 2 / 5;
   grid-column: 2;
 }
 
-.newyork-image-grid {
+.newyork-image-cell {
   grid-row: 2 / 5;
   grid-column: 4;
 }
@@ -293,16 +300,117 @@ a {
   padding: 30px 30px 30px 0;
 }
 
-.about-content-details p {
-  letter-spacing: 0.72px;
-  line-height: 40px;
-}
-
 .about-content-details > :first-child {
   margin: 20px 0;
 }
 
-.strasbourg-image-grid {
+.strasbourg-image-cell {
   grid-row: 5 / 8;
   grid-column: 3;
+}
+
+.experiences-header {
+  font-size: 46px;
+  font-weight: 600;
+  line-height: 53px;
+  letter-spacing: 4.6px;
+  margin: 50px 0;
+}
+
+.experiences-grid {
+  display: grid;
+  row-gap: 40px;
+  column-gap: 20px;
+  grid-template-rows: repeat(11, 1fr);
+  grid-template-columns: repeat(10, 1fr);
+  height: 1300px;
+  margin: 50px 0 100px;
+}
+
+.experiences-top {
+  grid-row: 1;
+  grid-column: 1 / 7;
+}
+
+.clothes-image-cell {
+  grid-row: 2 / 5;
+  grid-column: 1 / 7;
+}
+
+.linen-image-cell {
+  grid-row: 2 / 5;
+  grid-column: 7 / 11;
+}
+
+.sauce-image-cell {
+  grid-row: 5 / 8;
+  grid-column: 1 / 6;
+}
+
+.experiences-mid {
+  grid-row: 5 / 8;
+  grid-column: 6 / 11;
+}
+
+.experiences-bottom {
+  grid-row: 8 / 12;
+  grid-column: 1 / 6;
+}
+
+.plates-image-cell {
+  grid-row: 8 / 12;
+  grid-column: 6 / 11;
+}
+
+.goal-grid {
+  display: grid;
+  gap: 20px;
+  row-gap: 40px;
+  grid-template-rows: repeat(10, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  height: 1600px;
+  margin: 50px 0 150px;
+}
+
+.goal-text {
+  font-size: 24px;
+  letter-spacing: 0.72px;
+  line-height: 36px;
+}
+
+.goal-top {
+  grid-row: 1 / 3;
+  grid-column: 3 / 5;
+}
+
+.goal-header {
+  font-size: 46px;
+  font-weight: 600;
+  line-height: 53px;
+  letter-spacing: 4.6px;
+  margin: 50px 0;
+}
+
+.tablet-image-cell {
+  grid-row: 3 / 6;
+  grid-column: 1;
+}
+
+.paper-image-cell {
+  grid-row: 6 / 9;
+  grid-column: 2;
+}
+
+.desk-image-cell {
+  grid-row: 3 / 9;
+  grid-column: 3 / 5;
+}
+
+.goal-bottom {
+  grid-row: 9 / 11;
+  grid-column: 3 / 5;
+}
+
+.goal-bottom > :first-child {
+  margin: 30px 0;
 }
