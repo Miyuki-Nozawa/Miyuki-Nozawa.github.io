@@ -10,6 +10,7 @@
   --default-font-weight: 300;
   --default-letter-spacing: 2.4px;
   --default-line-height: 36px;
+  --default-max-width: 1440px;
 }
 
 * {
@@ -27,7 +28,7 @@ html {
 }
 
 body {
-  max-width: 1440px;
+  max-width: var(--default-max-width);
   margin: 0 auto;
 }
 
@@ -413,4 +414,69 @@ a {
 
 .goal-bottom > :first-child {
   margin: 30px 0;
+}
+
+.contact-hero {
+  background-image: url("assets/contact.png");
+  background-size: cover;
+  height: 850px;
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+}
+
+.contact-header {
+  padding: 60px;
+  position: absolute;
+  width: var(--default-max-width);
+}
+
+.contact-title {
+  margin: auto 200px;
+  font-family: var(--default-header-font-family);
+  font-size: 80px;
+  line-height: 92px;
+  letter-spacing: 12px;
+  font-weight: 600;
+}
+
+.contact-info {
+  display: flex;
+}
+
+.contact-profile-image {
+  flex: 1;
+  padding: 60px;
+}
+
+.contact-profile-image img {
+  width: 100%;
+  height: auto;
+}
+
+.contact-details {
+  flex: 1;
+  margin: auto 0;
+  padding: 60px;
+}
+
+.contact-text {
+  display: flex;
+  align-items: center;
+  margin: 35px 0;
+}
+
+.contact-text img {
+  margin-right: 45px;
+  width: 45px;
+  height: 45px;
+}
+
+.contact-text-inner {
+  font-size: 22px;
+  letter-spacing: normal;
+}
+
+a.contact-text-inner {
+  text-decoration: underline;
 }
