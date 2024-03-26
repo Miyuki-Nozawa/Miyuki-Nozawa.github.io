@@ -2,8 +2,10 @@
 
 :root {
   --white: #fff;
+  --black: #000;
   --ivory: #f8f8f6;
   --green: #556c3f;
+  --brown: #705429;
   --default-font-family: "Poppins", sans-serif;
   --default-header-font-family: "Helvetica", "Poppins", sans-serif;
   --default-font-size: 24px;
@@ -35,6 +37,11 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: rgba(0, 0, 0, 0.5)
 }
 
 .main {
@@ -479,4 +486,16 @@ a {
 
 a.contact-text-inner {
   text-decoration: underline;
+}
+
+.resume {
+  width: 100%;
+  height: auto;
+}
+
+.resume-download-button {
+  height: 100px;
+  width: 300px;
+  background-color: var(--brown);
+  border: 1px solid var(--black);
 }
