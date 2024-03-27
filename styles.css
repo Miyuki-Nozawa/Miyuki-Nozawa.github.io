@@ -5,6 +5,7 @@
   --black: #000;
   --ivory: #f8f8f6;
   --green: #556c3f;
+  --olive: #969f32;
   --brown: #705429;
   --default-font-family: "Poppins", sans-serif;
   --default-header-font-family: "Helvetica", "Poppins", sans-serif;
@@ -77,6 +78,35 @@ a:hover {
   justify-content: space-between;
 }
 
+.nav-link-projects {
+  display: flex;
+  position: relative;
+}
+
+.nav-link-projects-dropdown {
+  position: absolute;
+  background-color: var(--ivory);
+  top: 100%;
+  width: 250px;
+  left: -60%;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 0;
+  display: flex;
+  transition: all 0.2s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.nav-link-projects:hover .nav-link-projects-dropdown {
+  visibility: visible;
+  opacity: 1;
+}
+
+.nav-dropdown-link {
+  margin: 10px 0;
+}
+
 .hero {
   display: flex;
   margin: 75px 0;
@@ -94,19 +124,19 @@ a:hover {
 .hero-button {
   width: 200px;
   height: 70px;
-  border: 1px solid #000;
+  border: 1px solid var(--black);
   font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  color: #000;
+  color: var(--black);
   transition: 0.3s;
 }
 
 .hero-button:hover {
-  background-color: #000;
-  color: #fff;
+  background-color: var(--olive);
+  color: var(--black);
 }
 
 .hero-image img {
@@ -146,7 +176,7 @@ a:hover {
 }
 
 .projects-header.sticky {
-  box-shadow: 0px 11px 10px -3px black;
+  box-shadow: 0px 11px 10px -3px var(--black);
 }
 
 .project-card img {
