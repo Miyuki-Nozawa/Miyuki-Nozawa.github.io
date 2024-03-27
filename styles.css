@@ -78,12 +78,19 @@ a:hover {
   justify-content: space-between;
 }
 
+.nav-link {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
 .nav-link-projects {
   display: flex;
   position: relative;
 }
 
-.nav-link-projects-dropdown {
+.nav-link-projects-dropdown,
+.contact-nav-link-projects-dropdown {
   position: absolute;
   background-color: var(--ivory);
   top: 100%;
@@ -98,7 +105,12 @@ a:hover {
   visibility: hidden;
 }
 
-.nav-link-projects:hover .nav-link-projects-dropdown {
+.contact-nav-link-projects-dropdown {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.nav-link-projects:hover .nav-link-projects-dropdown,
+.nav-link-projects:hover .contact-nav-link-projects-dropdown {
   visibility: visible;
   opacity: 1;
 }
