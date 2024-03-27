@@ -285,9 +285,9 @@ a:hover {
 }
 
 .grid-text {
-  font-size: 22px;
-  letter-spacing: 0.7px;
-  line-height: 34px;
+  font-size: 24px;
+  letter-spacing: 0.72px;
+  line-height: 36px;
 }
 
 .niigata-image-cell {
@@ -325,7 +325,7 @@ a:hover {
   font-weight: 600;
   line-height: 53px;
   letter-spacing: 4.6px;
-  margin: 100px 0 50px;
+  margin: 100px 0 25px;
 }
 
 .experiences-grid {
@@ -375,10 +375,10 @@ a:hover {
 
 .goal-grid {
   display: grid;
-  gap: 20px;
-  grid-template-rows: repeat(10, 1fr);
+  column-gap: 20px;
+  grid-template-rows: repeat(18, 1fr);
   grid-template-columns: repeat(4, 1fr);
-  height: 1600px;
+  height: 1100px;
   margin: 50px 0 150px;
 }
 
@@ -389,40 +389,41 @@ a:hover {
 }
 
 .goal-top {
-  grid-row: 1 / 3;
+  grid-row: 1 / 5;
   grid-column: 3 / 5;
 }
 
 .goal-header {
   font-size: 46px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 53px;
   letter-spacing: 4.6px;
-  margin: 25px 0 50px 0;
+  margin-bottom: 25px;
+}
+
+.goal-mid {
+  grid-row: 5 / 12;
+  grid-column: 1 / 3;
+  padding-top: 20px;
+}
+
+.goal-mid > :first-child {
+  margin: 20px 0 40px;
 }
 
 .tablet-image-cell {
-  grid-row: 3 / 6;
+  grid-row: 12 / 19;
   grid-column: 1;
 }
 
 .paper-image-cell {
-  grid-row: 6 / 9;
+  grid-row: 12 / 19;
   grid-column: 2;
 }
 
 .desk-image-cell {
-  grid-row: 3 / 9;
+  grid-row: 5 / 19;
   grid-column: 3 / 5;
-}
-
-.goal-bottom {
-  grid-row: 9 / 11;
-  grid-column: 3 / 5;
-}
-
-.goal-bottom > :first-child {
-  margin: 30px 0;
 }
 
 .contact-hero {
