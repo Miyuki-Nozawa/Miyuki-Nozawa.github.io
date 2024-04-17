@@ -4,7 +4,9 @@
   --white: #fff;
   --black: #000;
   --ivory: #f8f8f6;
+  --dark-green: #445e2c;
   --green: #556c3f;
+  --grass: #b6be8f;
   --olive: #969f32;
   --brown: #705429;
   --default-font-family: "Poppins", sans-serif;
@@ -572,6 +574,10 @@ a.contact-text-inner {
   background-color: var(--white);
 }
 
+.projects-section {
+  padding: 100px 0;
+}
+
 .projects-hero {
   background-color: var(--ivory);
   margin: 0 auto;
@@ -581,7 +587,6 @@ a.contact-text-inner {
 .projects-hero-inner {
   display: flex;
   margin: 0 auto;
-  padding: 90px 0;
   height: 100%;
   width: 70%;
 }
@@ -625,10 +630,116 @@ a.contact-text-inner {
   background-color: var(--brown);
   color: var(--white);
   width: 334px;
-  height: 65px; 
+  height: 65px;
   border-radius: 65px;
   font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.projects-summary {
+  background-color: var(--grass);
+}
+
+.projects-summary-content {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.projects-summary-content div {
+  letter-spacing: 0px;
+}
+
+.projects-summary-content p {
+  font-size: 26px;
+}
+
+.projects-summary-content > :first-child {
+  margin-bottom: 70px;
+}
+
+.projects-summary-bold p {
+  font-weight: 600;
+  margin-top: 40px;
+  letter-spacing: 0px;
+}
+
+.projects-summary-header {
+  font-weight: 600;
+  padding: 10px;
+  border-bottom: 4px solid var(--black);
+  letter-spacing: 0px;
+}
+
+.projects-agenda {
+  background-color: var(--ivory);
+}
+
+.projects-agenda-inner {
+  width: 70%;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-around;
+}
+
+.projects-agenda-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-agenda-column span {
+  margin-bottom: 40px;
+  font-weight: 600;
+  letter-spacing: 0px;
+}
+
+.projects-agenda-column > :last-child {
+  margin-bottom: 0px;
+}
+
+.projects-introduction {
+  background-color: var(--white);
+}
+
+.projects-introduction-inner {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.projects-introduction-header-wrapper {
+  text-align: center;
+}
+
+.projects-introduction-header {
+  letter-spacing: 0px;
+  font-size: 30px;
+  margin: 0 auto;
+  padding: 7px 3px;
+  border-bottom: 4px solid var(--dark-green);
+}
+
+.projects-introduction-inner p {
+  letter-spacing: 0px;
+  margin: 84px 0;
+}
+
+.projects-introduction-outro {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  margin-left: auto;
+}
+
+.projects-introduction-outro span {
+  letter-spacing: 0px;
+}
+
+.projects-introduction-inner-img {
+  width: 100%;
+}
+
+.projects-introduction-icon {
+  width: 80px;
+  margin-right: 50px;
 }
