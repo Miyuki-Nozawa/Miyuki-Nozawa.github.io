@@ -24,6 +24,14 @@
   --pink: #ffbdf2;
   --yellow: #ffd966;
   --sky: #80caff;
+  --primary-1: #eaa453;
+  --primary-2: #bb5b28;
+  --primary-3: #8b441d;
+  --secondary-1: #8baf86;
+  --secondary-2: #849e5a;
+  --secondary-3: #475c26;
+  --neutral-1: #f2efea;
+  --neutral-2: #ffffff;
   --default-font-family: "Poppins", sans-serif;
   --default-header-font-family: "Helvetica", "Poppins", sans-serif;
   --default-font-size: 24px;
@@ -1373,6 +1381,10 @@ a.contact-text-inner {
   border-bottom: 4px solid #969f32;
 }
 
+.branding {
+  margin-bottom: 70px;
+}
+
 .branding-subheader {
   font-size: 26px;
   color: var(--green-4);
@@ -1512,4 +1524,94 @@ a.contact-text-inner {
 .function-text-s-mobile {
   font-size: 10px;
   letter-spacing: 0px;
+}
+
+.branding-colors {
+  display: flex;
+}
+
+.inter {
+  font-family: "Inter";
+}
+
+.branding-colors-left {
+  width: 45%;
+}
+
+.branding-colors-right {
+  width: 55%;
+}
+
+.branding-colors-section-header {
+  font-size: 18px;
+  letter-spacing: 0;
+}
+
+.branding-colors-section-container {
+  margin: 10px 0 30px;
+  display: flex;
+}
+
+.branding-colors-section-container-color-wrapper {
+  margin-right: 20px;
+}
+
+.branding-colors-section-container-color {
+  border-radius: 8px;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto;
+}
+
+.primary-1 {
+  background-color: var(--primary-1);
+}
+
+.primary-2 {
+  background-color: var(--primary-2);
+}
+
+.primary-2 div,
+.primary-3 div,
+.secondary-3 div {
+  color: var(--white);
+}
+
+.primary-3 {
+  background-color: var(--primary-3);
+}
+
+.secondary-1 {
+  background-color: var(--secondary-1);
+}
+
+.secondary-2 {
+  background-color: var(--secondary-2);
+}
+
+.secondary-3 {
+  background-color: var(--secondary-3);
+}
+
+.neutral-1 {
+  background-color: var(--neutral-1);
+}
+
+.neutral-2 {
+  background-color: var(--neutral-2);
+  border: 1px solid rgba(0, 0, 0, 0.2)
+}
+
+.branding-colors-section-container-color {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.branding-colors-section-container-color-text,
+.branding-colors-section-container-color-subtitle {
+  font-size: 12px;
+  font-family: "Inter";
+  text-align: center;
+  letter-spacing: 0;
 }
