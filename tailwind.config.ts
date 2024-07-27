@@ -18,6 +18,7 @@ const config: Config = {
         base: "#F8F8F6",
         green: "#556C3F",
         dark: "#222222",
+        brown: "#705429",
       },
       letterSpacing: {
         ".03em": "0.03em",
