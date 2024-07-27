@@ -19,14 +19,8 @@ const config: Config = {
         green: "#556C3F",
         dark: "#222222",
       },
-      width: {
-        656: "41rem",
-      },
-      height: {
-        480: "30rem",
-      },
-      spacing: {
-        "4.5": "4.5rem",
+      letterSpacing: {
+        ".03em": "0.03em",
       },
     },
   },

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-between p-16">
+    <main className="flex flex-col justify-between p-16">
       {/* Hero */}
       <div className="flex mb-16">
         <div className="flex-1 space-y-10 pr-2 pt-2 flex flex-col justify-between">
@@ -34,17 +34,17 @@ export default function Home() {
           Featured Projects
         </div>
         <div className="flex space-x-12 overflow-scroll w-full [&>div]:flex-shrink-0 py-14">
-          <div className="relative w-656 h-480">
-            <Image alt="project" src="/stock/project-placeholder.png" layout="fill" />
+          <div className="relative w-[41rem] h-[30rem]">
+            <Image alt="project" src="/stock/project-placeholder.png" fill={true} />
           </div>
-          <div className="relative w-656 h-480">
-            <Image alt="project" src="/stock/project-placeholder.png" layout="fill" />
+          <div className="relative w-[41rem] h-[30rem]">
+            <Image alt="project" src="/stock/project-placeholder.png" fill={true} />
           </div>
-          <div className="relative w-656 h-480">
-            <Image alt="project" src="/stock/project-placeholder.png" layout="fill" />
+          <div className="relative w-[41rem] h-[30rem]">
+            <Image alt="project" src="/stock/project-placeholder.png" fill={true} />
           </div>
-          <div className="relative w-656 h-480">
-            <Image alt="project" src="/stock/project-placeholder.png" layout="fill" />
+          <div className="relative w-[41rem] h-[30rem]">
+            <Image alt="project" src="/stock/project-placeholder.png" fill={true} />
           </div>
         </div>
       </div>

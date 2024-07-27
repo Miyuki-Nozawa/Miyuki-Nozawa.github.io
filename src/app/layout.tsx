@@ -10,7 +10,7 @@ const poppins = Poppins({
   weight: ["300", "400", "500", "600"],
 });
 
-const manrope = Manrope({
+export const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope",
   weight: ["400", "500", "600", "700"],
@@ -28,7 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="bg-base">
-      <body className={`${poppins.className} max-w-screen-2xl min-h-screen mx-auto bg-base`}>
+      <body
+        className={`${poppins.className} ${manrope.variable} max-w-screen-2xl min-h-screen mx-auto bg-base`}
+      >
         <Nav />
         {children}
         <Footer />

@@ -10,7 +10,7 @@ export default function Footer() {
         width={155}
         height={105}
       />
-      <div className="flex space-x-4.5 font-light">
+      <div className="flex space-x-[4.5rem] font-light">
         <NavLink href="/">Home</NavLink>
         <NavLink href="/about">About</NavLink>
         <NavLink href="/projects">Projects</NavLink>
