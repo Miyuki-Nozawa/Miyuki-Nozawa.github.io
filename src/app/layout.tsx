@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Manrope } from "next/font/google";
-import Footer from "./components/footer";
-import Nav from "./components/nav";
+import Nav from "@/app/components/nav";
+import Footer from "@/app/components/footer";
 import "./globals.css";
 
 const poppins = Poppins({

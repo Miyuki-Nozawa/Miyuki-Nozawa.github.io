@@ -1,11 +1,11 @@
 import Image from "next/image";
-import NavLink from "./nav-link";
+import NavLink from "@/app/components/nav-link";
 
 export default function Footer() {
   return (
     <div className="flex justify-between items-center p-16">
       <Image
-        src="/logos/nav-logo.svg"
+        src="/icons/nav.svg"
         alt="miyuki nozawa"
         width={155}
         height={105}

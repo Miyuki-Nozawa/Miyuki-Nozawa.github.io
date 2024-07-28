@@ -4,7 +4,7 @@ export default function Nav() {
   return (
     <div className="flex justify-between items-center p-16 bg-green mt-auto">
       <Image
-        src="/logos/footer-logo.svg"
+        src="/icons/footer.svg"
         alt="miyuki nozawa"
         width={160}
         height={140}
