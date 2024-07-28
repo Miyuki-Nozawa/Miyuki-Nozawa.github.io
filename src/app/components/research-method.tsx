@@ -13,7 +13,7 @@ export default function ResearchMethod({
   return (
     <div className="space-y-20">
       <div className="space-y-7">
-        <DiamondHeader title={title} />
+        <DiamondHeader color="green" title={title} className="space-x-7" />
         <Text>{desc}</Text>
       </div>
       {children}

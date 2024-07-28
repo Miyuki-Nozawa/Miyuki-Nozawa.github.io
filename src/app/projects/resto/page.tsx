@@ -1,3 +1,4 @@
+import DiamondHeadedList from "@/app/components/diamond-headed-list";
 import DiamondHeader from "@/app/components/diamond-header";
 import KeyQuestions from "@/app/components/key-questions";
 import ParticpantResponses from "@/app/components/participant-responses";
@@ -16,48 +17,6 @@ import Transition from "@/app/components/transition";
 import Image from "next/image";
 import Link from "next/link";
 
-const problemStatement = `
-  After the pandemic, travel has become more accessible, allowing many people to explore various countries.
-  According to a World Economic Forum report, Japan is one of the best tourist destinations for 2024, with 9.62
-  million foreign tourists visiting in 2023. Many people look forward to experiencing Japan's food culture, but
-  for those unfamiliar with the language and culture, finding and booking suitable restaurants or cafes can be
-  challenging. Additionally, organizing all the reservations and saved restaurants across different apps can be
-  disorganized and sometimes difficult.
-`;
-const solution = `
-  Developing an app that allows travelers to easily make and manage restaurant reservations without being hindered
-  by language barriers, and to search for restaurants that meet their specific needs.
-`;
-const researchQuestions = [
-  "Identify what users prioritize in choosing restaurants when traveling",
-  "Understand how people plan their trips and what kind of information is required for them",
-  "Understand the deciding factors and challenges users encounter when searching for and choosing restaurants",
-  "Understand how users manage their desired destinations and planned locations",
-];
-const surveyDesc = `
-  The first research method I used was a survey. Surveys are
-  used to gather quantitative data from a wide range of
-  travelers to help understand their travel styles, the
-  importance of exploring foods during their trips, and their
-  dining experiences.
-`;
-const surveyQuestions = [
-  "How do you search for restaurants or cafes when dining out during your travels?",
-  "How was your experience when searching for and deciding on restaurants while traveling?",
-  "Are there any struggles or difficulties you encounter when managing your restaurant list?",
-];
-const userInterviewDesc = `
-  The second research method I conducted is user interviews.
-  User interviews are used to collect qualitative data on more
-  specific thoughts and personal experiences of users, based on
-  the wide range of data obtained from the survey.
-`;
-const interviewQuestions = [
-  "When you checked information about restaurants on websites, were these sites updated with current information or did you find that the info was missing or outdated?",
-  "What are the key factors in choosing a restaurant?",
-  "When you make a list of restaurants, what kind of information do you include in the list?",
-];
-
 export default function Gengo() {
   return (
     <div>
@@ -75,11 +34,22 @@ export default function Gengo() {
         industry="Restaurant"
       />
       <ProjectStatement
-        statement={problemStatement}
-        solution={solution}
+        statement={
+          "After the pandemic, travel has become more accessible, allowing many people to explore various " +
+          "countries. According to a World Economic Forum report, Japan is one of the best tourist destinations for " +
+          "2024, with 9.62 million foreign tourists visiting in 2023. Many people look forward to experiencing " +
+          "Japan's food culture, but for those unfamiliar with the language and culture, finding and booking " +
+          "suitable restaurants or cafes can be challenging. Additionally, organizing all the reservations and " +
+          "saved restaurants across different apps can be disorganized and sometimes difficult."
+        }
+        solution={
+          "Developing an app that allows travelers to easily make and manage restaurant reservations without being " +
+          "hindered by language barriers, and to search for restaurants that meet their specific needs."
+        }
         className="bg-light-pink"
       />
       <ProjectContents />
+      {/* introduction */}
       <Section title="Introduction" underline="bg-brown" className="px-52">
         <Text>
           Tourists often rely on platforms like Google Maps and social media to
@@ -99,6 +69,7 @@ export default function Gengo() {
         </Text>
         <Transition text="How can we build an app that helps travelers have a stress-free dining experience?" />
       </Section>
+      {/* research */}
       <Section title="Research" underline="bg-dark-green" className="px-52">
         <ResearchGoalSummary className="bg-olive">
           <span className="font-bold">
@@ -128,8 +99,8 @@ export default function Gengo() {
               <Image
                 src="/resto/competitor-table.png"
                 alt="Competitor table"
-                fill={true}
                 className="object-contain"
+                fill
               />
             </div>
             <Text>
@@ -141,7 +112,12 @@ export default function Gengo() {
               system and incorporates the latest trends.
             </Text>
             <Link href="">
-              <div className="px-8 py-5 mt-12 border-2 border-dark-green rounded-[5rem] inline-block text-dark-green text-xl font-semibold">
+              <div
+                className={
+                  "px-8 py-5 mt-12 border-2 border-dark-green rounded-[5rem] inline-block " +
+                  "text-dark-green text-xl font-semibold"
+                }
+              >
                 View the competitive analysis
               </div>
             </Link>
@@ -149,7 +125,15 @@ export default function Gengo() {
         </ResearchGoal>
         {/* research 2 */}
         <ResearchGoal title="2. Getting to know how people approach dining during their travels">
-          <ResearchObjectives questions={researchQuestions} />
+          <ResearchObjectives
+            questions={[
+              "Identify what users prioritize in choosing restaurants when traveling",
+              "Understand how people plan their trips and what kind of information is required for them",
+              "Understand the deciding factors and challenges users encounter when searching for and choosing " +
+                "restaurants",
+              "Understand how users manage their desired destinations and planned locations",
+            ]}
+          />
           {/* research methods */}
           <div className="space-y-12">
             <div className="font-manrope text-[1.75rem] font-extrabold tracking-[0.02em] text-dark-green underline">
@@ -159,35 +143,159 @@ export default function Gengo() {
               In order to collect a large amount of qualitative data, I
               conducted two different research methods.
             </Text>
-            {/* survey */}
-            <ResearchMethod title="Survey" desc={surveyDesc}>
-              <Participants
-                title="Survey participants"
-                desc1="17 people age between 18-34"
-                desc2="(12 out of 17 people have traveled to Japan)"
+            <div className="space-y-24">
+              {/* survey */}
+              <ResearchMethod
+                title="Survey"
+                desc={
+                  "The first research method I used was a survey. Surveys are " +
+                  "used to gather quantitative data from a wide range of " +
+                  "travelers to help understand their travel styles, the " +
+                  "importance of exploring foods during their trips, and their " +
+                  "dining experiences."
+                }
+              >
+                <Participants
+                  title="Survey participants"
+                  desc1="17 people age between 18-34"
+                  desc2="(12 out of 17 people have traveled to Japan)"
+                />
+                <KeyQuestions
+                  questions={[
+                    "How do you search for restaurants or cafes when dining out during your travels?",
+                    "How was your experience when searching for and deciding on restaurants while traveling?",
+                    "Are there any struggles or difficulties you encounter when managing your restaurant list?",
+                  ]}
+                />
+                <ParticpantResponses
+                  img="/resto/survey-responses.png"
+                  alt="Survey responses"
+                />
+              </ResearchMethod>
+              {/* user interview */}
+              <ResearchMethod
+                title="User interview"
+                desc={
+                  "The second research method I conducted is user interviews. " +
+                  "User interviews are used to collect qualitative data on more " +
+                  "specific thoughts and personal experiences of users, based on " +
+                  "the wide range of data obtained from the survey."
+                }
+              >
+                <Participants
+                  title="Interview participants"
+                  desc1="5 people age between 23-68"
+                  desc2="(1 Japanese, 4 of 5 people have traveled to Japan)"
+                />
+                <KeyQuestions
+                  questions={[
+                    "When you checked information about restaurants on websites, were these sites updated with " +
+                      "current information or did you find that the info was missing or outdated?",
+                    "What are the key factors in choosing a restaurant?",
+                    "When you make a list of restaurants, what kind of information do you include in the list?",
+                  ]}
+                />
+                <ParticpantResponses
+                  img="/resto/interview-responses.png"
+                  alt="Interview responses"
+                />
+              </ResearchMethod>
+            </div>
+          </div>
+          {/* results */}
+          <div className="space-y-12">
+            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[0.02em] text-dark-green underline">
+              Results
+            </div>
+            <Text>
+              After implementing these research methods, I recorded all data
+              points and ideas on individual sticky notes, grouped them based on
+              interview topics, and further categorized them into patterns.
+              <div className="h-5"></div>
+              By creating an affinity map, I was able to gain a deeper
+              understanding of user needs, trends and pain points in restaurant
+              searches and restaurant reservations. It helped to define product
+              requirements and plan future product features.
+            </Text>
+            <div className="space-y-24">
+              <div className="relative w-full h-[966px]">
+                <Image src="/resto/affinity-map.png" alt="Affinity map" fill />
+              </div>
+              <Text>
+                After reviewing the affinity map, I was able to grasp what
+                criteria travelers use to choose restaurants, the resources they
+                use when searching for restaurants, and the issues or
+                difficulties they encounter when making reservations for
+                restaurants.
+              </Text>
+              {/* paper */}
+              <div className="rounded-3xl bg-light-ivory px-20 py-12 space-y-12">
+                <DiamondHeadedList
+                  title="How to decide on restaurants"
+                  color="brown"
+                  items={[
+                    "Recommendations",
+                    "Reviews & Ratings",
+                    "Ambiance",
+                    "Location",
+                    "Language option",
+                  ]}
+                />
+                <DiamondHeadedList
+                  title="Difficulties or challenging when making reservations"
+                  color="brown"
+                  items={[
+                    "Language barriers",
+                    "No English translation",
+                    "Needs phone call",
+                    "Popular restaurants were all booked up",
+                    "There are too many options to choose from",
+                    "Finding a specific restaurant from a list",
+                  ]}
+                />
+                <DiamondHeadedList
+                  title="User needs"
+                  color="brown"
+                  items={[
+                    "Language support",
+                    "Enhanced search functions tailored to purpose",
+                    "Reliable reviews and ratings ",
+                    "Ability to make and cancel reservations online easily",
+                    "Engaging photos",
+                  ]}
+                />
+              </div>
+              <Text>
+                After all the research, I was able to identify the key points
+                for building the app&apos;s features. This process allowed me to
+                understand the critical elements that would meet the users&apos;
+                needs and enhance their overall experience.
+              </Text>
+              <Image
+                src="/icons/down-arrow.svg"
+                alt="down arrow"
+                width={75}
+                height={100}
+                className="mx-auto"
               />
-              <KeyQuestions questions={surveyQuestions} />
-              <ParticpantResponses
-                img="/resto/survey-responses.png"
-                alt="Survey responses"
-              />
-            </ResearchMethod>
-            {/* user interview */}
-            <ResearchMethod title="User interview" desc={userInterviewDesc}>
-              <Participants
-                title="Interview participants"
-                desc1="5 people age between 23-68"
-                desc2="(1 Japanese, 4 of 5 people have traveled to Japan)"
-              />
-              <KeyQuestions questions={interviewQuestions} />
-              <ParticpantResponses
-                img="/resto/interview-responses.png"
-                alt="Interview responses"
-              />
-            </ResearchMethod>
+              {/* key findings */}
+              <div className="px-24 py-12 space-y-7 rounded-3xl border-dark-green border-2">
+                <div className="text-3xl font-bold tracking-[0.02em]">
+                  Key findings
+                </div>
+                <ul className="list-disc list-outside text-[1.6rem] tracking-[0.02em] pl-6 space-y-1">
+                  <li>Reliable Reviews and Ratings</li>
+                  <li>Up-to-date information</li>
+                  <li>Ease of Reservations and Reservation Management</li>
+                  <li>Eliminate Anxiety Due to Language Differences</li>
+                  <li>Search and Filter Functions Tailored to Needs</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </ResearchGoal>
       </Section>
+      {/* define */}
     </div>
   );
 }

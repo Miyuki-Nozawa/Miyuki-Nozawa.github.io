@@ -134,16 +134,16 @@ export default function About() {
                 <Image
                   src="/about/goal-2.png"
                   alt="goal"
-                  fill={true}
                   className="rounded"
+                  fill
                 />
               </div>
               <div className="w-1/2 relative">
                 <Image
                   src="/about/goal-3.png"
                   alt="goal"
-                  fill={true}
                   className="rounded"
+                  fill
                 />
               </div>
             </div>

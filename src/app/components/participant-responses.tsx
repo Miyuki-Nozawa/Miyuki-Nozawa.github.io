@@ -11,7 +11,7 @@ export default function ParticpantResponses({
   return (
     <SimpleSection title="Responses from participants">
       <div className="relative w-full h-[532px]">
-        <Image src={img} alt={alt} fill={true} className="object-contain" />
+        <Image src={img} alt={alt} className="object-contain" fill />
       </div>
     </SimpleSection>
   );

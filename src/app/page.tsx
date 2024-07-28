@@ -35,16 +35,16 @@ export default function Home() {
         </div>
         <div className="flex space-x-12 overflow-scroll w-full [&>div]:flex-shrink-0 py-14">
           <div className="relative w-[41rem] h-[30rem]">
-            <Image src="/stock/project-placeholder.png" alt="project" fill={true} />
+            <Image src="/stock/project-placeholder.png" alt="project" fill />
           </div>
           <div className="relative w-[41rem] h-[30rem]">
-            <Image src="/stock/project-placeholder.png" alt="project" fill={true} />
+            <Image src="/stock/project-placeholder.png" alt="project" fill />
           </div>
           <div className="relative w-[41rem] h-[30rem]">
-            <Image src="/stock/project-placeholder.png" alt="project" fill={true} />
+            <Image src="/stock/project-placeholder.png" alt="project" fill />
           </div>
           <div className="relative w-[41rem] h-[30rem]">
-            <Image src="/stock/project-placeholder.png" alt="project" fill={true} />
+            <Image src="/stock/project-placeholder.png" alt="project" fill />
           </div>
         </div>
       </div>

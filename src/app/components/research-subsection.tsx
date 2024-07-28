@@ -9,7 +9,7 @@ export default function ResearchSubsection({
 }) {
   return (
     <div className="space-y-12">
-      <DiamondHeader title={title} />
+      <DiamondHeader color="green" title={title} className="space-x-7" />
       {children}
     </div>
   );

@@ -29,7 +29,7 @@ export default function ProjectHero({
   return (
     <div className="flex px-48 py-24">
       <div className="relative w-1/2 h-[590px]">
-        <Image src={img} alt={name} fill={true} className="object-contain" />
+        <Image src={img} alt={name} className="object-contain" fill />
       </div>
       <div className="flex flex-col w-1/2 justify-between">
         <div className="flex items-center space-x-8">
