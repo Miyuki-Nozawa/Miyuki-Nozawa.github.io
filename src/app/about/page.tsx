@@ -11,13 +11,13 @@ export default function About() {
       <div>
         <div className="flex space-x-7">
           <Image
-            alt="niigata"
             src="/about/niigata.png"
+            alt="niigata"
             width={312}
             height={382}
           />
-          <Image alt="tokyo" src="/about/tokyo.png" width={312} height={382} />
-          <div className="w-1/2 text-[32px] pl-6 pr-20 font-light tracking-.03em">
+          <Image src="/about/tokyo.png" alt="tokyo" width={312} height={382} />
+          <div className="w-1/2 text-[32px] pl-6 pr-20 font-light tracking-[.03em]">
             Hello. My name is Miyuki Nozawa. I am a UX/UI designer based in New
             York.
           </div>
@@ -36,13 +36,13 @@ export default function About() {
             </div>
           </Text>
           <Image
-            alt="niigata"
             src="/about/niigata.png"
+            alt="niigata"
             width={312}
             height={382}
             className="mr-8"
           />
-          <Image alt="tokyo" src="/about/tokyo.png" width={312} height={382} />
+          <Image src="/about/tokyo.png" alt="tokyo" width={312} height={382} />
         </div>
       </div>
       {/* Experiences */}
@@ -55,22 +55,22 @@ export default function About() {
         </Text>
         <div className="flex justify-between">
           <Image
-            alt="experiences"
             src="/about/experiences-1.png"
+            alt="experiences"
             width={758}
             height={320}
           />
           <Image
-            alt="experiences"
             src="/about/experiences-2.png"
+            alt="experiences"
             width={536}
             height={320}
           />
         </div>
         <div className="flex justify-between">
           <Image
-            alt="experiences"
             src="/about/experiences-3.png"
+            alt="experiences"
             width={650}
             height={320}
           />
@@ -95,8 +95,8 @@ export default function About() {
             with richer experiences through websites.
           </Text>
           <Image
-            alt="experiences"
             src="/about/experiences-4.png"
+            alt="experiences"
             width={650}
             height={200}
           />
@@ -112,8 +112,8 @@ export default function About() {
         </Text>
         <div className="flex space-x-6">
           <Image
-            alt="goal"
             src="/about/goal-1.png"
+            alt="goal"
             width={650}
             height={772}
             className="rounded"
@@ -132,16 +132,16 @@ export default function About() {
             <div className="flex h-[55%] space-x-4">
               <div className="w-1/2 relative">
                 <Image
-                  alt="goal"
                   src="/about/goal-2.png"
+                  alt="goal"
                   fill={true}
                   className="rounded"
                 />
               </div>
               <div className="w-1/2 relative">
                 <Image
-                  alt="goal"
                   src="/about/goal-3.png"
+                  alt="goal"
                   fill={true}
                   className="rounded"
                 />

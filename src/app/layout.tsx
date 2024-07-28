@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-base">
       <body
-        className={`${poppins.className} ${manrope.variable} max-w-screen-2xl min-h-screen mx-auto bg-base`}
+        className={`${poppins.className} ${manrope.variable} max-w-[1440px] min-h-screen mx-auto bg-base`}
       >
         <Nav />
         {children}

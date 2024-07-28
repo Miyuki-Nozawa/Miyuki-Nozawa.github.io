@@ -7,7 +7,7 @@ export default function Text({
 }>) {
   return (
     <div
-      className={`text-2xl tracking-.03em font-light leading-9 ${className}`}
+      className={`text-[1.6rem] tracking-[.02em] font-light leading-9 ${className}`}
     >
       {children}
     </div>

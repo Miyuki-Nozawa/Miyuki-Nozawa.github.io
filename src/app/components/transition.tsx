@@ -3,8 +3,8 @@ import Text from "@/app/components/text";
 
 export default function Transition({ text }: { text: string }) {
   return (
-    <div className="mx-64">
-      <div className="flex items-center space-x-6 w-2/3 ml-auto my-9">
+    <div>
+      <div className="flex items-center space-x-12 w-2/3 ml-auto my-9">
         <Image
           src="/icons/down-arrow.svg"
           alt="down arrow"

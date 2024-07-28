@@ -5,46 +5,62 @@ export default function ProjectHero({
   name,
   img,
   logo,
+  logoWidth,
+  logoHeight,
+  subtitle,
   header,
   projectType,
   role,
   projectDuration,
-  tools,
+  industry,
 }: {
   name: string;
   img: string;
   logo: string;
+  logoWidth: number;
+  logoHeight: number;
+  subtitle?: string;
   header: string;
   projectType: string;
   role: string;
   projectDuration: string;
-  tools: string;
+  industry: string;
 }) {
   return (
-    <div className="flex px-56 py-24 space-x-28">
-      <div className="relative w-[291px] h-[590px]">
-        <Image alt={name} src={img} fill={true} />
+    <div className="flex px-48 py-24">
+      <div className="relative w-1/2 h-[590px]">
+        <Image src={img} alt={name} fill={true} className="object-contain" />
       </div>
-      <div className="flex flex-col">
-        <Image alt={name} src={logo} width={210} height={77} className="pb-6" />
-        <div className="text-4xl font-bold tracking-.03em mb-24">{header}</div>
+      <div className="flex flex-col w-1/2 justify-between">
+        <div className="flex items-center space-x-8">
+          <Image
+            src={logo}
+            alt={name}
+            width={logoWidth}
+            height={logoHeight}
+          />
+          {subtitle && (
+            <div className="text-[26px] tracking-[.02em]">{subtitle}</div>
+          )}
+        </div>
+        <div className="text-3xl font-bold tracking-[.02em]">{header}</div>
         <div className="space-y-4">
-          <div className="text-2xl tracking-.03em">
+          <div className="text-2xl tracking-[.02em]">
             <b className="font-semibold">Project type:</b> {projectType}
           </div>
-          <div className="text-2xl tracking-.03em">
+          <div className="text-2xl tracking-[.02em]">
             <b className="font-semibold">Role:</b> {role}
           </div>
-          <div className="text-2xl tracking-.03em">
+          <div className="text-2xl tracking-[.02em]">
             <b className="font-semibold">Project duration:</b> {projectDuration}
           </div>
-          <div className="text-2xl tracking-.03em">
-            <b className="font-semibold">Tools:</b> {tools}
+          <div className="text-2xl tracking-[.02em]">
+            <b className="font-semibold">Industry:</b> {industry}
           </div>
         </div>
         <Link
           href=""
-          className="w-fit mt-auto px-16 py-4 rounded-[4rem] bg-brown text-white text-xl tracking-.03em"
+          className="w-fit px-16 py-4 rounded-[4rem] bg-green3 text-white text-xl tracking-[.02em]"
         >
           View hi-fi prototype
         </Link>
