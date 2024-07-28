@@ -5,7 +5,7 @@ export default function ResearchObjectives({
 }) {
   return (
     <div className="space-y-12">
-      <div className="font-manrope text-[1.75rem] font-extrabold tracking-[0.02em] text-dark-green underline">
+      <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] text-dark-green underline">
         Research objectives
       </div>
       <ul className="list-disc list-outside text-[1.6rem] font-medium tracing-[0.02em] space-y-6 pl-5">
