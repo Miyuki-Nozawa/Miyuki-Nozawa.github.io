@@ -21,6 +21,7 @@ const config: Config = {
         "dark-green": "#46601F",
         dark: "#222222",
         brown: "#705429",
+        brown2: "#5D3F11",
         olive: "#B6BE8F",
         paper: "#F2EFEA",
         "light-pink": "#DCC9BA",

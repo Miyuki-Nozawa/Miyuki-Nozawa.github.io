@@ -8,6 +8,7 @@ import Transition from "@/app/components/transition";
 import ResearchGoal from "@/app/components/research-goal";
 import DiamondHeader from "@/app/components/diamond-header";
 import Link from "next/link";
+import SimpleSection from "@/app/components/simple-section";
 
 export default function Gengo() {
   const problemStatement = `
@@ -74,11 +75,11 @@ export default function Gengo() {
           experience when traveling.
         </ResearchGoal>
         {/* research 1 */}
-        <div className="w-full">
-          <div className="text-3xl tracking-[0.02em] pl-5 font-medium">
+        <div className="w-full space-y-20">
+          <div className="text-3xl tracking-[0.02em] pl-2 font-medium">
             1. Getting to know what competitors are focusing on
           </div>
-          <Text className="my-20">
+          <Text>
             Before diving into the interview, I conducted a competitive analysis
             to understand what features are available in existing apps. I
             compared their target users, focus, and trends to identify which
@@ -116,6 +117,91 @@ export default function Gengo() {
           </div>
         </div>
         {/* research 2 */}
+        <div className="w-full space-y-20">
+          <div className="text-3xl tracking-[0.02em] pl-2 font-medium">
+            2. Getting to know how people approach dining during their travels
+          </div>
+          {/* research objectives */}
+          <div className="space-y-12">
+            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[0.02em] text-dark-green underline">
+              Research objectives
+            </div>
+            <ul className="list-disc list-outside text-[1.6rem] font-medium tracing-[0.02em] space-y-6 pl-5">
+              <li>
+                Identify what users prioritize in choosing restaurants when
+                traveling
+              </li>
+              <li>
+                Understand how people plan their trips and what kind of
+                information is required for them
+              </li>
+              <li>
+                Understand the deciding factors and challenges users encounter
+                when searching for and choosing restaurants
+              </li>
+              <li>
+                Understand how users manage their desired destinations and
+                planned locations
+              </li>
+            </ul>
+          </div>
+          {/* research methods */}
+          <div className="space-y-12">
+            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[0.02em] text-dark-green underline">
+              Research methods
+            </div>
+            <Text>
+              In order to collect a large amount of qualitative data, I
+              conducted two different research methods.
+            </Text>
+            <div className="space-y-20">
+              <div className="space-y-7">
+                <DiamondHeader title="Survey" />
+                <Text>
+                  The first research method I used was a survey. Surveys are
+                  used to gather quantitative data from a wide range of
+                  travelers to help understand their travel styles, the
+                  importance of exploring foods during their trips, and their
+                  dining experiences.
+                </Text>
+              </div>
+              {/* simple section */}
+              <SimpleSection title="Survey participants">
+                <Text>
+                  17 people age between 18-34
+                  <br />
+                  (12 out of 17 people have traveled to Japan)
+                </Text>
+              </SimpleSection>
+              <SimpleSection title="Key questions">
+                <ul className="list-disc list-outside text-[1.6rem] tracing-[0.02em] space-y-6 pl-5">
+                  <li>
+                    How do you search for restaurants or cafes when dining out
+                    during your travels?
+                  </li>
+                  <li>
+                    How was your experience when searching for and deciding on
+                    restaurants while traveling?
+                  </li>
+                  <li>
+                    Are there any struggles or difficulties you encounter when
+                    managing your restaurant list?
+                  </li>
+                </ul>
+              </SimpleSection>
+              <SimpleSection title="Responses from participants">
+                <div className="relative w-full h-[532px]">
+                  <Image
+                    src="/resto/survey-responses.png"
+                    alt="Survey responses"
+                    fill={true}
+                    className="object-contain"
+                  />
+                </div>
+              </SimpleSection>
+            </div>
+          </div>
+        </div>
       </Section>
     </div>
   );
