@@ -1,9 +1,10 @@
+import Image from "next/image";
 import ProjectContents from "@/app/components/project-contents";
 import ProjectHero from "@/app/components/project-hero";
 import ProjectStatement from "@/app/components/project-statement";
 import Section from "@/app/components/section";
 import Text from "@/app/components/text";
-import Image from "next/image";
+import Transition from "@/app/components/transition";
 
 export default function Gengo() {
   const problemStatement =
@@ -20,6 +21,7 @@ export default function Gengo() {
     Developing a language learning product to help people stay motivated \
     and learn languages efficiently.\
   ";
+
   return (
     <div>
       <ProjectHero
@@ -56,20 +58,7 @@ export default function Gengo() {
           product to help them stay motivated and learn efficiently.
         </Text>
         {/* transition */}
-        <div>
-          <div className="flex items-center space-x-8 w-[72%] ml-auto my-9">
-            <Image
-              src="/icons/down-arrow.svg"
-              alt="down arrow"
-              width={75}
-              height={100}
-            />
-            <Text>
-              How can we create a language learning website that delights
-              people?
-            </Text>
-          </div>
-        </div>
+        <Transition text="How can we create a language learning website that delights people?" />
       </Section>
     </div>
   );
