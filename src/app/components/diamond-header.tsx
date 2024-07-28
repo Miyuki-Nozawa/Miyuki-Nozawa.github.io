@@ -6,9 +6,9 @@ export default function DiamondHeader({
   title,
   className = "",
 }: {
-  color: "green" | "brown";
+  color: "green" | "brown" | "light-pink";
   title: string;
-  className: string;
+  className?: string;
 }) {
   return (
     <div className={`flex items-center ${className}`}>
@@ -17,7 +17,6 @@ export default function DiamondHeader({
         width={30}
         height={30}
         alt="diamond"
-        className="text-red-500"
       />
       <Text className="font-medium">{title}</Text>
     </div>

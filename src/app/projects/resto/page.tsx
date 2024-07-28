@@ -1,3 +1,4 @@
+import Card from "@/app/components/card";
 import Definition from "@/app/components/definition";
 import DiamondHeadedList from "@/app/components/diamond-headed-list";
 import DiamondHeader from "@/app/components/diamond-header";
@@ -380,6 +381,59 @@ export default function Gengo() {
           <FigmaLink href="">View the project goals</FigmaLink>
         </div>
         {/* feature ideas */}
+        <div className="space-y-12">
+          <div className="font-manrope text-[1.75rem] font-semibold tracking-[.02em] text-brown4 underline">
+            Feature ideas
+          </div>
+          <Text>
+            While considering the technical aspects, I brainstormed key features
+            that align with both business goals and user goals, focusing
+            especially on the overlapping goals to build an app that can achieve
+            these objectives.
+          </Text>
+          <Image
+            src="/resto/feature-ideas.png"
+            alt="Feature ideas"
+            width={867}
+            height={604}
+            className="mx-auto"
+          />
+          <Transition text="To design the structure of the app, I conducted a card sort based on these feature keywords" />
+          <div className="space-y-12 pt-8">
+            <DiamondHeader
+              title="Card Sort"
+              color="light-pink"
+              className="space-x-7"
+            />
+            <Text>
+              I conducted a card sort with{" "}
+              <b className="font-semibold">28 cards</b> and 8 participants.
+              Using an <b className="font-semibold">open card sort</b>, we aimed
+              to understand how users categorize the cards in order to determine
+              the app&apos;s structure, especially the naming of the navbar and
+              the content included in each menu.
+            </Text>
+            <div className="text-[24px] tracking-[.02em]">Card examples</div>
+            {/* cards */}
+            <div className="flex flex-wrap justify-between gap-[75px]">
+              <Card text="Type of cuisine" />
+              <Card text="English / Japanese menu" />
+              <Card text="Dress code" />
+              <Card text="Sound restriction" />
+              <Card text="Map" />
+              <Card text="List of restaurants" />
+              <Card text="Upcoming reservations" />
+              <Card text="Reservation reminder" />
+              <Card text="Share with friends" />
+            </div>
+          </div>
+          <Text className="py-12">
+            When participants freely categorized the cards, most of them fell
+            into six key categories. This helped to understand which content
+            people want to see under each menu.
+          </Text>
+        </div>
+        {/* sitemap */}
       </Section>
     </div>
   );
