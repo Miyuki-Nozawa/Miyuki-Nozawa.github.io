@@ -363,6 +363,24 @@ export default function Gengo() {
         />
         <FigmaLink href="">View the personas</FigmaLink>
       </Section>
+      {/* design */}
+      <Section title="Design" underline="bg-orange" className="px-52">
+        <Text>
+          As a step to generate ideas to solve the personas&apos; problems, I
+          set project goals and brainstormed feature ideas to address them.
+        </Text>
+        {/* project goals */}
+        <div className="space-y-12">
+          <div className="font-manrope text-[1.75rem] font-semibold tracking-[.02em] text-brown4 underline">
+            Project goals
+          </div>
+          <div className="relative w-[1040px] h-[950px]">
+            <Image src="/resto/project-goals.jpeg" alt="Project goals" fill />
+          </div>
+          <FigmaLink href="">View the project goals</FigmaLink>
+        </div>
+        {/* feature ideas */}
+      </Section>
     </div>
   );
 }
