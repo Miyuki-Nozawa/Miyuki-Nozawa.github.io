@@ -1,18 +1,14 @@
-import Text from "@/app/components/text";
-
 export default function ResearchGoal({
-  className = "",
+  title,
   children,
-}: Readonly<{
-  className?: string;
+}: {
+  title: string;
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <div className={`px-16 py-20 rounded-3xl space-y-5 ${className}`}>
-      <div className="text-3xl font-medium tracking-.02em underline">
-        Research Goal
-      </div>
-      <Text>{children}</Text>
+    <div className="w-full space-y-20">
+      <div className="text-3xl tracking-[0.02em] pl-2 font-medium">{title}</div>
+      {children}
     </div>
   );
 }
