@@ -12,7 +12,7 @@ export default function DiamondHeadedList({
   return (
     <div className="space-y-5">
       <DiamondHeader color={color} title={title} className="space-x-3" />
-      <ul className="list-disc list-outside text-[1.6rem] tracing-[0.02em] pl-8 space-y-1 font-light">
+      <ul className="list-disc list-outside text-[26px] tracing-[0.02em] pl-8 space-y-1 font-light">
         {items.map((item, index) => (
           <li key={index}>{item}</li>
         ))}

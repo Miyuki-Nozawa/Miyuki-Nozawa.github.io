@@ -11,13 +11,15 @@ export default function FigmaLink({
   className?: string;
 }) {
   return (
-    <Link href={href} className={`mr-auto ${className}`}>
-      <div className="flex items-center space-x-6">
-        <Image src="/icons/figma.svg" alt="Figma" width={32} height={42} />
-        <div className="text-link text-2xl tracking-[.02em] underline">
-          {children}
+    <div>
+      <Link href={href} className={`mr-auto ${className}`}>
+        <div className="flex items-center space-x-6">
+          <Image src="/icons/figma.svg" alt="Figma" width={32} height={42} />
+          <div className="text-link text-2xl tracking-[.02em] underline">
+            {children}
+          </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 }

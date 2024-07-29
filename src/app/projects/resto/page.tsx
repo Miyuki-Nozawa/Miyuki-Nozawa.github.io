@@ -3,6 +3,7 @@ import Definition from "@/app/components/definition";
 import DesignSection from "@/app/components/design-section";
 import DiamondHeadedList from "@/app/components/diamond-headed-list";
 import DiamondHeader from "@/app/components/diamond-header";
+import DownArrow from "@/app/components/down-arrow";
 import FigmaLink from "@/app/components/figma-link";
 import KeyQuestions from "@/app/components/key-questions";
 import ParticpantResponses from "@/app/components/participant-responses";
@@ -17,9 +18,11 @@ import ResearchMethod from "@/app/components/research-method";
 import ResearchObjectives from "@/app/components/research-objectives";
 import ResearchSubsection from "@/app/components/research-subsection";
 import Section from "@/app/components/section";
+import Separator from "@/app/components/separator";
 import TaskFlow from "@/app/components/task-flow";
 import Text from "@/app/components/text";
 import Transition from "@/app/components/transition";
+import UserFlow from "@/app/components/user-flow";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -281,19 +284,13 @@ export default function Resto() {
                 understand the critical elements that would meet the users&apos;
                 needs and enhance their overall experience.
               </Text>
-              <Image
-                src="/icons/down-arrow.svg"
-                alt="down arrow"
-                width={75}
-                height={100}
-                className="mx-auto"
-              />
+              <DownArrow />
               {/* key findings */}
               <div className="px-24 py-12 space-y-7 rounded-3xl border-dark-green border-2">
                 <div className="text-3xl font-bold tracking-[.02em]">
                   Key findings
                 </div>
-                <ul className="list-disc list-outside text-[1.6rem] tracking-[.02em] pl-6 space-y-1">
+                <ul className="list-disc list-outside text-[26px] tracking-[.02em] pl-6 space-y-1">
                   <li>Reliable Reviews and Ratings</li>
                   <li>Up-to-date information</li>
                   <li>Ease of Reservations and Reservation Management</li>
@@ -332,13 +329,7 @@ export default function Resto() {
             "ensuring smooth booking experiences?"
           }
         />
-        <Image
-          src="/icons/down-arrow.svg"
-          alt="down arrow"
-          width={75}
-          height={100}
-          className="mx-auto"
-        />
+        <DownArrow />
         <Text>
           Based on the POV and HMW questions, I created two personas to
           understand users&apos; needs and behaviors and to ensure that design
@@ -484,9 +475,152 @@ export default function Resto() {
             width={1312}
             height={168}
           />
-          <FigmaLink href="">View the task flows</FigmaLink>
+          <div>
+            <FigmaLink href="">View the task flows</FigmaLink>
+          </div>
+        </DesignSection>
+        <DesignSection title="User Flow">
+          <Text>
+            I created a user flow to understand user needs and identify
+            potential issues or confusing elements that are related to “search”
+            and “reservations”.
+          </Text>
+          <UserFlow
+            title="Discover restaurants or cafes and make reservations those tailored to your preferences"
+            img="/resto/user-flow.png"
+            width={4096}
+            height={875}
+          />
+          <FigmaLink href="">View the user flow</FigmaLink>
+        </DesignSection>
+        <DownArrow />
+        <Text>
+          Based on user flows, task flows, and general observations of how users
+          want to search and prevent duplicate reservations, I created specific
+          design layouts.
+        </Text>
+        <DesignSection title="Low-fidelity">
+          <div className="h-[486px] flex space-x-6">
+            <div className="flex flex-col w-1/3 space-y-2 text-center">
+              <div className="flex-none text-2xl tracking-[.02em]">Home</div>
+              <div className="relative flex-auto">
+                <Image src="/resto/lofi-1.png" alt="Home" fill />
+              </div>
+            </div>
+            <div className="flex flex-col w-1/3 space-y-2 text-center">
+              <div className="flex-none text-2xl tracking-[.02em]">Search</div>
+              <div className="relative flex-auto">
+                <Image src="/resto/lofi-2.png" alt="Home" fill />
+              </div>
+            </div>
+            <div className="flex flex-col w-1/3 space-y-2 text-center">
+              <div className="flex-none text-2xl tracking-[.02em]">
+                Make a reservation
+              </div>
+              <div className="relative flex-auto">
+                <Image src="/resto/lofi-3.png" alt="Home" fill />
+              </div>
+            </div>
+          </div>
+          <FigmaLink href="">View the full low-fidelity</FigmaLink>
+        </DesignSection>
+        <Text>
+          Based on the low-fidelity sketches, I considered more detailed layouts
+          and digitalized them to create mid-fidelity wireframes, making the
+          detailed layout more tangible.
+        </Text>
+        <DesignSection title="Mid-fidelity">
+          <div className="h-[675px] flex space-x-5">
+            <div className="w-1/4 relative">
+              <Image src="/resto/midfi-1.png" alt="Discover" fill />
+            </div>
+            <div className="w-1/4 relative">
+              <Image src="/resto/midfi-2.png" alt="Search" fill />
+            </div>
+            <div className="w-1/4 relative">
+              <Image src="/resto/midfi-3.png" alt="Selected Restaurant" fill />
+            </div>
+            <div className="w-1/4 relative">
+              <Image src="/resto/midfi-4.png" alt="Reservation" fill />
+            </div>
+          </div>
+          <FigmaLink href="">View the full mid-fidelity</FigmaLink>
+        </DesignSection>
+        <Text>
+          After creating the mid-fidelity wireframes, I conducted a quick test
+          to check if users understood my design layout and if they found the
+          interface user-friendly.
+        </Text>
+        {/* mid-fidelity test */}
+        <div className="p-12 space-y-7 rounded-lg border-4 border-brown5">
+          <div className="text-[26px] tracking-[.02em] font-medium underline">
+            Mid-fidelity test
+          </div>
+          <Text>6 people (in person & online)</Text>
+          <div className="pt-7 space-y-20">
+            {/* test 1 */}
+            <div className="space-y-7">
+              <ul className="list-disc list-outside text-[24px] tracking-[.02em] pl-6">
+                <li>Explore an app and try to search for restaurants</li>
+              </ul>
+              <Text sm>
+                → People want to explore restaurants in various ways, so I need
+                to consider different approaches.
+              </Text>
+              <Image
+                src="/resto/midfi-test-1.png"
+                alt="Test"
+                width={940}
+                height={435}
+              />
+            </div>
+            {/* test 2 */}
+            <div className="space-y-7">
+              <ul className="list-disc list-outside text-[24px] tracking-[.02em] pl-6">
+                <li>Check the details of a restaurant</li>
+              </ul>
+              <Text sm>
+                → When there are too many restaurants displayed on the map, it
+                can be difficult to choose, so a display method that clearly
+                shows the differences is needed.
+              </Text>
+              <Image
+                src="/resto/midfi-test-2.png"
+                alt="Test"
+                width={940}
+                height={895}
+              />
+            </div>
+            {/* test 3 */}
+            <div className="space-y-7">
+              <ul className="list-disc list-outside text-[24px] tracking-[.02em] pl-6">
+                <li>Make a reservation</li>
+              </ul>
+              <Text sm>
+                → While the process for making reservations should be smooth, we
+                also need to find a way to prevent duplicate bookings.
+              </Text>
+              <Image
+                src="/resto/midfi-test-3.png"
+                alt="Test"
+                width={940}
+                height={437}
+              />
+            </div>
+          </div>
+        </div>
+        <DownArrow />
+        <DesignSection title="Mid-fidelity (iterations)">
+          <Image
+            src="/resto/iterated-midfi.png"
+            alt="Mid-fidelity iterations"
+            height={1874}
+            width={1030}
+          />
+          <FigmaLink href="">View the iterated mid-fidelity</FigmaLink>
         </DesignSection>
       </Section>
+      <Separator />
     </div>
   );
 }

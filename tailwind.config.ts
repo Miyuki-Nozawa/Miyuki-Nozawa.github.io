@@ -25,6 +25,8 @@ const config: Config = {
         brown2: "#5D3F11",
         brown3: "#B7966E",
         brown4: "#675532",
+        brown5: "#764E2E",
+        brown6: "#A04337",
         olive: "#B6BE8F",
         paper: "#F2EFEA",
         "light-pink": "#DCC9BA",
