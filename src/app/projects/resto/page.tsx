@@ -1,4 +1,6 @@
+import BrandSection from "@/app/components/brand-section";
 import Card from "@/app/components/card";
+import Color from "@/app/components/color";
 import Definition from "@/app/components/definition";
 import DesignSection from "@/app/components/design-section";
 import DiamondHeadedList from "@/app/components/diamond-headed-list";
@@ -621,6 +623,196 @@ export default function Resto() {
         </DesignSection>
       </Section>
       <Separator />
+      {/* branding */}
+      <div className="space-y-12 w-[1040px] mx-auto">
+        {/* header */}
+        <div className="text-3xl font-bold tracking-[.02em]">Branding</div>
+        <Text>
+          To create a user-centered product, it&apos;s essential to build a
+          brand image that attracts users. I established brand values to ensure
+          that searching for and booking restaurants does not feel difficult.
+        </Text>
+        <div className="space-y-24 pb-24">
+          {/* brand value */}
+          <BrandSection title="Brand Value" className="space-y-8">
+            <div className="text-[26px] font-medium tracking-[.02em]">
+              Clean / Modern / Joyful / Friendly / Vibrant
+            </div>
+            <Image
+              src="/resto/moodboard.png"
+              alt="Moodboard"
+              width={1030}
+              height={669}
+            />
+          </BrandSection>
+          {/* brand logos */}
+          <BrandSection title="Brand Logos" className="space-y-12">
+            <div className="text-[26px] font-medium tracking-[.02em] flex space-x-16">
+              {/* logo 1 */}
+              <div className="space-y-12 w-[300px]">
+                <div className="relative h-[200px] w-[193px] mx-auto">
+                  <Image
+                    src="/resto/logo-1.svg"
+                    alt="Logo 1"
+                    className="object-cover"
+                    fill
+                  />
+                </div>
+                <div className="relative h-[80px] w-full">
+                  <Image
+                    src="/resto/logo-1-sm.svg"
+                    alt="Logo 1 small"
+                    className="object-contain"
+                    fill
+                  />
+                </div>
+                <div className="text-[20px] font-normal">
+                  The bowl and chopsticks represent essential elements of
+                  Japanese cuisine, and the font reflects the subtlety of
+                  Japanese cuisine.
+                </div>
+              </div>
+              {/* logo 2 */}
+              <div className="space-y-12 w-[300px]">
+                <div className="relative h-[200px] w-[193px] mx-auto">
+                  <Image
+                    src="/resto/logo-2.svg"
+                    alt="Logo 2"
+                    className="object-cover"
+                    fill
+                  />
+                </div>
+                <div className="relative h-[80px] w-full">
+                  <Image
+                    src="/resto/logo-2-sm.svg"
+                    alt="Logo 2 small"
+                    className="object-contain"
+                    fill
+                  />
+                </div>
+                <div className="text-[20px] font-normal">
+                  The rounded cutlery and font convey a sense of friendliness
+                  and make it easy to imagine a restaurant.
+                </div>
+              </div>
+              {/* logo 3 */}
+              <div className="space-y-12 w-[300px]">
+                <div className="relative h-[200px] w-[240px] mx-auto">
+                  <Image
+                    src="/resto/logo-3.svg"
+                    alt="Logo 3"
+                    className="object-cover"
+                    fill
+                  />
+                </div>
+                <div className="relative h-[80px] w-full">
+                  <Image
+                    src="/resto/logo-3-sm.svg"
+                    alt="Logo 3 small"
+                    className="object-contain"
+                    fill
+                  />
+                </div>
+                <div className="text-[20px] font-normal">
+                  The &quot;O&quot; in resto matches the search icon, indicating
+                  that searching is easy.
+                </div>
+              </div>
+            </div>
+          </BrandSection>
+          <BrandSection title="Typography" className="space-y-12">
+            <div className="flex">
+              <div className="space-y-4">
+                <div className="font-manrope tracking-[.02em] text-[24px] font-semibold">
+                  H1 - Manrope 24px
+                </div>
+                <div className="font-manrope tracking-[.02em] text-[20px] font-medium">
+                  H2 - Manrope 20px
+                </div>
+                <div className="font-manrope tracking-[.02em] text-[18px] font-medium">
+                  H3 - Manrope 18px
+                </div>
+                <div className="font-manrope tracking-[.02em] text-[16px] font-medium">
+                  B1 - Manrope 16px
+                </div>
+                <div className="font-manrope tracking-[.02em] text-[14px] font-medium">
+                  B2 - Manrope 14px
+                </div>
+                <div className="font-manrope tracking-[.02em] text-[10px] font-normal">
+                  Function S- Manrope 10px
+                </div>
+                <div className="font-manrope tracking-[.02em] text-[16px] font-medium">
+                  Function M- Manrope 16px
+                </div>
+              </div>
+              <Text className="w-[550px] ml-auto mt-auto" sm>
+                The Manrope font has a clean and simple design, making it
+                effective for smoothly navigating restaurant and reservation
+                information. Additionally, its modern and minimalist style
+                provides a professional and up-to-date image.
+              </Text>
+            </div>
+          </BrandSection>
+          <BrandSection title="Colors" className="space-y-12">
+            <div className="flex">
+              <div className="space-y-5">
+                <div className="space-y-[10px]">
+                  <div className="font-manrope text-[20px] font-normal tracking-[.01em]">
+                    Primary
+                  </div>
+                  <div className="flex space-x-[10px]">
+                    <Color color="EE722B" className="bg-[#EE722B]" />
+                    <Color color="C65310" className="bg-[#C65310]" />
+                    <Color color="953B1D" className="bg-[#953B1D]" />
+                  </div>
+                </div>
+                <div className="space-y-[10px]">
+                  <div className="font-manrope text-[20px] font-normal tracking-[.01em]">
+                    Secondary
+                  </div>
+                  <div className="flex space-x-[10px]">
+                    <Color color="F4F0E0" className="bg-[#F4F0E0]" />
+                    <Color color="DFD5BD" className="bg-[#DFD5BD]" />
+                    <Color color="B8AE94" className="bg-[#B8AE94]" />
+                  </div>
+                </div>
+                <div className="space-y-[10px]">
+                  <div className="font-manrope text-[20px] font-normal tracking-[.01em]">
+                    Neutral
+                  </div>
+                  <div className="flex space-x-[10px]">
+                    <Color
+                      color="F9F9F7"
+                      className="bg-[#F9F9F7] border-[#5F4C35] border-[0.5px]"
+                    />
+                    <Color
+                      color="FFFFFF"
+                      className="bg-[#FFFFFF] border-[#5F4C35] border-[0.5px]"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="w-[550px] ml-auto">
+                <Text>
+                  I chose a bright and vibrant orange as the primary color to
+                  convey friendliness and stimulate appetite. Additionally,
+                  using colors close to red and white, which are featured in the
+                  Japanese flag, enhances the Japanese theme. For the secondary
+                  color, we selected earthy tones to provide a modern and
+                  minimalist impression.
+                  <br />
+                  <br />
+                  In order to make a user-friendly website, I conducted an
+                  accessibility check to consider color contrast and
+                  color-blindness.
+                </Text>
+              </div>
+            </div>
+          </BrandSection>
+        </div>
+        <Separator />
+        <Transition text="I applied all branding elements to the wireframes and created high-fidelity wireframes" />
+      </div>
     </div>
   );
 }
