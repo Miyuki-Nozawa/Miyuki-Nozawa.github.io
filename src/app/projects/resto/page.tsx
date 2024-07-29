@@ -1,5 +1,6 @@
 import Card from "@/app/components/card";
 import Definition from "@/app/components/definition";
+import DesignSection from "@/app/components/design-section";
 import DiamondHeadedList from "@/app/components/diamond-headed-list";
 import DiamondHeader from "@/app/components/diamond-header";
 import FigmaLink from "@/app/components/figma-link";
@@ -16,12 +17,13 @@ import ResearchMethod from "@/app/components/research-method";
 import ResearchObjectives from "@/app/components/research-objectives";
 import ResearchSubsection from "@/app/components/research-subsection";
 import Section from "@/app/components/section";
+import TaskFlow from "@/app/components/task-flow";
 import Text from "@/app/components/text";
 import Transition from "@/app/components/transition";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Gengo() {
+export default function Resto() {
   return (
     <div>
       <ProjectHero
@@ -371,20 +373,14 @@ export default function Gengo() {
           set project goals and brainstormed feature ideas to address them.
         </Text>
         {/* project goals */}
-        <div className="space-y-12">
-          <div className="font-manrope text-[1.75rem] font-semibold tracking-[.02em] text-brown4 underline">
-            Project goals
-          </div>
+        <DesignSection title="Project goals">
           <div className="relative w-[1040px] h-[950px]">
             <Image src="/resto/project-goals.jpeg" alt="Project goals" fill />
           </div>
           <FigmaLink href="">View the project goals</FigmaLink>
-        </div>
+        </DesignSection>
         {/* feature ideas */}
-        <div className="space-y-12">
-          <div className="font-manrope text-[1.75rem] font-semibold tracking-[.02em] text-brown4 underline">
-            Feature ideas
-          </div>
+        <DesignSection title="Feature ideas">
           <Text>
             While considering the technical aspects, I brainstormed key features
             that align with both business goals and user goals, focusing
@@ -432,8 +428,64 @@ export default function Gengo() {
             into six key categories. This helped to understand which content
             people want to see under each menu.
           </Text>
-        </div>
+        </DesignSection>
         {/* sitemap */}
+        <DesignSection title="Sitemap">
+          <Text>
+            Based on the results of the card sort, I designed the app&apos;s
+            structure and created a sitemap. Referring to the research, which
+            showed that travelers tend to struggle with searching for
+            restaurants and managing reservations, I decided to focus on search
+            and reservations, highlighted by dotted lines.
+          </Text>
+          <div className="relative w-[1040px] h-[523px]">
+            <Image src="/resto/sitemap.png" alt="Sitemap" fill />
+            <div className="text-dark-orange text-[22px] tracking-[.02em] absolute bottom-0 w-[438px] right-[44px]">
+              *The outlined items are where I am focusing to help solve the
+              problems identified by users
+            </div>
+          </div>
+          <div className="ml-auto">
+            <FigmaLink href="">View the sitemap</FigmaLink>
+          </div>
+          <div className="space-y-7">
+            <div className="text-[26px] font-semibold tracking-[.02em]">
+              Key categories
+            </div>
+            <div
+              className={
+                "text-2xl font-medium tracking-[.02em] flex flex-wrap px-24 py-16 justify-between gap-y-7 border-2 " +
+                "rounded-3xl border-dark-brown"
+              }
+            >
+              <div className="w-1/3">Reservations</div>
+              <div className="w-1/3">Settings</div>
+              <div className="w-1/3">Search/Find</div>
+              <div className="w-1/3">Restaurant</div>
+              <div className="w-1/3">Discover</div>
+              <div className="w-1/3">My page/Account</div>
+            </div>
+          </div>
+        </DesignSection>
+        <DesignSection title="Task Flow">
+          <Text>
+            I created two task flows to clarify the steps necessary for users to
+            achieve specific goals and promote a user-friendly approach.
+          </Text>
+          <TaskFlow
+            title="Discover restaurants or cafes and make a reservations"
+            img="/resto/task-flow-1.png"
+            width={1800}
+            height={168}
+          />
+          <TaskFlow
+            title="Check the reservations and the saved restaurants to plan your dining schedule during the trip"
+            img="/resto/task-flow-2.png"
+            width={1312}
+            height={168}
+          />
+          <FigmaLink href="">View the task flows</FigmaLink>
+        </DesignSection>
       </Section>
     </div>
   );
