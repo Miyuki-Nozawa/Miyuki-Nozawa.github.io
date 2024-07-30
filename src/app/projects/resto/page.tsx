@@ -1,8 +1,8 @@
+import Avatar from "@/app/components/avatar";
 import BrandSection from "@/app/components/brand-section";
 import Card from "@/app/components/card";
 import Color from "@/app/components/color";
 import Definition from "@/app/components/definition";
-import SubSection from "@/app/components/sub-section";
 import DiamondHeadedList from "@/app/components/diamond-headed-list";
 import DiamondHeader from "@/app/components/diamond-header";
 import DownArrow from "@/app/components/down-arrow";
@@ -21,6 +21,7 @@ import ResearchObjectives from "@/app/components/research-objectives";
 import ResearchSubsection from "@/app/components/research-subsection";
 import Section from "@/app/components/section";
 import Separator from "@/app/components/separator";
+import SubSection from "@/app/components/sub-section";
 import TaskFlow from "@/app/components/task-flow";
 import TestCard from "@/app/components/test-card";
 import Text from "@/app/components/text";
@@ -28,7 +29,6 @@ import Transition from "@/app/components/transition";
 import UserFlow from "@/app/components/user-flow";
 import Image from "next/image";
 import Link from "next/link";
-import Avatar from "@/app/components/avatar";
 
 export default function Resto() {
   return (
@@ -86,7 +86,7 @@ export default function Resto() {
       <Section
         title="Research"
         underline="bg-dark-green"
-        className="px-52 mb-12"
+        className="px-52 pb-12"
       >
         <ResearchGoalSummary className="bg-olive">
           <span className="font-bold">
@@ -359,7 +359,9 @@ export default function Resto() {
           }
           img="/resto/persona-2.jpeg"
         />
+        <div className="w-full">
         <FigmaLink href="">View the personas</FigmaLink>
+        </div>
       </Section>
       {/* design */}
       <Section title="Design" underline="bg-orange" className="px-52">
@@ -472,12 +474,14 @@ export default function Resto() {
             img="/resto/task-flow-1.png"
             width={1800}
             height={168}
+            className="w-[1800px]"
           />
           <TaskFlow
             title="Check the reservations and the saved restaurants to plan your dining schedule during the trip"
             img="/resto/task-flow-2.png"
             width={1312}
             height={168}
+            className="w-[1312px]"
           />
           <div>
             <FigmaLink href="">View the task flows</FigmaLink>

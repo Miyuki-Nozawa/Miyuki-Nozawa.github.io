@@ -5,17 +5,19 @@ export default function TaskFlow({
   img,
   width,
   height,
+  className,
 }: {
   title: string;
   img: string;
   width: number;
   height: number;
+  className: string;
 }) {
   return (
     <div>
       <div className="text-2xl font-medium tracking-[.02em]">{title}</div>
       <div className="overflow-scroll">
-        <div className="relative w-[2200px] h-[170px]">
+        <div className={`relative h-[170px] ${className}`}>
           <Image src={img} alt="task flow" width={width} height={height} />
         </div>
       </div>
