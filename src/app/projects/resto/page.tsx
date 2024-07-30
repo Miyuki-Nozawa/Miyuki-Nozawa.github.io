@@ -2,7 +2,7 @@ import BrandSection from "@/app/components/brand-section";
 import Card from "@/app/components/card";
 import Color from "@/app/components/color";
 import Definition from "@/app/components/definition";
-import DesignSection from "@/app/components/design-section";
+import SubSection from "@/app/components/sub-section";
 import DiamondHeadedList from "@/app/components/diamond-headed-list";
 import DiamondHeader from "@/app/components/diamond-header";
 import DownArrow from "@/app/components/down-arrow";
@@ -22,11 +22,13 @@ import ResearchSubsection from "@/app/components/research-subsection";
 import Section from "@/app/components/section";
 import Separator from "@/app/components/separator";
 import TaskFlow from "@/app/components/task-flow";
+import TestCard from "@/app/components/test-card";
 import Text from "@/app/components/text";
 import Transition from "@/app/components/transition";
 import UserFlow from "@/app/components/user-flow";
 import Image from "next/image";
 import Link from "next/link";
+import Avatar from "@/app/components/avatar";
 
 export default function Resto() {
   return (
@@ -345,7 +347,7 @@ export default function Resto() {
             "reserve restaurants popular among locals. His main frustrations include the time-consuming process of " +
             "translating Japanese information and the difficulty of making phone reservations."
           }
-          img="/resto/persona1.png"
+          img="/resto/persona-1.jpeg"
         />
         <Persona
           title="Persona 2"
@@ -355,7 +357,7 @@ export default function Resto() {
             "restaurant reservations among her group and is worried about keeping track of them amidst a packed " +
             "schedule. Her goals include visiting many tourist spots and sticking to their travel plan."
           }
-          img="/resto/persona2.png"
+          img="/resto/persona-2.jpeg"
         />
         <FigmaLink href="">View the personas</FigmaLink>
       </Section>
@@ -366,14 +368,14 @@ export default function Resto() {
           set project goals and brainstormed feature ideas to address them.
         </Text>
         {/* project goals */}
-        <DesignSection title="Project goals">
+        <SubSection title="Project goals" color="text-brown4">
           <div className="relative w-[1040px] h-[950px]">
             <Image src="/resto/project-goals.jpeg" alt="Project goals" fill />
           </div>
           <FigmaLink href="">View the project goals</FigmaLink>
-        </DesignSection>
+        </SubSection>
         {/* feature ideas */}
-        <DesignSection title="Feature ideas">
+        <SubSection title="Feature ideas" color="text-brown4">
           <Text>
             While considering the technical aspects, I brainstormed key features
             that align with both business goals and user goals, focusing
@@ -421,9 +423,9 @@ export default function Resto() {
             into six key categories. This helped to understand which content
             people want to see under each menu.
           </Text>
-        </DesignSection>
+        </SubSection>
         {/* sitemap */}
-        <DesignSection title="Sitemap">
+        <SubSection title="Sitemap" color="text-brown4">
           <Text>
             Based on the results of the card sort, I designed the app&apos;s
             structure and created a sitemap. Referring to the research, which
@@ -459,8 +461,8 @@ export default function Resto() {
               <div className="w-1/3">My page/Account</div>
             </div>
           </div>
-        </DesignSection>
-        <DesignSection title="Task Flow">
+        </SubSection>
+        <SubSection title="Task Flow" color="text-brown4">
           <Text>
             I created two task flows to clarify the steps necessary for users to
             achieve specific goals and promote a user-friendly approach.
@@ -480,8 +482,8 @@ export default function Resto() {
           <div>
             <FigmaLink href="">View the task flows</FigmaLink>
           </div>
-        </DesignSection>
-        <DesignSection title="User Flow">
+        </SubSection>
+        <SubSection title="User Flow" color="text-brown4">
           <Text>
             I created a user flow to understand user needs and identify
             potential issues or confusing elements that are related to “search”
@@ -494,14 +496,14 @@ export default function Resto() {
             height={875}
           />
           <FigmaLink href="">View the user flow</FigmaLink>
-        </DesignSection>
+        </SubSection>
         <DownArrow />
         <Text>
           Based on user flows, task flows, and general observations of how users
           want to search and prevent duplicate reservations, I created specific
           design layouts.
         </Text>
-        <DesignSection title="Low-fidelity">
+        <SubSection title="Low-fidelity" color="text-brown4">
           <div className="h-[486px] flex space-x-6">
             <div className="flex flex-col w-1/3 space-y-2 text-center">
               <div className="flex-none text-2xl tracking-[.02em]">Home</div>
@@ -525,13 +527,13 @@ export default function Resto() {
             </div>
           </div>
           <FigmaLink href="">View the full low-fidelity</FigmaLink>
-        </DesignSection>
+        </SubSection>
         <Text>
           Based on the low-fidelity sketches, I considered more detailed layouts
           and digitalized them to create mid-fidelity wireframes, making the
           detailed layout more tangible.
         </Text>
-        <DesignSection title="Mid-fidelity">
+        <SubSection title="Mid-fidelity" color="text-brown4">
           <div className="h-[675px] flex space-x-5">
             <div className="w-1/4 relative">
               <Image src="/resto/midfi-1.png" alt="Discover" fill />
@@ -547,17 +549,14 @@ export default function Resto() {
             </div>
           </div>
           <FigmaLink href="">View the full mid-fidelity</FigmaLink>
-        </DesignSection>
+        </SubSection>
         <Text>
           After creating the mid-fidelity wireframes, I conducted a quick test
           to check if users understood my design layout and if they found the
           interface user-friendly.
         </Text>
         {/* mid-fidelity test */}
-        <div className="p-12 space-y-7 rounded-lg border-4 border-brown5">
-          <div className="text-[26px] tracking-[.02em] font-medium underline">
-            Mid-fidelity test
-          </div>
+        <TestCard title="Mid-fidelity test">
           <Text>6 people (in person & online)</Text>
           <div className="pt-7 space-y-20">
             {/* test 1 */}
@@ -610,17 +609,17 @@ export default function Resto() {
               />
             </div>
           </div>
-        </div>
+        </TestCard>
         <DownArrow />
-        <DesignSection title="Mid-fidelity (iterations)">
+        <SubSection title="Mid-fidelity (iterations)" color="text-brown4">
           <Image
             src="/resto/iterated-midfi.png"
             alt="Mid-fidelity iterations"
+            width={1040}
             height={1874}
-            width={1030}
           />
           <FigmaLink href="">View the iterated mid-fidelity</FigmaLink>
-        </DesignSection>
+        </SubSection>
       </Section>
       <Separator />
       {/* branding */}
@@ -641,7 +640,7 @@ export default function Resto() {
             <Image
               src="/resto/moodboard.png"
               alt="Moodboard"
-              width={1030}
+              width={1040}
               height={669}
             />
           </BrandSection>
@@ -811,8 +810,161 @@ export default function Resto() {
           </BrandSection>
         </div>
         <Separator />
-        <Transition text="I applied all branding elements to the wireframes and created high-fidelity wireframes" />
+        <div className="py-5">
+          <Transition text="I applied all branding elements to the wireframes and created high-fidelity wireframes" />
+        </div>
+        <SubSection title="Hi-fidelity" color="text-brown4">
+          <Image
+            src="/resto/hifi.png"
+            alt="Hi-fidelity"
+            width={1040}
+            height={602}
+          />
+          <FigmaLink href="">View the full hi-fidelity</FigmaLink>
+        </SubSection>
       </div>
+      <Section title="Test" underline="bg-green3" className="px-52">
+        <Text>
+          To confirm whether high-fidelity wireframes can actually achieve user
+          goals, I conducted usability testing.
+        </Text>
+        {/* usability test */}
+        <TestCard title="Usability test">
+          <div className="text-[24px] tracking-[.02em]">
+            5 people (in person & online)
+          </div>
+          <ul className="list-disc list-outside text-[26px] tracking-[.02em] font-medium pl-6 space-y-7">
+            <li>Search for restaurants that have an English menu</li>
+            <li>Choose a restaurant that is popular among locals</li>
+            <li>Search for restaurants near a famous landmark</li>
+            <li>Make a reservation without scheduling conflicts</li>
+          </ul>
+        </TestCard>
+        <SubSection title="Test results" color="text-green4" relaxed>
+          <div className="flex flex-wrap gap-y-[55px] justify-evenly">
+            <Avatar
+              name="Peter"
+              age="34"
+              desc="He had difficulty finding reviews from locals"
+            />
+            <Avatar
+              name="Clare"
+              age="26"
+              desc="She was a little confused about the process of checking reservation conflicts"
+            />
+            <Avatar
+              name="Alex"
+              age="32"
+              desc="He wanted to see a list of restaurants and more distinct location icon colors"
+            />
+            <Avatar
+              name="Taylor"
+              age="30"
+              desc="He finished all tasks without any issues"
+            />
+            <Avatar
+              name="Minoru"
+              age="68"
+              desc="He expected to see a reservation conflict notification before going to the reservation page"
+            />
+          </div>
+          <Text>
+            Most users were able to complete the general flow of tasks, but they
+            seemed a bit confused by some details. Specifically, the methods for
+            finding popular local restaurants and confirming to avoid duplicate
+            reservations differed from what they expected, causing them to take
+            longer to complete the tasks.
+          </Text>
+        </SubSection>
+        <SubSection title="Iterations" color="text-green4" relaxed>
+          <div className="space-y-7">
+            <div className="text-[24px] font-medium tracking-[.02em]">
+              Search - Restaurant list
+            </div>
+            <Image
+              src="/resto/iterations-1.png"
+              alt="Search - Restaurant list"
+              width={1040}
+              height={491}
+            />
+          </div>
+          <div className="space-y-7">
+            <div className="text-[24px] font-medium tracking-[.02em]">
+              Search - Map
+            </div>
+            <Image
+              src="/resto/iterations-2.png"
+              alt="Search - Restaurant list"
+              width={1040}
+              height={491}
+            />
+          </div>
+          <div className="space-y-7">
+            <div className="text-[24px] font-medium tracking-[.02em]">
+              Search - Restaurant info
+            </div>
+            <Image
+              src="/resto/iterations-3.png"
+              alt="Search - Restaurant list"
+              width={1040}
+              height={491}
+            />
+          </div>
+          <div className="space-y-7">
+            <div className="text-[24px] font-medium tracking-[.02em]">
+              Reservation - Notification
+            </div>
+            <Image
+              src="/resto/iterations-4.png"
+              alt="Search - Restaurant list"
+              width={1040}
+              height={491}
+            />
+          </div>
+        </SubSection>
+        <Transition text="After I made design changes based on the usability test, the design is finalized" />
+        <Image
+          src="/resto/hifi-wireframes.jpeg"
+          alt="wireframes"
+          width={1040}
+          height={851}
+        />
+        <div className="w-full">
+          <Link href="">
+            <div
+              className={
+                "h-[70px] w-[357px] rounded-[64px] bg-dark-green text-white text-[22px] font-semibold " +
+                "tracking-[.02em] flex items-center justify-center"
+              }
+            >
+              View hi-fi prototype
+            </div>
+          </Link>
+        </div>
+      </Section>
+      {/* conclusion */}
+      <Section
+        title="Conclusion"
+        underline="bg-dark-brown"
+        className="px-52"
+        bg="bg-light-ivory"
+      >
+        <Text>
+          To create a better product throughout the flow from research to
+          design, it’s crucial to grasp users’ pain points and consider how to
+          improve them. Therefore, user feedback is paramount, and hearing raw
+          voices through research is necessary. After actually listening to user
+          feedback in this project, I found it challenging to utilize that
+          feedback to strategize improvements. The goal of this project was to
+          develop an app that eliminates language barriers and confusion in
+          reservation management for travelers searching for restaurants in
+          Japan, helps them find restaurants that meet their needs, and provides
+          a better dining experience. Based on user experiences, I aimed to
+          understand frustrations and difficulties in Japanese dining and
+          determine what features would be useful during actual travel, leading
+          to the final design.
+        </Text>
+      </Section>
     </div>
   );
 }

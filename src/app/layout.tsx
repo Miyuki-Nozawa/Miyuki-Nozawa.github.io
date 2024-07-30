@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, Manrope } from "next/font/google";
+import { Inter, Poppins, Manrope } from "next/font/google";
 import Nav from "@/app/components/nav";
 import Footer from "@/app/components/footer";
 import "./globals.css";
@@ -10,9 +10,15 @@ const poppins = Poppins({
   weight: ["300", "400", "500", "600"],
 });
 
-export const manrope = Manrope({
+const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope",
+  weight: ["400", "500", "600", "700"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
   weight: ["400", "500", "600", "700"],
 });
 
@@ -29,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-base">
       <body
-        className={`${poppins.className} ${manrope.variable} max-w-[1440px] min-h-screen mx-auto bg-base`}
+        className={`${poppins.className} ${manrope.variable} ${inter.variable} max-w-[1440px] min-h-screen mx-auto bg-base`}
       >
         <Nav />
         {children}

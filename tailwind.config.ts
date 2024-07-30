@@ -18,6 +18,8 @@ const config: Config = {
         base: "#F8F8F6",
         green: "#556C3F",
         green2: "#445E2C",
+        green3: "#969F32",
+        green4: "#555D1D",
         "dark-green": "#46601F",
         dark: "#222222",
         "dark-orange": "#C65310",
