@@ -494,8 +494,8 @@ export default function Resto() {
             and “reservations”.
           </Text>
           <UserFlow
-            title="Discover restaurants or cafes and make reservations those tailored to your preferences"
-            img="/resto/user-flow.png"
+            title="Discover restaurants or cafes and make reservations tailored to your preferences"
+            img="/resto/user-flow.svg"
             width={4096}
             height={875}
           />
