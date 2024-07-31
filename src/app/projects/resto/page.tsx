@@ -45,6 +45,10 @@ export default function Resto() {
         role="Sole UX/UI designer"
         projectDuration="1 month"
         industry="Restaurant"
+        className="px-48"
+        classNameLeft="w-1/2"
+        classNameRight="w-1/2"
+        classNameButton="bg-green3"
       />
       <ProjectStatement
         statement={
@@ -60,6 +64,7 @@ export default function Resto() {
           "hindered by language barriers, and to search for restaurants that meet their specific needs."
         }
         className="bg-light-pink"
+        underline="border-black"
       />
       <ProjectContents />
       {/* introduction */}
@@ -114,7 +119,7 @@ export default function Resto() {
             </Text>
             <div className="relative w-full h-[443px]">
               <Image
-                src="/resto/competitor-table.png"
+                src="/resto/competitor-table.svg"
                 alt="Competitor table"
                 className="object-contain"
                 fill
@@ -132,7 +137,7 @@ export default function Resto() {
               <div
                 className={
                   "px-8 py-5 mt-12 border-2 border-dark-green rounded-[5rem] inline-block " +
-                  "text-dark-green text-xl font-semibold"
+                  "text-dark-green text-xl font-semibold underline"
                 }
               >
                 View the competitive analysis
@@ -141,24 +146,26 @@ export default function Resto() {
           </ResearchSubsection>
         </ResearchGoal>
         {/* research 2 */}
-        <ResearchGoal title="2. Getting to know how people approach dining during their travels">
+        <ResearchGoal title="2. Getting to know how people use their mileage or points">
           <ResearchObjectives
             questions={[
-              "Identify what users prioritize in choosing restaurants when traveling",
-              "Understand how people plan their trips and what kind of information is required for them",
-              "Understand the deciding factors and challenges users encounter when searching for and choosing " +
-                "restaurants",
-              "Understand how users manage their desired destinations and planned locations",
+              "Understand what users prioritize in mileage usage",
+              "Determine what goals can be achieved by using mileage",
+              "Understand the purpose and process of mileage utilization",
+              "Identify the confusion in mileage display and difficulty in using it",
+              "Determine how often users visit the mileage page to use accumulated mileage",
             ]}
           />
           {/* research methods */}
           <div className="space-y-12">
-            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] text-dark-green underline">
+            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] text-dark-brown underline">
               Research methods
             </div>
             <Text>
-              In order to collect a large amount of qualitative data, I
-              conducted two different research methods.
+              I conducted three different research methods to understand how
+              people use mileage and points systems, gather detailed insights
+              based on people&apos;s experiences, and identify issues with the
+              existing Korean Air website.
             </Text>
             <div className="space-y-24">
               {/* survey */}
@@ -171,11 +178,13 @@ export default function Resto() {
                   "importance of exploring foods during their trips, and their " +
                   "dining experiences."
                 }
+                color="green"
               >
                 <Participants
                   title="Survey participants"
                   desc1="17 people age between 18-34"
                   desc2="(12 out of 17 people have traveled to Japan)"
+                  className="text-brown2"
                 />
                 <KeyQuestions
                   questions={[
@@ -198,11 +207,13 @@ export default function Resto() {
                   "specific thoughts and personal experiences of users, based on " +
                   "the wide range of data obtained from the survey."
                 }
+                color="green"
               >
                 <Participants
                   title="Interview participants"
                   desc1="5 people age between 23-68"
                   desc2="(1 Japanese, 4 of 5 people have traveled to Japan)"
+                  className="text-brown2"
                 />
                 <KeyQuestions
                   questions={[
@@ -238,6 +249,7 @@ export default function Resto() {
               <div className="relative w-full h-[966px]">
                 <Image src="/resto/affinity-map.png" alt="Affinity map" fill />
               </div>
+              {/* TODO: add affinity map link */}
               <Text>
                 After reviewing the affinity map, I was able to grasp what
                 criteria travelers use to choose restaurants, the resources they
@@ -248,8 +260,8 @@ export default function Resto() {
               {/* paper */}
               <div className="rounded-3xl bg-light-ivory px-20 py-12 space-y-12">
                 <DiamondHeadedList
-                  title="How to decide on restaurants"
                   color="brown"
+                  title="How to decide on restaurants"
                   items={[
                     "Recommendations",
                     "Reviews & Ratings",
@@ -259,8 +271,8 @@ export default function Resto() {
                   ]}
                 />
                 <DiamondHeadedList
-                  title="Difficulties or challenging when making reservations"
                   color="brown"
+                  title="Difficulties or challenging when making reservations"
                   items={[
                     "Language barriers",
                     "No English translation",
@@ -271,8 +283,8 @@ export default function Resto() {
                   ]}
                 />
                 <DiamondHeadedList
-                  title="User needs"
                   color="brown"
+                  title="User needs"
                   items={[
                     "Language support",
                     "Enhanced search functions tailored to purpose",
@@ -321,6 +333,7 @@ export default function Resto() {
             "travelers who face challenges with language barriers during restaurant booking or encounter issues " +
             "managing reservations."
           }
+          className="bg-beige"
         />
         <Text>
           Then, I took the problems into clear questions that help find creative
@@ -332,6 +345,7 @@ export default function Resto() {
             "How might we design a reservation system that easily accommodates people facing language barriers, " +
             "ensuring smooth booking experiences?"
           }
+          className="bg-beige"
         />
         <DownArrow />
         <Text>
@@ -360,7 +374,7 @@ export default function Resto() {
           img="/resto/persona-2.jpeg"
         />
         <div className="w-full">
-        <FigmaLink href="">View the personas</FigmaLink>
+          <FigmaLink href="">View the personas</FigmaLink>
         </div>
       </Section>
       {/* design */}
@@ -391,7 +405,11 @@ export default function Resto() {
             height={604}
             className="mx-auto"
           />
-          <Transition text="To design the structure of the app, I conducted a card sort based on these feature keywords" />
+          <Transition
+            text={
+              "To design the structure of the app, I conducted a card sort based on these feature keywords"
+            }
+          />
           <div className="space-y-12 pt-8">
             <DiamondHeader
               title="Card Sort"
@@ -560,7 +578,7 @@ export default function Resto() {
           interface user-friendly.
         </Text>
         {/* mid-fidelity test */}
-        <TestCard title="Mid-fidelity test">
+        <TestCard title="Mid-fidelity test" className="border-brown5">
           <Text>6 people (in person & online)</Text>
           <div className="pt-7 space-y-20">
             {/* test 1 */}
@@ -625,7 +643,7 @@ export default function Resto() {
           <FigmaLink href="">View the iterated mid-fidelity</FigmaLink>
         </SubSection>
       </Section>
-      <Separator />
+      <Separator className="bg-brown6" />
       {/* branding */}
       <div className="space-y-12 w-[1040px] mx-auto">
         {/* header */}
@@ -813,7 +831,7 @@ export default function Resto() {
             </div>
           </BrandSection>
         </div>
-        <Separator />
+        <Separator className="bg-brown6" />
         <div className="py-5">
           <Transition text="I applied all branding elements to the wireframes and created high-fidelity wireframes" />
         </div>
@@ -827,13 +845,14 @@ export default function Resto() {
           <FigmaLink href="">View the full hi-fidelity</FigmaLink>
         </SubSection>
       </div>
+      {/* test */}
       <Section title="Test" underline="bg-green3" className="px-52">
         <Text>
           To confirm whether high-fidelity wireframes can actually achieve user
           goals, I conducted usability testing.
         </Text>
         {/* usability test */}
-        <TestCard title="Usability test">
+        <TestCard title="Usability test" className="border-brown5">
           <div className="text-[24px] tracking-[.02em]">
             5 people (in person & online)
           </div>

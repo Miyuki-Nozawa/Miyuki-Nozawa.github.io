@@ -9,7 +9,7 @@ export default function ParticpantResponses({
   alt: string;
 }) {
   return (
-    <SimpleSection title="Responses from participants">
+    <SimpleSection title="Responses from participants" className="text-brown2">
       <div className="relative w-full h-[532px]">
         <Image src={img} alt={alt} className="object-contain" fill />
       </div>

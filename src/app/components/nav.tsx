@@ -3,7 +3,7 @@ import NavLink from "@/app/components/nav-link";
 
 export default function Footer() {
   return (
-    <div className="flex justify-between items-center p-16">
+    <div className="flex justify-between items-center p-16 bg-base">
       <Image
         src="/icons/nav.svg"
         alt="miyuki nozawa"

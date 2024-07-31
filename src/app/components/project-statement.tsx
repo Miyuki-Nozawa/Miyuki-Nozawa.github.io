@@ -1,10 +1,12 @@
 export default function ProjectStatement({
   statement,
   solution,
+  underline,
   className = "",
 }: {
   statement: string;
   solution: string;
+  underline: string;
   className?: string;
 }) {
   return (
@@ -13,7 +15,9 @@ export default function ProjectStatement({
     >
       <div>{statement}</div>
       <div className="space-y-9">
-        <span className="font-bold border-b-[3px] border-black pb-1 px-2">Solution</span>
+        <span className={`font-bold border-b-[3px] pb-1 px-2 ${underline}`}>
+          Solution
+        </span>
         <div className="font-semibold">{solution}</div>
       </div>
     </div>

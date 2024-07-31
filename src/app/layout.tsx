@@ -33,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-base">
+    <html lang="en">
       <body
         className={`${poppins.className} ${manrope.variable} ${inter.variable} max-w-[1440px] min-h-screen mx-auto bg-base`}
       >

@@ -16,10 +16,12 @@ const config: Config = {
     extend: {
       colors: {
         base: "#F8F8F6",
+        base2: "#FAF9F5",
         green: "#556C3F",
         green2: "#445E2C",
         green3: "#969F32",
         green4: "#555D1D",
+        green5: "rgba(182, 190, 143, 0.70)",
         "dark-green": "#46601F",
         dark: "#222222",
         "dark-orange": "#C65310",

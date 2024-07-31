@@ -4,18 +4,24 @@ import Text from "@/app/components/text";
 export default function Participants({
   title,
   desc1,
-  desc2,
+  desc2 = "",
+  className,
 }: {
   title: string;
   desc1: string;
-  desc2: string;
+  desc2?: string;
+  className: string;
 }) {
   return (
-    <SimpleSection title={title}>
+    <SimpleSection title={title} className={className}>
       <Text>
         {desc1}
-        <br />
-        {desc2}
+        {desc2 && (
+          <div>
+            <br />
+            {desc2}
+          </div>
+        )}
       </Text>
     </SimpleSection>
   );
