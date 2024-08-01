@@ -63,7 +63,8 @@ export default function ProjectHero({
         </div>
         <Link
           href=""
-          className={`w-fit px-16 py-4 rounded-[4rem] text-white text-xl tracking-[.02em] ${classNameButton}`}
+          target="_blank"
+          className={`w-fit px-16 py-4 rounded-[4rem] text-xl tracking-[.02em] ${classNameButton}`}
         >
           View hi-fi prototype
         </Link>

@@ -12,7 +12,7 @@ export default function FigmaLink({
 }) {
   return (
     <div>
-      <Link href={href} className={`mr-auto ${className}`}>
+      <Link href={href} target="_blank" className={`mr-auto ${className}`}>
         <div className="flex items-center space-x-6">
           <Image src="/icons/figma.svg" alt="Figma" width={32} height={42} />
           <div className="text-link text-2xl tracking-[.02em] underline">

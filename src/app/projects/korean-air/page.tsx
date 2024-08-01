@@ -1,3 +1,5 @@
+"use client";
+
 import Avatar from "@/app/components/avatar";
 import Definition from "@/app/components/definition";
 import DiamondHeadedList from "@/app/components/diamond-headed-list";
@@ -25,8 +27,31 @@ import Text from "@/app/components/text";
 import Transition from "@/app/components/transition";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+
+const handleChange = (prev: number, count: number) => {
+  const next = prev + count;
+  if (next > 4 || next < 1) return prev;
+  return next;
+};
 
 export default function KoreanAir() {
+  const [protoView, setProtoView] = useState(1);
+  const [midfiView, setMidfiView] = useState(1);
+  const [hifiView, setHifiView] = useState(1);
+
+  const handleProtoChange = (count: number) => {
+    setProtoView((prev) => handleChange(prev, count));
+  };
+
+  const handleMidfiChange = (count: number) => {
+    setMidfiView((prev) => handleChange(prev, count));
+  };
+
+  const handleHifiChange = (count: number) => {
+    setHifiView((prev) => handleChange(prev, count));
+  };
+
   return (
     <div>
       <ProjectHero
@@ -133,11 +158,16 @@ export default function KoreanAir() {
               satisfaction. However, displaying all items at once can be
               challenging, so it is necessary to find an effective method.
             </Text>
-            <Link href="">
+            <Link
+              href={
+                "https://docs.google.com/spreadsheets/d/1Dwxp4uFm2hkjlvu-P9qG-JDbw6w7bHrnVzl4e5HFRjk/edit?gid=0#gid=0"
+              }
+              target="_blank"
+            >
               <div
                 className={
                   "px-8 py-5 mt-12 border-2 border-dark-brown rounded-[5rem] inline-block " +
-                  "text-dark-brown text-xl font-semibold underline"
+                  "text-dark-brown text-xl font-semibold"
                 }
               >
                 View the competitive analysis
@@ -182,6 +212,7 @@ export default function KoreanAir() {
                   className="text-dark-green"
                 />
                 <KeyQuestions
+                  className="text-dark-green"
                   questions={[
                     "Have you redeemed your mileage (credit card points), and what did you use it for?",
                     "Are you aware of your mileage (credit card points) balance?",
@@ -189,6 +220,7 @@ export default function KoreanAir() {
                   ]}
                 />
                 <ParticpantResponses
+                  className="text-dark-green"
                   img="/korean-air/survey-responses.svg"
                   alt="Survey responses"
                 />
@@ -210,6 +242,7 @@ export default function KoreanAir() {
                   className="text-dark-green"
                 />
                 <KeyQuestions
+                  className="text-dark-green"
                   questions={[
                     "How long have you been a member of the mileage program?",
                     "What do you want to do with your mileage?",
@@ -218,6 +251,7 @@ export default function KoreanAir() {
                   ]}
                 />
                 <ParticpantResponses
+                  className="text-dark-green"
                   img="/korean-air/interview-responses.svg"
                   alt="Interview responses"
                 />
@@ -239,12 +273,14 @@ export default function KoreanAir() {
                   className="text-dark-green"
                 />
                 <KeyQuestions
+                  className="text-dark-green"
                   questions={[
                     "Show me how to find your accumulated mileage",
                     "Explain what you can do with your mileage",
                   ]}
                 />
                 <ParticpantResponses
+                  className="text-dark-green"
                   img="/korean-air/usability-responses.svg"
                   alt="Usability responses"
                 />
@@ -270,8 +306,11 @@ export default function KoreanAir() {
             <div className="space-y-24">
               <div className="space-y-20">
                 <div className="space-y-8">
-                  <div className="font-bold text-3xl tracking-tight">
+                  <div className="font-bold text-[26px] tracking-tight">
                     Motivation of mileage/points redemption
+                  </div>
+                  <div className="text-[26px]">
+                    What do you wanna do with your mileage/points?
                   </div>
                   <Image
                     src="/korean-air/affinity-map-1.svg"
@@ -284,6 +323,7 @@ export default function KoreanAir() {
                   <div className="font-bold text-3xl tracking-tight">
                     Korean Air website
                   </div>
+                  <div className="text-[26px]">{"<Pain points>"}</div>
                   <Image
                     src="/korean-air/affinity-map-2.svg"
                     alt="Korean Air website"
@@ -291,7 +331,9 @@ export default function KoreanAir() {
                     height={1059}
                   />
                 </div>
-                <FigmaLink href="">View the full affinity map</FigmaLink>
+                <FigmaLink href="https://www.figma.com/board/reZSsCdxDbS1QbXJlNEqFR/Capstone-1---Adding-a-Feature?node-id=112-726">
+                  View the full affinity map
+                </FigmaLink>
               </div>
               <Text>
                 Through the affinity map, I was able to identify what people
@@ -354,10 +396,34 @@ export default function KoreanAir() {
       {/* define */}
       <Section title="Define" underline="bg-green3" className="px-52">
         <Text>
-          Based on the insights gained from the research process, I created two
-          POV statements. Since many people struggle to confirm the exact
-          mileage required for redemption, I chose one of them, focusing on the
-          mileage required for redemption.
+          After conducting research, reviewing the findings, and organizing the
+          data, I created a persona to understand users&apos; needs and
+          behaviors and to ensure that design and decisions are centered around
+          the user.
+        </Text>
+        <div className="space-y-10">
+          <Persona
+            title="Persona"
+            desc={
+              "Lina Kim is a 30-year-old product manager living in Los Angeles who frequently flies with Korean Air " +
+              "to visit her family in Korea. Although she accumulates mileage with Korean Air’s SKYPASS program, she " +
+              "finds the process of redeeming miles for tickets complicated and has never used them. Her main goals " +
+              "are to understand how to redeem her mileage and to save costs on her trips to Korea, but she is " +
+              "frustrated by the complexity of the website and the time it takes to find the necessary information."
+            }
+            img="/korean-air/persona.jpeg"
+          />
+          <div className="w-full">
+            <FigmaLink href="https://www.figma.com/design/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=1-128">
+              View the persona
+            </FigmaLink>
+          </div>
+        </div>
+        <Text>
+          To clarify the solutions needed to address specific user needs, I
+          created two POV statements based on the personas. I chose one that
+          focuses on confirming the mileage required for redemption, as it is
+          the most crucial for achieving the personas&apos; goals.
         </Text>
         <Definition
           title="POV (Point Of View) statement"
@@ -381,25 +447,6 @@ export default function KoreanAir() {
           className="bg-green5"
         />
         <DownArrow />
-        <Text>
-          Based on the POV and HMW questions, I created a persona to understand
-          users&apos; needs and behaviors and to ensure that design and
-          decisions are centered around the user.
-        </Text>
-        <Persona
-          title="Persona"
-          desc={
-            "Lina Kim is a 30-year-old product manager living in Los Angeles who frequently flies with Korean Air " +
-            "to visit her family in Korea. Although she accumulates mileage with Korean Air’s SKYPASS program, she " +
-            "finds the process of redeeming miles for tickets complicated and has never used them. Her main goals " +
-            "are to understand how to redeem her mileage and to save costs on her trips to Korea, but she is " +
-            "frustrated by the complexity of the website and the time it takes to find the necessary information."
-          }
-          img="/korean-air/persona.jpeg"
-        />
-        <div className="w-full">
-          <FigmaLink href="">View the persona</FigmaLink>
-        </div>
       </Section>
       {/* design */}
       <Section title="Design" underline="bg-light-pink" className="px-52">
@@ -416,7 +463,9 @@ export default function KoreanAir() {
               fill
             />
           </div>
-          <FigmaLink href="">View the project goals</FigmaLink>
+          <FigmaLink href="https://www.figma.com/design/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=5-19">
+            View the project goals
+          </FigmaLink>
         </SubSection>
         {/* feature ideas */}
         <SubSection title="Feature ideas" color="text-brown4">
@@ -451,7 +500,9 @@ export default function KoreanAir() {
             className="w-[1473px] flex items-center"
           />
           <div>
-            <FigmaLink href="">View the task flow</FigmaLink>
+            <FigmaLink href="https://www.figma.com/board/reZSsCdxDbS1QbXJlNEqFR/Capstone-1---Adding-a-Feature?node-id=78-2052">
+              View the task flow
+            </FigmaLink>
           </div>
         </SubSection>
         <SubSection title="User Flow" color="text-brown4">
@@ -475,7 +526,9 @@ export default function KoreanAir() {
               </div>
             </div>
           </div>
-          <FigmaLink href="">View the user flow</FigmaLink>
+          <FigmaLink href="https://www.figma.com/board/reZSsCdxDbS1QbXJlNEqFR/Capstone-1---Adding-a-Feature?node-id=30-430">
+            View the user flow
+          </FigmaLink>
         </SubSection>
         <DownArrow />
         <Text>
@@ -571,7 +624,9 @@ export default function KoreanAir() {
               </div>
             </div>
           </div>
-          <FigmaLink href="">View the full low-fidelity</FigmaLink>
+          <FigmaLink href="https://www.figma.com/design/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=23-41">
+            View the full low-fidelity
+          </FigmaLink>
         </SubSection>
         <Text>
           Based on the low-fidelity sketches, I considered more detailed layouts
@@ -579,13 +634,63 @@ export default function KoreanAir() {
           detailed layout more tangible.
         </Text>
         <SubSection title="Mid-fidelity" color="text-brown4">
-          <Image
-            src="/korean-air/midfi.svg"
-            alt="Mid-fidelity"
-            width={1040}
-            height={828}
-          />
-          <FigmaLink href="">View the full mid-fidelity</FigmaLink>
+          <div className="flex items-center justify-center w-full space-x-9">
+            <div
+              className="relative w-[50px] h-[50px] hover:cursor-pointer"
+              onClick={() => handleMidfiChange(-1)}
+            >
+              <Image src="/icons/left.svg" alt="Previous" fill />
+            </div>
+            <Image
+              src={`/korean-air/midfi-${midfiView}.png`}
+              alt="Mid-fidelity prototype"
+              width={900}
+              height={506}
+            />
+            <div
+              className="relative w-[50px] h-[50px] hover:cursor-pointer"
+              onClick={() => handleMidfiChange(1)}
+            >
+              <Image src="/icons/right.svg" alt="Next" fill />
+            </div>
+          </div>
+          <div className="flex space-x-[5px] w-[900px] mx-auto">
+            <Image
+              src="/korean-air/midfi-1-sm.png"
+              alt="Mid-fidelity prototype"
+              width={222}
+              height={142}
+              className="hover:cursor-pointer"
+              onClick={() => setMidfiView(1)}
+            />
+            <Image
+              src="/korean-air/midfi-2-sm.png"
+              alt="Mid-fidelity prototype"
+              width={222}
+              height={142}
+              className="hover:cursor-pointer"
+              onClick={() => setMidfiView(2)}
+            />
+            <Image
+              src="/korean-air/midfi-3-sm.png"
+              alt="Mid-fidelity prototype"
+              width={222}
+              height={142}
+              className="hover:cursor-pointer"
+              onClick={() => setMidfiView(3)}
+            />
+            <Image
+              src="/korean-air/midfi-4-sm.png"
+              alt="Mid-fidelity prototype"
+              width={222}
+              height={142}
+              className="hover:cursor-pointer"
+              onClick={() => setMidfiView(4)}
+            />
+          </div>
+          <FigmaLink href="https://www.figma.com/design/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=539-3691">
+            View the full mid-fidelity
+          </FigmaLink>
         </SubSection>
         <Text>
           After creating the mid-fidelity wireframes, I conducted a quick test
@@ -685,20 +790,72 @@ export default function KoreanAir() {
             width={1040}
             height={950}
           />
-          <FigmaLink href="">View the iterated mid-fidelity</FigmaLink>
+          <FigmaLink href="https://www.figma.com/design/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=539-3693">
+            View the iterated mid-fidelity
+          </FigmaLink>
         </SubSection>
-        <SubSection title="Mid-fidelity (iterations)" color="text-brown4">
+        <SubSection title="Hi-fidelity" color="text-brown4">
           <Text>
             Considering Korean Air&apos;s image colors and existing design, I
             applied the brand colors to the added features.
           </Text>
-          <Image
-            src="/korean-air/hifi.png"
-            alt="Hi-fidelity"
-            width={1040}
-            height={835}
-          />
-          <FigmaLink href="">View the full hi-fidelity</FigmaLink>
+          <div className="flex items-center justify-center w-full space-x-9">
+            <div
+              className="relative w-[50px] h-[50px] hover:cursor-pointer"
+              onClick={() => handleHifiChange(-1)}
+            >
+              <Image src="/icons/left.svg" alt="Previous" fill />
+            </div>
+            <Image
+              src={`/korean-air/hifi-${hifiView}.png`}
+              alt="Hi-fidelity"
+              width={900}
+              height={506}
+            />
+            <div
+              className="relative w-[50px] h-[50px] hover:cursor-pointer"
+              onClick={() => handleHifiChange(1)}
+            >
+              <Image src="/icons/right.svg" alt="Next" fill />
+            </div>
+          </div>
+          <div className="flex space-x-[5px] w-[900px] mx-auto">
+            <Image
+              src="/korean-air/hifi-1-sm.png"
+              alt="Hi-fidelity"
+              width={222}
+              height={142}
+              className="hover:cursor-pointer"
+              onClick={() => setHifiView(1)}
+            />
+            <Image
+              src="/korean-air/hifi-2-sm.png"
+              alt="Hi-fidelity"
+              width={222}
+              height={142}
+              className="hover:cursor-pointer"
+              onClick={() => setHifiView(2)}
+            />
+            <Image
+              src="/korean-air/hifi-3-sm.png"
+              alt="Hi-fidelity"
+              width={222}
+              height={142}
+              className="hover:cursor-pointer"
+              onClick={() => setHifiView(3)}
+            />
+            <Image
+              src="/korean-air/hifi-4-sm.png"
+              alt="Hi-fidelity"
+              width={222}
+              height={142}
+              className="hover:cursor-pointer"
+              onClick={() => setHifiView(4)}
+            />
+          </div>
+          <FigmaLink href="https://www.figma.com/design/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=539-3694">
+            View the full hi-fidelity
+          </FigmaLink>
         </SubSection>
       </Section>
       {/* test */}
@@ -771,39 +928,107 @@ export default function KoreanAir() {
         </SubSection>
         <SubSection title="Iterations" color="text-dark-brown" relaxed>
           <div className="space-y-24">
-            <Image
-              src="/korean-air/iterations-2.png"
-              alt="My page"
-              width={1040}
-              height={940}
-            />
-            <Image
-              src="/korean-air/iterations-2.png"
-              alt="My Mileage Page"
-              width={1040}
-              height={1040}
-            />
-            <Image
-              src="/korean-air/iterations-3.png"
-              alt="My Mileage Page - Pop up"
-              width={1040}
-              height={945}
-            />
+            <div className="space-y-12">
+              <div className="text-2xl font-medium tracking-[.02em]">
+                My page
+              </div>
+              <Image
+                src="/korean-air/iterations-1.png"
+                alt="My page"
+                width={1040}
+                height={940}
+              />
+            </div>
+            <div className="space-y-12">
+              <div className="text-2xl font-medium tracking-[.02em]">
+                My Mileage Page
+              </div>
+              <Image
+                src="/korean-air/iterations-2.png"
+                alt="My Mileage Page"
+                width={1040}
+                height={1040}
+              />
+            </div>
+            <div className="space-y-12">
+              <div className="text-2xl font-medium tracking-[.02em]">
+                My Mileage Page - Pop up
+              </div>
+              <Image
+                src="/korean-air/iterations-3.png"
+                alt="My Mileage Page - Pop up"
+                width={1040}
+                height={945}
+              />
+            </div>
           </div>
         </SubSection>
         <Transition text="After I made design changes based on the usability test, I finalized the design" />
-        <Image
-          src="/korean-air/hifi-prototype.png"
-          alt="Hi-fidelity prototype"
-          width={1040}
-          height={880}
-        />
-        <div className="w-full">
-          <Link href="">
+        <div className="space-y-24">
+          <div className="flex items-center space-x-9">
+            <div
+              className="relative w-[50px] h-[50px] hover:cursor-pointer"
+              onClick={() => handleProtoChange(-1)}
+            >
+              <Image src="/icons/left.svg" alt="Previous" fill />
+            </div>
+            <Image
+              src={`/korean-air/prototype-${protoView}.png`}
+              alt="Hi-fidelity prototype"
+              width={900}
+              height={506}
+            />
+            <div
+              className="relative w-[50px] h-[50px] hover:cursor-pointer"
+              onClick={() => handleProtoChange(1)}
+            >
+              <Image src="/icons/right.svg" alt="Next" fill />
+            </div>
+          </div>
+          <div className="flex space-x-[5px] w-[900px] mx-auto">
+            <Image
+              src="/korean-air/prototype-1-sm.png"
+              alt="Hi-fidelity prototype"
+              width={222}
+              height={142}
+              className="hover:cursor-pointer"
+              onClick={() => setProtoView(1)}
+            />
+            <Image
+              src="/korean-air/prototype-2-sm.png"
+              alt="Hi-fidelity prototype"
+              width={222}
+              height={142}
+              className="hover:cursor-pointer"
+              onClick={() => setProtoView(2)}
+            />
+            <Image
+              src="/korean-air/prototype-3-sm.png"
+              alt="Hi-fidelity prototype"
+              width={222}
+              height={142}
+              className="hover:cursor-pointer"
+              onClick={() => setProtoView(3)}
+            />
+            <Image
+              src="/korean-air/prototype-4-sm.png"
+              alt="Hi-fidelity prototype"
+              width={222}
+              height={142}
+              className="hover:cursor-pointer"
+              onClick={() => setProtoView(4)}
+            />
+          </div>
+        </div>
+        <div className="w-full pl-[70px]">
+          <Link
+            href="https://www.figma.com/design/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=539-3694"
+            target="_blank"
+          >
             <div
               className={
                 "h-[70px] w-[357px] rounded-[64px] bg-brown3 text-[22px] font-semibold " +
-                "tracking-[.02em] flex items-center justify-center underline"
+                "tracking-[.02em] flex items-center justify-center"
               }
             >
               View hi-fi prototype

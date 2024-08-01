@@ -18,7 +18,6 @@ export default function Participants({
         {desc1}
         {desc2 && (
           <div>
-            <br />
             {desc2}
           </div>
         )}

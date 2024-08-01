@@ -12,13 +12,11 @@ export default function Avatar({
   return (
     <div className="font-inter text-[18px] tracking-tight w-[270px] space-y-4">
       <div className="relative w-[100px] h-[120px] mx-auto">
-      <Image
-        src={`/avatars/${name.toLowerCase()}.svg`}
-        alt={name}
-        fill
-      />
+        <Image src={`/avatars/${name.toLowerCase()}.svg`} alt={name} fill />
       </div>
-      <div className="text-center">{name}, age {age}</div>
+      <div className="text-center">
+        {name}, age {age}
+      </div>
       <div>{desc}</div>
     </div>
   );

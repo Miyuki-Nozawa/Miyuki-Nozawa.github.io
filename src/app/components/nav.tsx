@@ -1,9 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import NavLink from "@/app/components/nav-link";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname();
+  // const isProject = pathname.startsWith("/projects");
+  // const background = isProject ? "bg-white" : "bg-base";
+  const background = "bg-base";
+
   return (
-    <div className="flex justify-between items-center p-16 bg-base">
+    <div className={`flex justify-between items-center p-16 h-[192px] ${background}`}>
       <Image
         src="/icons/nav.svg"
         alt="miyuki nozawa"

@@ -45,7 +45,7 @@ export default function Resto() {
         role="Sole UX/UI designer"
         projectDuration="1 month"
         industry="Restaurant"
-        className="px-48"
+        className="px-48 text-white"
         classNameLeft="w-1/2"
         classNameRight="w-1/2"
         classNameButton="bg-green3"
@@ -187,6 +187,7 @@ export default function Resto() {
                   className="text-brown2"
                 />
                 <KeyQuestions
+                  className="text-brown2"
                   questions={[
                     "How do you search for restaurants or cafes when dining out during your travels?",
                     "How was your experience when searching for and deciding on restaurants while traveling?",
@@ -194,6 +195,7 @@ export default function Resto() {
                   ]}
                 />
                 <ParticpantResponses
+                  className="text-brown2"
                   img="/resto/survey-responses.png"
                   alt="Survey responses"
                 />
@@ -216,6 +218,7 @@ export default function Resto() {
                   className="text-brown2"
                 />
                 <KeyQuestions
+                  className="text-brown2"
                   questions={[
                     "When you checked information about restaurants on websites, were these sites updated with " +
                       "current information or did you find that the info was missing or outdated?",
@@ -224,6 +227,7 @@ export default function Resto() {
                   ]}
                 />
                 <ParticpantResponses
+                  className="text-brown2"
                   img="/resto/interview-responses.png"
                   alt="Interview responses"
                 />
