@@ -36,13 +36,13 @@ export default function About() {
             </div>
           </Text>
           <Image
-            src="/about/niigata.png"
-            alt="niigata"
+            src="/about/strasbourg.png"
+            alt="strasbourg"
             width={312}
             height={382}
             className="mr-8"
           />
-          <Image src="/about/tokyo.png" alt="tokyo" width={312} height={382} />
+          <Image src="/about/newyork.png" alt="new york" width={312} height={382} />
         </div>
       </div>
       {/* Experiences */}
