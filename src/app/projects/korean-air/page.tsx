@@ -52,7 +52,7 @@ export default function KoreanAir() {
       <ProjectStatement
         statement={
           "Korean Air has a comprehensive mileage program and they allow customers to use their mileage for " +
-          "flights, hotels, special services at the airport, etc. However, the display method for mileage on their" +
+          "flights, hotels, special services at the airport, etc. However, the display method for mileage on their " +
           "website is unclear, requiring multiple visits to different pages to confirm details. Additionally, " +
           "understanding how, and for what purposes, the accrued mileage can be used is difficult."
         }
