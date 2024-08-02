@@ -45,10 +45,11 @@ export default function Resto() {
         role="Sole UX/UI designer"
         projectDuration="1 month"
         industry="Restaurant"
-        className="px-48 text-white"
-        classNameLeft="w-1/2"
+        href="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&viewport=927%2C821%2C0.1&t=x4PyBZiBp9vuODCP-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1"
+        className="px-48"
+        classNameLeft="w-1/2 h-[590px]"
         classNameRight="w-1/2"
-        classNameButton="bg-green3"
+        classNameButton="bg-dark-green text-white"
       />
       <ProjectStatement
         statement={
@@ -133,11 +134,14 @@ export default function Resto() {
               detailed restaurant descriptions but has an excellent reservation
               system and incorporates the latest trends.
             </Text>
-            <Link href="">
+            <Link
+              href="https://docs.google.com/spreadsheets/d/1miVsV3Eom-ll49Xt5AYETFDtCdXirI7YNvXDjhCpKA8/edit?gid=0#gid=0"
+              target="_blank"
+            >
               <div
                 className={
                   "px-8 py-5 mt-12 border-2 border-dark-green rounded-[5rem] inline-block " +
-                  "text-dark-green text-xl font-semibold underline"
+                  "text-dark-green text-xl font-semibold"
                 }
               >
                 View the competitive analysis
@@ -155,10 +159,11 @@ export default function Resto() {
               "Identify the confusion in mileage display and difficulty in using it",
               "Determine how often users visit the mileage page to use accumulated mileage",
             ]}
+            className="text-dark-green"
           />
           {/* research methods */}
           <div className="space-y-12">
-            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] text-dark-brown underline">
+            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] text-dark-green underline">
               Research methods
             </div>
             <Text>
@@ -250,10 +255,18 @@ export default function Resto() {
               requirements and plan future product features.
             </Text>
             <div className="space-y-24">
-              <div className="relative w-full h-[966px]">
-                <Image src="/resto/affinity-map.png" alt="Affinity map" fill />
+              <div>
+                <div className="relative w-full h-[966px]">
+                  <Image
+                    src="/resto/affinity-map.png"
+                    alt="Affinity map"
+                    fill
+                  />
+                </div>
+                <FigmaLink href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=90-2022">
+                  View the full affinity map
+                </FigmaLink>
               </div>
-              {/* TODO: add affinity map link */}
               <Text>
                 After reviewing the affinity map, I was able to grasp what
                 criteria travelers use to choose restaurants, the resources they
@@ -264,7 +277,7 @@ export default function Resto() {
               {/* paper */}
               <div className="rounded-3xl bg-light-ivory px-20 py-12 space-y-12">
                 <DiamondHeadedList
-                  color="brown"
+                  color="green3"
                   title="How to decide on restaurants"
                   items={[
                     "Recommendations",
@@ -275,7 +288,7 @@ export default function Resto() {
                   ]}
                 />
                 <DiamondHeadedList
-                  color="brown"
+                  color="green3"
                   title="Difficulties or challenging when making reservations"
                   items={[
                     "Language barriers",
@@ -287,7 +300,7 @@ export default function Resto() {
                   ]}
                 />
                 <DiamondHeadedList
-                  color="brown"
+                  color="green3"
                   title="User needs"
                   items={[
                     "Language support",
@@ -325,10 +338,43 @@ export default function Resto() {
       {/* define */}
       <Section title="Define" underline="bg-brown3" className="px-52">
         <Text>
-          After doing research, reviewing the findings, and organizing the data,
-          I used the insights to create three POV statements to identify design
-          challenges. I chose one that focused on the language barrier and
-          managing restaurant lists, which many people found challenging.
+          After conducting research, reviewing the findings, and organizing the
+          data, I created two personas in the early stages of the design process
+          to deepen my understanding of specific users and user needs.
+        </Text>
+        <Persona
+          title="Persona 1"
+          desc={
+            "Matt Kim, a 30-year-old product manager from San Francisco, loves traveling to Japan and exploring " +
+            "local dining spots. He faces challenges due to the language barrier, making it difficult to find and " +
+            "reserve restaurants popular among locals. His main frustrations include the time-consuming process of " +
+            "translating Japanese information and the difficulty of making phone reservations."
+          }
+          img="/resto/persona-1.jpeg"
+          className="text-dark-brown"
+        />
+        <Persona
+          title="Persona 2"
+          desc={
+            "Sarah Laine, a 26-year-old interior designer from New York, is planning her first trip to Japan with " +
+            "friends and is excited to explore Japanese cuisine. She faces challenges managing and sharing " +
+            "restaurant reservations among her group and is worried about keeping track of them amidst a packed " +
+            "schedule. Her goals include visiting many tourist spots and sticking to their travel plan."
+          }
+          img="/resto/persona-2.jpeg"
+          className="text-dark-brown"
+        />
+        <div className="w-full">
+          <FigmaLink href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=0-1">
+            View the personas
+          </FigmaLink>
+        </div>
+        <Text>
+          To clarify the solutions needed to address specific user needs, I
+          created two POV statements based on the personas. Among them, I
+          selected the POV focusing on the language barrier and managing
+          restaurant lists, as these were identified as significant challenges
+          for many users.
         </Text>
         <Definition
           title="POV (Point Of View) statement"
@@ -352,34 +398,6 @@ export default function Resto() {
           className="bg-beige"
         />
         <DownArrow />
-        <Text>
-          Based on the POV and HMW questions, I created two personas to
-          understand users&apos; needs and behaviors and to ensure that design
-          and decisions are centered around the user.
-        </Text>
-        <Persona
-          title="Persona 1"
-          desc={
-            "Matt Kim, a 30-year-old product manager from San Francisco, loves traveling to Japan and exploring " +
-            "local dining spots. He faces challenges due to the language barrier, making it difficult to find and " +
-            "reserve restaurants popular among locals. His main frustrations include the time-consuming process of " +
-            "translating Japanese information and the difficulty of making phone reservations."
-          }
-          img="/resto/persona-1.jpeg"
-        />
-        <Persona
-          title="Persona 2"
-          desc={
-            "Sarah Laine, a 26-year-old interior designer from New York, is planning her first trip to Japan with " +
-            "friends and is excited to explore Japanese cuisine. She faces challenges managing and sharing " +
-            "restaurant reservations among her group and is worried about keeping track of them amidst a packed " +
-            "schedule. Her goals include visiting many tourist spots and sticking to their travel plan."
-          }
-          img="/resto/persona-2.jpeg"
-        />
-        <div className="w-full">
-          <FigmaLink href="">View the personas</FigmaLink>
-        </div>
       </Section>
       {/* design */}
       <Section title="Design" underline="bg-orange" className="px-52">
@@ -392,7 +410,9 @@ export default function Resto() {
           <div className="relative w-[1040px] h-[950px]">
             <Image src="/resto/project-goals.jpeg" alt="Project goals" fill />
           </div>
-          <FigmaLink href="">View the project goals</FigmaLink>
+          <FigmaLink href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1-278">
+            View the project goals
+          </FigmaLink>
         </SubSection>
         {/* feature ideas */}
         <SubSection title="Feature ideas" color="text-brown4">
@@ -465,9 +485,11 @@ export default function Resto() {
             </div>
           </div>
           <div className="ml-auto">
-            <FigmaLink href="">View the sitemap</FigmaLink>
+            <FigmaLink href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=35-1840">
+              View the sitemap
+            </FigmaLink>
           </div>
-          <div className="space-y-7">
+          <div className="space-y-7 pt-9">
             <div className="text-[26px] font-semibold tracking-[.02em]">
               Key categories
             </div>
@@ -506,7 +528,9 @@ export default function Resto() {
             className="w-[1312px]"
           />
           <div>
-            <FigmaLink href="">View the task flows</FigmaLink>
+            <FigmaLink href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=42-8803">
+              View the task flows
+            </FigmaLink>
           </div>
         </SubSection>
         <SubSection title="User Flow" color="text-brown4">
@@ -521,7 +545,9 @@ export default function Resto() {
             width={4096}
             height={875}
           />
-          <FigmaLink href="">View the user flow</FigmaLink>
+          <FigmaLink href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=80-1978">
+            View the user flow
+          </FigmaLink>
         </SubSection>
         <DownArrow />
         <Text>
@@ -552,7 +578,9 @@ export default function Resto() {
               </div>
             </div>
           </div>
-          <FigmaLink href="">View the full low-fidelity</FigmaLink>
+          <FigmaLink href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=46-55">
+            View the full low-fidelity
+          </FigmaLink>
         </SubSection>
         <Text>
           Based on the low-fidelity sketches, I considered more detailed layouts
@@ -574,7 +602,9 @@ export default function Resto() {
               <Image src="/resto/midfi-4.png" alt="Reservation" fill />
             </div>
           </div>
-          <FigmaLink href="">View the full mid-fidelity</FigmaLink>
+          <FigmaLink href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1043-37036">
+            View the full mid-fidelity
+          </FigmaLink>
         </SubSection>
         <Text>
           After creating the mid-fidelity wireframes, I conducted a quick test
@@ -644,7 +674,9 @@ export default function Resto() {
             width={1040}
             height={1874}
           />
-          <FigmaLink href="">View the iterated mid-fidelity</FigmaLink>
+          <FigmaLink href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1043-21730">
+            View the iterated mid-fidelity
+          </FigmaLink>
         </SubSection>
       </Section>
       <Separator className="bg-brown6" />
@@ -846,11 +878,13 @@ export default function Resto() {
             width={1040}
             height={602}
           />
-          <FigmaLink href="">View the full hi-fidelity</FigmaLink>
+          <FigmaLink href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=692-48559">
+            View the full hi-fidelity
+          </FigmaLink>
         </SubSection>
       </div>
       {/* test */}
-      <Section title="Test" underline="bg-green3" className="px-52">
+      <Section title="Test" underline="bg-green3" className="px-52 pb-24">
         <Text>
           To confirm whether high-fidelity wireframes can actually achieve user
           goals, I conducted usability testing.
@@ -957,10 +991,10 @@ export default function Resto() {
           height={851}
         />
         <div className="w-full">
-          <Link href="">
+          <Link href="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&viewport=927%2C821%2C0.1&t=x4PyBZiBp9vuODCP-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1">
             <div
               className={
-                "h-[70px] w-[357px] rounded-[64px] bg-dark-green text-white text-[22px] font-semibold " +
+                "h-[70px] w-[357px] rounded-[64px] bg-dark-green text-white text-[22px] font-medium " +
                 "tracking-[.02em] flex items-center justify-center"
               }
             >
@@ -973,7 +1007,7 @@ export default function Resto() {
       <Section
         title="Conclusion"
         underline="bg-dark-brown"
-        className="px-52"
+        className="px-52 pb-24"
         bg="bg-light-ivory"
       >
         <Text>

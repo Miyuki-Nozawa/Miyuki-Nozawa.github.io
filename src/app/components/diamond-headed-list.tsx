@@ -1,11 +1,12 @@
 import DiamondHeader from "@/app/components/diamond-header";
+import { DiamondColor } from "@/types";
 
 export default function DiamondHeadedList({
   color,
   title,
   items,
 }: {
-  color: "green" | "brown";
+  color: DiamondColor;
   title: string;
   items: string[];
 }) {

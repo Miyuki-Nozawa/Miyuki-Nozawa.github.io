@@ -13,6 +13,7 @@ export default function ProjectHero({
   role,
   projectDuration,
   industry,
+  href,
   classNameButton,
   className = "",
   classNameLeft = "",
@@ -29,6 +30,7 @@ export default function ProjectHero({
   role: string;
   projectDuration: string;
   industry: string;
+  href: string;
   classNameButton: string;
   className?: string;
   classNameLeft?: string;
@@ -36,7 +38,7 @@ export default function ProjectHero({
 }) {
   return (
     <div className={`flex py-24 ${className}`}>
-      <div className={`relative h-[590px] ${classNameLeft}`}>
+      <div className={`relative ${classNameLeft}`}>
         <Image src={img} alt={name} className="object-contain" fill />
       </div>
       <div className={`flex flex-col justify-between ${classNameRight}`}>
@@ -62,9 +64,9 @@ export default function ProjectHero({
           </div>
         </div>
         <Link
-          href=""
+          href={href}
           target="_blank"
-          className={`w-fit px-16 py-4 rounded-[4rem] text-xl tracking-[.02em] ${classNameButton}`}
+          className={`w-fit px-16 py-4 rounded-[4rem] text-xl tracking-[.02em] font-medium ${classNameButton}`}
         >
           View hi-fi prototype
         </Link>

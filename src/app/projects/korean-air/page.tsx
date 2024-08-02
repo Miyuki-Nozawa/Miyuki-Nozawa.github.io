@@ -1,6 +1,7 @@
 "use client";
 
 import Avatar from "@/app/components/avatar";
+import Carousel from "@/app/components/carousel";
 import Definition from "@/app/components/definition";
 import DiamondHeadedList from "@/app/components/diamond-headed-list";
 import DiamondHeader from "@/app/components/diamond-header";
@@ -27,31 +28,8 @@ import Text from "@/app/components/text";
 import Transition from "@/app/components/transition";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-
-const handleChange = (prev: number, count: number) => {
-  const next = prev + count;
-  if (next > 4 || next < 1) return prev;
-  return next;
-};
 
 export default function KoreanAir() {
-  const [protoView, setProtoView] = useState(1);
-  const [midfiView, setMidfiView] = useState(1);
-  const [hifiView, setHifiView] = useState(1);
-
-  const handleProtoChange = (count: number) => {
-    setProtoView((prev) => handleChange(prev, count));
-  };
-
-  const handleMidfiChange = (count: number) => {
-    setMidfiView((prev) => handleChange(prev, count));
-  };
-
-  const handleHifiChange = (count: number) => {
-    setHifiView((prev) => handleChange(prev, count));
-  };
-
   return (
     <div>
       <ProjectHero
@@ -65,9 +43,10 @@ export default function KoreanAir() {
         role="UX/UI designer"
         projectDuration="1 month"
         industry="Airline"
-        className="bg-base2 px-24 space-x-12"
-        classNameLeft="w-[57%]"
-        classNameRight="w-[43%]"
+        href="https://www.figma.com/proto/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?page-id=74%3A269&node-id=97-342&viewport=1506%2C343%2C0.13&t=mu551F7TELQoEYla-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=97%3A342&show-proto-sidebar=1"
+        className="bg-base2 px-8 space-x-12 h-[650px] items-center"
+        classNameLeft="w-[57%] h-[400px]"
+        classNameRight="w-[43%] h-[450px]"
         classNameButton="bg-brown3 text-black"
       />
       <ProjectStatement
@@ -113,7 +92,7 @@ export default function KoreanAir() {
         underline="bg-dark-brown"
         className="px-52 pb-12"
       >
-        <ResearchGoalSummary className="bg-olive">
+        <ResearchGoalSummary className="bg-brown7">
           <span className="font-bold">
             Understanding what users value most when using mileage rewards
           </span>{" "}
@@ -176,24 +155,27 @@ export default function KoreanAir() {
           </ResearchSubsection>
         </ResearchGoal>
         {/* research 2 */}
-        <ResearchGoal title="2. Getting to know how people approach dining during their travels">
+        <ResearchGoal title="2. Getting to know how people use their mileage or points">
           <ResearchObjectives
             questions={[
-              "Identify what users prioritize in choosing restaurants when traveling",
-              "Understand how people plan their trips and what kind of information is required for them",
-              "Understand the deciding factors and challenges users encounter when searching for and choosing " +
-                "restaurants",
-              "Understand how users manage their desired destinations and planned locations",
+              "Understand what users prioritize in mileage usage",
+              "Determine what goals can be achieved by using mileage",
+              "Understand the purpose and process of mileage utilization",
+              "Identify the confusion in mileage display and difficulty in using it",
+              "Determine how often users visit the mileage page to use accumulated mileage",
             ]}
+            className="text-dark-brown"
           />
           {/* research methods */}
           <div className="space-y-12">
-            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] text-dark-green underline">
+            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] underline text-dark-brown">
               Research methods
             </div>
             <Text>
-              In order to collect a large amount of qualitative data, I
-              conducted two different research methods.
+              I conducted three different research methods to understand how
+              people use mileage and points systems, gather detailed insights
+              based on people&apos;s experiences, and identify issues with the
+              existing Korean Air website.
             </Text>
             <div className="space-y-24">
               {/* survey */}
@@ -229,7 +211,7 @@ export default function KoreanAir() {
               <ResearchMethod
                 title="User interview"
                 desc={
-                  "The second research method I conducted is user interviews. User interviews are used to collect " +
+                  "The second research method I conducted was user interviews. User interviews are used to collect " +
                   "qualitative data on more specific thoughts and personal experiences of users, based on the wide " +
                   "range of data obtained from the survey."
                 }
@@ -412,6 +394,7 @@ export default function KoreanAir() {
               "frustrated by the complexity of the website and the time it takes to find the necessary information."
             }
             img="/korean-air/persona.jpeg"
+            className="text-dark-green"
           />
           <div className="w-full">
             <FigmaLink href="https://www.figma.com/design/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=1-128">
@@ -634,60 +617,7 @@ export default function KoreanAir() {
           detailed layout more tangible.
         </Text>
         <SubSection title="Mid-fidelity" color="text-brown4">
-          <div className="flex items-center justify-center w-full space-x-9">
-            <div
-              className="relative w-[50px] h-[50px] hover:cursor-pointer"
-              onClick={() => handleMidfiChange(-1)}
-            >
-              <Image src="/icons/left.svg" alt="Previous" fill />
-            </div>
-            <Image
-              src={`/korean-air/midfi-${midfiView}.png`}
-              alt="Mid-fidelity prototype"
-              width={900}
-              height={506}
-            />
-            <div
-              className="relative w-[50px] h-[50px] hover:cursor-pointer"
-              onClick={() => handleMidfiChange(1)}
-            >
-              <Image src="/icons/right.svg" alt="Next" fill />
-            </div>
-          </div>
-          <div className="flex space-x-[5px] w-[900px] mx-auto">
-            <Image
-              src="/korean-air/midfi-1-sm.png"
-              alt="Mid-fidelity prototype"
-              width={222}
-              height={142}
-              className="hover:cursor-pointer"
-              onClick={() => setMidfiView(1)}
-            />
-            <Image
-              src="/korean-air/midfi-2-sm.png"
-              alt="Mid-fidelity prototype"
-              width={222}
-              height={142}
-              className="hover:cursor-pointer"
-              onClick={() => setMidfiView(2)}
-            />
-            <Image
-              src="/korean-air/midfi-3-sm.png"
-              alt="Mid-fidelity prototype"
-              width={222}
-              height={142}
-              className="hover:cursor-pointer"
-              onClick={() => setMidfiView(3)}
-            />
-            <Image
-              src="/korean-air/midfi-4-sm.png"
-              alt="Mid-fidelity prototype"
-              width={222}
-              height={142}
-              className="hover:cursor-pointer"
-              onClick={() => setMidfiView(4)}
-            />
-          </div>
+          <Carousel prefix="midfi" />
           <FigmaLink href="https://www.figma.com/design/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=539-3691">
             View the full mid-fidelity
           </FigmaLink>
@@ -799,60 +729,7 @@ export default function KoreanAir() {
             Considering Korean Air&apos;s image colors and existing design, I
             applied the brand colors to the added features.
           </Text>
-          <div className="flex items-center justify-center w-full space-x-9">
-            <div
-              className="relative w-[50px] h-[50px] hover:cursor-pointer"
-              onClick={() => handleHifiChange(-1)}
-            >
-              <Image src="/icons/left.svg" alt="Previous" fill />
-            </div>
-            <Image
-              src={`/korean-air/hifi-${hifiView}.png`}
-              alt="Hi-fidelity"
-              width={900}
-              height={506}
-            />
-            <div
-              className="relative w-[50px] h-[50px] hover:cursor-pointer"
-              onClick={() => handleHifiChange(1)}
-            >
-              <Image src="/icons/right.svg" alt="Next" fill />
-            </div>
-          </div>
-          <div className="flex space-x-[5px] w-[900px] mx-auto">
-            <Image
-              src="/korean-air/hifi-1-sm.png"
-              alt="Hi-fidelity"
-              width={222}
-              height={142}
-              className="hover:cursor-pointer"
-              onClick={() => setHifiView(1)}
-            />
-            <Image
-              src="/korean-air/hifi-2-sm.png"
-              alt="Hi-fidelity"
-              width={222}
-              height={142}
-              className="hover:cursor-pointer"
-              onClick={() => setHifiView(2)}
-            />
-            <Image
-              src="/korean-air/hifi-3-sm.png"
-              alt="Hi-fidelity"
-              width={222}
-              height={142}
-              className="hover:cursor-pointer"
-              onClick={() => setHifiView(3)}
-            />
-            <Image
-              src="/korean-air/hifi-4-sm.png"
-              alt="Hi-fidelity"
-              width={222}
-              height={142}
-              className="hover:cursor-pointer"
-              onClick={() => setHifiView(4)}
-            />
-          </div>
+          <Carousel prefix="hifi" />
           <FigmaLink href="https://www.figma.com/design/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=539-3694">
             View the full hi-fidelity
           </FigmaLink>
@@ -878,7 +755,7 @@ export default function KoreanAir() {
             <li>Find out the mileage redemption options</li>
           </ul>
         </TestCard>
-        <SubSection title="Test results" color="text-green4" relaxed>
+        <SubSection title="Test results" color="text-brown8" relaxed>
           <div className="flex flex-wrap gap-y-[55px] justify-evenly">
             <Avatar
               name="Yingyang"
@@ -926,7 +803,7 @@ export default function KoreanAir() {
             could be done beyond the displayed mileage redemption options.
           </Text>
         </SubSection>
-        <SubSection title="Iterations" color="text-dark-brown" relaxed>
+        <SubSection title="Iterations" color="text-brown8" relaxed>
           <div className="space-y-24">
             <div className="space-y-12">
               <div className="text-2xl font-medium tracking-[.02em]">
@@ -964,63 +841,10 @@ export default function KoreanAir() {
           </div>
         </SubSection>
         <Transition text="After I made design changes based on the usability test, I finalized the design" />
-        <div className="space-y-24">
-          <div className="flex items-center space-x-9">
-            <div
-              className="relative w-[50px] h-[50px] hover:cursor-pointer"
-              onClick={() => handleProtoChange(-1)}
-            >
-              <Image src="/icons/left.svg" alt="Previous" fill />
-            </div>
-            <Image
-              src={`/korean-air/prototype-${protoView}.png`}
-              alt="Hi-fidelity prototype"
-              width={900}
-              height={506}
-            />
-            <div
-              className="relative w-[50px] h-[50px] hover:cursor-pointer"
-              onClick={() => handleProtoChange(1)}
-            >
-              <Image src="/icons/right.svg" alt="Next" fill />
-            </div>
-          </div>
-          <div className="flex space-x-[5px] w-[900px] mx-auto">
-            <Image
-              src="/korean-air/prototype-1-sm.png"
-              alt="Hi-fidelity prototype"
-              width={222}
-              height={142}
-              className="hover:cursor-pointer"
-              onClick={() => setProtoView(1)}
-            />
-            <Image
-              src="/korean-air/prototype-2-sm.png"
-              alt="Hi-fidelity prototype"
-              width={222}
-              height={142}
-              className="hover:cursor-pointer"
-              onClick={() => setProtoView(2)}
-            />
-            <Image
-              src="/korean-air/prototype-3-sm.png"
-              alt="Hi-fidelity prototype"
-              width={222}
-              height={142}
-              className="hover:cursor-pointer"
-              onClick={() => setProtoView(3)}
-            />
-            <Image
-              src="/korean-air/prototype-4-sm.png"
-              alt="Hi-fidelity prototype"
-              width={222}
-              height={142}
-              className="hover:cursor-pointer"
-              onClick={() => setProtoView(4)}
-            />
-          </div>
+        <div className="w-full">
+          <Carousel prefix="prototype" />
         </div>
-        <div className="w-full pl-[70px]">
+        <div className="w-full pl-[106px]">
           <Link
             href="https://www.figma.com/design/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=539-3694"
             target="_blank"
@@ -1044,19 +868,19 @@ export default function KoreanAir() {
         bg="bg-base"
       >
         <Text>
-          The goal of this project was to enable Korean Air users to easily
+          The goal of this project was to make it easier for Korean Air users to
           understand and effectively utilize their mileage. Since the research
-          participants were not necessarily all Korean Air users, I progressed
-          through the process with the aim of meeting the needs of both users
-          and potential users. The biggest challenge in the process was to
-          consider features that would not interfere with the existing
-          website&apos;s design and functionality. However, through repeated
-          user testing, I was able to get closer to achieving users&apos; goals.
-          The iterative process of user testing was invaluable in refining my
-          approach and ensuring that the final product effectively addressed
-          user needs. Moving forward, continuous feedback and iteration will be
-          key to maintaining and improving the website’s usability and
-          functionality.
+          participants were not necessarily Korean Air users, I aimed to address
+          the needs of both current and potential users. The most challenging
+          part of the process was designing features that would not disrupt the
+          existing website’s design and functionality. Through repeated user
+          testing, I was able to gradually align with user goals, enabling them
+          to more easily see what they could use their mileage for compared to
+          the existing website. This iterative user testing process was
+          invaluable in refining my approach and ensuring that the final product
+          effectively met user needs. Moving forward, continuous feedback and
+          improvements will be key to maintaining and enhancing the website’s
+          usability and functionality.
         </Text>
       </Section>
     </div>
