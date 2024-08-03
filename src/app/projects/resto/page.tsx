@@ -150,14 +150,13 @@ export default function Resto() {
           </ResearchSubsection>
         </ResearchGoal>
         {/* research 2 */}
-        <ResearchGoal title="2. Getting to know how people use their mileage or points">
+        <ResearchGoal title="2. Getting to know how people approach dining during their travels">
           <ResearchObjectives
             questions={[
-              "Understand what users prioritize in mileage usage",
-              "Determine what goals can be achieved by using mileage",
-              "Understand the purpose and process of mileage utilization",
-              "Identify the confusion in mileage display and difficulty in using it",
-              "Determine how often users visit the mileage page to use accumulated mileage",
+              "Identify what users prioritize in choosing restaurants when traveling",
+              "Understand how people plan their trips and what kind of information is required for them",
+              "Understand the deciding factors and challenges users encounter when searching for and choosing restaurants",
+              "Understand how users manage their desired destinations and planned locations",
             ]}
             className="text-dark-green"
           />
@@ -167,10 +166,8 @@ export default function Resto() {
               Research methods
             </div>
             <Text>
-              I conducted three different research methods to understand how
-              people use mileage and points systems, gather detailed insights
-              based on people&apos;s experiences, and identify issues with the
-              existing Korean Air website.
+              In order to collect a large amount of qualitative data, I
+              conducted two different research methods.
             </Text>
             <div className="space-y-24">
               {/* survey */}
@@ -189,10 +186,10 @@ export default function Resto() {
                   title="Survey participants"
                   desc1="17 people age between 18-34"
                   desc2="(12 out of 17 people have traveled to Japan)"
-                  className="text-brown2"
+                  className="text-green4"
                 />
                 <KeyQuestions
-                  className="text-brown2"
+                  className="text-green4"
                   questions={[
                     "How do you search for restaurants or cafes when dining out during your travels?",
                     "How was your experience when searching for and deciding on restaurants while traveling?",
@@ -200,7 +197,7 @@ export default function Resto() {
                   ]}
                 />
                 <ParticpantResponses
-                  className="text-brown2"
+                  className="text-green4"
                   img="/resto/survey-responses.png"
                   alt="Survey responses"
                 />
@@ -220,10 +217,10 @@ export default function Resto() {
                   title="Interview participants"
                   desc1="5 people age between 23-68"
                   desc2="(1 Japanese, 4 of 5 people have traveled to Japan)"
-                  className="text-brown2"
+                  className="text-green4"
                 />
                 <KeyQuestions
-                  className="text-brown2"
+                  className="text-green4"
                   questions={[
                     "When you checked information about restaurants on websites, were these sites updated with " +
                       "current information or did you find that the info was missing or outdated?",
@@ -232,7 +229,7 @@ export default function Resto() {
                   ]}
                 />
                 <ParticpantResponses
-                  className="text-brown2"
+                  className="text-green4"
                   img="/resto/interview-responses.png"
                   alt="Interview responses"
                 />
@@ -560,13 +557,13 @@ export default function Resto() {
             <div className="flex flex-col w-1/3 space-y-2 text-center">
               <div className="flex-none text-2xl tracking-[.02em]">Home</div>
               <div className="relative flex-auto">
-                <Image src="/resto/lofi-1.png" alt="Home" fill />
+                <Image src="/resto/lofi-1.jpg" alt="Home" fill />
               </div>
             </div>
             <div className="flex flex-col w-1/3 space-y-2 text-center">
               <div className="flex-none text-2xl tracking-[.02em]">Search</div>
               <div className="relative flex-auto">
-                <Image src="/resto/lofi-2.png" alt="Home" fill />
+                <Image src="/resto/lofi-2.jpg" alt="Home" fill />
               </div>
             </div>
             <div className="flex flex-col w-1/3 space-y-2 text-center">
@@ -574,7 +571,7 @@ export default function Resto() {
                 Make a reservation
               </div>
               <div className="relative flex-auto">
-                <Image src="/resto/lofi-3.png" alt="Home" fill />
+                <Image src="/resto/lofi-3.jpg" alt="Home" fill />
               </div>
             </div>
           </div>
@@ -669,7 +666,7 @@ export default function Resto() {
         <DownArrow />
         <SubSection title="Mid-fidelity (iterations)" color="text-brown4">
           <Image
-            src="/resto/iterated-midfi.png"
+            src="/resto/iterations.png"
             alt="Mid-fidelity iterations"
             width={1040}
             height={1874}

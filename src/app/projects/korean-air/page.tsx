@@ -305,7 +305,7 @@ export default function KoreanAir() {
                   <div className="font-bold text-3xl tracking-tight">
                     Korean Air website
                   </div>
-                  <div className="text-[26px]">{"<Pain points>"}</div>
+                  <div className="text-[26px]">Pain points</div>
                   <Image
                     src="/korean-air/affinity-map-2.svg"
                     alt="Korean Air website"
