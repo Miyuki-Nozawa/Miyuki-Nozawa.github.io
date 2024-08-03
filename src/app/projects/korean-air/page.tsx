@@ -108,7 +108,7 @@ export default function KoreanAir() {
             each system, and the pros and cons to identify which features meet
             specific needs.
           </Text>
-          <ResearchSubsection title="Competitive Analysis">
+          <ResearchSubsection title="Competitive Analysis" color="brown">
             <Text>
               I compared two direct airline websites, including Korean Air, and
               two indirect websites with reward systems. I identified the

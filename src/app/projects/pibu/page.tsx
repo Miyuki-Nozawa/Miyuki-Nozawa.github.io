@@ -30,175 +30,190 @@ import UserFlow from "@/app/components/user-flow";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Resto() {
+export default function Pibu() {
   return (
     <div>
       <ProjectHero
-        name="Resto"
-        img="/resto/hero.png"
-        logo="/resto/logo.svg"
-        logoWidth={90}
-        logoHeight={80}
-        subtitle="A restaurant reservation app"
-        header="An app where travelers can make and manage restaurant reservations easily in Japan"
-        projectType="End-to-end application"
-        role="Sole UX/UI designer"
+        name="Pibu"
+        img="/pibu/hero.png"
+        logo="/pibu/logo.svg"
+        logoWidth={136}
+        logoHeight={75}
+        header="A website to introduce a local business and expand their business"
+        projectType="Responsive web design"
+        role="UX/UI designer"
         projectDuration="1 month"
-        industry="Restaurant"
+        industry="Beauty and personal care, Retail"
         href="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&viewport=927%2C821%2C0.1&t=x4PyBZiBp9vuODCP-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1"
-        className="px-48"
-        classNameLeft="w-1/2 h-[590px]"
-        classNameRight="w-1/2"
-        classNameButton="bg-dark-green text-white"
+        className="px-28 space-x-12"
+        classNameLeft="w-[646px] h-[500px]"
+        classNameRight="w-[520px] h-[500px]"
+        classNameButton="bg-dark-brown text-white"
       />
       <ProjectStatement
         statement={
-          "After the pandemic, travel has become more accessible, allowing many people to explore various " +
-          "countries. According to a World Economic Forum report, Japan is one of the best tourist destinations for " +
-          "2024, with 9.62 million foreign tourists visiting in 2023. Many people look forward to experiencing " +
-          "Japan's food culture, but for those unfamiliar with the language and culture, finding and booking " +
-          "suitable restaurants or cafes can be challenging. Additionally, organizing all the reservations and " +
-          "saved restaurants across different apps can be disorganized and sometimes difficult."
+          "Pibu, a local Korean skincare store in NY wants to create an e-commerce " +
+          "website to expand their business. While they have a defined target " +
+          "audience and brand theme, they are unsure how to align the website with " +
+          "these aspects effectively. They are also uncertain about the type of " +
+          "content they should include to enhance customers' desire to make " +
+          "purchases. Additionally, pibu aims to build an original website without " +
+          "relying on SquareSpace templates. It's crucial to develop a uniquely " +
+          "designed, user-friendly website that stands out from competitors."
         }
         solution={
-          "Developing an app that allows travelers to easily make and manage restaurant reservations without being " +
-          "hindered by language barriers, and to search for restaurants that meet their specific needs."
+          "Developing a website to increase awareness of pibu, focusing on e-commerce " +
+          "for business expansion and emphasizing user-friendliness."
         }
-        className="bg-light-pink"
+        className="bg-olive"
         underline="border-black"
       />
       <ProjectContents />
       {/* introduction */}
-      <Section title="Introduction" underline="bg-brown" className="px-52">
+      <Section title="Introduction" underline="bg-dark-brown" className="px-52">
         <Text>
-          Tourists often rely on platforms like Google Maps and social media to
-          discover and bookmark places to visit. However, managing
-          recommendations across multiple platforms can complicate travel
-          planning. Although Google Maps is useful for discovering restaurants,
-          the information is not always up-to-date. In Japan, there are
-          typically fewer reviews from locals, which can affect reliability.
-          Additionally, making or changing reservations often requires direct
-          communication with restaurants, which can be challenging due to
-          language barriers.
-          <div className="h-8"></div>
-          Many people have traveled to Japan and wish to visit again. While many
-          visitors look forward to enjoying the food in Japan, language barriers
-          and the confusion of managing reservations can sometimes prevent a
-          smooth dining experience.
+          Pibu is a family-owned Korean skincare store located in New York city.
+          They target individuals of all genders in their 20s to 40s and offer a
+          variety of skincare products. Since opening their store just 6 months
+          ago, they are not widely known yet. Their customers are mainly local
+          residents, and they are considering the development of a website and
+          an e-commerce platform to expand their business. They are hoping to
+          have a website that matches to their target customers, and their
+          aesthetic of the store.
         </Text>
-        <Transition text="How can we build an app that helps travelers have a stress-free dining experience?" />
+        <Transition
+          text={
+            "How can we build an e-commerce-centric website to increase the recognition " +
+            "of pibu and assist in its business expansion?"
+          }
+        />
       </Section>
       {/* research */}
       <Section
         title="Research"
-        underline="bg-dark-green"
+        underline="bg-light-pink"
         className="px-52 pb-12"
       >
-        <ResearchGoalSummary className="bg-olive">
+        <ResearchGoalSummary className="bg-light-pink">
           <span className="font-bold">
-            Understanding what users prioritize when searching for restaurants
-            as well as their experiences and issues with reservations amidst
-            language barriers
+            Understand which information is beneficial for users and what
+            motivates them to increase their desire to make purchases.
           </span>{" "}
-          so that we can build an app that provides users with a better
-          experience when traveling.
+          This will help us encourage users to shop at Pibu, thereby increasing
+          its recognition and contributing to business expansion.
         </ResearchGoalSummary>
         {/* research 1 */}
-        <ResearchGoal title="1. Getting to know what competitors are focusing on">
+        <ResearchGoal
+          title={
+            "1. Getting know what services competitors are offering and how they are acquiring users"
+          }
+        >
           <Text>
-            Before diving into the interview, I conducted a competitive analysis
-            to understand what features are available in existing apps. I
-            compared their target users, focus, and trends to identify which
-            features address specific needs.
+            First, I conducted a competitive analysis to understand the
+            structure and features of general skincare e-commerce sites. I
+            examined how competitors are providing their e-commerce sites, how
+            they enhance user purchasing intent, and whether they have features
+            that attract users.
           </Text>
-          <ResearchSubsection title="Competitive Analysis" color="green">
+          <ResearchSubsection title="Competitive Analysis" color="light-pink">
             <Text>
-              I compared two direct competitors (Japanese reservation apps) and
-              one indirect competitor (a well-known American reservation app) to
-              understand where each app excels and where there is room for
-              improvement.
+              I compared two direct websites specializing in K-beauty and one
+              indirect website focusing on general skincare. Based on each
+              site&apos;s brand value and target users, I identified how they
+              are presenting their websites.
             </Text>
             <div className="relative w-full h-[443px]">
               <Image
-                src="/resto/competitor-table.svg"
+                src="/pibu/competitor-table.svg"
                 alt="Competitor table"
                 className="object-contain"
                 fill
               />
             </div>
-            <Text>
-              The direct competitor excels in search and restaurant details but
-              has not focused on the reservation system, making it confusing for
-              users who are not familiar with it. On the other hand, the
-              indirect competitor, an American site, does not provide as
-              detailed restaurant descriptions but has an excellent reservation
-              system and incorporates the latest trends.
-            </Text>
+            <div className="space-y-7">
+              <Text>
+                While all e-commerce websites share basic functionalities, each
+                one incorporates unique features tailored to their target users.
+                Direct competitors have fewer products but offer a simple and
+                very user-friendly layout. On the other hand, indirect
+                competitors, with a broader range of brands and products, use
+                icons and other design elements to make the vast amount of
+                information more accessible.
+              </Text>
+              <Text>
+                Through competitive analysis, I learned that understanding the
+                information users need and how to present it is crucial. With
+                many competitors in the market, unique features and content are
+                essential for differentiating ourselves from others.
+                Additionally, it&apos;s important to consider the functionality
+                of the website to enhance users&apos; purchase motivation.
+              </Text>
+            </div>
             <Link
               href="https://docs.google.com/spreadsheets/d/1miVsV3Eom-ll49Xt5AYETFDtCdXirI7YNvXDjhCpKA8/edit?gid=0#gid=0"
               target="_blank"
             >
               <div
                 className={
-                  "px-8 py-5 mt-12 border-2 border-dark-green rounded-[5rem] inline-block " +
-                  "text-dark-green text-xl font-semibold"
+                  "px-8 py-5 mt-12 border-2 border-brown9 rounded-[5rem] inline-block " +
+                  "text-brown9 text-xl font-semibold"
                 }
               >
                 View the competitive analysis
               </div>
             </Link>
           </ResearchSubsection>
-        </ResearchGoal>
-        {/* research 2 */}
-        <ResearchGoal title="2. Getting to know how people approach dining during their travels">
+          {/* research objectives */}
           <ResearchObjectives
             questions={[
-              "Identify what users prioritize in choosing restaurants when traveling",
-              "Understand how people plan their trips and what kind of information is required for them",
-              "Understand the deciding factors and challenges users encounter when searching for and choosing restaurants",
-              "Understand how users manage their desired destinations and planned locations",
+              "Identify what users prioritize in choosing websites",
+              "Understand what kind of information users expect regarding skincare products",
+              "Determine what increases user’s purchasing desire",
+              "Understand what motivates users to buy skincare products",
+              "Understand the user's pain points when purchasing skincare products",
             ]}
-            className="text-dark-green"
+            className="text-brown9"
           />
           {/* research methods */}
           <div className="space-y-12">
-            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] text-dark-green underline">
+            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] text-brown9 underline">
               Research methods
             </div>
             <Text>
-              In order to collect a large amount of qualitative data, I
-              conducted two different research methods.
+              I conducted two different research methods to obtain quantitative
+              data on skincare product purchases and qualitative data based on
+              users&apos; specific experiences.
             </Text>
             <div className="space-y-24">
               {/* survey */}
               <ResearchMethod
                 title="Survey"
                 desc={
-                  "The first research method I used was a survey. Surveys are " +
-                  "used to gather quantitative data from a wide range of " +
-                  "travelers to help understand their travel styles, the " +
-                  "importance of exploring foods during their trips, and their " +
-                  "dining experiences."
+                  "The first research method I used was a survey. The survey was " +
+                  "conducted to collect quantitative data from a wide range of " +
+                  "people to understand how interested people are in skincare " +
+                  "products, and what criteria they use and how they make their " +
+                  "purchase decisions."
                 }
-                color="green"
+                color="light-pink"
               >
                 <Participants
                   title="Survey participants"
-                  desc1="17 people age between 18-34"
-                  desc2="(12 out of 17 people have traveled to Japan)"
-                  className="text-green4"
+                  desc1="15 people, age between 25-44"
+                  className="text-dark-brown"
                 />
                 <KeyQuestions
-                  className="text-green4"
+                  className="text-dark-brown"
                   questions={[
-                    "How do you search for restaurants or cafes when dining out during your travels?",
-                    "How was your experience when searching for and deciding on restaurants while traveling?",
-                    "Are there any struggles or difficulties you encounter when managing your restaurant list?",
+                    "How often do you purchase skincare products?",
+                    "What websites do you use when you purchase skincare products, " +
+                      "and why did you choose those websites?",
+                    "What criteria do you use to select skincare products?",
                   ]}
                 />
                 <ParticpantResponses
-                  className="text-green4"
-                  img="/resto/survey-responses.png"
+                  className="text-dark-brown"
+                  img="/pibu/survey-responses.svg"
                   alt="Survey responses"
                 />
               </ResearchMethod>
@@ -206,31 +221,34 @@ export default function Resto() {
               <ResearchMethod
                 title="User interview"
                 desc={
-                  "The second research method I conducted is user interviews. " +
-                  "User interviews are used to collect qualitative data on more " +
-                  "specific thoughts and personal experiences of users, based on " +
-                  "the wide range of data obtained from the survey."
+                  "The second research method I conducted was user interviews. I " +
+                  "gathered qualitative data on users' specific thoughts and " +
+                  "personal experiences. I particularly focused on users' " +
+                  "motivations and challenges related to purchasing skincare " +
+                  "products."
                 }
-                color="green"
+                color="light-pink"
               >
                 <Participants
                   title="Interview participants"
-                  desc1="5 people age between 23-68"
-                  desc2="(1 Japanese, 4 of 5 people have traveled to Japan)"
-                  className="text-green4"
+                  desc1="5 people who are interested in skincare products"
+                  desc2="Age between 27-37"
+                  className="text-dark-brown"
                 />
                 <KeyQuestions
-                  className="text-green4"
+                  className="text-dark-brown"
                   questions={[
-                    "When you checked information about restaurants on websites, were these sites updated with " +
-                      "current information or did you find that the info was missing or outdated?",
-                    "What are the key factors in choosing a restaurant?",
-                    "When you make a list of restaurants, what kind of information do you include in the list?",
+                    "Have you experienced any difficulties in selecting the right " +
+                      "skincare products?",
+                    "Have you ever had an experience where you were not satisfied " +
+                      "with a skincare product you purchased?",
+                    "If you have an opportunity to learn more about skincare, what " +
+                      "specific aspects would you like to know about?",
                   ]}
                 />
                 <ParticpantResponses
-                  className="text-green4"
-                  img="/resto/interview-responses.png"
+                  className="text-dark-brown"
+                  img="/pibu/interview-responses.svg"
                   alt="Interview responses"
                 />
               </ResearchMethod>
@@ -238,94 +256,105 @@ export default function Resto() {
           </div>
           {/* results */}
           <div className="space-y-12">
-            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] text-dark-green underline">
+            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] text-brown9 underline">
               Results
             </div>
             <Text>
-              After implementing these research methods, I recorded all data
-              points and ideas on individual sticky notes, grouped them based on
-              interview topics, and further categorized them into patterns.
-              <div className="h-5"></div>
-              By creating an affinity map, I was able to gain a deeper
-              understanding of user needs, trends and pain points in restaurant
-              searches and restaurant reservations. It helped to define product
-              requirements and plan future product features.
+              Through surveys and interviews, I was able to understand how
+              interested people are in skincare and what criteria they use to
+              select products. I also gained insights into the difficulties they
+              encounter and the information they expect when purchasing products
+              online. I recorded these key points on individual sticky notes and
+              created an affinity map, and and categorized the information by
+              topics and patterns.
             </Text>
             <div className="space-y-24">
-              <div>
-                <div className="relative w-full h-[966px]">
+              <div className="space-y-7">
+                <div className="text-[26px] font-medium tracking-[.02em]">
+                  What is the biggest challenge when choosing skincare products?
+                </div>
+                <div className="relative w-full h-[578px]">
                   <Image
-                    src="/resto/affinity-map.png"
+                    src="/pibu/affinity-map-1.svg"
                     alt="Affinity map"
                     fill
                   />
                 </div>
-                <FigmaLink href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=90-2022">
-                  View the full affinity map
-                </FigmaLink>
+              </div>
+              <div className="space-y-7">
+                <div className="text-[26px] font-medium tracking-[.02em]">
+                  What do you expect from online purchases?
+                </div>
+                <div className="relative w-full h-[723px]">
+                  <Image
+                    src="/pibu/affinity-map-2.svg"
+                    alt="Affinity map"
+                    fill
+                  />
+                </div>
+                <FigmaLink href="">View the full affinity map</FigmaLink>
               </div>
               <Text>
-                After reviewing the affinity map, I was able to grasp what
-                criteria travelers use to choose restaurants, the resources they
-                use when searching for restaurants, and the issues or
-                difficulties they encounter when making reservations for
-                restaurants.
+                By categorizing the points into topics and categories on the
+                affinity map, I was able to gain a deeper understanding of
+                users&apos; needs, the information they expect when purchasing
+                products, and the essential elements required for the pibu
+                website.
               </Text>
               {/* paper */}
               <div className="rounded-3xl bg-light-ivory px-20 py-12 space-y-12">
                 <DiamondHeadedList
-                  color="green3"
-                  title="How to decide on restaurants"
+                  color="brown9"
+                  title="Challenges when selecting skincare products"
                   items={[
-                    "Recommendations",
-                    "Reviews & Ratings",
-                    "Ambiance",
-                    "Location",
-                    "Language option",
+                    "Find the right products",
+                    "Know the texture, scent, and potential for allergic reactions",
+                    "Understand skin type",
+                    "Trust reviews",
                   ]}
                 />
                 <DiamondHeadedList
-                  color="green3"
-                  title="Difficulties or challenging when making reservations"
+                  color="brown9"
+                  title="Key factors when choosing skincare products"
                   items={[
-                    "Language barriers",
-                    "No English translation",
-                    "Needs phone call",
-                    "Popular restaurants were all booked up",
-                    "There are too many options to choose from",
-                    "Finding a specific restaurant from a list",
+                    "Other people’s opinions (reviews, ratings, recommendations)",
+                    "Personal opinions (skin concerns, skin type, preferences)",
+                    "Product details (ingredients, texture, scent, effectiveness, price)",
                   ]}
                 />
                 <DiamondHeadedList
-                  color="green3"
-                  title="User needs"
+                  color="brown9"
+                  title="Difficulties when purchasing products online"
                   items={[
-                    "Language support",
-                    "Enhanced search functions tailored to purpose",
-                    "Reliable reviews and ratings ",
-                    "Ability to make and cancel reservations online easily",
-                    "Engaging photos",
+                    "Can’t test samples",
+                    "Can’t see the product",
+                    "Lack of reviews",
                   ]}
                 />
               </div>
               <Text>
-                After all the research, I was able to identify the key points
-                for building the app&apos;s features. This process allowed me to
-                understand the critical elements that would meet the users&apos;
-                needs and enhance their overall experience.
+                Through the entire research process, I was able to identify key
+                points that enhance users&apos; purchase motivation. I also
+                gained a clear understanding of what is needed to meet
+                users&apos; needs.
               </Text>
               <DownArrow />
               {/* key findings */}
-              <div className="px-24 py-12 space-y-7 rounded-3xl border-dark-green border-2">
+              <div className="px-24 py-12 space-y-7 rounded-3xl border-brown9 border-2">
                 <div className="text-3xl font-bold tracking-[.02em]">
                   Key findings
                 </div>
                 <ul className="list-disc list-outside text-[26px] tracking-[.02em] pl-6 space-y-1">
-                  <li>Reliable Reviews and Ratings</li>
-                  <li>Up-to-date information</li>
-                  <li>Ease of Reservations and Reservation Management</li>
-                  <li>Eliminate Anxiety Due to Language Differences</li>
-                  <li>Search and Filter Functions Tailored to Needs</li>
+                  <li>Display trustworthy reviews and ratings</li>
+                  <li>
+                    Provide detailed product descriptions (ingredients, texture,
+                    scent, allergy reactions)
+                  </li>
+                  <li>
+                    Identify skin type & recommend products based on skin type
+                  </li>
+                  <li>Highlight expected benefits</li>
+                  <li>Offer competitive pricing</li>
                 </ul>
               </div>
             </div>

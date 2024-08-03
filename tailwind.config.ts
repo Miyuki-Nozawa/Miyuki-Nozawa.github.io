@@ -33,6 +33,7 @@ const config: Config = {
         brown6: "#A04337",
         brown7: "rgba(183, 150, 110, 0.80)",
         brown8: "#675332",
+        brown9: "#7A4D3E",
         olive: "#B6BE8F",
         paper: "#F2EFEA",
         "light-pink": "#DCC9BA",
