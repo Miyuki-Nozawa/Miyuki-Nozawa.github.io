@@ -86,11 +86,7 @@ export default function KoreanAir() {
         <Transition text="How can we add a feature that allows users to easily check and use their mileage?" />
       </Section>
       {/* research */}
-      <Section
-        title="Research"
-        underline="bg-brown"
-        className="px-52 pb-12"
-      >
+      <Section title="Research" underline="bg-brown" className="px-52 pb-12">
         <ResearchGoalSummary className="bg-brown7">
           <span className="font-bold">
             Understanding what users value most when using mileage rewards
@@ -622,7 +618,25 @@ export default function KoreanAir() {
           detailed layout more tangible.
         </Text>
         <SubSection title="Mid-fidelity" color="text-brown4">
-          <Carousel prefix="midfi" />
+          <Carousel
+            width={800}
+            height={568}
+            items={[
+              "/korean-air/midfi-1.png",
+              "/korean-air/midfi-2.png",
+              "/korean-air/midfi-3.png",
+              "/korean-air/midfi-4.png",
+            ]}
+            nav={{
+              itemClassName: "w-[194px] h-[138px]",
+              items: [
+                "/korean-air/midfi-1-sm.png",
+                "/korean-air/midfi-2-sm.png",
+                "/korean-air/midfi-3-sm.png",
+                "/korean-air/midfi-4-sm.png",
+              ],
+            }}
+          />
           <FigmaLink href="https://www.figma.com/design/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=539-3691">
             View the full mid-fidelity
           </FigmaLink>
@@ -734,7 +748,14 @@ export default function KoreanAir() {
             Considering Korean Air&apos;s image colors and existing design, I
             applied the brand colors to the added features.
           </Text>
-          <Carousel prefix="hifi" />
+          <Carousel
+            prefix="hifi"
+            filetype="png"
+            project="korean-air"
+            width={800}
+            height={568}
+            nav
+          />
           <FigmaLink href="https://www.figma.com/design/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=539-3694">
             View the full hi-fidelity
           </FigmaLink>
@@ -847,7 +868,25 @@ export default function KoreanAir() {
         </SubSection>
         <Transition text="After I made design changes based on the usability test, I finalized the design" />
         <div className="w-full">
-          <Carousel prefix="prototype" />
+          <Carousel
+            width={800}
+            height={568}
+            items={[
+              "/korean-air/prototype-1.png",
+              "/korean-air/prototype-2.png",
+              "/korean-air/prototype-3.png",
+              "/korean-air/prototype-4.png",
+            ]}
+            nav={{
+              itemClassName: "w-[194px] h-[138px]",
+              items: [
+                "/korean-air/prototype-1-sm.png",
+                "/korean-air/prototype-2-sm.png",
+                "/korean-air/prototype-3-sm.png",
+                "/korean-air/prototype-4-sm.png",
+              ],
+            }}
+          />
         </div>
         <div className="w-full pl-[106px]">
           <Link

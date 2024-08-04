@@ -1,6 +1,7 @@
 import Avatar from "@/app/components/avatar";
 import BrandSection from "@/app/components/brand-section";
 import Card from "@/app/components/card";
+import Carousel from "@/app/components/carousel";
 import Category from "@/app/components/category";
 import Color from "@/app/components/color";
 import Definition from "@/app/components/definition";
@@ -584,8 +585,7 @@ export default function Pibu() {
         <SubSection title="User Flow" color="text-dark-green">
           <Text>
             I created a user flow to understand user needs and identify
-            potential issues or confusing elements that are related to “search”
-            and “reservations”.
+            potential issues or confusing elements.
           </Text>
           <UserFlow
             title="Purchase the right products for your skin type"
@@ -600,16 +600,17 @@ export default function Pibu() {
         </SubSection>
         <DownArrow />
         <Text>
-          Based on user flows, task flows, and general observations of how users
-          want to search and prevent duplicate reservations, I created specific
-          design layouts.
+          I created the page layouts needed for users to complete tasks based on
+          the user flow and task flow. Through interviews, I found that many
+          people preferred using desktops when purchasing skincare products
+          online, so I focused on the desktop design.
         </Text>
         <SubSection title="Low-fidelity" color="text-dark-green">
           <div className="h-[486px] flex space-x-6">
             <div className="flex flex-col w-1/3 space-y-2 text-center">
               <div className="flex-none text-2xl tracking-[.02em]">Home</div>
               <div className="relative flex-auto">
-                <Image src="/resto/lofi-1.jpg" alt="Home" fill />
+                <Image src="/pibu/lofi-1.jpg" alt="Home" fill />
               </div>
             </div>
             <div className="flex flex-col w-1/3 space-y-2 text-center">
@@ -618,7 +619,7 @@ export default function Pibu() {
               </div>
               <div className="relative flex-auto">
                 <Image
-                  src="/resto/lofi-2.jpg"
+                  src="/pibu/lofi-2.jpg"
                   alt="How to check skin type"
                   fill
                 />
@@ -630,7 +631,7 @@ export default function Pibu() {
               </div>
               <div className="relative flex-auto">
                 <Image
-                  src="/resto/lofi-3.jpg"
+                  src="/pibu/lofi-3.jpg"
                   alt="How to check skin type"
                   fill
                 />
@@ -647,19 +648,17 @@ export default function Pibu() {
           detailed layout more tangible.
         </Text>
         <SubSection title="Mid-fidelity" color="text-dark-green">
-          <div className="h-[675px] flex space-x-5">
-            <div className="w-1/4 relative">
-              <Image src="/resto/midfi-1.png" alt="Discover" fill />
-            </div>
-            <div className="w-1/4 relative">
-              <Image src="/resto/midfi-2.png" alt="Search" fill />
-            </div>
-            <div className="w-1/4 relative">
-              <Image src="/resto/midfi-3.png" alt="Selected Restaurant" fill />
-            </div>
-            <div className="w-1/4 relative">
-              <Image src="/resto/midfi-4.png" alt="Reservation" fill />
-            </div>
+          <div className="flex space-x-5">
+            <Carousel
+              width={500}
+              height={940}
+              items={[
+                "/pibu/midfi-1.svg",
+                "/pibu/midfi-2.svg",
+                "/pibu/midfi-3.svg",
+                "/pibu/midfi-4.svg",
+              ]}
+            />
           </div>
           <FigmaLink href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1043-37036">
             View the full mid-fidelity
@@ -714,7 +713,7 @@ export default function Pibu() {
                 height={920}
               />
               <Image
-                src="/resto/midfi-test-3.png"
+                src="/pibu/midfi-test-3.png"
                 alt="Test"
                 width={940}
                 height={920}
