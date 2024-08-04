@@ -1,5 +1,3 @@
-"use client";
-
 import Avatar from "@/app/components/avatar";
 import Carousel from "@/app/components/carousel";
 import Definition from "@/app/components/definition";
@@ -44,6 +42,7 @@ export default function KoreanAir() {
         projectDuration="1 month"
         industry="Airline"
         href="https://www.figma.com/proto/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?page-id=74%3A269&node-id=97-342&viewport=1506%2C343%2C0.13&t=mu551F7TELQoEYla-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=97%3A342&show-proto-sidebar=1"
+        headerClassName="text-3xl"
         className="bg-base2 px-8 space-x-12 h-[650px] items-center"
         classNameLeft="w-[57%] h-[400px]"
         classNameRight="w-[43%] h-[450px]"
@@ -89,7 +88,7 @@ export default function KoreanAir() {
       {/* research */}
       <Section
         title="Research"
-        underline="bg-dark-brown"
+        underline="bg-brown"
         className="px-52 pb-12"
       >
         <ResearchGoalSummary className="bg-brown7">
@@ -100,7 +99,10 @@ export default function KoreanAir() {
           understand, use, and increase user satisfaction.
         </ResearchGoalSummary>
         {/* research 1 */}
-        <ResearchGoal title="1. Getting to know what features competitors offer regarding mileage or points">
+        <ResearchGoal
+          title="Getting to know what features competitors offer regarding mileage or points"
+          start={1}
+        >
           <Text>
             Before conducting the interviews, I performed a competitive analysis
             to understand the features incorporated by websites that use mileage
@@ -145,8 +147,8 @@ export default function KoreanAir() {
             >
               <div
                 className={
-                  "px-8 py-5 mt-12 border-2 border-dark-brown rounded-[5rem] inline-block " +
-                  "text-dark-brown text-xl font-semibold"
+                  "px-8 py-5 mt-12 border-2 border-brown rounded-[5rem] inline-block " +
+                  "text-brown text-xl font-semibold"
                 }
               >
                 View the competitive analysis
@@ -155,7 +157,10 @@ export default function KoreanAir() {
           </ResearchSubsection>
         </ResearchGoal>
         {/* research 2 */}
-        <ResearchGoal title="2. Getting to know how people use their mileage or points">
+        <ResearchGoal
+          title="Getting to know how people use their mileage or points"
+          start={2}
+        >
           <ResearchObjectives
             questions={[
               "Understand what users prioritize in mileage usage",
@@ -164,11 +169,11 @@ export default function KoreanAir() {
               "Identify the confusion in mileage display and difficulty in using it",
               "Determine how often users visit the mileage page to use accumulated mileage",
             ]}
-            className="text-dark-brown"
+            className="text-brown"
           />
           {/* research methods */}
           <div className="space-y-12">
-            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] underline text-dark-brown">
+            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] underline text-brown">
               Research methods
             </div>
             <Text>
@@ -271,7 +276,7 @@ export default function KoreanAir() {
           </div>
           {/* results */}
           <div className="space-y-12">
-            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] text-dark-brown underline">
+            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] text-brown underline">
               Results
             </div>
             <Text>
@@ -360,7 +365,7 @@ export default function KoreanAir() {
               </Text>
               <DownArrow />
               {/* key findings */}
-              <div className="px-24 py-12 space-y-7 rounded-3xl border-dark-brown border-2">
+              <div className="px-24 py-12 space-y-7 rounded-3xl border-brown border-2">
                 <div className="text-3xl font-bold tracking-[.02em]">
                   Key findings
                 </div>

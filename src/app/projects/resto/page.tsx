@@ -46,6 +46,7 @@ export default function Resto() {
         projectDuration="1 month"
         industry="Restaurant"
         href="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&viewport=927%2C821%2C0.1&t=x4PyBZiBp9vuODCP-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1"
+        headerClassName="text-3xl"
         className="px-48"
         classNameLeft="w-1/2 h-[590px]"
         classNameRight="w-1/2"
@@ -94,7 +95,7 @@ export default function Resto() {
         underline="bg-dark-green"
         className="px-52 pb-12"
       >
-        <ResearchGoalSummary className="bg-olive">
+        <ResearchGoalSummary className="bg-light-green">
           <span className="font-bold">
             Understanding what users prioritize when searching for restaurants
             as well as their experiences and issues with reservations amidst
@@ -104,7 +105,10 @@ export default function Resto() {
           experience when traveling.
         </ResearchGoalSummary>
         {/* research 1 */}
-        <ResearchGoal title="1. Getting to know what competitors are focusing on">
+        <ResearchGoal
+          title="Getting to know what competitors are focusing on"
+          start={1}
+        >
           <Text>
             Before diving into the interview, I conducted a competitive analysis
             to understand what features are available in existing apps. I
@@ -150,7 +154,10 @@ export default function Resto() {
           </ResearchSubsection>
         </ResearchGoal>
         {/* research 2 */}
-        <ResearchGoal title="2. Getting to know how people approach dining during their travels">
+        <ResearchGoal
+          title="Getting to know how people approach dining during their travels"
+          start={2}
+        >
           <ResearchObjectives
             questions={[
               "Identify what users prioritize in choosing restaurants when traveling",
@@ -348,7 +355,7 @@ export default function Resto() {
             "translating Japanese information and the difficulty of making phone reservations."
           }
           img="/resto/persona-1.jpeg"
-          className="text-dark-brown"
+          className="text-brown"
         />
         <Persona
           title="Persona 2"
@@ -359,7 +366,7 @@ export default function Resto() {
             "schedule. Her goals include visiting many tourist spots and sticking to their travel plan."
           }
           img="/resto/persona-2.jpeg"
-          className="text-dark-brown"
+          className="text-brown"
         />
         <div className="w-full">
           <FigmaLink href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=0-1">
@@ -448,15 +455,15 @@ export default function Resto() {
             <div className="text-[24px] tracking-[.02em]">Card examples</div>
             {/* cards */}
             <div className="flex flex-wrap justify-between gap-[75px]">
-              <Card text="Type of cuisine" />
-              <Card text="English / Japanese menu" />
-              <Card text="Dress code" />
-              <Card text="Sound restriction" />
-              <Card text="Map" />
-              <Card text="List of restaurants" />
-              <Card text="Upcoming reservations" />
-              <Card text="Reservation reminder" />
-              <Card text="Share with friends" />
+              <Card text="Type of cuisine" className="bg-light-pink" />
+              <Card text="English / Japanese menu" className="bg-light-pink" />
+              <Card text="Dress code" className="bg-light-pink" />
+              <Card text="Sound restriction" className="bg-light-pink" />
+              <Card text="Map" className="bg-light-pink" />
+              <Card text="List of restaurants" className="bg-light-pink" />
+              <Card text="Upcoming reservations" className="bg-light-pink" />
+              <Card text="Reservation reminder" className="bg-light-pink" />
+              <Card text="Share with friends" className="bg-light-pink" />
             </div>
           </div>
           <Text className="py-12">
@@ -493,7 +500,7 @@ export default function Resto() {
             <div
               className={
                 "text-2xl font-medium tracking-[.02em] flex flex-wrap px-24 py-16 justify-between gap-y-7 border-2 " +
-                "rounded-3xl border-dark-brown"
+                "rounded-3xl border-brown"
               }
             >
               <div className="w-1/3">Reservations</div>
@@ -541,6 +548,7 @@ export default function Resto() {
             img="/resto/user-flow.svg"
             width={4096}
             height={875}
+            className="w-[4096px] h-[875px]"
           />
           <FigmaLink href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=80-1978">
             View the user flow
@@ -688,7 +696,11 @@ export default function Resto() {
         </Text>
         <div className="space-y-24 pb-24">
           {/* brand value */}
-          <BrandSection title="Brand Value" className="space-y-8">
+          <BrandSection
+            title="Brand Value"
+            className="space-y-8"
+            color="text-brown6"
+          >
             <div className="text-[26px] font-medium tracking-[.02em]">
               Clean / Modern / Joyful / Friendly / Vibrant
             </div>
@@ -700,7 +712,11 @@ export default function Resto() {
             />
           </BrandSection>
           {/* brand logos */}
-          <BrandSection title="Brand Logos" className="space-y-12">
+          <BrandSection
+            title="Brand Logos"
+            className="space-y-12"
+            color="text-brown6"
+          >
             <div className="text-[26px] font-medium tracking-[.02em] flex space-x-16">
               {/* logo 1 */}
               <div className="space-y-12 w-[300px]">
@@ -774,7 +790,11 @@ export default function Resto() {
               </div>
             </div>
           </BrandSection>
-          <BrandSection title="Typography" className="space-y-12">
+          <BrandSection
+            title="Typography"
+            className="space-y-12"
+            color="text-brown6"
+          >
             <div className="flex">
               <div className="space-y-4">
                 <div className="font-manrope tracking-[.02em] text-[24px] font-semibold">
@@ -807,7 +827,11 @@ export default function Resto() {
               </Text>
             </div>
           </BrandSection>
-          <BrandSection title="Colors" className="space-y-12">
+          <BrandSection
+            title="Colors"
+            className="space-y-12"
+            color="text-brown6"
+          >
             <div className="flex">
               <div className="space-y-5">
                 <div className="space-y-[10px]">
@@ -1003,7 +1027,7 @@ export default function Resto() {
       {/* conclusion */}
       <Section
         title="Conclusion"
-        underline="bg-dark-brown"
+        underline="bg-brown"
         className="px-52 pb-24"
         bg="bg-light-ivory"
       >

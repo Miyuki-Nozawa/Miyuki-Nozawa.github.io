@@ -1,10 +1,12 @@
 import Avatar from "@/app/components/avatar";
 import BrandSection from "@/app/components/brand-section";
 import Card from "@/app/components/card";
+import Category from "@/app/components/category";
 import Color from "@/app/components/color";
 import Definition from "@/app/components/definition";
 import DiamondHeadedList from "@/app/components/diamond-headed-list";
 import DiamondHeader from "@/app/components/diamond-header";
+import DoubleCarousel from "@/app/components/double-carousel";
 import DownArrow from "@/app/components/down-arrow";
 import FigmaLink from "@/app/components/figma-link";
 import KeyQuestions from "@/app/components/key-questions";
@@ -27,8 +29,24 @@ import TestCard from "@/app/components/test-card";
 import Text from "@/app/components/text";
 import Transition from "@/app/components/transition";
 import UserFlow from "@/app/components/user-flow";
+import localFont from "next/font/local";
 import Image from "next/image";
 import Link from "next/link";
+
+const avenir = localFont({
+  src: [
+    {
+      path: "./fonts/AvenirNext-Regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/AvenirNext-Medium.otf",
+      weight: "500",
+      style: "medium",
+    },
+  ],
+});
 
 export default function Pibu() {
   return (
@@ -45,10 +63,11 @@ export default function Pibu() {
         projectDuration="1 month"
         industry="Beauty and personal care, Retail"
         href="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&viewport=927%2C821%2C0.1&t=x4PyBZiBp9vuODCP-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1"
-        className="px-28 space-x-12"
+        headerClassName="text-[28px] font-manrope font-bold"
+        className="px-24 space-x-12 w-full"
         classNameLeft="w-[646px] h-[500px]"
         classNameRight="w-[520px] h-[500px]"
-        classNameButton="bg-dark-brown text-white"
+        classNameButton="bg-brown text-white"
       />
       <ProjectStatement
         statement={
@@ -65,28 +84,29 @@ export default function Pibu() {
           "Developing a website to increase awareness of pibu, focusing on e-commerce " +
           "for business expansion and emphasizing user-friendliness."
         }
-        className="bg-olive"
+        className="bg-light-green"
         underline="border-black"
       />
       <ProjectContents />
       {/* introduction */}
-      <Section title="Introduction" underline="bg-dark-brown" className="px-52">
+      <Section title="Introduction" underline="bg-brown" className="px-52">
         <Text>
-          Pibu is a family-owned Korean skincare store located in New York city.
+          Pibu is a family-owned Korean skincare store located in New York City.
           They target individuals of all genders in their 20s to 40s and offer a
           variety of skincare products. Since opening their store just 6 months
-          ago, they are not widely known yet. Their customers are mainly local
-          residents, and they are considering the development of a website and
-          an e-commerce platform to expand their business. They are hoping to
-          have a website that matches to their target customers, and their
-          aesthetic of the store.
+          ago, they have not become widely known yet. Their customers are mainly
+          local residents, and they are considering the development of a website
+          and an e-commerce platform to expand their business. They are hoping
+          to have a website that matches their target customers and the
+          aesthetic of their store.
+          <Transition
+            text={
+              "How can we build an e-commerce-centric website to increase the recognition " +
+              "of pibu and assist in its business expansion?"
+            }
+            className="pt-12"
+          />
         </Text>
-        <Transition
-          text={
-            "How can we build an e-commerce-centric website to increase the recognition " +
-            "of pibu and assist in its business expansion?"
-          }
-        />
       </Section>
       {/* research */}
       <Section
@@ -95,18 +115,21 @@ export default function Pibu() {
         className="px-52 pb-12"
       >
         <ResearchGoalSummary className="bg-light-pink">
-          <span className="font-bold">
-            Understand which information is beneficial for users and what
-            motivates them to increase their desire to make purchases.
-          </span>{" "}
-          This will help us encourage users to shop at Pibu, thereby increasing
-          its recognition and contributing to business expansion.
+          <div className="text-[28px]">
+            <span className="font-bold">
+              Understand which information is beneficial for users and what
+              motivates them to increase their desire to make purchases.
+            </span>{" "}
+            This will help us encourage users to shop at Pibu, thereby
+            increasing its recognition and contributing to business expansion.
+          </div>
         </ResearchGoalSummary>
         {/* research 1 */}
         <ResearchGoal
           title={
-            "1. Getting know what services competitors are offering and how they are acquiring users"
+            "Getting to know what services competitors are offering and how they are acquiring users"
           }
+          start={1}
         >
           <Text>
             First, I conducted a competitive analysis to understand the
@@ -200,10 +223,10 @@ export default function Pibu() {
                 <Participants
                   title="Survey participants"
                   desc1="15 people, age between 25-44"
-                  className="text-dark-brown"
+                  className="text-brown"
                 />
                 <KeyQuestions
-                  className="text-dark-brown"
+                  className="text-brown"
                   questions={[
                     "How often do you purchase skincare products?",
                     "What websites do you use when you purchase skincare products, " +
@@ -212,7 +235,7 @@ export default function Pibu() {
                   ]}
                 />
                 <ParticpantResponses
-                  className="text-dark-brown"
+                  className="text-brown"
                   img="/pibu/survey-responses.svg"
                   alt="Survey responses"
                 />
@@ -233,10 +256,10 @@ export default function Pibu() {
                   title="Interview participants"
                   desc1="5 people who are interested in skincare products"
                   desc2="Age between 27-37"
-                  className="text-dark-brown"
+                  className="text-brown"
                 />
                 <KeyQuestions
-                  className="text-dark-brown"
+                  className="text-brown"
                   questions={[
                     "Have you experienced any difficulties in selecting the right " +
                       "skincare products?",
@@ -247,7 +270,7 @@ export default function Pibu() {
                   ]}
                 />
                 <ParticpantResponses
-                  className="text-dark-brown"
+                  className="text-brown"
                   img="/pibu/interview-responses.svg"
                   alt="Interview responses"
                 />
@@ -362,94 +385,102 @@ export default function Pibu() {
         </ResearchGoal>
       </Section>
       {/* define */}
-      <Section title="Define" underline="bg-brown3" className="px-52">
+      <Section title="Define" underline="bg-green3" className="px-52">
         <Text>
           After conducting research, reviewing the findings, and organizing the
           data, I created two personas in the early stages of the design process
-          to deepen my understanding of specific users and user needs.
+          to deepen my understanding of specific users.
         </Text>
         <Persona
           title="Persona 1"
           desc={
-            "Matt Kim, a 30-year-old product manager from San Francisco, loves traveling to Japan and exploring " +
-            "local dining spots. He faces challenges due to the language barrier, making it difficult to find and " +
-            "reserve restaurants popular among locals. His main frustrations include the time-consuming process of " +
-            "translating Japanese information and the difficulty of making phone reservations."
+            "Peter Cho is a 34-year-old software engineer in New York who, influenced " +
+            "by his partner and friends, has recently started using skincare " +
+            "products. He seeks to find effective products and establish a daily " +
+            "routine but struggles with determining his skin type and understanding " +
+            "the efficacy of various products due to the overwhelming amount of " +
+            "information available."
           }
-          img="/resto/persona-1.jpeg"
-          className="text-dark-brown"
+          img="/pibu/persona-1.jpeg"
+          className="text-dark-green"
         />
         <Persona
           title="Persona 2"
           desc={
-            "Sarah Laine, a 26-year-old interior designer from New York, is planning her first trip to Japan with " +
-            "friends and is excited to explore Japanese cuisine. She faces challenges managing and sharing " +
-            "restaurant reservations among her group and is worried about keeping track of them amidst a packed " +
-            "schedule. Her goals include visiting many tourist spots and sticking to their travel plan."
+            "Mary Harris is a 28-year-old kindergarten teacher from New York who is " +
+            "passionate about skincare and often seeks discounts online. She is " +
+            "currently concerned about dull skin and is eager to try new products, " +
+            "but hesitates due to the inability to test samples beforehand and " +
+            "worries about negative reviews. Her challenges include determining " +
+            "product suitability without samples and dealing with limited reviews."
           }
-          img="/resto/persona-2.jpeg"
-          className="text-dark-brown"
+          img="/pibu/persona-2.jpeg"
+          className="text-dark-green"
         />
         <div className="w-full">
           <FigmaLink href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=0-1">
             View the personas
           </FigmaLink>
         </div>
-        <Text>
-          To clarify the solutions needed to address specific user needs, I
-          created two POV statements based on the personas. Among them, I
-          selected the POV focusing on the language barrier and managing
-          restaurant lists, as these were identified as significant challenges
-          for many users.
-        </Text>
-        <Definition
-          title="POV (Point Of View) statement"
-          text={
-            "I’d like to explore ways to propose a streamlined and functional reservation system catering to " +
-            "travelers who face challenges with language barriers during restaurant booking or encounter issues " +
-            "managing reservations."
-          }
-          className="bg-beige"
-        />
-        <Text>
-          Then, I took the problems into clear questions that help find creative
-          and practical solutions.
-        </Text>
-        <Definition
-          title="HMW (How Might We) question"
-          text={
-            "How might we design a reservation system that easily accommodates people facing language barriers, " +
-            "ensuring smooth booking experiences?"
-          }
-          className="bg-beige"
-        />
+        <div className="space-y-12">
+          <Text>
+            To clarify the solutions needed to address specific user needs, I
+            created three POV statements based on the personas. Among them, I
+            selected the POV related to skin type as it is the most crucial for
+            achieving the personas&apos; goals.
+          </Text>
+          <Definition
+            title="POV (Point Of View) statement"
+            text={
+              "I'd like to explore ways to help people to find and understand their " +
+              "skin type because choosing the right skincare products becomes " +
+              "challenging without knowledge of their skin type."
+            }
+            className="bg-olive"
+          />
+        </div>
+        <div className="space-y-12">
+          <Text>
+            Then, I took the problems into clear questions that help find
+            creative and practical solutions.
+          </Text>
+          <Definition
+            title="HMW (How Might We) question"
+            text={
+              "How might we help people to effectively choose the appropriate skincare " +
+              "products based on their skin type?"
+            }
+            className="bg-olive"
+          />
+        </div>
         <DownArrow />
       </Section>
       {/* design */}
-      <Section title="Design" underline="bg-orange" className="px-52">
+      <Section title="Design" underline="bg-dark-green" className="px-52">
         <Text>
-          As a step to generate ideas to solve the personas&apos; problems, I
-          set project goals and brainstormed feature ideas to address them.
+          As a step to generate ideas to solve the persona&apos;s problems, I
+          set project goals based on the POV and brainstormed feature ideas to
+          address them.
         </Text>
         {/* project goals */}
-        <SubSection title="Project goals" color="text-brown4">
+        <SubSection title="Project goals" color="text-dark-green">
           <div className="relative w-[1040px] h-[950px]">
-            <Image src="/resto/project-goals.jpeg" alt="Project goals" fill />
+            <Image src="/pibu/project-goals.svg" alt="Project goals" fill />
           </div>
           <FigmaLink href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1-278">
             View the project goals
           </FigmaLink>
         </SubSection>
         {/* feature ideas */}
-        <SubSection title="Feature ideas" color="text-brown4">
+        <SubSection title="Feature ideas" color="text-dark-green">
           <Text>
-            While considering the technical aspects, I brainstormed key features
-            that align with both business goals and user goals, focusing
-            especially on the overlapping goals to build an app that can achieve
-            these objectives.
+            While considering the technical aspects and input from stakeholders,
+            I brainstormed key features that align with both business goals and
+            user goals, with a particular focus on overlapping objectives to
+            build a website that effectively achieves these goals.
           </Text>
           <Image
-            src="/resto/feature-ideas.png"
+            src="/pibu/feature-ideas.svg"
             alt="Feature ideas"
             width={867}
             height={604}
@@ -457,101 +488,92 @@ export default function Pibu() {
           />
           <Transition
             text={
-              "To design the structure of the app, I conducted a card sort based on these feature keywords"
+              "To design the structure of the website, I conducted a card sort based on these feature keywords"
             }
           />
           <div className="space-y-12 pt-8">
             <DiamondHeader
               title="Card Sort"
-              color="light-pink"
+              color="dark-green"
               className="space-x-7"
             />
             <Text>
               I conducted a card sort with{" "}
-              <b className="font-semibold">28 cards</b> and 8 participants.
-              Using an <b className="font-semibold">open card sort</b>, we aimed
-              to understand how users categorize the cards in order to determine
-              the app&apos;s structure, especially the naming of the navbar and
-              the content included in each menu.
+              <b className="font-semibold">37 cards</b> and 7 participants.
+              Using a <b className="font-semibold">hybrid card sort</b>, I
+              determined how users categorized the cards and decided on the menu
+              items and their associated content.
             </Text>
+            <div className="text-[24px] tracking-[.02em]">Categories</div>
+            <div className="flex flex-wrap justify-around gap-[75px]">
+              <Category text="Shop" />
+              <Category text="Account" />
+              <Category text="Categories" />
+              <Category text="Blog" />
+              <Category text="Skin type" />
+              <Category text="Sales/Offers" />
+              <Category text="Cart" />
+              <Category text="Skin concerns" />
+              <Category text="About us" />
+            </div>
             <div className="text-[24px] tracking-[.02em]">Card examples</div>
             {/* cards */}
             <div className="flex flex-wrap justify-between gap-[75px]">
-              <Card text="Type of cuisine" />
-              <Card text="English / Japanese menu" />
-              <Card text="Dress code" />
-              <Card text="Sound restriction" />
-              <Card text="Map" />
-              <Card text="List of restaurants" />
-              <Card text="Upcoming reservations" />
-              <Card text="Reservation reminder" />
-              <Card text="Share with friends" />
+              <Card text="New arrivals" className="bg-light-olive" />
+              <Card text="Oily skin" className="bg-light-olive" />
+              <Card text="Check your skin type" className="bg-light-olive" />
+              <Card text="Shop all" className="bg-light-olive" />
+              <Card text="Toners" className="bg-light-olive" />
+              <Card text="Key ingredients" className="bg-light-olive" />
+              <Card text="Check out" className="bg-light-olive" />
+              <Card text="Anti-aging" className="bg-light-olive" />
+              <Card text="How to use" className="bg-light-olive" />
             </div>
           </div>
           <Text className="py-12">
-            When participants freely categorized the cards, most of them fell
-            into six key categories. This helped to understand which content
-            people want to see under each menu.
+            As a result of the card sort, there were no new categories added by
+            the users, and there was unanimous agreement on 15 out of the 37
+            cards. The results provided insights into how users want to access
+            information and helped in creating a design based on their
+            perspective.
           </Text>
         </SubSection>
         {/* sitemap */}
-        <SubSection title="Sitemap" color="text-brown4">
+        <SubSection title="Sitemap" color="text-dark-green">
           <Text>
-            Based on the results of the card sort, I designed the app&apos;s
-            structure and created a sitemap. Referring to the research, which
-            showed that travelers tend to struggle with searching for
-            restaurants and managing reservations, I decided to focus on search
-            and reservations, highlighted by dotted lines.
+            Based on the results of the card sort, I created a sitemap for the
+            website structure. Since users expect to see not only products but
+            also categories like skin type and skin concerns as part of the
+            products, the structure was designed to ensure easy access to
+            detailed information from the shop section.
           </Text>
           <div className="relative w-[1040px] h-[523px]">
-            <Image src="/resto/sitemap.png" alt="Sitemap" fill />
-            <div className="text-dark-orange text-[22px] tracking-[.02em] absolute bottom-0 w-[438px] right-[44px]">
-              *The outlined items are where I am focusing to help solve the
-              problems identified by users
-            </div>
+            <Image src="/pibu/sitemap.svg" alt="Sitemap" fill />
           </div>
           <div className="ml-auto">
             <FigmaLink href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=35-1840">
               View the sitemap
             </FigmaLink>
           </div>
-          <div className="space-y-7 pt-9">
-            <div className="text-[26px] font-semibold tracking-[.02em]">
-              Key categories
-            </div>
-            <div
-              className={
-                "text-2xl font-medium tracking-[.02em] flex flex-wrap px-24 py-16 justify-between gap-y-7 border-2 " +
-                "rounded-3xl border-dark-brown"
-              }
-            >
-              <div className="w-1/3">Reservations</div>
-              <div className="w-1/3">Settings</div>
-              <div className="w-1/3">Search/Find</div>
-              <div className="w-1/3">Restaurant</div>
-              <div className="w-1/3">Discover</div>
-              <div className="w-1/3">My page/Account</div>
-            </div>
-          </div>
         </SubSection>
-        <SubSection title="Task Flow" color="text-brown4">
+        <SubSection title="Task Flow" color="text-dark-green">
           <Text>
             I created two task flows to clarify the steps necessary for users to
             achieve specific goals and promote a user-friendly approach.
           </Text>
           <TaskFlow
-            title="Discover restaurants or cafes and make a reservations"
-            img="/resto/task-flow-1.png"
-            width={1800}
-            height={168}
-            className="w-[1800px]"
+            title="Identify your skin type"
+            img="/pibu/task-flow-1.svg"
+            width={1495}
+            height={80}
+            className="w-[1495px]"
           />
           <TaskFlow
-            title="Check the reservations and the saved restaurants to plan your dining schedule during the trip"
-            img="/resto/task-flow-2.png"
-            width={1312}
-            height={168}
-            className="w-[1312px]"
+            title="Purchase the right products for your skin type"
+            img="/pibu/task-flow-2.svg"
+            width={2815}
+            height={80}
+            className="w-[2815px]"
           />
           <div>
             <FigmaLink href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=42-8803">
@@ -559,17 +581,18 @@ export default function Pibu() {
             </FigmaLink>
           </div>
         </SubSection>
-        <SubSection title="User Flow" color="text-brown4">
+        <SubSection title="User Flow" color="text-dark-green">
           <Text>
             I created a user flow to understand user needs and identify
             potential issues or confusing elements that are related to “search”
             and “reservations”.
           </Text>
           <UserFlow
-            title="Discover restaurants or cafes and make reservations tailored to your preferences"
-            img="/resto/user-flow.svg"
-            width={4096}
-            height={875}
+            title="Purchase the right products for your skin type"
+            img="/pibu/user-flow.svg"
+            width={5330}
+            height={900}
+            className="w-[5330px] h-[1000px]"
           />
           <FigmaLink href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=80-1978">
             View the user flow
@@ -581,7 +604,7 @@ export default function Pibu() {
           want to search and prevent duplicate reservations, I created specific
           design layouts.
         </Text>
-        <SubSection title="Low-fidelity" color="text-brown4">
+        <SubSection title="Low-fidelity" color="text-dark-green">
           <div className="h-[486px] flex space-x-6">
             <div className="flex flex-col w-1/3 space-y-2 text-center">
               <div className="flex-none text-2xl tracking-[.02em]">Home</div>
@@ -590,17 +613,27 @@ export default function Pibu() {
               </div>
             </div>
             <div className="flex flex-col w-1/3 space-y-2 text-center">
-              <div className="flex-none text-2xl tracking-[.02em]">Search</div>
+              <div className="flex-none text-2xl tracking-[.02em]">
+                How to check skin type
+              </div>
               <div className="relative flex-auto">
-                <Image src="/resto/lofi-2.jpg" alt="Home" fill />
+                <Image
+                  src="/resto/lofi-2.jpg"
+                  alt="How to check skin type"
+                  fill
+                />
               </div>
             </div>
             <div className="flex flex-col w-1/3 space-y-2 text-center">
               <div className="flex-none text-2xl tracking-[.02em]">
-                Make a reservation
+                How to check skin type
               </div>
               <div className="relative flex-auto">
-                <Image src="/resto/lofi-3.jpg" alt="Home" fill />
+                <Image
+                  src="/resto/lofi-3.jpg"
+                  alt="How to check skin type"
+                  fill
+                />
               </div>
             </div>
           </div>
@@ -613,7 +646,7 @@ export default function Pibu() {
           and digitalized them to create mid-fidelity wireframes, making the
           detailed layout more tangible.
         </Text>
-        <SubSection title="Mid-fidelity" color="text-brown4">
+        <SubSection title="Mid-fidelity" color="text-dark-green">
           <div className="h-[675px] flex space-x-5">
             <div className="w-1/4 relative">
               <Image src="/resto/midfi-1.png" alt="Discover" fill />
@@ -639,204 +672,157 @@ export default function Pibu() {
         </Text>
         {/* mid-fidelity test */}
         <TestCard title="Mid-fidelity test" className="border-brown5">
-          <Text>6 people (in person & online)</Text>
+          <Text>5 people (in person & online)</Text>
           <div className="pt-7 space-y-20">
             {/* test 1 */}
             <div className="space-y-7">
               <ul className="list-disc list-outside text-[24px] tracking-[.02em] pl-6">
-                <li>Explore an app and try to search for restaurants</li>
+                <li>Determine and save your skin type</li>
               </ul>
               <Text sm>
-                → People want to explore restaurants in various ways, so I need
-                to consider different approaches.
+                → People were able to determine their skin type by looking at
+                the table, but they found it somewhat difficult to save their
+                skin type. The sections for each skin type weren’t clearly
+                defined, so some people ended up saving the wrong skin type.
               </Text>
               <Image
-                src="/resto/midfi-test-1.png"
-                alt="Test"
+                src="/pibu/midfi-test-1.svg"
+                alt="Determine and save your skin type"
                 width={940}
-                height={435}
+                height={1338}
               />
             </div>
             {/* test 2 */}
             <div className="space-y-7">
               <ul className="list-disc list-outside text-[24px] tracking-[.02em] pl-6">
-                <li>Check the details of a restaurant</li>
+                <li>
+                  Compare products and purchase the one that best suits you
+                </li>
               </ul>
               <Text sm>
-                → When there are too many restaurants displayed on the map, it
-                can be difficult to choose, so a display method that clearly
-                shows the differences is needed.
+                → The comparison function was the biggest challenge. Because the
+                compare button was not clearly visible, people were unsure how
+                to compare products and were confused about what steps to take
+                next. It&apos;s essential to make it clear that a comparison
+                function exists and to ensure it&apos;s displayed in a way
+                that&apos;s easy to use.
               </Text>
               <Image
-                src="/resto/midfi-test-2.png"
-                alt="Test"
+                src="/pibu/midfi-test-2.svg"
+                alt="Compare products and purchase the one that best suits you"
                 width={940}
-                height={895}
+                height={920}
               />
-            </div>
-            {/* test 3 */}
-            <div className="space-y-7">
-              <ul className="list-disc list-outside text-[24px] tracking-[.02em] pl-6">
-                <li>Make a reservation</li>
-              </ul>
-              <Text sm>
-                → While the process for making reservations should be smooth, we
-                also need to find a way to prevent duplicate bookings.
-              </Text>
               <Image
                 src="/resto/midfi-test-3.png"
                 alt="Test"
                 width={940}
-                height={437}
+                height={920}
               />
             </div>
           </div>
         </TestCard>
-        <DownArrow />
-        <SubSection title="Mid-fidelity (iterations)" color="text-brown4">
-          <Image
-            src="/resto/iterations.png"
-            alt="Mid-fidelity iterations"
-            width={1040}
-            height={1874}
-          />
+        <Transition
+          text={
+            "Based on the results of the mid-fi test, I iterated on the design to " +
+            "make it more user-friendly and help users achieve their goals."
+          }
+        />
+        <SubSection title="Mid-fidelity (iterations)" color="text-dark-green">
+          <div className="space-y-20 pb-8">
+            <Image
+              src="/pibu/midfi-iterations-1.svg"
+              alt="Mid-fidelity iterations"
+              width={1040}
+              height={1416}
+            />
+            <Separator className="bg-light-green" />
+            <Image
+              src="/pibu/midfi-iterations-2.svg"
+              alt="Mid-fidelity iterations"
+              width={1040}
+              height={1416}
+            />
+          </div>
           <FigmaLink href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1043-21730">
             View the iterated mid-fidelity
           </FigmaLink>
         </SubSection>
       </Section>
-      <Separator className="bg-brown6" />
+      <Separator className="bg-brown" />
       {/* branding */}
       <div className="space-y-12 w-[1040px] mx-auto">
         {/* header */}
         <div className="text-3xl font-bold tracking-[.02em]">Branding</div>
         <Text>
-          To create a user-centered product, it&apos;s essential to build a
-          brand image that attracts users. I established brand values to ensure
-          that searching for and booking restaurants does not feel difficult.
+          Pibu already has a developed store image, including the logo and
+          aesthetic. Based on the brand image the stakeholders aim for, I chose
+          typography and colors to attract users.
         </Text>
         <div className="space-y-24 pb-24">
           {/* brand value */}
-          <BrandSection title="Brand Value" className="space-y-8">
+          <BrandSection
+            title="Style Tile"
+            className="space-y-8"
+            color="text-brown10"
+          >
+            <Text>
+              Based on Pibu’s brand values of clean, young, modern, and
+              refreshing, we created two style tiles: one with a blue theme and
+              one with a green theme. The blue style tile was selected by the
+              stakeholder as the one that best aligns with the brand image.
+            </Text>
             <div className="text-[26px] font-medium tracking-[.02em]">
-              Clean / Modern / Joyful / Friendly / Vibrant
+              Clean / Young / Modern / Refreshing
             </div>
             <Image
-              src="/resto/moodboard.png"
-              alt="Moodboard"
+              src="/pibu/style-tile.png"
+              alt="Style Tile"
               width={1040}
-              height={669}
+              height={740}
             />
           </BrandSection>
-          {/* brand logos */}
-          <BrandSection title="Brand Logos" className="space-y-12">
-            <div className="text-[26px] font-medium tracking-[.02em] flex space-x-16">
-              {/* logo 1 */}
-              <div className="space-y-12 w-[300px]">
-                <div className="relative h-[200px] w-[193px] mx-auto">
-                  <Image
-                    src="/resto/logo-1.svg"
-                    alt="Logo 1"
-                    className="object-cover"
-                    fill
-                  />
-                </div>
-                <div className="relative h-[80px] w-full">
-                  <Image
-                    src="/resto/logo-1-sm.svg"
-                    alt="Logo 1 small"
-                    className="object-contain"
-                    fill
-                  />
-                </div>
-                <div className="text-[20px] font-normal">
-                  The bowl and chopsticks represent essential elements of
-                  Japanese cuisine, and the font reflects the subtlety of
-                  Japanese cuisine.
-                </div>
-              </div>
-              {/* logo 2 */}
-              <div className="space-y-12 w-[300px]">
-                <div className="relative h-[200px] w-[193px] mx-auto">
-                  <Image
-                    src="/resto/logo-2.svg"
-                    alt="Logo 2"
-                    className="object-cover"
-                    fill
-                  />
-                </div>
-                <div className="relative h-[80px] w-full">
-                  <Image
-                    src="/resto/logo-2-sm.svg"
-                    alt="Logo 2 small"
-                    className="object-contain"
-                    fill
-                  />
-                </div>
-                <div className="text-[20px] font-normal">
-                  The rounded cutlery and font convey a sense of friendliness
-                  and make it easy to imagine a restaurant.
-                </div>
-              </div>
-              {/* logo 3 */}
-              <div className="space-y-12 w-[300px]">
-                <div className="relative h-[200px] w-[240px] mx-auto">
-                  <Image
-                    src="/resto/logo-3.svg"
-                    alt="Logo 3"
-                    className="object-cover"
-                    fill
-                  />
-                </div>
-                <div className="relative h-[80px] w-full">
-                  <Image
-                    src="/resto/logo-3-sm.svg"
-                    alt="Logo 3 small"
-                    className="object-contain"
-                    fill
-                  />
-                </div>
-                <div className="text-[20px] font-normal">
-                  The &quot;O&quot; in resto matches the search icon, indicating
-                  that searching is easy.
-                </div>
-              </div>
-            </div>
-          </BrandSection>
-          <BrandSection title="Typography" className="space-y-12">
+          <BrandSection
+            title="Typography"
+            className="space-y-12"
+            color="text-brown10"
+          >
             <div className="flex">
-              <div className="space-y-4">
-                <div className="font-manrope tracking-[.02em] text-[24px] font-semibold">
-                  H1 - Manrope 24px
+              <div className={`space-y-4 ${avenir.className}`}>
+                <div className="tracking-[.02em] text-[40px] font-medium">
+                  H1 - Avenir Next 40px
                 </div>
-                <div className="font-manrope tracking-[.02em] text-[20px] font-medium">
-                  H2 - Manrope 20px
+                <div className="tracking-[.02em] text-[36px] font-medium">
+                  H2 - Avenir Next 36px
                 </div>
-                <div className="font-manrope tracking-[.02em] text-[18px] font-medium">
-                  H3 - Manrope 18px
+                <div className="tracking-[.02em] text-[30px] font-medium">
+                  H3 - Avenir Next 30px
                 </div>
-                <div className="font-manrope tracking-[.02em] text-[16px] font-medium">
-                  B1 - Manrope 16px
+                <div className="tracking-[.02em] text-[26px] font-normal">
+                  B1 - Avenir Next 26px
                 </div>
-                <div className="font-manrope tracking-[.02em] text-[14px] font-medium">
-                  B2 - Manrope 14px
+                <div className="tracking-[.02em] text-[20px] font-normal">
+                  B2 - Avenir Next 20px
                 </div>
-                <div className="font-manrope tracking-[.02em] text-[10px] font-normal">
-                  Function S- Manrope 10px
+                <div className="tracking-[.02em] text-[16px] font-normal">
+                  Function S- Avenir Next 16px
                 </div>
-                <div className="font-manrope tracking-[.02em] text-[16px] font-medium">
-                  Function M- Manrope 16px
+                <div className="tracking-[.02em] text-[18px] font-medium">
+                  Function M- Avenir Next 18px
                 </div>
               </div>
               <Text className="w-[550px] ml-auto mt-auto" sm>
-                The Manrope font has a clean and simple design, making it
-                effective for smoothly navigating restaurant and reservation
-                information. Additionally, its modern and minimalist style
-                provides a professional and up-to-date image.
+                I chose Avenir Next because it offers a clean and modern look
+                that aligns perfectly with Pibu’s brand image. Its readability
+                and elegant design enhance the aesthetic of a skincare brand.
               </Text>
             </div>
           </BrandSection>
-          <BrandSection title="Colors" className="space-y-12">
+          <BrandSection
+            title="Colors"
+            className="space-y-12"
+            color="text-brown10"
+          >
             <div className="flex">
               <div className="space-y-5">
                 <div className="space-y-[10px]">
@@ -844,9 +830,9 @@ export default function Pibu() {
                     Primary
                   </div>
                   <div className="flex space-x-[10px]">
-                    <Color color="EE722B" className="bg-[#EE722B]" />
-                    <Color color="C65310" className="bg-[#C65310]" />
-                    <Color color="953B1D" className="bg-[#953B1D]" />
+                    <Color color="CCDBDE" className="bg-[#CCDBDE]" />
+                    <Color color="9ABBC2" className="bg-[#9ABBC2]" />
+                    <Color color="85999D" className="bg-[#85999D]" />
                   </div>
                 </div>
                 <div className="space-y-[10px]">
@@ -854,9 +840,9 @@ export default function Pibu() {
                     Secondary
                   </div>
                   <div className="flex space-x-[10px]">
-                    <Color color="F4F0E0" className="bg-[#F4F0E0]" />
-                    <Color color="DFD5BD" className="bg-[#DFD5BD]" />
-                    <Color color="B8AE94" className="bg-[#B8AE94]" />
+                    <Color color="F0EAE3" className="bg-[#F0EAE3]" />
+                    <Color color="DBCFBF" className="bg-[#DBCFBF]" />
+                    <Color color="C3B29C" className="bg-[#C3B29C]" />
                   </div>
                 </div>
                 <div className="space-y-[10px]">
@@ -865,8 +851,8 @@ export default function Pibu() {
                   </div>
                   <div className="flex space-x-[10px]">
                     <Color
-                      color="F9F9F7"
-                      className="bg-[#F9F9F7] border-[#5F4C35] border-[0.5px]"
+                      color="EFEFEF"
+                      className="bg-[#EFEFEF] border-[#5F4C35] border-[0.5px]"
                     />
                     <Color
                       color="FFFFFF"
@@ -875,14 +861,13 @@ export default function Pibu() {
                   </div>
                 </div>
               </div>
-              <div className="w-[550px] ml-auto">
-                <Text>
-                  I chose a bright and vibrant orange as the primary color to
-                  convey friendliness and stimulate appetite. Additionally,
-                  using colors close to red and white, which are featured in the
-                  Japanese flag, enhances the Japanese theme. For the secondary
-                  color, we selected earthy tones to provide a modern and
-                  minimalist impression.
+              <div className="w-[550px] ml-auto pt-8">
+                <Text sm>
+                  For the main color, I chose a blue hue that conveys a clean
+                  and refreshing feel. Among these, a slightly muted blue
+                  provides a modern impression. For the secondary color, I
+                  selected earth tones that give a modern and minimal look,
+                  which closely aligns with the store’s image.
                   <br />
                   <br />
                   In order to make a user-friendly website, I conducted an
@@ -893,138 +878,159 @@ export default function Pibu() {
             </div>
           </BrandSection>
         </div>
-        <Separator className="bg-brown6" />
+        <Separator className="bg-brown" />
         <div className="py-5">
           <Transition text="I applied all branding elements to the wireframes and created high-fidelity wireframes" />
         </div>
-        <SubSection title="Hi-fidelity" color="text-brown4">
-          <Image
-            src="/resto/hifi.png"
-            alt="Hi-fidelity"
-            width={1040}
-            height={602}
-          />
+        <SubSection title="Hi-fidelity" color="text-dark-green">
+          <DoubleCarousel prefix="hifi" />
           <FigmaLink href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=692-48559">
             View the full hi-fidelity
           </FigmaLink>
         </SubSection>
       </div>
       {/* test */}
-      <Section title="Test" underline="bg-green3" className="px-52 pb-24">
+      <Section title="Test" underline="bg-brown3" className="px-52 pb-24">
         <Text>
           To confirm whether high-fidelity wireframes can actually achieve user
           goals, I conducted usability testing.
         </Text>
         {/* usability test */}
-        <TestCard title="Usability test" className="border-brown5">
+        <TestCard title="Usability test" className="border-brown3">
           <div className="text-[24px] tracking-[.02em]">
-            5 people (in person & online)
+            6 people (in person & online)
           </div>
           <ul className="list-disc list-outside text-[26px] tracking-[.02em] font-medium pl-6 space-y-7">
-            <li>Search for restaurants that have an English menu</li>
-            <li>Choose a restaurant that is popular among locals</li>
-            <li>Search for restaurants near a famous landmark</li>
-            <li>Make a reservation without scheduling conflicts</li>
+            <li>Find out where you can determine your skin type</li>
+            <li>
+              Save your skin type and find a list of items that are good for
+              your skin type
+            </li>
+            <li>Compare products and purchase the one that best suits you</li>
           </ul>
         </TestCard>
-        <SubSection title="Test results" color="text-green4" relaxed>
+        <SubSection title="Test results" color="text-brown8" relaxed>
           <div className="flex flex-wrap gap-y-[55px] justify-evenly">
             <Avatar
+              name="Grace"
+              pronouns="she/her"
+              desc={
+                "She thought she could just click item images (instead of the check " +
+                "button) to compare products"
+              }
+            />
+            <Avatar
               name="Peter"
-              age="34"
-              desc="He had difficulty finding reviews from locals"
+              pronouns="he/him"
+              desc={
+                "He was able to finish all tasks but the process of comparing the " +
+                "products was a little bit challenging for him"
+              }
             />
             <Avatar
-              name="Clare"
-              age="26"
-              desc="She was a little confused about the process of checking reservation conflicts"
+              name="Mayuri"
+              pronouns="she/her"
+              desc="She seemed unsure about where to click for each of the tasks"
             />
             <Avatar
-              name="Alex"
-              age="32"
-              desc="He wanted to see a list of restaurants and more distinct location icon colors"
+              name="Yingyang"
+              pronouns="she/her"
+              desc="She tried to click many different items to compare"
             />
             <Avatar
-              name="Taylor"
-              age="30"
-              desc="He finished all tasks without any issues"
+              name="Natasha"
+              pronouns="she/her"
+              desc="She expected to complete the tasks in a different way"
             />
             <Avatar
-              name="Minoru"
-              age="68"
-              desc="He expected to see a reservation conflict notification before going to the reservation page"
+              name="Alexa"
+              pronouns="she/her"
+              desc="It wasn’t difficult for her to finish the tasks"
             />
           </div>
           <Text>
-            Most users were able to complete the general flow of tasks, but they
-            seemed a bit confused by some details. Specifically, the methods for
-            finding popular local restaurants and confirming to avoid duplicate
-            reservations differed from what they expected, causing them to take
-            longer to complete the tasks.
+            The users found it easy to determine their skin type and view
+            product lists tailored to their skin type, but they struggled with
+            comparing and finding the items that suited them best. Even after
+            revising the item comparison process in the mid-fi prototype, they
+            encountered new difficulties and found the process unclear.
           </Text>
         </SubSection>
-        <SubSection title="Iterations" color="text-green4" relaxed>
+        <SubSection title="Iterations" color="text-brown8" relaxed>
           <div className="space-y-7">
-            <div className="text-[24px] font-medium tracking-[.02em]">
-              Search - Restaurant list
-            </div>
+            <div className="text-[24px] font-medium tracking-[.02em]">Home</div>
             <Image
-              src="/resto/iterations-1.png"
-              alt="Search - Restaurant list"
+              src="/pibu/iterations-1.png"
+              alt="Home"
               width={1040}
-              height={491}
+              height={440}
             />
           </div>
           <div className="space-y-7">
             <div className="text-[24px] font-medium tracking-[.02em]">
-              Search - Map
+              Item list
             </div>
             <Image
-              src="/resto/iterations-2.png"
-              alt="Search - Restaurant list"
+              src="/pibu/iterations-2.png"
+              alt="Item list"
               width={1040}
-              height={491}
+              height={440}
             />
           </div>
           <div className="space-y-7">
             <div className="text-[24px] font-medium tracking-[.02em]">
-              Search - Restaurant info
+              Item list - choose items to compare
             </div>
             <Image
-              src="/resto/iterations-3.png"
-              alt="Search - Restaurant list"
+              src="/pibu/iterations-3.png"
+              alt="Item list - choose items to compare"
               width={1040}
-              height={491}
+              height={440}
             />
           </div>
           <div className="space-y-7">
             <div className="text-[24px] font-medium tracking-[.02em]">
-              Reservation - Notification
+              Comparison
             </div>
             <Image
-              src="/resto/iterations-4.png"
-              alt="Search - Restaurant list"
+              src="/pibu/iterations-4.png"
+              alt="Comparison"
               width={1040}
-              height={491}
+              height={440}
             />
           </div>
         </SubSection>
-        <Transition text="After I made design changes based on the usability test, the design is finalized" />
-        <Image
-          src="/resto/hifi-wireframes.jpeg"
-          alt="wireframes"
-          width={1040}
-          height={851}
+        <Transition
+          text={
+            "After three iterations, I confirmed that users could complete the tasks " +
+            "and finalized the design."
+          }
         />
-        <div className="w-full">
+        <Image
+          src="/pibu/prototype.png"
+          alt="prototype"
+          width={1040}
+          height={630}
+        />
+        <div className="w-full flex justify-around items-center">
           <Link href="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&viewport=927%2C821%2C0.1&t=x4PyBZiBp9vuODCP-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1">
             <div
               className={
-                "h-[70px] w-[357px] rounded-[64px] bg-dark-green text-white text-[22px] font-medium " +
+                "h-[70px] px-16 rounded-[64px] bg-brown text-white text-[22px] font-medium " +
                 "tracking-[.02em] flex items-center justify-center"
               }
             >
-              View hi-fi prototype
+              View the desktop prototype
+            </div>
+          </Link>
+          <Link href="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&viewport=927%2C821%2C0.1&t=x4PyBZiBp9vuODCP-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1">
+            <div
+              className={
+                "h-[70px] px-16 rounded-[64px] bg-brown text-white text-[22px] font-medium " +
+                "tracking-[.02em] flex items-center justify-center"
+              }
+            >
+              View the mobile prototype
             </div>
           </Link>
         </div>
@@ -1032,24 +1038,20 @@ export default function Pibu() {
       {/* conclusion */}
       <Section
         title="Conclusion"
-        underline="bg-dark-brown"
+        underline="bg-brown"
         className="px-52 pb-24"
-        bg="bg-light-ivory"
+        bg="bg-base"
       >
         <Text>
-          To create a better product throughout the flow from research to
-          design, it’s crucial to grasp users’ pain points and consider how to
-          improve them. Therefore, user feedback is paramount, and hearing raw
-          voices through research is necessary. After actually listening to user
-          feedback in this project, I found it challenging to utilize that
-          feedback to strategize improvements. The goal of this project was to
-          develop an app that eliminates language barriers and confusion in
-          reservation management for travelers searching for restaurants in
-          Japan, helps them find restaurants that meet their needs, and provides
-          a better dining experience. Based on user experiences, I aimed to
-          understand frustrations and difficulties in Japanese dining and
-          determine what features would be useful during actual travel, leading
-          to the final design.
+          Through this project, I gained valuable, realistic experience by
+          working directly with stakeholders to design the website. A key
+          achievement was developing a website that allows users to address
+          their primary challenge: identifying their skin type, based on
+          research findings and stakeholder requirements. The biggest challenge
+          was balancing research-based design decisions with stakeholder
+          feedback. Despite working within a limited timeframe, the fast-paced
+          changes in the cosmetics market emphasize the need for continuous
+          updates to keep the website user-friendly and support business growth.
         </Text>
       </Section>
     </div>

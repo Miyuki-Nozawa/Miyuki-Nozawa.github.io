@@ -2,12 +2,14 @@ import Image from "next/image";
 
 export default function Avatar({
   name,
-  age,
   desc,
+  age,
+  pronouns,
 }: {
   name: string;
-  age: string;
   desc: string;
+  age?: string;
+  pronouns?: string;
 }) {
   return (
     <div className="font-inter text-[18px] tracking-tight w-[270px] space-y-4">
@@ -15,7 +17,7 @@ export default function Avatar({
         <Image src={`/avatars/${name.toLowerCase()}.svg`} alt={name} fill />
       </div>
       <div className="text-center">
-        {name}, age {age}
+        {name}{age && `, age ${age}`}{pronouns && ` (${pronouns})`}
       </div>
       <div>{desc}</div>
     </div>

@@ -15,6 +15,7 @@ export default function ProjectHero({
   industry,
   href,
   classNameButton,
+  headerClassName,
   className = "",
   classNameLeft = "",
   classNameRight = "",
@@ -32,6 +33,7 @@ export default function ProjectHero({
   industry: string;
   href: string;
   classNameButton: string;
+  headerClassName: string
   className?: string;
   classNameLeft?: string;
   classNameRight?: string;
@@ -48,7 +50,7 @@ export default function ProjectHero({
             <div className="text-[26px] tracking-[.02em]">{subtitle}</div>
           )}
         </div>
-        <div className="text-3xl font-bold tracking-[.02em]">{header}</div>
+        <div className={`font-bold tracking-[.02em] ${headerClassName}`}>{header}</div>
         <div className="space-y-4">
           <div className="text-2xl tracking-[.02em]">
             <b className="font-semibold">Project type:</b> {projectType}

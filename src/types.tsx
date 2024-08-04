@@ -1,1 +1,1 @@
-export type DiamondColor = "green" | "brown" | "light-pink" | "light-brown" | "green3" | "brown9";
+export type DiamondColor = "green" | "brown" | "light-pink" | "light-brown" | "green3" | "brown9" | "dark-green";

@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
-import { Inter, Poppins, Manrope } from "next/font/google";
-import Nav from "@/app/components/nav";
 import Footer from "@/app/components/footer";
+import Nav from "@/app/components/nav";
+import type { Metadata } from "next";
+import { Inter, Manrope, Poppins } from "next/font/google";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -35,7 +35,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.className} ${manrope.variable} ${inter.variable} max-w-[1440px] min-h-screen mx-auto bg-base`}
+        className={
+          `${poppins.className} ${manrope.variable} ${inter.variable} max-w-[1440px] ` +
+          "min-h-screen mx-auto bg-base tracking-[.02em]"
+        }
       >
         <Nav />
         {children}

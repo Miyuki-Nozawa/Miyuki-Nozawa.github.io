@@ -17,7 +17,7 @@ export default function TaskFlow({
     <div>
       <div className="text-2xl font-medium tracking-[.02em]">{title}</div>
       <div className="overflow-scroll">
-        <div className={`relative h-[170px] ${className}`}>
+        <div className={`relative h-[180px] flex items-center ${className}`}>
           <Image src={img} alt="task flow" width={width} height={height} />
         </div>
       </div>
