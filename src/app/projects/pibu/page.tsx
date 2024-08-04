@@ -882,7 +882,28 @@ export default function Pibu() {
           <Transition text="I applied all branding elements to the wireframes and created high-fidelity wireframes" />
         </div>
         <SubSection title="Hi-fidelity" color="text-dark-green">
-          <DoubleCarousel prefix="hifi" />
+          <DoubleCarousel
+            itemClassName="relative w-[400px] h-[792px]"
+            items={[
+              "/pibu/hifi-1.png",
+              "/pibu/hifi-2.png",
+              "/pibu/hifi-3.png",
+              "/pibu/hifi-4.png",
+              "/pibu/hifi-5.png",
+              "/pibu/hifi-6.png",
+            ]}
+            nav={{
+              className: "relative w-[133px] h-[150px] hover:cursor-pointer",
+              items: [
+                "/pibu/hifi-1-sm.png",
+                "/pibu/hifi-2-sm.png",
+                "/pibu/hifi-3-sm.png",
+                "/pibu/hifi-4-sm.png",
+                "/pibu/hifi-5-sm.png",
+                "/pibu/hifi-6-sm.png",
+              ],
+            }}
+          />
           <FigmaLink href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=692-48559">
             View the full hi-fidelity
           </FigmaLink>

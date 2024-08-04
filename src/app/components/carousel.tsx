@@ -32,15 +32,12 @@ export default function Carousel({
       <div className="space-y-7 w-full">
         <div className="flex items-center justify-between w-full">
           <div
-            className="relative w-[20px] h-[36px] hover:cursor-pointer"
+            className={`relative w-[20px] h-[36px] ${
+              current === 0 ? "opacity-20" : "hover:cursor-pointer"
+            }`}
             onClick={() => handleChange(-1)}
           >
-            <Image
-              src="/icons/left.svg"
-              alt="Previous"
-              className={current === 0 ? "opacity-20" : ""}
-              fill
-            />
+            <Image src="/icons/left.svg" alt="Previous" fill />
           </div>
           <Image
             src={items[current]}
@@ -49,15 +46,14 @@ export default function Carousel({
             height={height}
           />
           <div
-            className="relative w-[20px] h-[36px] hover:cursor-pointer"
+            className={`relative w-[20px] h-[36px] ${
+              current === items.length - 1
+                ? "opacity-20"
+                : "hover:cursor-pointer"
+            }`}
             onClick={() => handleChange(1)}
           >
-            <Image
-              src="/icons/right.svg"
-              alt="Next"
-              className={current === items.length - 1 ? "opacity-20" : ""}
-              fill
-            />
+            <Image src="/icons/right.svg" alt="Next" fill />
           </div>
         </div>
         {nav && (
