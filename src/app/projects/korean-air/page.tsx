@@ -137,7 +137,7 @@ export default function KoreanAir() {
             </Text>
             <Link
               href={
-                "https://docs.google.com/spreadsheets/d/1Dwxp4uFm2hkjlvu-P9qG-JDbw6w7bHrnVzl4e5HFRjk/edit?gid=0#gid=0"
+                "https://docs.google.com/spreadsheets/d/1Dwxp4uFm2hkjlvu-P9qG-JDbw6w7bHrnVzl4e5HFRjk"
               }
               target="_blank"
             >

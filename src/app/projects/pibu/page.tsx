@@ -63,7 +63,7 @@ export default function Pibu() {
         role="UX/UI designer"
         projectDuration="1 month"
         industry="Beauty and personal care, Retail"
-        href="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&viewport=927%2C821%2C0.1&t=x4PyBZiBp9vuODCP-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1"
+        href="https://www.figma.com/proto/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?page-id=597%3A7713&node-id=807-7005&viewport=341%2C-827%2C0.03&t=WZCKh2jkLMYF6wKx-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=807%3A7005&show-proto-sidebar=1"
         headerClassName="text-[28px] font-manrope font-bold"
         className="px-24 space-x-12 w-full"
         classNameLeft="w-[646px] h-[500px]"
@@ -174,7 +174,7 @@ export default function Pibu() {
               </Text>
             </div>
             <Link
-              href="https://docs.google.com/spreadsheets/d/1miVsV3Eom-ll49Xt5AYETFDtCdXirI7YNvXDjhCpKA8/edit?gid=0#gid=0"
+              href="https://docs.google.com/spreadsheets/d/1gXhtSzPpXVYKsOGuF8s_V30XgVSgRQyaChlTCKN0HSg"
               target="_blank"
             >
               <div
@@ -316,7 +316,7 @@ export default function Pibu() {
                     fill
                   />
                 </div>
-                <FigmaLink href="">View the full affinity map</FigmaLink>
+                <FigmaLink href="https://www.figma.com/board/O6slDgrnsFVZaBVJnSHu3k/Capstone-2---Responsive-Web-Design?node-id=174-1452">View the full affinity map</FigmaLink>
               </div>
               <Text>
                 By categorizing the points into topics and categories on the
@@ -419,7 +419,7 @@ export default function Pibu() {
           className="text-dark-green"
         />
         <div className="w-full">
-          <FigmaLink href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=0-1">
+          <FigmaLink href="https://www.figma.com/design/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?node-id=0-1">
             View the personas
           </FigmaLink>
         </div>
@@ -468,7 +468,7 @@ export default function Pibu() {
           <div className="relative w-[1040px] h-[950px]">
             <Image src="/pibu/project-goals.svg" alt="Project goals" fill />
           </div>
-          <FigmaLink href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1-278">
+          <FigmaLink href="https://www.figma.com/design/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?node-id=1-219">
             View the project goals
           </FigmaLink>
         </SubSection>
@@ -552,7 +552,7 @@ export default function Pibu() {
             <Image src="/pibu/sitemap.svg" alt="Sitemap" fill />
           </div>
           <div className="ml-auto">
-            <FigmaLink href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=35-1840">
+            <FigmaLink href="https://www.figma.com/board/O6slDgrnsFVZaBVJnSHu3k/Capstone-2---Responsive-Web-Design?node-id=86-5125">
               View the sitemap
             </FigmaLink>
           </div>
@@ -577,7 +577,7 @@ export default function Pibu() {
             className="w-[2815px]"
           />
           <div>
-            <FigmaLink href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=42-8803">
+            <FigmaLink href="https://www.figma.com/board/O6slDgrnsFVZaBVJnSHu3k/Capstone-2---Responsive-Web-Design?node-id=98-7778">
               View the task flows
             </FigmaLink>
           </div>
@@ -594,7 +594,7 @@ export default function Pibu() {
             height={900}
             className="w-[5330px] h-[1000px]"
           />
-          <FigmaLink href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=80-1978">
+          <FigmaLink href="https://www.figma.com/board/O6slDgrnsFVZaBVJnSHu3k/Capstone-2---Responsive-Web-Design?node-id=70-2700">
             View the user flow
           </FigmaLink>
         </SubSection>
@@ -638,7 +638,7 @@ export default function Pibu() {
               </div>
             </div>
           </div>
-          <FigmaLink href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=46-55">
+          <FigmaLink href="https://www.figma.com/design/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?node-id=100-1673">
             View the full low-fidelity
           </FigmaLink>
         </SubSection>
@@ -660,7 +660,7 @@ export default function Pibu() {
               ]}
             />
           </div>
-          <FigmaLink href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1043-37036">
+          <FigmaLink href="https://www.figma.com/design/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?node-id=1526-34763">
             View the full mid-fidelity
           </FigmaLink>
         </SubSection>
@@ -743,7 +743,7 @@ export default function Pibu() {
               height={1416}
             />
           </div>
-          <FigmaLink href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1043-21730">
+          <FigmaLink href="https://www.figma.com/design/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?node-id=1526-34765">
             View the iterated mid-fidelity
           </FigmaLink>
         </SubSection>
@@ -904,7 +904,7 @@ export default function Pibu() {
               ],
             }}
           />
-          <FigmaLink href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=692-48559">
+          <FigmaLink href="https://www.figma.com/design/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?node-id=931-7844">
             View the full hi-fidelity
           </FigmaLink>
         </SubSection>
@@ -1033,7 +1033,7 @@ export default function Pibu() {
           height={630}
         />
         <div className="w-full flex justify-around items-center">
-          <Link href="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&viewport=927%2C821%2C0.1&t=x4PyBZiBp9vuODCP-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1">
+          <Link href="https://www.figma.com/proto/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?page-id=597%3A7713&node-id=807-7005&viewport=341%2C-827%2C0.03&t=WZCKh2jkLMYF6wKx-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=807%3A7005&show-proto-sidebar=1">
             <div
               className={
                 "h-[70px] px-16 rounded-[64px] bg-brown text-white text-[22px] font-medium " +
@@ -1043,7 +1043,7 @@ export default function Pibu() {
               View the desktop prototype
             </div>
           </Link>
-          <Link href="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&viewport=927%2C821%2C0.1&t=x4PyBZiBp9vuODCP-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1">
+          <Link href="https://www.figma.com/proto/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?page-id=1270%3A16466&node-id=1270-16467&viewport=275%2C469%2C0.08&t=CHEsspLqyjlv47Dm-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1270%3A16467&show-proto-sidebar=1">
             <div
               className={
                 "h-[70px] px-16 rounded-[64px] bg-brown text-white text-[22px] font-medium " +

@@ -139,7 +139,7 @@ export default function Resto() {
               system and incorporates the latest trends.
             </Text>
             <Link
-              href="https://docs.google.com/spreadsheets/d/1miVsV3Eom-ll49Xt5AYETFDtCdXirI7YNvXDjhCpKA8/edit?gid=0#gid=0"
+              href="https://docs.google.com/spreadsheets/d/1miVsV3Eom-ll49Xt5AYETFDtCdXirI7YNvXDjhCpKA8/"
               target="_blank"
             >
               <div
