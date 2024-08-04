@@ -749,12 +749,23 @@ export default function KoreanAir() {
             applied the brand colors to the added features.
           </Text>
           <Carousel
-            prefix="hifi"
-            filetype="png"
-            project="korean-air"
             width={800}
             height={568}
-            nav
+            items={[
+              "/korean-air/hifi-1.png",
+              "/korean-air/hifi-2.png",
+              "/korean-air/hifi-3.png",
+              "/korean-air/hifi-4.png",
+            ]}
+            nav={{
+              itemClassName: "w-[194px] h-[138px]",
+              items: [
+                "/korean-air/hifi-1-sm.png",
+                "/korean-air/hifi-2-sm.png",
+                "/korean-air/hifi-3-sm.png",
+                "/korean-air/hifi-4-sm.png",
+              ],
+            }}
           />
           <FigmaLink href="https://www.figma.com/design/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=539-3694">
             View the full hi-fidelity
