@@ -713,7 +713,7 @@ export default function Pibu() {
                 height={920}
               />
               <Image
-                src="/pibu/midfi-test-3.png"
+                src="/pibu/midfi-test-3.svg"
                 alt="Test"
                 width={940}
                 height={920}
