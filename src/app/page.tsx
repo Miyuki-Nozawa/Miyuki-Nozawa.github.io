@@ -120,23 +120,14 @@ export default function Home() {
                 </div>
                 <div
                   className={
-                    "mt-auto bg-brown3 rounded-3xl px-7 py-2 text-[12px] " +
-                    "font-semibold w-[166px]"
+                    "mt-auto bg-brown3 rounded-3xl px-7 py-[10px] text-[14px] " +
+                    "font-semibold w-[180px]"
                   }
                 >
                   <Link href="/projects/korean-air">View case study</Link>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="relative w-[41rem] h-[30rem]">
-            <Image src="/stock/project-placeholder.png" alt="project" fill />
-          </div>
-          <div className="relative w-[41rem] h-[30rem]">
-            <Image src="/stock/project-placeholder.png" alt="project" fill />
-          </div>
-          <div className="relative w-[41rem] h-[30rem]">
-            <Image src="/stock/project-placeholder.png" alt="project" fill />
           </div>
         </div>
       </div>
