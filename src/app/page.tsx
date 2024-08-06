@@ -21,7 +21,7 @@ export default function Home() {
               "w-52 h-16 text-xl tracking-widest font-medium rounded-md bg-light-green"
             }
           >
-            Learn More
+            <Link href="/about">Learn More</Link>
           </button>
         </div>
         <div className="flex-none w-[785px] h-[480px] relative">
