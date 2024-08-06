@@ -41,7 +41,8 @@ export default function RootLayout({
         }
       >
         <Nav />
-        {children}
+        <div className="pt-[192px]">
+        {children}</div>
         <Footer />
       </body>
     </html>

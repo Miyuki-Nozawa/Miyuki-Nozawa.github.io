@@ -8,11 +8,8 @@ import Link from "next/link";
 
 export default function Footer() {
   const [hovered, setHovered] = useState(false);
-  // const [panelHovered, setPanelHovered] = useState(false);
   const pathname = usePathname();
-  // const isProject = pathname.startsWith("/projects");
   const isContact = pathname.startsWith("/contact");
-  // const background = isProject ? "bg-white" : "bg-base";
   const background = "bg-base";
   const extras = isContact
     ? "absolute top-0 z-10 right-0 left-0 bg-transparent"
@@ -37,7 +34,10 @@ export default function Footer() {
   return (
     <div className="relative">
       <div
-        className={`flex justify-between items-center p-16 h-[192px] ${background} ${extras}`}
+        className={
+          "absolute top-0 right-0 left-0 flex justify-between items-center p-16 " +
+          `h-[192px] z-20 ${background} ${extras}`
+        }
       >
         <Image
           src="/icons/nav.svg"
@@ -52,8 +52,11 @@ export default function Footer() {
           <div onMouseOver={handleProjectClose}>
             <NavLink href="/about">About</NavLink>
           </div>
-          <div onMouseOver={handleProjectHover}>
-            <NavLink href="/projects">Projects</NavLink>
+          <div
+            onMouseOver={handleProjectHover}
+            className="text-2xl tracking-widest hover:cursor-pointer"
+          >
+            Projects
           </div>
           <div onMouseOver={handleProjectClose}>
             <NavLink href="/resume">Resume</NavLink>
@@ -66,44 +69,43 @@ export default function Footer() {
       <div
         className={
           "absolute top-[192px] left-0 right-0 z-20 bg-base transition-all " +
-          `duration-300 ${hovered ? "h-[300px]" : "h-0 invisible"}`
+          "overflow-hidden duration-500 " +
+          `${hovered ? "h-[300px]" : "h-0"}`
         }
         onMouseLeave={handlePanelMouseLeave}
       >
-        {hovered && (
-          <div className="flex items-center justify-around h-full">
-            <Link href="/projects/resto" onClick={handleClick}>
-              <Image
-                src="/resto/logo-md.svg"
-                alt="Resto"
-                width={338}
-                height={200}
-              />
-            </Link>
-            <Link href="/projects/korean-air" onClick={handleClick}>
-              <Image
-                src="/korean-air/logo-md.svg"
-                alt="Korean Air"
-                width={338}
-                height={200}
-              />
-            </Link>
-            <Link href="/projects/pibu" onClick={handleClick}>
-              <Image
-                src="/pibu/logo-md.svg"
-                alt="Pibu"
-                width={338}
-                height={200}
-              />
-            </Link>
-          </div>
-        )}
+        <div className="flex items-center justify-around h-[252px]">
+          <Link href="/projects/resto" onClick={handleClick}>
+            <Image
+              src="/resto/logo-md.svg"
+              alt="Resto"
+              width={338}
+              height={200}
+            />
+          </Link>
+          <Link href="/projects/korean-air" onClick={handleClick}>
+            <Image
+              src="/korean-air/logo-md.svg"
+              alt="Korean Air"
+              width={338}
+              height={200}
+            />
+          </Link>
+          <Link href="/projects/pibu" onClick={handleClick}>
+            <Image
+              src="/pibu/logo-md.svg"
+              alt="Pibu"
+              width={338}
+              height={200}
+            />
+          </Link>
+        </div>
       </div>
       <div
         className={
-          "absolute h-screen w-screen z-30 transition-all duration-300 " +
-          "bottom-0 left-0 right-0 bg-black opacity-50 pointer-events-none " +
-          `${hovered ? "top-[492px]" : "top-[192px] invisible transition-none"}`
+          "absolute h-screen w-screen z-10 transition-all duration-500 bg-black " +
+          "top-0 bottom-0 left-0 right-0 pointer-events-none " +
+          `${hovered ? "opacity-50" : "opacity-0"}`
         }
       ></div>
     </div>

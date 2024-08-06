@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <main>
       {/* hero */}
-      <div className="min-h-[854px]">
+      <div className="min-h-[662px]">
         <Image
           src="/contact/hero.jpg"
           alt="hero"
