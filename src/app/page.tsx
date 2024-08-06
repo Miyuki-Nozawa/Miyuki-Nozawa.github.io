@@ -129,6 +129,46 @@ export default function Home() {
               </div>
             </div>
           </div>
+          {/* pibu feature */}
+          <div className="px-10 py-11 space-y-11 bg-beige rounded-lg w-[656px] h-[490px]">
+            <div className="space-y-5">
+              <Image src="/pibu/logo.svg" alt="Pibu" width={114} height={64} />
+              <div className="font-manrope text-[20px] font-extrabold tracking-[.02em]">
+                A website to introduce a local business and expand their
+                business
+              </div>
+            </div>
+            <div className="flex space-x-[10px]">
+              <Image
+                src="/pibu/hero-sm.png"
+                alt="Pibu"
+                width={356}
+                height={220}
+              />
+              <div className="flex flex-col pb-5">
+                <div className="my-auto space-y-[7px] text-[15px] tracking-[.02em]">
+                  <div>
+                    <b className="font-semibold">Project type:</b> Responsive
+                    web design
+                  </div>
+                  <div>
+                    <b className="font-semibold">Role:</b> UX/UI Designer
+                  </div>
+                  <div>
+                    <b className="font-semibold">Industry:</b> Beauty, retail
+                  </div>
+                </div>
+                <div
+                  className={
+                    "mt-auto bg-brown rounded-3xl px-7 py-[10px] text-[14px] " +
+                    "font-semibold w-[180px] text-white"
+                  }
+                >
+                  <Link href="/projects/pibu">View case study</Link>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       {/* bottom */}
@@ -137,7 +177,7 @@ export default function Home() {
           <Image
             src="/home/who-i-am.jpg"
             alt="me"
-            width={670}
+            width={660}
             height={374}
             className="rounded-md"
           />
@@ -156,12 +196,12 @@ export default function Home() {
                 "text-[22px] w-52 h-16 tracking-widest font-medium rounded-md bg-light-green"
               }
             >
-              Learn More
+              <Link href="/about">Learn More</Link>
             </button>
           </div>
         </div>
         <div className="flex justify-between space-x-14 h-[374px]">
-          <div className="flex flex-col justify-between flex-1">
+          <div className="flex flex-col justify-between flex-1 py-[28px]">
             <div className="font-manrope text-4xl font-extrabold tracking-[.02em]">
               Let&apos;s work together!
             </div>
@@ -174,13 +214,13 @@ export default function Home() {
                 "text-[22px] w-56 h-16 tracking-widest font-medium rounded-md bg-light-pink"
               }
             >
-              Contact me
+              <Link href="/contact">Contact me</Link>
             </button>
           </div>
           <Image
-            src="/home/handshake.jpg"
-            alt="me"
-            width={670}
+            src="/home/laptop.jpg"
+            alt="work"
+            width={647}
             height={374}
             className="rounded-md"
           />

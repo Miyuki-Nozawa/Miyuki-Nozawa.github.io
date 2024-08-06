@@ -77,12 +77,12 @@ export default function Pibu() {
           "audience and brand theme, they are unsure how to align the website with " +
           "these aspects effectively. They are also uncertain about the type of " +
           "content they should include to enhance customers' desire to make " +
-          "purchases. Additionally, pibu aims to build an original website without " +
+          "purchases. Additionally, Pibu aims to build an original website without " +
           "relying on SquareSpace templates. It's crucial to develop a uniquely " +
           "designed, user-friendly website that stands out from competitors."
         }
         solution={
-          "Developing a website to increase awareness of pibu, focusing on e-commerce " +
+          "Developing a website to increase awareness of Pibu, focusing on e-commerce " +
           "for business expansion and emphasizing user-friendliness."
         }
         className="bg-light-green"
@@ -102,8 +102,8 @@ export default function Pibu() {
           aesthetic of their store.
           <Transition
             text={
-              "How can we build an e-commerce-centric website to increase the recognition " +
-              "of pibu and assist in its business expansion?"
+              "How can we build an e-commerce centric website to increase the recognition " +
+              "of Pibu and assist in its business expansion?"
             }
             className="pt-12"
           />
@@ -316,7 +316,9 @@ export default function Pibu() {
                     fill
                   />
                 </div>
-                <FigmaLink href="https://www.figma.com/board/O6slDgrnsFVZaBVJnSHu3k/Capstone-2---Responsive-Web-Design?node-id=174-1452">View the full affinity map</FigmaLink>
+                <FigmaLink href="https://www.figma.com/board/O6slDgrnsFVZaBVJnSHu3k/Capstone-2---Responsive-Web-Design?node-id=174-1452">
+                  View the full affinity map
+                </FigmaLink>
               </div>
               <Text>
                 By categorizing the points into topics and categories on the
@@ -559,8 +561,9 @@ export default function Pibu() {
         </SubSection>
         <SubSection title="Task Flow" color="text-dark-green">
           <Text>
-            I created two task flows to clarify the steps necessary for users to
-            achieve specific goals and promote a user-friendly approach.
+            To clarify the steps necessary for the personas to achieve their
+            goals and ensure a user-friendly experience, I developed two task
+            flows.
           </Text>
           <TaskFlow
             title="Identify your skin type"
