@@ -37,12 +37,13 @@ export default function RootLayout({
       <body
         className={
           `${poppins.className} ${manrope.variable} ${inter.variable} max-w-[1440px] ` +
-          "min-h-screen mx-auto bg-base tracking-[.02em]"
+          "mx-auto bg-base tracking-[.02em]"
         }
       >
         <Nav />
-        <div className="pt-[192px]">
-        {children}</div>
+        {/* spacer */}
+        <div className="h-[192px]"></div>
+        {children}
         <Footer />
       </body>
     </html>

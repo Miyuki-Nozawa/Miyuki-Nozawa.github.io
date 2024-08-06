@@ -191,13 +191,6 @@ export default function Home() {
               passionate about crafting detailed user experiences that address
               diverse needs.
             </Text>
-            <button
-              className={
-                "text-[22px] w-52 h-16 tracking-widest font-medium rounded-md bg-light-green"
-              }
-            >
-              <Link href="/about">Learn More</Link>
-            </button>
           </div>
         </div>
         <div className="flex justify-between space-x-14 h-[374px]">

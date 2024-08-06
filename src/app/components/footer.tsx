@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Nav() {
+export default function Footer() {
   return (
     <div className="flex justify-between items-center p-16 bg-green mt-auto">
       <Image
