@@ -492,8 +492,7 @@ export default function KoreanAir() {
         <SubSection title="User Flow" color="text-brown4">
           <Text>
             I created a user flow to understand user needs and identify
-            potential issues or confusing elements that are related to “search”
-            and “reservations”.
+            potential issues or confusing elements.
           </Text>
           <div>
             <div className="text-2xl font-medium tracking-[.02em] mb-12">

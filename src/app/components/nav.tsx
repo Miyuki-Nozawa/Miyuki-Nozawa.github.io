@@ -3,10 +3,10 @@
 import Image from "next/image";
 import NavLink from "@/app/components/nav-link";
 import { usePathname } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 
-export default function Footer() {
+export default function Nav() {
   const [hovered, setHovered] = useState(false);
   const pathname = usePathname();
   const isContact = pathname.startsWith("/contact");
