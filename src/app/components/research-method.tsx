@@ -14,7 +14,7 @@ export default function ResearchMethod({
   children: React.ReactNode;
 }) {
   return (
-    <div className="space-y-20">
+    <div className="p-12 space-y-20 border border-border rounded-2xl">
       <div className="space-y-7">
         <DiamondHeader color={color} title={title} className="space-x-7" />
         <Text>{desc}</Text>

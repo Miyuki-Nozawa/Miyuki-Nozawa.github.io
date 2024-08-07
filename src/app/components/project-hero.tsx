@@ -3,7 +3,8 @@ import Link from "next/link";
 
 export default function ProjectHero({
   name,
-  img,
+  img = "",
+  video = "",
   logo,
   logoWidth,
   logoHeight,
@@ -21,7 +22,8 @@ export default function ProjectHero({
   classNameRight = "",
 }: {
   name: string;
-  img: string;
+  img?: string;
+  video?: string;
   logo: string;
   logoWidth: number;
   logoHeight: number;
@@ -33,7 +35,7 @@ export default function ProjectHero({
   industry: string;
   href: string;
   classNameButton: string;
-  headerClassName: string
+  headerClassName: string;
   className?: string;
   classNameLeft?: string;
   classNameRight?: string;
@@ -41,7 +43,13 @@ export default function ProjectHero({
   return (
     <div className={`flex py-24 ${className}`}>
       <div className={`relative ${classNameLeft}`}>
-        <Image src={img} alt={name} className="object-contain" fill />
+        {img ? (
+          <Image src={img} alt={name} className="object-contain" fill />
+        ) : (
+          <video className="w-full h-full" autoPlay muted>
+            <source src={video} type="video/mp4" />
+          </video>
+        )}
       </div>
       <div className={`flex flex-col justify-between ${classNameRight}`}>
         <div className="flex items-center space-x-8">
@@ -50,7 +58,9 @@ export default function ProjectHero({
             <div className="text-[26px] tracking-[.02em]">{subtitle}</div>
           )}
         </div>
-        <div className={`font-bold tracking-[.02em] ${headerClassName}`}>{header}</div>
+        <div className={`font-bold tracking-[.02em] ${headerClassName}`}>
+          {header}
+        </div>
         <div className="space-y-4">
           <div className="text-2xl tracking-[.02em]">
             <b className="font-semibold">Project type:</b> {projectType}

@@ -459,7 +459,12 @@ export default function Pibu() {
         <DownArrow />
       </Section>
       {/* design */}
-      <Section title="Design" underline="bg-dark-green" className="px-52">
+      <Section
+        title="Design"
+        underline="bg-dark-green"
+        className="px-52"
+        relaxed
+      >
         <Text>
           As a step to generate ideas to solve the persona&apos;s problems, I
           set project goals based on the POV and brainstormed feature ideas to
@@ -585,11 +590,15 @@ export default function Pibu() {
             </FigmaLink>
           </div>
         </SubSection>
-        <SubSection title="User Flow" color="text-dark-green">
-          <Text>
-            I created a user flow to understand user needs and identify
-            potential issues or confusing elements.
-          </Text>
+        <SubSection
+          title="User Flow"
+          color="text-dark-green"
+          subtitle={
+            "I created a user flow to understand user needs and identify potential " +
+            "issues or confusing elements."
+          }
+          spacing="space-y-20"
+        >
           <UserFlow
             title="Purchase the right products for your skin type"
             img="/pibu/user-flow.svg"
@@ -602,13 +611,16 @@ export default function Pibu() {
           </FigmaLink>
         </SubSection>
         <DownArrow />
-        <Text>
-          I created the page layouts needed for users to complete tasks based on
-          the user flow and task flow. Through interviews, I found that many
-          people preferred using desktops when purchasing skincare products
-          online, so I focused on the desktop design.
-        </Text>
-        <SubSection title="Low-fidelity" color="text-dark-green">
+        <SubSection
+          title="Low-fidelity"
+          color="text-dark-green"
+          textAbove={
+            "I created the page layouts needed for users to complete tasks based on " +
+            "the user flow and task flow. Through interviews, I found that many " +
+            "people preferred using desktops when purchasing skincare products " +
+            "online, so I focused on the desktop design."
+          }
+        >
           <div className="h-[486px] flex space-x-6">
             <div className="flex flex-col w-1/3 space-y-2 text-center">
               <div className="flex-none text-2xl tracking-[.02em]">Home</div>
@@ -645,12 +657,15 @@ export default function Pibu() {
             View the full low-fidelity
           </FigmaLink>
         </SubSection>
-        <Text>
-          Based on the low-fidelity sketches, I considered more detailed layouts
-          and digitalized them to create mid-fidelity wireframes, making the
-          detailed layout more tangible.
-        </Text>
-        <SubSection title="Mid-fidelity" color="text-dark-green">
+        <SubSection
+          title="Mid-fidelity"
+          color="text-dark-green"
+          textAbove={
+            "Based on the low-fidelity sketches, I considered more detailed layouts " +
+            "and digitalized them to create mid-fidelity wireframes, making the " +
+            "detailed layout more tangible."
+          }
+        >
           <div className="flex space-x-5">
             <Carousel
               width={500}
@@ -667,20 +682,23 @@ export default function Pibu() {
             View the full mid-fidelity
           </FigmaLink>
         </SubSection>
-        <Text>
-          After creating the mid-fidelity wireframes, I conducted a quick test
-          to check if users understood my design layout and if they found the
-          interface user-friendly.
-        </Text>
         {/* mid-fidelity test */}
-        <TestCard title="Mid-fidelity test" className="border-brown5">
+        <TestCard
+          title="Mid-fidelity test"
+          className="border-light-green"
+          textAbove={
+            "After creating the mid-fidelity wireframes, I conducted a quick test " +
+            "to check if users understood my design layout and if they found the " +
+            "interface user-friendly."
+          }
+        >
           <Text>5 people (in person & online)</Text>
           <div className="pt-7 space-y-20">
             {/* test 1 */}
             <div className="space-y-7">
-              <ul className="list-disc list-outside text-[24px] tracking-[.02em] pl-6">
-                <li>Determine and save your skin type</li>
-              </ul>
+              <div className="text-[24px] tracking-[.02em]">
+                Determine and save your skin type
+              </div>
               <Text sm>
                 → People were able to determine their skin type by looking at
                 the table, but they found it somewhat difficult to save their
@@ -696,11 +714,9 @@ export default function Pibu() {
             </div>
             {/* test 2 */}
             <div className="space-y-7">
-              <ul className="list-disc list-outside text-[24px] tracking-[.02em] pl-6">
-                <li>
-                  Compare products and purchase the one that best suits you
-                </li>
-              </ul>
+              <div className="text-[24px] tracking-[.02em]">
+                Compare products and purchase the one that best suits you
+              </div>
               <Text sm>
                 → The comparison function was the biggest challenge. Because the
                 compare button was not clearly visible, people were unsure how
@@ -729,6 +745,7 @@ export default function Pibu() {
             "Based on the results of the mid-fi test, I iterated on the design to " +
             "make it more user-friendly and help users achieve their goals."
           }
+          noPadding
         />
         <SubSection title="Mid-fidelity (iterations)" color="text-dark-green">
           <div className="space-y-20 pb-8">
@@ -932,7 +949,11 @@ export default function Pibu() {
             <li>Compare products and purchase the one that best suits you</li>
           </ul>
         </TestCard>
-        <SubSection title="Test results" color="text-brown8" relaxed>
+        <SubSection
+          title="Test results"
+          color="text-brown8"
+          spacing="space-y-24"
+        >
           <div className="flex flex-wrap gap-y-[55px] justify-evenly">
             <Avatar
               name="Grace"
@@ -979,7 +1000,7 @@ export default function Pibu() {
             encountered new difficulties and found the process unclear.
           </Text>
         </SubSection>
-        <SubSection title="Iterations" color="text-brown8" relaxed>
+        <SubSection title="Iterations" color="text-brown8" spacing="space-y-24">
           <div className="space-y-7">
             <div className="text-[24px] font-medium tracking-[.02em]">Home</div>
             <Image
@@ -1025,8 +1046,8 @@ export default function Pibu() {
         </SubSection>
         <Transition
           text={
-            "After three iterations, I confirmed that users could complete the tasks " +
-            "and finalized the design."
+            "After three iterations, I improved the design to prioritize usability, " +
+            "and users were able to finish the tasks easily."
           }
         />
         <Image
@@ -1036,7 +1057,10 @@ export default function Pibu() {
           height={630}
         />
         <div className="w-full flex justify-around items-center">
-          <Link href="https://www.figma.com/proto/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?page-id=597%3A7713&node-id=807-7005&viewport=341%2C-827%2C0.03&t=WZCKh2jkLMYF6wKx-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=807%3A7005&show-proto-sidebar=1">
+          <Link
+            href="https://www.figma.com/proto/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?page-id=597%3A7713&node-id=807-7005&viewport=341%2C-827%2C0.03&t=WZCKh2jkLMYF6wKx-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=807%3A7005&show-proto-sidebar=1"
+            target="_blank"
+          >
             <div
               className={
                 "h-[70px] px-16 rounded-[64px] bg-brown text-white text-[22px] font-medium " +
@@ -1046,7 +1070,10 @@ export default function Pibu() {
               View the desktop prototype
             </div>
           </Link>
-          <Link href="https://www.figma.com/proto/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?page-id=1270%3A16466&node-id=1270-16467&viewport=275%2C469%2C0.08&t=CHEsspLqyjlv47Dm-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1270%3A16467&show-proto-sidebar=1">
+          <Link
+            href="https://www.figma.com/proto/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?page-id=1270%3A16466&node-id=1270-16467&viewport=275%2C469%2C0.08&t=CHEsspLqyjlv47Dm-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1270%3A16467&show-proto-sidebar=1"
+            target="_blank"
+          >
             <div
               className={
                 "h-[70px] px-16 rounded-[64px] bg-brown text-white text-[22px] font-medium " +

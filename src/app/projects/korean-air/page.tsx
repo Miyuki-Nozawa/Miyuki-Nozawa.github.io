@@ -32,7 +32,7 @@ export default function KoreanAir() {
     <div>
       <ProjectHero
         name="Korean Air"
-        img="/korean-air/hero.png"
+        video="/korean-air/hero.mp4"
         logo="/korean-air/logo.png"
         logoWidth={290}
         logoHeight={50}
@@ -50,14 +50,16 @@ export default function KoreanAir() {
       />
       <ProjectStatement
         statement={
-          "Korean Air has a comprehensive mileage program and they allow customers to use their mileage for " +
-          "flights, hotels, special services at the airport, etc. However, the display method for mileage on their " +
-          "website is unclear, requiring multiple visits to different pages to confirm details. Additionally, " +
-          "understanding how, and for what purposes, the accrued mileage can be used is difficult."
+          "Korean Air has a comprehensive mileage program and they allow customers " +
+          "to use their mileage for flights, hotels, special services at the airport, " +
+          "etc. However, the display method for mileage on their website is unclear, " +
+          "requiring multiple visits to different pages to confirm details. Additionally, " +
+          "understanding how, and for what purposes, the accrued mileage can be used is " +
+          "difficult."
         }
         solution={
-          "Adding features that allow Korean Air users to easily understand what can be done with their mileage " +
-          "and utilize it effectively."
+          "Adding features that allow Korean Air users to easily understand what can be " +
+          "done with their mileage and utilize it effectively."
         }
         className="bg-dark-green text-white"
         underline="border-white"
@@ -83,7 +85,12 @@ export default function KoreanAir() {
           navigate between different pages to check the number of mileage points
           required for their purposes.
         </Text>
-        <Transition text="How can we add a feature that allows users to easily check and use their mileage?" />
+        <Transition
+          text={
+            "How can we add a feature that allows users to easily check and use their " +
+            "mileage?"
+          }
+        />
       </Section>
       {/* research */}
       <Section title="Research" underline="bg-brown" className="px-52 pb-12">
@@ -143,8 +150,8 @@ export default function KoreanAir() {
             >
               <div
                 className={
-                  "px-8 py-5 mt-12 border-2 border-brown rounded-[5rem] inline-block " +
-                  "text-brown text-xl font-semibold"
+                  "px-8 py-[13.5px] mt-12 border-2 border-brown rounded-[5rem] " +
+                  "inline-block text-brown text-xl font-semibold"
                 }
               >
                 View the competitive analysis
@@ -163,13 +170,19 @@ export default function KoreanAir() {
               "Determine what goals can be achieved by using mileage",
               "Understand the purpose and process of mileage utilization",
               "Identify the confusion in mileage display and difficulty in using it",
-              "Determine how often users visit the mileage page to use accumulated mileage",
+              "Determine how often users visit the mileage page to use accumulated " +
+                "mileage",
             ]}
             className="text-brown"
           />
           {/* research methods */}
           <div className="space-y-12">
-            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] underline text-brown">
+            <div
+              className={
+                "font-manrope text-[1.75rem] font-extrabold tracking-[.02em] " +
+                "underline text-brown"
+              }
+            >
               Research methods
             </div>
             <Text>
@@ -183,9 +196,11 @@ export default function KoreanAir() {
               <ResearchMethod
                 title="Survey"
                 desc={
-                  "The first research method I used was a survey. The survey was conducted to collect quantitative " +
-                  "data from a wide range of people to understand how they use airline mileage and credit card " +
-                  "point systems, and how well they comprehend the process of redeeming miles or points."
+                  "The first research method I used was a survey. The survey was " +
+                  "conducted to collect quantitative data from a wide range of people " +
+                  "to understand how they use airline mileage and credit card point " +
+                  "systems, and how well they comprehend the process of redeeming " +
+                  "miles or points."
                 }
                 color="light-brown"
               >
@@ -197,9 +212,11 @@ export default function KoreanAir() {
                 <KeyQuestions
                   className="text-dark-green"
                   questions={[
-                    "Have you redeemed your mileage (credit card points), and what did you use it for?",
+                    "Have you redeemed your mileage (credit card points), and what did " +
+                      "you use it for?",
                     "Are you aware of your mileage (credit card points) balance?",
-                    "Are you aware of required mileage (credit card points) for redemptions?",
+                    "Are you aware of required mileage (credit card points) for " +
+                      "redemptions?",
                   ]}
                 />
                 <ParticpantResponses
@@ -212,8 +229,9 @@ export default function KoreanAir() {
               <ResearchMethod
                 title="User interview"
                 desc={
-                  "The second research method I conducted was user interviews. User interviews are used to collect " +
-                  "qualitative data on more specific thoughts and personal experiences of users, based on the wide " +
+                  "The second research method I conducted was user interviews. User " +
+                  "interviews are used to collect qualitative data on more specific " +
+                  "thoughts and personal experiences of users, based on the wide " +
                   "range of data obtained from the survey."
                 }
                 color="light-brown"
@@ -229,8 +247,8 @@ export default function KoreanAir() {
                   questions={[
                     "How long have you been a member of the mileage program?",
                     "What do you want to do with your mileage?",
-                    "Have you redeemed your mileage, and is there a time where you found redeeming your mileage to " +
-                      "be challenging?",
+                    "Have you redeemed your mileage, and is there a time where you " +
+                      "found redeeming your mileage to be challenging?",
                   ]}
                 />
                 <ParticpantResponses
@@ -243,8 +261,9 @@ export default function KoreanAir() {
               <ResearchMethod
                 title="Usability testing"
                 desc={
-                  "The third method we conducted was a usability test. We used the existing Korean Air website to " +
-                  "understand how people navigate the site, what aspects they find difficult, and what areas need " +
+                  "The third method we conducted was a usability test. We used the " +
+                  "existing Korean Air website to understand how people navigate the " +
+                  "site, what aspects they find difficult, and what areas need " +
                   "improvement."
                 }
                 color="light-brown"
@@ -272,7 +291,12 @@ export default function KoreanAir() {
           </div>
           {/* results */}
           <div className="space-y-12">
-            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] text-brown underline">
+            <div
+              className={
+                "font-manrope text-[1.75rem] font-extrabold tracking-[.02em] " +
+                "text-brown underline"
+              }
+            >
               Results
             </div>
             <Text>
@@ -292,8 +316,8 @@ export default function KoreanAir() {
                   <div className="font-bold text-[26px] tracking-tight">
                     Motivation of mileage/points redemption
                   </div>
-                  <div className="text-[26px]">
-                    What do you wanna do with your mileage/points?
+                  <div className="text-[24px]">
+                    What do you want to do with your mileage/points?
                   </div>
                   <Image
                     src="/korean-air/affinity-map-1.svg"
@@ -306,7 +330,7 @@ export default function KoreanAir() {
                   <div className="font-bold text-3xl tracking-tight">
                     Korean Air website
                   </div>
-                  <div className="text-[26px]">Pain points</div>
+                  <div className="text-[24px]">Pain points</div>
                   <Image
                     src="/korean-air/affinity-map-2.svg"
                     alt="Korean Air website"
@@ -342,7 +366,10 @@ export default function KoreanAir() {
                 />
                 <DiamondHeadedList
                   color="brown"
-                  title="Difficulties in displaying mileage information on the Korean Air website"
+                  title={
+                    "Difficulties in displaying mileage information on the Korean " +
+                    "Air website"
+                  }
                   items={[
                     "Finding redemption options",
                     "Finding accumulated mileage",
@@ -365,7 +392,11 @@ export default function KoreanAir() {
                 <div className="text-3xl font-bold tracking-[.02em]">
                   Key findings
                 </div>
-                <ul className="list-disc list-outside text-[30px] tracking-[.02em] pl-6 space-y-1">
+                <ul
+                  className={
+                    "list-disc list-outside text-[30px] tracking-[.02em] pl-6 space-y-1"
+                  }
+                >
                   <li>Clear display of mileage redemption options</li>
                   <li>Smooth and easy redemption of flight tickets</li>
                   <li>Understanding the required mileage for redemption</li>
@@ -388,11 +419,14 @@ export default function KoreanAir() {
           <Persona
             title="Persona"
             desc={
-              "Lina Kim is a 30-year-old product manager living in Los Angeles who frequently flies with Korean Air " +
-              "to visit her family in Korea. Although she accumulates mileage with Korean Air’s SKYPASS program, she " +
-              "finds the process of redeeming miles for tickets complicated and has never used them. Her main goals " +
-              "are to understand how to redeem her mileage and to save costs on her trips to Korea, but she is " +
-              "frustrated by the complexity of the website and the time it takes to find the necessary information."
+              "Lina Kim is a 30-year-old product manager living in Los Angeles who " +
+              "frequently flies with Korean Air to visit her family in Korea. Although " +
+              "she accumulates mileage with Korean Air’s SKYPASS program, she finds " +
+              "the process of redeeming miles for tickets complicated and has never " +
+              "used them. Her main goals are to understand how to redeem her mileage " +
+              "and to save costs on her trips to Korea, but she is frustrated by the " +
+              "complexity of the website and the time it takes to find the necessary " +
+              "information."
             }
             img="/korean-air/persona.jpeg"
             className="text-dark-green"
@@ -412,9 +446,11 @@ export default function KoreanAir() {
         <Definition
           title="POV (Point Of View) statement"
           text={
-            "I’d like to explore ways for people joining the Korean Air mileage program (SKYPASS) to understand at " +
-            "a glance what they can redeem their mileage for because many people may not know how many miles are " +
-            "needed for redemption, leading to a lack of motivation to accumulate mileage."
+            "I’d like to explore ways for people joining the Korean Air mileage " +
+            "program (SKYPASS) to understand at a glance what they can redeem their " +
+            "mileage for because many people may not know how many miles are " +
+            "needed for redemption, leading to a lack of motivation to accumulate " +
+            "mileage."
           }
           className="bg-green5"
         />
@@ -425,19 +461,24 @@ export default function KoreanAir() {
         <Definition
           title="HMW (How Might We) question"
           text={
-            "How might we allow SKYPASS members to check their accumulated mileage against the required mileage at " +
-            "once?"
+            "How might we allow SKYPASS members to check their accumulated mileage " +
+            "against the required mileage at once?"
           }
           className="bg-green5"
         />
         <DownArrow />
       </Section>
       {/* design */}
-      <Section title="Design" underline="bg-light-pink" className="px-52">
-        <Text>
-          As a step to generate ideas to solve the persona&apos;s problems, I
-          set project goals and brainstormed feature ideas to address them.
-        </Text>
+      <Section
+        title="Design"
+        underline="bg-light-pink"
+        className="px-52"
+        text={
+          "As a step to generate ideas to solve the persona's problems, I set project " +
+          "goals and brainstormed feature ideas to address them."
+        }
+        relaxed
+      >
         {/* project goals */}
         <SubSection title="Project goals" color="text-brown4">
           <div className="relative w-[1040px] h-[950px]">
@@ -467,8 +508,10 @@ export default function KoreanAir() {
           />
           <Transition
             text={
-              "I considered how users would specifically utilize these features and reflected this in the task flow"
+              "I considered how users would specifically utilize these features and " +
+              "reflected this in the task flow."
             }
+            className="mt-20"
           />
         </SubSection>
         <SubSection title="Task Flow" color="text-brown4">
@@ -489,11 +532,15 @@ export default function KoreanAir() {
             </FigmaLink>
           </div>
         </SubSection>
-        <SubSection title="User Flow" color="text-brown4">
-          <Text>
-            I created a user flow to understand user needs and identify
-            potential issues or confusing elements.
-          </Text>
+        <SubSection
+          title="User Flow"
+          color="text-brown4"
+          subtitle={
+            "I created a user flow to understand user needs and identify potential " +
+            "issues or confusing elements."
+          }
+          spacing="space-y-20"
+        >
           <div>
             <div className="text-2xl font-medium tracking-[.02em] mb-12">
               Check the required mileage for exchanging award tickets
@@ -514,12 +561,14 @@ export default function KoreanAir() {
           </FigmaLink>
         </SubSection>
         <DownArrow />
-        <Text>
-          Based on user flows, task flows, and general observations of how users
-          want to search and prevent duplicate reservations, I created specific
-          design layouts.
-        </Text>
-        <SubSection title="Low-fidelity" color="text-brown4">
+        <SubSection
+          title="Low-fidelity"
+          color="text-brown4"
+          textAbove={
+            "Based on user flows, task flows, and general observations of how users " +
+            "want to check their mileage, I sketched out a specific layout."
+          }
+        >
           <div className="space-y-7">
             <DiamondHeader color="light-pink" title="Home" />
             <div className="flex space-x-4">
@@ -611,12 +660,15 @@ export default function KoreanAir() {
             View the full low-fidelity
           </FigmaLink>
         </SubSection>
-        <Text>
-          Based on the low-fidelity sketches, I considered more detailed layouts
-          and digitalized them to create mid-fidelity wireframes, making the
-          detailed layout more tangible.
-        </Text>
-        <SubSection title="Mid-fidelity" color="text-brown4">
+        <SubSection
+          title="Mid-fidelity"
+          color="text-brown4"
+          textAbove={
+            "I considered more detailed layouts based on the low-fidelity sketches " +
+            "and then digitized them to create mid-fidelity wireframes, making the " +
+            "detailed layout more tangible."
+          }
+        >
           <Carousel
             width={800}
             height={568}
@@ -640,13 +692,16 @@ export default function KoreanAir() {
             View the full mid-fidelity
           </FigmaLink>
         </SubSection>
-        <Text>
-          After creating the mid-fidelity wireframes, I conducted a quick test
-          to check if users understood my design layout and if they found the
-          interface user-friendly.
-        </Text>
         {/* mid-fidelity test */}
-        <TestCard title="Mid-fidelity test" className="border-light-pink">
+        <TestCard
+          title="Mid-fidelity test"
+          className="border-light-pink"
+          textAbove={
+            "After creating the mid-fidelity wireframes, I conducted a quick test to " +
+            "check if users understood my design layout and if they found the " +
+            "interface user-friendly."
+          }
+        >
           <Text sm>
             3 people, age 34-68
             <br />
@@ -655,9 +710,9 @@ export default function KoreanAir() {
           <div className="pt-7 space-y-20">
             {/* test 1 */}
             <div className="space-y-7">
-              <ul className="list-disc list-outside text-[24px] tracking-[.02em] pl-6 font-medium">
-                <li>Check the accumulated mileage</li>
-              </ul>
+              <div className="text-[24px] tracking-[.02em] font-medium">
+                Check the accumulated mileage
+              </div>
               <Text sm>
                 → People can easily check their saved mileage from the home
                 screen, eliminating the need to navigate back and forth just to
@@ -672,12 +727,10 @@ export default function KoreanAir() {
             </div>
             {/* test 2 */}
             <div className="space-y-7">
-              <ul className="list-disc list-outside text-[24px] tracking-[.02em] pl-6 font-medium">
-                <li>
-                  Check how many miles are required to exchange for an flight
-                  ticket
-                </li>
-              </ul>
+              <div className="text-[24px] tracking-[.02em] font-medium">
+                Check how many miles are required to exchange for an flight
+                ticket
+              </div>
               <Text sm>
                 → After testing two options, I found that displaying the miles
                 as a bar graph is more visually effective. However, to increase
@@ -699,9 +752,9 @@ export default function KoreanAir() {
             </div>
             {/* test 3 */}
             <div className="space-y-7">
-              <ul className="list-disc list-outside text-[24px] tracking-[.02em] pl-6 font-medium">
-                <li>Confirm what can be done with the accumulated mileage</li>
-              </ul>
+              <div className="text-[24px] tracking-[.02em] font-medium">
+                Confirm what can be done with the accumulated mileage
+              </div>
               <Text sm>
                 → People can easily learn about mileage redemption options, but
                 they can&apos;t immediately see the exact number of miles
@@ -720,9 +773,10 @@ export default function KoreanAir() {
         </TestCard>
         <Transition
           text={
-            "Based on the results of the mid-fi test, I iterated on the design to make it more user-friendly and " +
-            "help users achieve their goals."
+            "Based on the results of the mid-fi test, I iterated on the design to " +
+            "make it more user-friendly and help users achieve their goals."
           }
+          noPadding
         />
         <SubSection title="Mid-fidelity (iterations)" color="text-brown4">
           <Image
@@ -782,7 +836,12 @@ export default function KoreanAir() {
           <div className="text-[24px] tracking-[.02em]">
             5 people, age between 27-68
           </div>
-          <ul className="list-disc list-outside text-[26px] tracking-[.02em] font-medium pl-6 space-y-7">
+          <ul
+            className={
+              "list-disc list-outside text-[26px] tracking-[.02em] font-medium " +
+              "pl-6 space-y-7"
+            }
+          >
             <li>Check the accumulated mileage</li>
             <li>
               Check if users are eligible to book an award ticket for their
@@ -791,42 +850,46 @@ export default function KoreanAir() {
             <li>Find out the mileage redemption options</li>
           </ul>
         </TestCard>
-        <SubSection title="Test results" color="text-brown8" relaxed>
+        <SubSection title="Test results" color="text-brown8" spacing="space-y-24">
           <div className="flex flex-wrap gap-y-[55px] justify-evenly">
             <Avatar
               name="Yingyang"
               age="27"
               desc={
-                "She was toggling back and forth between the nav bar and my page, unsure of where the frequently " +
-                "used flight info was located."
+                "She was toggling back and forth between the nav bar and my page, " +
+                "unsure of where the frequently used flight info was located."
               }
             />
             <Avatar
               name="Hisayo"
               age="32"
               desc={
-                "She wasn't sure if the mileage redemption options listed on my mileage page are linked to the " +
-                "flight history and search records."
+                "She wasn't sure if the mileage redemption options listed on my " +
+                "mileage page are linked to the flight history and search records."
               }
             />
             <Avatar
               name="Peter"
               age="34"
               desc={
-                "He found the redemption options on my mileage page, but he wasn’t sure where to click to see other " +
-                "options from there."
+                "He found the redemption options on my mileage page, but he wasn’t sure " +
+                "where to click to see other options from there."
               }
             />
             <Avatar
               name="Alex"
               age="32"
-              desc="It was challenging for him to find the required mileage for the award ticket."
+              desc={
+                "It was challenging for him to find the required mileage for the award " +
+                "ticket."
+              }
             />
             <Avatar
               name="Minoru"
               age="68"
               desc={
-                "He expected to see detailed information about the mileage redemption options on the My Mileage Page."
+                "He expected to see detailed information about the mileage " +
+                "redemption options on the My Mileage Page."
               }
             />
           </div>
@@ -839,7 +902,7 @@ export default function KoreanAir() {
             could be done beyond the displayed mileage redemption options.
           </Text>
         </SubSection>
-        <SubSection title="Iterations" color="text-brown8" relaxed>
+        <SubSection title="Iterations" color="text-brown8" spacing="space-y-24" >
           <div className="space-y-24">
             <div className="space-y-12">
               <div className="text-2xl font-medium tracking-[.02em]">
@@ -876,7 +939,14 @@ export default function KoreanAir() {
             </div>
           </div>
         </SubSection>
-        <Transition text="After I made design changes based on the usability test, I finalized the design" />
+        <Transition
+          text={
+            "Based on usability testing, I improved the design of features to make it " +
+            "easier for Korean Air users to check their mileage and understand what " +
+            "they can exchange it for."
+          }
+          noPadding
+        />
         <div className="w-full">
           <Carousel
             width={800}

@@ -9,6 +9,7 @@ import Link from "next/link";
 export default function Nav() {
   const [hovered, setHovered] = useState(false);
   const pathname = usePathname();
+  console.log("pathname", pathname);
   const isContact = pathname.startsWith("/contact");
 
   const handleHoverOn = () => {
@@ -44,10 +45,20 @@ export default function Nav() {
         </Link>
         <div className="flex space-x-[4.5rem] font-light">
           <div onMouseOver={handleHoverOff}>
-            <NavLink href="/">Home</NavLink>
+            <NavLink
+              href="/"
+              className={`${pathname === "/" ? "font-bold" : ""}`}
+            >
+              Home
+            </NavLink>
           </div>
           <div onMouseOver={handleHoverOff}>
-            <NavLink href="/about">About</NavLink>
+            <NavLink
+              href="/about"
+              className={`${pathname === "/about" ? "font-bold" : ""}`}
+            >
+              About
+            </NavLink>
           </div>
           <div
             onMouseOver={handleHoverOn}
@@ -56,10 +67,20 @@ export default function Nav() {
             Projects
           </div>
           <div onMouseOver={handleHoverOff}>
-            <NavLink href="/resume">Resume</NavLink>
+            <NavLink
+              href="/resume"
+              className={`${pathname === "/resume" ? "font-bold" : ""}`}
+            >
+              Resume
+            </NavLink>
           </div>
           <div onMouseOver={handleHoverOff}>
-            <NavLink href="/contact">Contact</NavLink>
+            <NavLink
+              href="/contact"
+              className={`${pathname === "/contact" ? "font-bold" : ""}`}
+            >
+              Contact
+            </NavLink>
           </div>
         </div>
       </div>

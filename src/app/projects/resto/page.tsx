@@ -35,7 +35,8 @@ export default function Resto() {
     <div>
       <ProjectHero
         name="Resto"
-        img="/resto/hero.png"
+        // img="/resto/hero.png"
+        video="/resto/hero.mp4"
         logo="/resto/logo.svg"
         logoWidth={90}
         logoHeight={80}
@@ -87,7 +88,12 @@ export default function Resto() {
           and the confusion of managing reservations can sometimes prevent a
           smooth dining experience.
         </Text>
-        <Transition text="How can we build an app that helps travelers have a stress-free dining experience?" />
+        <Transition
+          text={
+            "How can we build an app that helps travelers have a stress-free dining " +
+            "experience?"
+          }
+        />
       </Section>
       {/* research */}
       <Section
@@ -144,7 +150,7 @@ export default function Resto() {
             >
               <div
                 className={
-                  "px-8 py-5 mt-12 border-2 border-dark-green rounded-[5rem] inline-block " +
+                  "px-8 py-[13.5px] mt-12 border-2 border-dark-green rounded-[5rem] inline-block " +
                   "text-dark-green text-xl font-semibold"
                 }
               >
@@ -161,15 +167,23 @@ export default function Resto() {
           <ResearchObjectives
             questions={[
               "Identify what users prioritize in choosing restaurants when traveling",
-              "Understand how people plan their trips and what kind of information is required for them",
-              "Understand the deciding factors and challenges users encounter when searching for and choosing restaurants",
-              "Understand how users manage their desired destinations and planned locations",
+              "Understand how people plan their trips and what kind of information " +
+                "is required for them",
+              "Understand the deciding factors and challenges users encounter when " +
+                "searching for and choosing restaurants",
+              "Understand how users manage their desired destinations and planned " +
+                "locations",
             ]}
             className="text-dark-green"
           />
           {/* research methods */}
           <div className="space-y-12">
-            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] text-dark-green underline">
+            <div
+              className={
+                "font-manrope text-[1.75rem] font-extrabold tracking-[.02em] " +
+                "text-dark-green underline"
+              }
+            >
               Research methods
             </div>
             <Text>
@@ -198,9 +212,12 @@ export default function Resto() {
                 <KeyQuestions
                   className="text-green4"
                   questions={[
-                    "How do you search for restaurants or cafes when dining out during your travels?",
-                    "How was your experience when searching for and deciding on restaurants while traveling?",
-                    "Are there any struggles or difficulties you encounter when managing your restaurant list?",
+                    "How do you search for restaurants or cafes when dining out " +
+                      "during your travels?",
+                    "How was your experience when searching for and deciding on " +
+                      "restaurants while traveling?",
+                    "Are there any struggles or difficulties you encounter when " +
+                      "managing your restaurant list?",
                   ]}
                 />
                 <ParticpantResponses
@@ -229,10 +246,12 @@ export default function Resto() {
                 <KeyQuestions
                   className="text-green4"
                   questions={[
-                    "When you checked information about restaurants on websites, were these sites updated with " +
-                      "current information or did you find that the info was missing or outdated?",
+                    "When you checked information about restaurants on websites, were " +
+                      "these sites updated with current information or did you find " +
+                      "that the info was missing or outdated?",
                     "What are the key factors in choosing a restaurant?",
-                    "When you make a list of restaurants, what kind of information do you include in the list?",
+                    "When you make a list of restaurants, what kind of information do " +
+                      "you include in the list?",
                   ]}
                 />
                 <ParticpantResponses
@@ -245,7 +264,12 @@ export default function Resto() {
           </div>
           {/* results */}
           <div className="space-y-12">
-            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] text-dark-green underline">
+            <div
+              className={
+                "font-manrope text-[1.75rem] font-extrabold tracking-[.02em] " +
+                "text-dark-green underline"
+              }
+            >
               Results
             </div>
             <Text>
@@ -323,11 +347,19 @@ export default function Resto() {
               </Text>
               <DownArrow />
               {/* key findings */}
-              <div className="px-24 py-12 space-y-7 rounded-3xl border-dark-green border-2">
+              <div
+                className={
+                  "px-24 py-12 space-y-7 rounded-3xl border-dark-green border-2"
+                }
+              >
                 <div className="text-3xl font-bold tracking-[.02em]">
                   Key findings
                 </div>
-                <ul className="list-disc list-outside text-[26px] tracking-[.02em] pl-6 space-y-1">
+                <ul
+                  className={
+                    "list-disc list-outside text-[26px] tracking-[.02em] pl-6 space-y-1"
+                  }
+                >
                   <li>Reliable Reviews and Ratings</li>
                   <li>Up-to-date information</li>
                   <li>Ease of Reservations and Reservation Management</li>
@@ -349,10 +381,12 @@ export default function Resto() {
         <Persona
           title="Persona 1"
           desc={
-            "Matt Kim, a 30-year-old product manager from San Francisco, loves traveling to Japan and exploring " +
-            "local dining spots. He faces challenges due to the language barrier, making it difficult to find and " +
-            "reserve restaurants popular among locals. His main frustrations include the time-consuming process of " +
-            "translating Japanese information and the difficulty of making phone reservations."
+            "Matt Kim, a 30-year-old product manager from San Francisco, loves " +
+            "traveling to Japan and exploring local dining spots. He faces challenges " +
+            "due to the language barrier, making it difficult to find and reserve " +
+            "restaurants popular among locals. His main frustrations include the " +
+            "time-consuming process of translating Japanese information and the " +
+            "difficulty of making phone reservations."
           }
           img="/resto/persona-1.jpeg"
           className="text-brown"
@@ -360,10 +394,12 @@ export default function Resto() {
         <Persona
           title="Persona 2"
           desc={
-            "Sarah Laine, a 26-year-old interior designer from New York, is planning her first trip to Japan with " +
-            "friends and is excited to explore Japanese cuisine. She faces challenges managing and sharing " +
-            "restaurant reservations among her group and is worried about keeping track of them amidst a packed " +
-            "schedule. Her goals include visiting many tourist spots and sticking to their travel plan."
+            "Sarah Laine, a 26-year-old interior designer from New York, is planning " +
+            "her first trip to Japan with friends and is excited to explore Japanese " +
+            "cuisine. She faces challenges managing and sharing restaurant reservations " +
+            "among her group and is worried about keeping track of them amidst a packed " +
+            "schedule. Her goals include visiting many tourist spots and sticking to " +
+            "their travel plan."
           }
           img="/resto/persona-2.jpeg"
           className="text-brown"
@@ -383,8 +419,9 @@ export default function Resto() {
         <Definition
           title="POV (Point Of View) statement"
           text={
-            "I’d like to explore ways to propose a streamlined and functional reservation system catering to " +
-            "travelers who face challenges with language barriers during restaurant booking or encounter issues " +
+            "I’d like to explore ways to propose a streamlined and functional " +
+            "reservation system catering to travelers who face challenges with " +
+            "language barriers during restaurant booking or encounter issues " +
             "managing reservations."
           }
           className="bg-beige"
@@ -396,19 +433,24 @@ export default function Resto() {
         <Definition
           title="HMW (How Might We) question"
           text={
-            "How might we design a reservation system that easily accommodates people facing language barriers, " +
-            "ensuring smooth booking experiences?"
+            "How might we design a reservation system that easily accommodates people " +
+            "facing language barriers, ensuring smooth booking experiences?"
           }
           className="bg-beige"
         />
         <DownArrow />
       </Section>
       {/* design */}
-      <Section title="Design" underline="bg-orange" className="px-52">
-        <Text>
-          As a step to generate ideas to solve the personas&apos; problems, I
-          set project goals and brainstormed feature ideas to address them.
-        </Text>
+      <Section
+        title="Design"
+        underline="bg-orange"
+        className="px-52"
+        text={
+          "As a step to generate ideas to solve the personas' problems, I set project " +
+          "goals and brainstormed feature ideas to address them."
+        }
+        relaxed
+      >
         {/* project goals */}
         <SubSection title="Project goals" color="text-brown4">
           <div className="relative w-[1040px] h-[950px]">
@@ -435,7 +477,8 @@ export default function Resto() {
           />
           <Transition
             text={
-              "To design the structure of the app, I conducted a card sort based on these feature keywords"
+              "To design the structure of the app, I conducted a card sort based on " +
+              "these feature keywords"
             }
           />
           <div className="space-y-12 pt-8">
@@ -471,6 +514,24 @@ export default function Resto() {
             into six key categories. This helped to understand which content
             people want to see under each menu.
           </Text>
+          <div className="space-y-7">
+            <div className="text-[26px] font-semibold tracking-[.02em]">
+              Key categories
+            </div>
+            <div
+              className={
+                "text-2xl font-medium tracking-[.02em] flex flex-wrap px-24 py-16 " +
+                "justify-between gap-y-7 border-2 rounded-3xl border-brown"
+              }
+            >
+              <div className="w-1/3">Reservations</div>
+              <div className="w-1/3">Settings</div>
+              <div className="w-1/3">Search/Find</div>
+              <div className="w-1/3">Restaurant</div>
+              <div className="w-1/3">Discover</div>
+              <div className="w-1/3">My page/Account</div>
+            </div>
+          </div>
         </SubSection>
         {/* sitemap */}
         <SubSection title="Sitemap" color="text-brown4">
@@ -483,7 +544,12 @@ export default function Resto() {
           </Text>
           <div className="relative w-[1040px] h-[523px]">
             <Image src="/resto/sitemap.png" alt="Sitemap" fill />
-            <div className="text-dark-orange text-[22px] tracking-[.02em] absolute bottom-0 w-[438px] right-[44px]">
+            <div
+              className={
+                "text-dark-orange text-[22px] tracking-[.02em] absolute bottom-0 " +
+                "w-[438px] right-[44px]"
+              }
+            >
               *The outlined items are where I am focusing to help solve the
               problems identified by users
             </div>
@@ -492,24 +558,6 @@ export default function Resto() {
             <FigmaLink href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=35-1840">
               View the sitemap
             </FigmaLink>
-          </div>
-          <div className="space-y-7 pt-9">
-            <div className="text-[26px] font-semibold tracking-[.02em]">
-              Key categories
-            </div>
-            <div
-              className={
-                "text-2xl font-medium tracking-[.02em] flex flex-wrap px-24 py-16 justify-between gap-y-7 border-2 " +
-                "rounded-3xl border-brown"
-              }
-            >
-              <div className="w-1/3">Reservations</div>
-              <div className="w-1/3">Settings</div>
-              <div className="w-1/3">Search/Find</div>
-              <div className="w-1/3">Restaurant</div>
-              <div className="w-1/3">Discover</div>
-              <div className="w-1/3">My page/Account</div>
-            </div>
           </div>
         </SubSection>
         <SubSection title="Task Flow" color="text-brown4">
@@ -525,7 +573,10 @@ export default function Resto() {
             className="w-[1800px]"
           />
           <TaskFlow
-            title="Check the reservations and the saved restaurants to plan your dining schedule during the trip"
+            title={
+              "Check the reservations and the saved restaurants to plan your dining " +
+              "schedule during the trip"
+            }
             img="/resto/task-flow-2.png"
             width={1312}
             height={168}
@@ -537,14 +588,21 @@ export default function Resto() {
             </FigmaLink>
           </div>
         </SubSection>
-        <SubSection title="User Flow" color="text-brown4">
-          <Text>
-            I created a user flow to understand user needs and identify
-            potential issues or confusing elements that are related to “search”
-            and “reservations”.
-          </Text>
+        <SubSection
+          title="User Flow"
+          color="text-brown4"
+          subtitle={
+            "I created a user flow to understand user needs and identify potential " +
+            "issues or confusing elements that are related to “search” and " +
+            "“reservations”."
+          }
+          spacing="space-y-20"
+        >
           <UserFlow
-            title="Discover restaurants or cafes and make reservations tailored to your preferences"
+            title={
+              "Discover restaurants or cafes and make reservations tailored " +
+              "to your preferences"
+            }
             img="/resto/user-flow.svg"
             width={4096}
             height={875}
@@ -555,12 +613,15 @@ export default function Resto() {
           </FigmaLink>
         </SubSection>
         <DownArrow />
-        <Text>
-          Based on user flows, task flows, and general observations of how users
-          want to search and prevent duplicate reservations, I created specific
-          design layouts.
-        </Text>
-        <SubSection title="Low-fidelity" color="text-brown4">
+        <SubSection
+          title="Low-fidelity"
+          textAbove={
+            "Based on user flows, task flows, and general observations of how users " +
+            "want to search and prevent duplicate reservations, I created specific " +
+            "design layouts."
+          }
+          color="text-brown4"
+        >
           <div className="h-[486px] flex space-x-6">
             <div className="flex flex-col w-1/3 space-y-2 text-center">
               <div className="flex-none text-2xl tracking-[.02em]">Home</div>
@@ -587,12 +648,15 @@ export default function Resto() {
             View the full low-fidelity
           </FigmaLink>
         </SubSection>
-        <Text>
-          Based on the low-fidelity sketches, I considered more detailed layouts
-          and digitalized them to create mid-fidelity wireframes, making the
-          detailed layout more tangible.
-        </Text>
-        <SubSection title="Mid-fidelity" color="text-brown4">
+        <SubSection
+          title="Mid-fidelity"
+          color="text-brown4"
+          textAbove={
+            "Based on the low-fidelity sketches, I considered more detailed layouts " +
+            "and digitalized them to create mid-fidelity wireframes, making the " +
+            "detailed layout more tangible."
+          }
+        >
           <div className="h-[675px] flex space-x-5">
             <div className="w-1/4 relative">
               <Image src="/resto/midfi-1.png" alt="Discover" fill />
@@ -611,67 +675,75 @@ export default function Resto() {
             View the full mid-fidelity
           </FigmaLink>
         </SubSection>
-        <Text>
-          After creating the mid-fidelity wireframes, I conducted a quick test
-          to check if users understood my design layout and if they found the
-          interface user-friendly.
-        </Text>
         {/* mid-fidelity test */}
-        <TestCard title="Mid-fidelity test" className="border-brown5">
-          <Text>6 people (in person & online)</Text>
-          <div className="pt-7 space-y-20">
-            {/* test 1 */}
-            <div className="space-y-7">
-              <ul className="list-disc list-outside text-[24px] tracking-[.02em] pl-6">
-                <li>Explore an app and try to search for restaurants</li>
-              </ul>
-              <Text sm>
-                → People want to explore restaurants in various ways, so I need
-                to consider different approaches.
-              </Text>
-              <Image
-                src="/resto/midfi-test-1.png"
-                alt="Test"
-                width={940}
-                height={435}
-              />
+        <div className="space-y-20">
+          <Text>
+            After creating the mid-fidelity wireframes, I conducted a quick test
+            to check if users understood my design layout and if they found the
+            interface user-friendly.
+          </Text>
+          <TestCard title="Mid-fidelity test" className="border-brown5">
+            <Text>6 people (in person & online)</Text>
+            <div className="pt-7 space-y-20">
+              {/* test 1 */}
+              <div className="space-y-7">
+                <div className="text-[26px] tracking-[.02em]">
+                  Explore an app and try to search for restaurants
+                </div>
+                <Text sm>
+                  → People want to explore restaurants in various ways, so I
+                  need to consider different approaches.
+                </Text>
+                <Image
+                  src="/resto/midfi-test-1.png"
+                  alt="Test"
+                  width={940}
+                  height={435}
+                />
+              </div>
+              {/* test 2 */}
+              <div className="space-y-7">
+                <div className="text-[26px] tracking-[.02em]">
+                  Check the details of a restaurant
+                </div>
+                <Text sm>
+                  → When there are too many restaurants displayed on the map, it
+                  can be difficult to choose, so a display method that clearly
+                  shows the differences is needed.
+                </Text>
+                <Image
+                  src="/resto/midfi-test-2.png"
+                  alt="Test"
+                  width={940}
+                  height={895}
+                />
+              </div>
+              {/* test 3 */}
+              <div className="space-y-7">
+                <ul className="list-disc list-outside text-[24px] tracking-[.02em] pl-6">
+                  <li>Make a reservation</li>
+                </ul>
+                <Text sm>
+                  → While the process for making reservations should be smooth,
+                  we also need to find a way to prevent duplicate bookings.
+                </Text>
+                <Image
+                  src="/resto/midfi-test-3.png"
+                  alt="Test"
+                  width={940}
+                  height={437}
+                />
+              </div>
             </div>
-            {/* test 2 */}
-            <div className="space-y-7">
-              <ul className="list-disc list-outside text-[24px] tracking-[.02em] pl-6">
-                <li>Check the details of a restaurant</li>
-              </ul>
-              <Text sm>
-                → When there are too many restaurants displayed on the map, it
-                can be difficult to choose, so a display method that clearly
-                shows the differences is needed.
-              </Text>
-              <Image
-                src="/resto/midfi-test-2.png"
-                alt="Test"
-                width={940}
-                height={895}
-              />
-            </div>
-            {/* test 3 */}
-            <div className="space-y-7">
-              <ul className="list-disc list-outside text-[24px] tracking-[.02em] pl-6">
-                <li>Make a reservation</li>
-              </ul>
-              <Text sm>
-                → While the process for making reservations should be smooth, we
-                also need to find a way to prevent duplicate bookings.
-              </Text>
-              <Image
-                src="/resto/midfi-test-3.png"
-                alt="Test"
-                width={940}
-                height={437}
-              />
-            </div>
-          </div>
-        </TestCard>
-        <DownArrow />
+          </TestCard>
+        </div>
+        <Transition
+          text={
+            "Based on the results of the mid-fi test, I iterated on the design to " +
+            "make it more user-friendly and help users achieve their goals."
+          }
+          noPadding
+        />
         <SubSection title="Mid-fidelity (iterations)" color="text-brown4">
           <Image
             src="/resto/iterations.png"
@@ -890,7 +962,12 @@ export default function Resto() {
         </div>
         <Separator className="bg-brown6" />
         <div className="py-5">
-          <Transition text="I applied all branding elements to the wireframes and created high-fidelity wireframes" />
+          <Transition
+            text={
+              "I applied all branding elements to the wireframes and created " +
+              "high-fidelity wireframes"
+            }
+          />
         </div>
         <SubSection title="Hi-fidelity" color="text-brown4">
           <Image
@@ -915,14 +992,19 @@ export default function Resto() {
           <div className="text-[24px] tracking-[.02em]">
             5 people (in person & online)
           </div>
-          <ul className="list-disc list-outside text-[26px] tracking-[.02em] font-medium pl-6 space-y-7">
+          <ul
+            className={
+              "list-disc list-outside text-[26px] tracking-[.02em] font-medium " +
+              "pl-6 space-y-7"
+            }
+          >
             <li>Search for restaurants that have an English menu</li>
             <li>Choose a restaurant that is popular among locals</li>
             <li>Search for restaurants near a famous landmark</li>
             <li>Make a reservation without scheduling conflicts</li>
           </ul>
         </TestCard>
-        <SubSection title="Test results" color="text-green4" relaxed>
+        <SubSection title="Test results" color="text-green4" spacing="space-y-24">
           <div className="flex flex-wrap gap-y-[55px] justify-evenly">
             <Avatar
               name="Peter"
@@ -932,12 +1014,18 @@ export default function Resto() {
             <Avatar
               name="Clare"
               age="26"
-              desc="She was a little confused about the process of checking reservation conflicts"
+              desc={
+                "She was a little confused about the process of checking " +
+                "reservation conflicts"
+              }
             />
             <Avatar
               name="Alex"
               age="32"
-              desc="He wanted to see a list of restaurants and more distinct location icon colors"
+              desc={
+                "He wanted to see a list of restaurants and more distinct location " +
+                "icon colors"
+              }
             />
             <Avatar
               name="Taylor"
@@ -947,7 +1035,10 @@ export default function Resto() {
             <Avatar
               name="Minoru"
               age="68"
-              desc="He expected to see a reservation conflict notification before going to the reservation page"
+              desc={
+                "He expected to see a reservation conflict notification before going " +
+                "to the reservation page"
+              }
             />
           </div>
           <Text>
@@ -958,7 +1049,7 @@ export default function Resto() {
             longer to complete the tasks.
           </Text>
         </SubSection>
-        <SubSection title="Iterations" color="text-green4" relaxed>
+        <SubSection title="Iterations" color="text-green4" spacing="space-y-24">
           <div className="space-y-7">
             <div className="text-[24px] font-medium tracking-[.02em]">
               Search - Restaurant list
@@ -1004,7 +1095,12 @@ export default function Resto() {
             />
           </div>
         </SubSection>
-        <Transition text="After I made design changes based on the usability test, the design is finalized" />
+        <Transition
+          text={
+            "After I made design changes based on the usability test, the design is " +
+            "finalized"
+          }
+        />
         <Image
           src="/resto/hifi-wireframes.jpeg"
           alt="wireframes"
@@ -1015,8 +1111,8 @@ export default function Resto() {
           <Link href="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&viewport=927%2C821%2C0.1&t=x4PyBZiBp9vuODCP-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1">
             <div
               className={
-                "h-[70px] w-[357px] rounded-[64px] bg-dark-green text-white text-[22px] font-medium " +
-                "tracking-[.02em] flex items-center justify-center"
+                "h-[70px] w-[357px] rounded-[64px] bg-dark-green text-white text-[22px] " +
+                "font-medium tracking-[.02em] flex items-center justify-center"
               }
             >
               View hi-fi prototype

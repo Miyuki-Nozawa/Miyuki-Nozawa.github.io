@@ -11,7 +11,7 @@ export default function KeyQuestions({
     <SimpleSection title="Key questions" className={className}>
       <ul className="list-disc list-outside text-[26px] tracing-[0.02em] space-y-6 pl-5">
         {questions.map((question, index) => (
-          <li key={index}>{question}</li>
+          <li key={index} className="font-normal">{question}</li>
         ))}
       </ul>
     </SimpleSection>

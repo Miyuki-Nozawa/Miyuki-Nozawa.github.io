@@ -78,8 +78,8 @@ export default function Home() {
               </div>
               <div
                 className={
-                  "bg-dark-green py-[10px] px-10 rounded-3xl text-[14px] " +
-                  "font-semibold tracking-[.02em] w-[200px] text-white"
+                  "bg-dark-green py-[11px] px-10 rounded-3xl text-[14px] " +
+                  "font-semibold tracking-[.02em] w-[200px] h-[44px] text-white"
                 }
               >
                 <Link href="/projects/resto">View case study</Link>
@@ -87,7 +87,7 @@ export default function Home() {
             </div>
           </div>
           {/* korean air feature */}
-          <div className="px-8 py-16 space-y-11 bg-beige rounded-lg">
+          <div className="px-10 py-14 bg-beige rounded-lg flex flex-col w-[656px] h-[490px]">
             <div className="space-y-5 px-4">
               <Image
                 src="/korean-air/logo.png"
@@ -99,7 +99,7 @@ export default function Home() {
                 A feature that enables effective utilization of mileage
               </div>
             </div>
-            <div className="flex space-x-[15px]">
+            <div className="flex space-x-[15px] mt-auto">
               <Image
                 src="/korean-air/hero.png"
                 alt="Korean Air"
@@ -107,21 +107,21 @@ export default function Home() {
                 height={197}
               />
               <div className="flex flex-col">
-                <div className="my-auto space-y-[7px]">
-                  <div className="text-[16px] tracking-[.02em]">
+                <div className="my-auto space-y-[10px] text-[16px] tracking-[.02em]">
+                  <div>
                     <b className="font-semibold">Project type:</b> Add a feature
                   </div>
-                  <div className="text-[16px] tracking-[.02em]">
+                  <div>
                     <b className="font-semibold">Role:</b> UX/UI Designer
                   </div>
-                  <div className="text-[16px] tracking-[.02em]">
+                  <div>
                     <b className="font-semibold">Industry:</b> Airline
                   </div>
                 </div>
                 <div
                   className={
-                    "mt-auto bg-brown3 rounded-3xl px-7 py-[10px] text-[14px] " +
-                    "font-semibold w-[180px]"
+                    "mt-auto bg-brown3 rounded-3xl px-9 py-[10px] text-[14px] " +
+                    "font-semibold w-[200px]"
                   }
                 >
                   <Link href="/projects/korean-air">View case study</Link>
@@ -130,9 +130,9 @@ export default function Home() {
             </div>
           </div>
           {/* pibu feature */}
-          <div className="px-10 py-11 space-y-11 bg-beige rounded-lg w-[656px] h-[490px]">
+          <div className="px-10 py-14 space-y-11 bg-beige rounded-lg w-[656px] h-[490px]">
             <div className="space-y-5">
-              <Image src="/pibu/logo.svg" alt="Pibu" width={114} height={64} />
+              <Image src="/pibu/logo.svg" alt="Pibu" width={90} height={50} />
               <div className="font-manrope text-[20px] font-extrabold tracking-[.02em]">
                 A website to introduce a local business and expand their
                 business
@@ -145,8 +145,8 @@ export default function Home() {
                 width={356}
                 height={220}
               />
-              <div className="flex flex-col pb-5">
-                <div className="my-auto space-y-[7px] text-[15px] tracking-[.02em]">
+              <div className="flex flex-col py-2">
+                <div className="my-auto space-y-[10px] text-[15px] tracking-[.02em]">
                   <div>
                     <b className="font-semibold">Project type:</b> Responsive
                     web design
@@ -160,8 +160,8 @@ export default function Home() {
                 </div>
                 <div
                   className={
-                    "mt-auto bg-brown rounded-3xl px-7 py-[10px] text-[14px] " +
-                    "font-semibold w-[180px] text-white"
+                    "mt-auto bg-brown rounded-3xl px-9 py-[10px] text-[14px] " +
+                    "font-semibold w-[200px] text-white"
                   }
                 >
                   <Link href="/projects/pibu">View case study</Link>
@@ -181,7 +181,7 @@ export default function Home() {
             height={374}
             className="rounded-md"
           />
-          <div className="flex flex-col justify-between flex-1">
+          <div className="flex flex-col justify-between flex-1 py-8">
             <div className="font-manrope text-4xl font-extrabold tracking-[.02em]">
               Who am I?
             </div>

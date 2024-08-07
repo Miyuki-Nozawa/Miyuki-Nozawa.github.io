@@ -17,6 +17,7 @@ const config: Config = {
       colors: {
         base: "#F8F8F6",
         base2: "#FAF9F5",
+        border: "#D9D9D9",
         green: "#556C3F",
         green2: "#445E2C",
         green3: "#969F32",

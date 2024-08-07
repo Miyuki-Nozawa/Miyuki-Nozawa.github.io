@@ -1,21 +1,32 @@
+import Text from "@/app/components/text";
+
 export default function SubSection({
   title,
   color,
   children,
-  relaxed,
+  spacing = "space-y-12",
+  textAbove = "",
+  subtitle = "",
 }: {
   title: string;
   color: string;
   children: React.ReactNode;
-  relaxed?: boolean;
+  spacing?: string;
+  textAbove?: string;
+  subtitle?: string;
 }) {
-  const spacing = relaxed ? "space-y-24" : "space-y-12";
+  // const spacing = relaxed ? "space-y-24" : "space-y-12";
+
   return (
     <div className={`${spacing} w-full`}>
-      <div
-        className={`font-manrope text-[1.75rem] font-semibold tracking-[.02em] underline ${color}`}
-      >
-        {title}
+      {textAbove && <Text className="mb-[80px]">{textAbove}</Text>}
+      <div className="space-y-[30px]">
+        <div
+          className={`font-manrope text-[1.75rem] font-semibold tracking-[.02em] underline ${color}`}
+        >
+          {title}
+        </div>
+        {subtitle && <Text>{subtitle}</Text>}
       </div>
       {children}
     </div>
