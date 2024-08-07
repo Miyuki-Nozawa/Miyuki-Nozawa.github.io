@@ -65,7 +65,7 @@ export default function KoreanAir() {
         underline="border-white"
       />
       <ProjectContents />
-      {/* introduction */}
+      {/* INTRODUCTION */}
       <Section title="Introduction" underline="bg-dark-green" className="px-52">
         <Text>
           Korean Air, the flag carrier of South Korea and the largest airline
@@ -92,7 +92,7 @@ export default function KoreanAir() {
           }
         />
       </Section>
-      {/* research */}
+      {/* RESEARCH */}
       <Section title="Research" underline="bg-brown" className="px-52 pb-12">
         <ResearchGoalSummary className="bg-brown7">
           <span className="font-bold">
@@ -407,7 +407,7 @@ export default function KoreanAir() {
           </div>
         </ResearchGoal>
       </Section>
-      {/* define */}
+      {/* DEFINE */}
       <Section title="Define" underline="bg-green3" className="px-52">
         <Text>
           After conducting research, reviewing the findings, and organizing the
@@ -468,7 +468,7 @@ export default function KoreanAir() {
         />
         <DownArrow />
       </Section>
-      {/* design */}
+      {/* DESIGN */}
       <Section
         title="Design"
         underline="bg-light-pink"
@@ -825,7 +825,7 @@ export default function KoreanAir() {
           </FigmaLink>
         </SubSection>
       </Section>
-      {/* test */}
+      {/* TEST */}
       <Section title="Test" underline="bg-brown3" className="px-52 pb-24">
         <Text>
           To confirm whether high-fidelity wireframes can actually achieve user
@@ -970,7 +970,7 @@ export default function KoreanAir() {
         </div>
         <div className="w-full pl-[106px]">
           <Link
-            href="https://www.figma.com/design/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=539-3694"
+            href="https://www.figma.com/proto/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=97-342&t=2t1wPmhC6AgrGakk-1&scaling=scale-down&content-scaling=fixed&page-id=74%3A269&starting-point-node-id=97%3A342&show-proto-sidebar=1"
             target="_blank"
           >
             <div
@@ -984,7 +984,7 @@ export default function KoreanAir() {
           </Link>
         </div>
       </Section>
-      {/* conclusion */}
+      {/* CONCLUSION */}
       <Section
         title="Conclusion"
         underline="bg-dark-green"

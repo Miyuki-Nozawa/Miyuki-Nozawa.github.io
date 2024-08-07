@@ -62,7 +62,7 @@ export default function Pibu() {
         projectType="Responsive web design"
         role="UX/UI designer"
         projectDuration="1 month"
-        industry="Beauty and personal care, Retail"
+        industry="Beauty, personal care"
         href="https://www.figma.com/proto/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?page-id=597%3A7713&node-id=807-7005&viewport=341%2C-827%2C0.03&t=WZCKh2jkLMYF6wKx-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=807%3A7005&show-proto-sidebar=1"
         headerClassName="text-[28px] font-manrope font-bold"
         className="px-24 space-x-12 w-full"
@@ -89,7 +89,7 @@ export default function Pibu() {
         underline="border-black"
       />
       <ProjectContents />
-      {/* introduction */}
+      {/* INTRODUCTION */}
       <Section title="Introduction" underline="bg-brown" className="px-52">
         <Text>
           Pibu is a family-owned Korean skincare store located in New York City.
@@ -109,7 +109,7 @@ export default function Pibu() {
           />
         </Text>
       </Section>
-      {/* research */}
+      {/* RESEARCH */}
       <Section
         title="Research"
         underline="bg-light-pink"
@@ -387,7 +387,7 @@ export default function Pibu() {
           </div>
         </ResearchGoal>
       </Section>
-      {/* define */}
+      {/* DEFINE */}
       <Section title="Define" underline="bg-green3" className="px-52">
         <Text>
           After conducting research, reviewing the findings, and organizing the
@@ -458,7 +458,7 @@ export default function Pibu() {
         </div>
         <DownArrow />
       </Section>
-      {/* design */}
+      {/* DESIGN */}
       <Section
         title="Design"
         underline="bg-dark-green"
@@ -769,7 +769,7 @@ export default function Pibu() {
         </SubSection>
       </Section>
       <Separator className="bg-brown" />
-      {/* branding */}
+      {/* BRANDING */}
       <div className="space-y-12 w-[1040px] mx-auto">
         {/* header */}
         <div className="text-3xl font-bold tracking-[.02em]">Branding</div>
@@ -929,7 +929,7 @@ export default function Pibu() {
           </FigmaLink>
         </SubSection>
       </div>
-      {/* test */}
+      {/* TEST */}
       <Section title="Test" underline="bg-brown3" className="px-52 pb-24">
         <Text>
           To confirm whether high-fidelity wireframes can actually achieve user
@@ -1085,7 +1085,7 @@ export default function Pibu() {
           </Link>
         </div>
       </Section>
-      {/* conclusion */}
+      {/* CONCLUSION */}
       <Section
         title="Conclusion"
         underline="bg-brown"

@@ -35,7 +35,6 @@ export default function Resto() {
     <div>
       <ProjectHero
         name="Resto"
-        // img="/resto/hero.png"
         video="/resto/hero.mp4"
         logo="/resto/logo.svg"
         logoWidth={90}
@@ -70,7 +69,7 @@ export default function Resto() {
         underline="border-black"
       />
       <ProjectContents />
-      {/* introduction */}
+      {/* INTRODUCTION */}
       <Section title="Introduction" underline="bg-brown" className="px-52">
         <Text>
           Tourists often rely on platforms like Google Maps and social media to
@@ -95,7 +94,7 @@ export default function Resto() {
           }
         />
       </Section>
-      {/* research */}
+      {/* RESEARCH */}
       <Section
         title="Research"
         underline="bg-dark-green"
@@ -371,7 +370,7 @@ export default function Resto() {
           </div>
         </ResearchGoal>
       </Section>
-      {/* define */}
+      {/* DEFINE */}
       <Section title="Define" underline="bg-brown3" className="px-52">
         <Text>
           After conducting research, reviewing the findings, and organizing the
@@ -440,7 +439,7 @@ export default function Resto() {
         />
         <DownArrow />
       </Section>
-      {/* design */}
+      {/* DESIGN */}
       <Section
         title="Design"
         underline="bg-orange"
@@ -757,7 +756,7 @@ export default function Resto() {
         </SubSection>
       </Section>
       <Separator className="bg-brown6" />
-      {/* branding */}
+      {/* BRANDING */}
       <div className="space-y-12 w-[1040px] mx-auto">
         {/* header */}
         <div className="text-3xl font-bold tracking-[.02em]">Branding</div>
@@ -981,7 +980,7 @@ export default function Resto() {
           </FigmaLink>
         </SubSection>
       </div>
-      {/* test */}
+      {/* TEST */}
       <Section title="Test" underline="bg-green3" className="px-52 pb-24">
         <Text>
           To confirm whether high-fidelity wireframes can actually achieve user
@@ -1004,7 +1003,11 @@ export default function Resto() {
             <li>Make a reservation without scheduling conflicts</li>
           </ul>
         </TestCard>
-        <SubSection title="Test results" color="text-green4" spacing="space-y-24">
+        <SubSection
+          title="Test results"
+          color="text-green4"
+          spacing="space-y-24"
+        >
           <div className="flex flex-wrap gap-y-[55px] justify-evenly">
             <Avatar
               name="Peter"
@@ -1097,8 +1100,8 @@ export default function Resto() {
         </SubSection>
         <Transition
           text={
-            "After I made design changes based on the usability test, the design is " +
-            "finalized"
+            "Based on usability testing, I refined the design of the app that makes " +
+            "it easy for travelers to book and manage restaurant reservations."
           }
         />
         <Image
@@ -1120,7 +1123,7 @@ export default function Resto() {
           </Link>
         </div>
       </Section>
-      {/* conclusion */}
+      {/* CONCLUSION */}
       <Section
         title="Conclusion"
         underline="bg-brown"

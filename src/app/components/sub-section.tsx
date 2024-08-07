@@ -15,8 +15,6 @@ export default function SubSection({
   textAbove?: string;
   subtitle?: string;
 }) {
-  // const spacing = relaxed ? "space-y-24" : "space-y-12";
-
   return (
     <div className={`${spacing} w-full`}>
       {textAbove && <Text className="mb-[80px]">{textAbove}</Text>}
