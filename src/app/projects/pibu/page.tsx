@@ -54,7 +54,7 @@ export default function Pibu() {
     <div>
       <ProjectHero
         name="Pibu"
-        img="/pibu/hero.png"
+        video="/pibu/hero.mp4"
         logo="/pibu/logo.svg"
         logoWidth={136}
         logoHeight={75}
