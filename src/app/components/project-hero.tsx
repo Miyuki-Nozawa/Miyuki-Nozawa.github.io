@@ -46,7 +46,7 @@ export default function ProjectHero({
         {img ? (
           <Image src={img} alt={name} className="object-contain" fill />
         ) : (
-          <video className="w-full h-full" autoPlay muted>
+          <video className="w-full h-full" autoPlay muted loop>
             <source src={video} type="video/mp4" />
           </video>
         )}
