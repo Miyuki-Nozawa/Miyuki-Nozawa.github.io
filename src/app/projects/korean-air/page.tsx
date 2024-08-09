@@ -261,7 +261,7 @@ export default function KoreanAir() {
               <ResearchMethod
                 title="Usability testing"
                 desc={
-                  "The third method we conducted was a usability test. We used the " +
+                  "The third method I conducted was a usability test. I used the " +
                   "existing Korean Air website to understand how people navigate the " +
                   "site, what aspects they find difficult, and what areas need " +
                   "improvement."

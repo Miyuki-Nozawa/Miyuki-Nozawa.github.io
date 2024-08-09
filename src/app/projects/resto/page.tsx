@@ -719,9 +719,9 @@ export default function Resto() {
               </div>
               {/* test 3 */}
               <div className="space-y-7">
-                <ul className="list-disc list-outside text-[24px] tracking-[.02em] pl-6">
-                  <li>Make a reservation</li>
-                </ul>
+                <div className="text-[24px] tracking-[.02em]">
+                  Make a reservation
+                </div>
                 <Text sm>
                   → While the process for making reservations should be smooth,
                   we also need to find a way to prevent duplicate bookings.
@@ -1111,7 +1111,10 @@ export default function Resto() {
           height={851}
         />
         <div className="w-full">
-          <Link href="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&viewport=927%2C821%2C0.1&t=x4PyBZiBp9vuODCP-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1">
+          <Link
+            href="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&viewport=927%2C821%2C0.1&t=x4PyBZiBp9vuODCP-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1"
+            target="_blank"
+          >
             <div
               className={
                 "h-[70px] w-[357px] rounded-[64px] bg-dark-green text-white text-[22px] " +

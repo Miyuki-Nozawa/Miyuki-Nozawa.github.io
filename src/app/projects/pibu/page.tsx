@@ -787,7 +787,7 @@ export default function Pibu() {
           >
             <Text>
               Based on Pibu’s brand values of clean, young, modern, and
-              refreshing, we created two style tiles: one with a blue theme and
+              refreshing, I created two style tiles: one with a blue theme and
               one with a green theme. The blue style tile was selected by the
               stakeholder as the one that best aligns with the brand image.
             </Text>
@@ -1003,45 +1003,37 @@ export default function Pibu() {
         <SubSection title="Iterations" color="text-brown8" spacing="space-y-24">
           <div className="space-y-7">
             <div className="text-[24px] font-medium tracking-[.02em]">Home</div>
-            <Image
-              src="/pibu/iterations-1.png"
-              alt="Home"
-              width={1040}
-              height={440}
-            />
+            <div className="relative w-[1040px] h-[450px]">
+              <Image src="/pibu/iterations-1.png" alt="Home" fill />
+            </div>
           </div>
           <div className="space-y-7">
             <div className="text-[24px] font-medium tracking-[.02em]">
               Item list
             </div>
-            <Image
-              src="/pibu/iterations-2.png"
-              alt="Item list"
-              width={1040}
-              height={440}
-            />
+            <div className="relative w-[1040px] h-[450px]">
+              <Image src="/pibu/iterations-2.png" alt="Item list" fill />
+            </div>
           </div>
           <div className="space-y-7">
             <div className="text-[24px] font-medium tracking-[.02em]">
               Item list - choose items to compare
             </div>
-            <Image
-              src="/pibu/iterations-3.png"
-              alt="Item list - choose items to compare"
-              width={1040}
-              height={440}
-            />
+            <div className="relative w-[1040px] h-[450px]">
+              <Image
+                src="/pibu/iterations-3.png"
+                alt="Item list - choose items to compare"
+                fill
+              />
+            </div>
           </div>
           <div className="space-y-7">
             <div className="text-[24px] font-medium tracking-[.02em]">
               Comparison
             </div>
-            <Image
-              src="/pibu/iterations-4.png"
-              alt="Comparison"
-              width={1040}
-              height={440}
-            />
+            <div className="relative w-[1040px] h-[450px]">
+              <Image src="/pibu/iterations-4.png" alt="Comparison" fill />
+            </div>
           </div>
         </SubSection>
         <Transition
