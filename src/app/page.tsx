@@ -7,7 +7,7 @@ export default function Home() {
     <main className="flex flex-col justify-between p-16 pb-24 space-y-24 bg-base">
       {/* Hero */}
       <div className="flex">
-        <div className="flex-1 space-y-10 pr-2 pt-2 flex flex-col justify-between">
+        <div className="space-y-10 pr-2 pt-2 flex flex-col justify-between w-[480px] mr-12">
           <div className="font-manrope text-5xl	font-bold tracking-widest text-dark">
             Miyuki Nozawa
           </div>
@@ -24,11 +24,11 @@ export default function Home() {
             <Link href="/about">Learn More</Link>
           </button>
         </div>
-        <div className="flex-none w-[785px] h-[480px] relative">
+        <div className="w-[785px] relative flex-auto">
           <Image
             src="/home/hero.jpg"
             alt="me"
-            className="ml-auto rounded-md"
+            className="ml-auto rounded-md object-cover"
             fill
           />
         </div>
@@ -36,13 +36,15 @@ export default function Home() {
       {/* Featured Projects */}
       <div className="space-y-12">
         {/* resto */}
-        <div className="py-16 px-[100px] flex bg-beige rounded-[10px] shadow-md">
-          <div className="w-[560px] h-[560px] bg-brown11 rounded-[50%] flex justify-center items-center">
+        <div className="py-16 px-[100px] min-h-[690px] flex bg-beige rounded-[10px] shadow-md">
+          <div className="w-[38vw] max-w-[560px] flex justify-center items-center relative">
+            <div className="w-full absolute aspect-square bg-brown11 rounded-[50%]"></div>
             <Image
               src="/resto/front.png"
               alt="resto"
               height={560}
               width={405}
+              className="z-10"
             />
           </div>
           <div className="space-y-11 w-[500px] ml-[50px]">
@@ -78,7 +80,7 @@ export default function Home() {
           </div>
         </div>
         {/* korean air */}
-        <div className="py-16 px-[100px] flex bg-gray rounded-[10px] shadow-md">
+        <div className="py-16 px-[100px] min-h-[690px] flex bg-gray rounded-[10px] shadow-md">
           <div className="space-y-11 w-[500px] my-auto">
             <Image
               src="/korean-air/logo.png"
@@ -113,23 +115,27 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className="w-[560px] h-[560px] bg-gray2 rounded-[50%] flex justify-center items-center">
+          <div className="w-[38vw] max-w-[560px] flex justify-center items-center relative ml-auto">
+            <div className="w-full absolute aspect-square bg-gray2 rounded-[50%]"></div>
             <Image
               src="/korean-air/prototype-2.png"
               alt="korean air"
-              height={660}
-              width={370}
+              height={370}
+              width={660}
+              className="z-10"
             />
           </div>
         </div>
         {/* pibu */}
-        <div className="py-16 px-[100px] flex bg-beige rounded-[10px] shadow-md">
-          <div className="w-[560px] h-[560px] bg-light-green rounded-[50%] flex justify-center items-center">
+        <div className="py-16 px-[100px] min-h-[690px] flex bg-beige rounded-[10px] shadow-md">
+          <div className="w-[38vw] max-w-[560px] flex justify-center items-center relative">
+            <div className="w-full absolute aspect-square bg-light-green rounded-[50%]"></div>
             <Image
               src="/pibu/hero-sm.png"
               alt="pibu"
               height={316}
               width={560}
+              className="z-10"
             />
           </div>
           <div className="space-y-11 w-[500px] ml-[50px] my-auto">

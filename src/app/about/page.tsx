@@ -35,14 +35,22 @@ export default function About() {
               differences.
             </div>
           </Text>
-          <Image
-            src="/about/strasbourg.png"
-            alt="strasbourg"
-            width={312}
-            height={382}
-            className="mr-8"
-          />
-          <Image src="/about/newyork.png" alt="new york" width={312} height={382} />
+          <div className="w-[312px] h-[382px] relative mr-8 my-auto">
+            <Image
+              src="/about/strasbourg.png"
+              alt="strasbourg"
+              className="object-cover"
+              fill
+            />
+          </div>
+          <div className="w-[312px] h-[382px] relative my-auto">
+            <Image
+              src="/about/newyork.png"
+              alt="new york"
+              className="object-cover"
+              fill
+            />
+          </div>
         </div>
       </div>
       {/* Experiences */}
@@ -75,24 +83,25 @@ export default function About() {
             height={320}
           />
           <Text className="w-1/2 pl-4 flex items-center">
-            I became motivated to improve the usability issues of a company&apos;s
-            website, so I began studying web development. This led me to stumble
-            upon the concepts of UX/UI for the first time. As I continued my
-            studies in web development, I realized that I was actually more
-            interested in the design aspect of building websites and
-            applications, so I decided to pivot my focus completely to UX
+            I became motivated to improve the usability issues of a
+            company&apos;s website, so I began studying web development. This
+            led me to stumble upon the concepts of UX/UI for the first time. As
+            I continued my studies in web development, I realized that I was
+            actually more interested in the design aspect of building websites
+            and applications, so I decided to pivot my focus completely to UX
             design.
           </Text>{" "}
         </div>
         <div className="flex">
           <Text className="w-1/2 pr-8 flex items-center">
-            In the industries I&apos;ve worked in, I&apos;ve often engaged directly with
-            consumers&apos; feedback and experimented to meet their needs. As a UX
-            designer, conducting user tests is a significant part of
-            problem-solving, and I believe my past experiences can be maximized
-            in this role. Furthermore, I aim to leverage the knowledge I&apos;ve
-            gained across various industries to assist in providing consumers
-            with richer experiences through websites.
+            In the industries I&apos;ve worked in, I&apos;ve often engaged
+            directly with consumers&apos; feedback and experimented to meet
+            their needs. As a UX designer, conducting user tests is a
+            significant part of problem-solving, and I believe my past
+            experiences can be maximized in this role. Furthermore, I aim to
+            leverage the knowledge I&apos;ve gained across various industries to
+            assist in providing consumers with richer experiences through
+            websites.
           </Text>
           <Image
             src="/about/experiences-4.png"
