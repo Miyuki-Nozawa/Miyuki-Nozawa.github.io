@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex flex-col justify-between p-16 pb-24 space-y-24">
+    <main className="flex flex-col justify-between p-16 pb-24 space-y-24 bg-base">
       {/* Hero */}
       <div className="flex">
         <div className="flex-1 space-y-10 pr-2 pt-2 flex flex-col justify-between">
@@ -34,189 +34,160 @@ export default function Home() {
         </div>
       </div>
       {/* Featured Projects */}
-      <div className="flex my-16 items-center w-full overflow-x-hidden h-[660px]">
-        <div
-          className={
-            "-rotate-90 w-56 h-32 font-manrope text-[46px] font-bold tracking-widest mr-8"
-          }
-        >
-          Featured Projects
+      <div className="space-y-12">
+        {/* resto */}
+        <div className="py-16 px-[100px] flex bg-beige rounded-[10px] shadow-md">
+          <div className="w-[560px] h-[560px] bg-brown11 rounded-[50%] flex justify-center items-center">
+            <Image
+              src="/resto/front.png"
+              alt="resto"
+              height={560}
+              width={405}
+            />
+          </div>
+          <div className="space-y-11 w-[500px] ml-[50px]">
+            <Image src="/resto/logo.svg" alt="resto" width={120} height={120} />
+            <Text className="font-medium">
+              An app where travelers can make and manage restaurant reservations
+              easily in Japan
+            </Text>
+            <div className="text-[22px] tracking-[.02em] space-y-[10px]">
+              <div>
+                <span className="font-medium">Project type:</span> End-to-end
+                application
+              </div>
+              <div>
+                <span className="font-medium">Role:</span> UX/UI designer
+              </div>
+              <div>
+                <span className="font-medium">Industry:</span> Restaurant
+              </div>
+            </div>
+            <div>
+              <Link href="/projects/resto">
+                <div
+                  className={
+                    "bg-dark-green w-[310px] h-[65px] flex justify-center items-center " +
+                    "rounded-[40px] text-[22px] text-white font-semibold tracking-[.02em]"
+                  }
+                >
+                  View case study
+                </div>
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="flex space-x-12 overflow-scroll w-full [&>div]:flex-shrink-0 py-14">
-          {/* resto feature */}
-          <div className="p-12 space-x-12 bg-beige rounded-lg flex w-[656px] h-[490px]">
-            <Image src="/resto/hero.png" alt="Resto" width={188} height={380} />
-            <div className="flex flex-col justify-between">
-              <div className="space-y-5">
-                <div className="flex items-center space-x-4">
-                  <Image
-                    src="/resto/logo.svg"
-                    alt="Resto"
-                    width={58}
-                    height={58}
-                  />
-                  <div className="text-[16px] tracking-[.02em]">
-                    A restaurant reservation app
-                  </div>
-                </div>
-                <div className="font-manrope text-xl font-extrabold tracking-[.02em]">
-                  An app where travelers can make and manage restaurant
-                  reservations easily in Japan
-                </div>
+        {/* korean air */}
+        <div className="py-16 px-[100px] flex bg-gray rounded-[10px] shadow-md">
+          <div className="space-y-11 w-[500px] my-auto">
+            <Image
+              src="/korean-air/logo.png"
+              alt="korean-air"
+              width={340}
+              height={54}
+            />
+            <Text className="font-medium">
+              A feature that enables effective utilization of mileage
+            </Text>
+            <div className="text-[22px] tracking-[.02em] space-y-[10px]">
+              <div>
+                <span className="font-medium">Project type:</span> Add a feature
               </div>
-              <div className="text-[16px] tracking-[.02em] space-y-[10px]">
-                <div>
-                  <b className="font-semibold">Project type:</b> End-to-end
-                  application
-                </div>
-                <div>
-                  <b className="font-semibold">Role:</b> Sole UX/UI designer
-                </div>
-                <div>
-                  <b className="font-semibold">Industry:</b> Restaurant
-                </div>
+              <div>
+                <span className="font-medium">Role:</span> UX/UI designer
               </div>
-              <div
-                className={
-                  "bg-dark-green py-[11px] px-10 rounded-3xl text-[14px] " +
-                  "font-semibold tracking-[.02em] w-[200px] h-[44px] text-white"
-                }
-              >
-                <Link href="/projects/resto">View case study</Link>
+              <div>
+                <span className="font-medium">Industry:</span> Airline
               </div>
             </div>
-          </div>
-          {/* korean air feature */}
-          <div className="px-10 py-14 bg-beige rounded-lg flex flex-col w-[656px] h-[490px]">
-            <div className="space-y-5 px-4">
-              <Image
-                src="/korean-air/logo.png"
-                alt="Korean Air"
-                width={240}
-                height={40}
-              />
-              <div className="font-manrope text-[20px] font-extrabold tracking-[.02em]">
-                A feature that enables effective utilization of mileage
-              </div>
-            </div>
-            <div className="flex space-x-[15px] mt-auto">
-              <Image
-                src="/korean-air/hero.png"
-                alt="Korean Air"
-                width={350}
-                height={197}
-              />
-              <div className="flex flex-col">
-                <div className="my-auto space-y-[10px] text-[16px] tracking-[.02em]">
-                  <div>
-                    <b className="font-semibold">Project type:</b> Add a feature
-                  </div>
-                  <div>
-                    <b className="font-semibold">Role:</b> UX/UI Designer
-                  </div>
-                  <div>
-                    <b className="font-semibold">Industry:</b> Airline
-                  </div>
-                </div>
+            <div>
+              <Link href="/projects/korean-air">
                 <div
                   className={
-                    "mt-auto bg-brown3 rounded-3xl px-9 py-[10px] text-[14px] " +
-                    "font-semibold w-[200px]"
+                    "bg-brown3 w-[310px] h-[65px] flex justify-center items-center " +
+                    "rounded-[40px] text-[22px] font-semibold tracking-[.02em]"
                   }
                 >
-                  <Link href="/projects/korean-air">View case study</Link>
+                  View case study
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
-          {/* pibu feature */}
-          <div className="px-10 py-14 space-y-11 bg-beige rounded-lg w-[656px] h-[490px]">
-            <div className="space-y-5">
-              <Image src="/pibu/logo.svg" alt="Pibu" width={90} height={50} />
-              <div className="font-manrope text-[20px] font-extrabold tracking-[.02em]">
-                A website to introduce a local business and expand their
-                business
+          <div className="w-[560px] h-[560px] bg-gray2 rounded-[50%] flex justify-center items-center">
+            <Image
+              src="/korean-air/prototype-2.png"
+              alt="korean air"
+              height={660}
+              width={370}
+            />
+          </div>
+        </div>
+        {/* pibu */}
+        <div className="py-16 px-[100px] flex bg-beige rounded-[10px] shadow-md">
+          <div className="w-[560px] h-[560px] bg-light-green rounded-[50%] flex justify-center items-center">
+            <Image
+              src="/pibu/hero-sm.png"
+              alt="pibu"
+              height={316}
+              width={560}
+            />
+          </div>
+          <div className="space-y-11 w-[500px] ml-[50px] my-auto">
+            <Image src="/pibu/logo.svg" alt="pibu" width={120} height={120} />
+            <Text className="font-medium">
+              A website to introduce a local business and expand their business
+            </Text>
+            <div className="text-[22px] tracking-[.02em] space-y-[10px]">
+              <div>
+                <span className="font-medium">Project type:</span> Responsive
+                web design
+              </div>
+              <div>
+                <span className="font-medium">Role:</span> UX/UI designer
+              </div>
+              <div>
+                <span className="font-medium">Industry:</span> Beauty,
+                e-commerce
               </div>
             </div>
-            <div className="flex space-x-[10px]">
-              <Image
-                src="/pibu/hero-sm.png"
-                alt="Pibu"
-                width={356}
-                height={220}
-              />
-              <div className="flex flex-col py-2">
-                <div className="my-auto space-y-[10px] text-[15px] tracking-[.02em]">
-                  <div>
-                    <b className="font-semibold">Project type:</b> Responsive
-                    web design
-                  </div>
-                  <div>
-                    <b className="font-semibold">Role:</b> UX/UI Designer
-                  </div>
-                  <div>
-                    <b className="font-semibold">Industry:</b> Beauty, retail
-                  </div>
-                </div>
+            <div>
+              <Link href="/projects/pibu">
                 <div
                   className={
-                    "mt-auto bg-brown rounded-3xl px-9 py-[10px] text-[14px] " +
-                    "font-semibold w-[200px] text-white"
+                    "bg-brown w-[310px] h-[65px] flex justify-center items-center " +
+                    "rounded-[40px] text-[22px] text-white font-semibold tracking-[.02em]"
                   }
                 >
-                  <Link href="/projects/pibu">View case study</Link>
+                  View case study
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
         </div>
       </div>
       {/* bottom */}
-      <div className="py-12 space-y-20">
-        <div className="flex justify-between space-x-14 h-[374px]">
-          <Image
-            src="/home/who-i-am.jpg"
-            alt="me"
-            width={660}
-            height={374}
-            className="rounded-md"
-          />
-          <div className="flex flex-col justify-between flex-1 py-8">
-            <div className="font-manrope text-4xl font-extrabold tracking-[.02em]">
-              Who am I?
-            </div>
-            <Text>
-              Leveraging insights from studying diverse cultures and languages,
-              I create designs with deep user research and cultural nuance. I am
-              passionate about crafting detailed user experiences that address
-              diverse needs.
-            </Text>
-          </div>
+      <div className="w-[1016px] space-y-9 mx-auto py-24">
+        <div className="font-manrope font-extrabold text-4xl tracking-[.02em]">
+          Let&apos;s work together!
         </div>
-        <div className="flex justify-between space-x-14 h-[374px]">
-          <div className="flex flex-col justify-between flex-1 py-[28px]">
-            <div className="font-manrope text-4xl font-extrabold tracking-[.02em]">
-              Let&apos;s work together!
-            </div>
-            <Text>
-              Thank you for taking an interest in my work. Let’s connect and
-              create a product that solves real user problems together.
-            </Text>
-            <button
-              className={
-                "text-[22px] w-56 h-16 tracking-widest font-medium rounded-md bg-light-pink"
-              }
-            >
-              <Link href="/contact">Contact me</Link>
-            </button>
-          </div>
-          <Image
-            src="/home/laptop.jpg"
-            alt="work"
-            width={647}
-            height={374}
-            className="rounded-md"
-          />
+        <Text>
+          Thank you for taking an interest in my work.
+          <br />
+          Let’s connect and create a product that solves real user problems
+          together.
+        </Text>
+        <div className="space-x-12 flex">
+          <Link href="mailto:nozawa.myk@gmail.com" target="_blank">
+            <Image src="/icons/email.svg" alt="email" width={45} height={40} />
+          </Link>
+          <Link href="https://www.linkedin.com/in/miyuki-nozawa/">
+            <Image
+              src="/icons/linkedin.svg"
+              alt="linkedin"
+              width={40}
+              height={40}
+            />
+          </Link>
         </div>
       </div>
     </main>

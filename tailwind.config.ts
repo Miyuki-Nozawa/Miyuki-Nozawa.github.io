@@ -36,6 +36,7 @@ const config: Config = {
         brown8: "#675332",
         brown9: "#7A4D3E",
         brown10: "#69553F",
+        brown11: "#D1B39B",
         "light-green": "#B6BE8F",
         olive: "#E5E7CB",
         paper: "#F2EFEA",
@@ -46,6 +47,8 @@ const config: Config = {
         link: "#0066FF",
         orange: "#C2705C",
         overlay: "rgba(0, 0, 0, 0.2)",
+        gray: "#EBEBEB",
+        gray2: "#BEC8CA"
       },
     },
   },
