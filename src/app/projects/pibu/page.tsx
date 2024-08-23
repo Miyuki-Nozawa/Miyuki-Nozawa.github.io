@@ -177,12 +177,7 @@ export default function Pibu() {
               href="https://docs.google.com/spreadsheets/d/1gXhtSzPpXVYKsOGuF8s_V30XgVSgRQyaChlTCKN0HSg"
               target="_blank"
             >
-              <div
-                className={
-                  "px-8 py-5 mt-12 border-2 border-brown9 rounded-[5rem] inline-block " +
-                  "text-brown9 text-xl font-semibold"
-                }
-              >
+              <div className="px-8 py-5 mt-12 border-2 border-brown9 rounded-[5rem] inline-block text-brown9 text-xl font-semibold">
                 View the competitive analysis
               </div>
             </Link>

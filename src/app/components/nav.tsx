@@ -9,7 +9,6 @@ import Link from "next/link";
 export default function Nav() {
   const [hovered, setHovered] = useState(false);
   const pathname = usePathname();
-  console.log("pathname", pathname);
   const isContact = pathname.startsWith("/contact");
 
   const handleHoverOn = () => {
@@ -21,11 +20,10 @@ export default function Nav() {
   };
 
   return (
-    <div className="relative">
+    <div className="relative hidden lg:block">
       <div
         className={
-          "absolute top-0 right-0 left-0 flex justify-between items-center p-16 " +
-          "h-[192px] z-20 " +
+          "absolute top-0 right-0 left-0 flex justify-between items-center p-16 h-[192px] z-20 " +
           `${
             isContact
               ? hovered
@@ -86,8 +84,7 @@ export default function Nav() {
       </div>
       <div
         className={
-          "absolute top-[191px] left-0 right-0 z-20 bg-base transition-all " +
-          "overflow-hidden duration-500 " +
+          "absolute top-[191px] left-0 right-0 z-20 bg-base transition-all overflow-hidden duration-500 " +
           `${hovered ? "h-[300px]" : "h-0"}`
         }
         onMouseLeave={handleHoverOff}
@@ -122,8 +119,7 @@ export default function Nav() {
       {/* overlay */}
       <div
         className={
-          "absolute h-[2000px] w-[1440px] z-10 transition-all duration-500 bg-black " +
-          "top-0 bottom-0 left-0 right-0 pointer-events-none " +
+          "absolute h-[2000px] w-[1440px] z-10 transition-all duration-500 bg-black top-0 bottom-0 left-0 right-0 pointer-events-none " +
           `${hovered ? "opacity-50" : "opacity-0"}`
         }
         onMouseEnter={handleHoverOn}

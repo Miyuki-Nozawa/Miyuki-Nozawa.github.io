@@ -7,7 +7,7 @@ export default function Text({
   sm?: boolean;
   children: React.ReactNode;
 }>) {
-  const fontSize = sm ? "text-[24px]" : "text-[26px]";
+  const fontSize = sm ? "lg:text-[24px]" : "lg:text-[26px]";
   return (
     <div className={`${fontSize} tracking-[.02em] font-light ${className}`}>
       {children}

@@ -147,12 +147,7 @@ export default function Resto() {
               href="https://docs.google.com/spreadsheets/d/1miVsV3Eom-ll49Xt5AYETFDtCdXirI7YNvXDjhCpKA8/"
               target="_blank"
             >
-              <div
-                className={
-                  "px-8 py-[13.5px] mt-12 border-2 border-dark-green rounded-[5rem] inline-block " +
-                  "text-dark-green text-xl font-semibold"
-                }
-              >
+              <div className="px-8 py-[13.5px] mt-12 border-2 border-dark-green rounded-[5rem] inline-block text-dark-green text-xl font-semibold">
                 View the competitive analysis
               </div>
             </Link>
@@ -177,12 +172,7 @@ export default function Resto() {
           />
           {/* research methods */}
           <div className="space-y-12">
-            <div
-              className={
-                "font-manrope text-[1.75rem] font-extrabold tracking-[.02em] " +
-                "text-dark-green underline"
-              }
-            >
+            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] text-dark-green underline">
               Research methods
             </div>
             <Text>
@@ -346,19 +336,11 @@ export default function Resto() {
               </Text>
               <DownArrow />
               {/* key findings */}
-              <div
-                className={
-                  "px-24 py-12 space-y-7 rounded-3xl border-dark-green border-2"
-                }
-              >
+              <div className="px-24 py-12 space-y-7 rounded-3xl border-dark-green border-2">
                 <div className="text-3xl font-bold tracking-[.02em]">
                   Key findings
                 </div>
-                <ul
-                  className={
-                    "list-disc list-outside text-[26px] tracking-[.02em] pl-6 space-y-1"
-                  }
-                >
+                <ul className="list-disc list-outside text-[26px] tracking-[.02em] pl-6 space-y-1">
                   <li>Reliable Reviews and Ratings</li>
                   <li>Up-to-date information</li>
                   <li>Ease of Reservations and Reservation Management</li>
@@ -517,12 +499,7 @@ export default function Resto() {
             <div className="text-[26px] font-semibold tracking-[.02em]">
               Key categories
             </div>
-            <div
-              className={
-                "text-2xl font-medium tracking-[.02em] flex flex-wrap px-24 py-16 " +
-                "justify-between gap-y-7 border-2 rounded-3xl border-brown"
-              }
-            >
+            <div className="text-2xl font-medium tracking-[.02em] flex flex-wrap px-24 py-16 justify-between gap-y-7 border-2 rounded-3xl border-brown">
               <div className="w-1/3">Reservations</div>
               <div className="w-1/3">Settings</div>
               <div className="w-1/3">Search/Find</div>
@@ -543,12 +520,7 @@ export default function Resto() {
           </Text>
           <div className="relative w-[1040px] h-[523px]">
             <Image src="/resto/sitemap.png" alt="Sitemap" fill />
-            <div
-              className={
-                "text-dark-orange text-[22px] tracking-[.02em] absolute bottom-0 " +
-                "w-[438px] right-[44px]"
-              }
-            >
+            <div className="text-dark-orange text-[22px] tracking-[.02em] absolute bottom-0 w-[438px] right-[44px]">
               *The outlined items are where I am focusing to help solve the
               problems identified by users
             </div>
@@ -991,12 +963,7 @@ export default function Resto() {
           <div className="text-[24px] tracking-[.02em]">
             5 people (in person & online)
           </div>
-          <ul
-            className={
-              "list-disc list-outside text-[26px] tracking-[.02em] font-medium " +
-              "pl-6 space-y-7"
-            }
-          >
+          <ul className="list-disc list-outside text-[26px] tracking-[.02em] font-medium pl-6 space-y-7">
             <li>Search for restaurants that have an English menu</li>
             <li>Choose a restaurant that is popular among locals</li>
             <li>Search for restaurants near a famous landmark</li>
@@ -1115,12 +1082,7 @@ export default function Resto() {
             href="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&viewport=927%2C821%2C0.1&t=x4PyBZiBp9vuODCP-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1"
             target="_blank"
           >
-            <div
-              className={
-                "h-[70px] w-[357px] rounded-[64px] bg-dark-green text-white text-[22px] " +
-                "font-medium tracking-[.02em] flex items-center justify-center"
-              }
-            >
+            <div className="h-[70px] w-[357px] rounded-[64px] bg-dark-green text-white text-[22px] font-medium tracking-[.02em] flex items-center justify-center">
               View hi-fi prototype
             </div>
           </Link>

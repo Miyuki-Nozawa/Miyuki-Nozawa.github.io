@@ -177,12 +177,7 @@ export default function KoreanAir() {
           />
           {/* research methods */}
           <div className="space-y-12">
-            <div
-              className={
-                "font-manrope text-[1.75rem] font-extrabold tracking-[.02em] " +
-                "underline text-brown"
-              }
-            >
+            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] underline text-brown">
               Research methods
             </div>
             <Text>
@@ -291,12 +286,7 @@ export default function KoreanAir() {
           </div>
           {/* results */}
           <div className="space-y-12">
-            <div
-              className={
-                "font-manrope text-[1.75rem] font-extrabold tracking-[.02em] " +
-                "text-brown underline"
-              }
-            >
+            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] text-brown underline">
               Results
             </div>
             <Text>
@@ -392,11 +382,7 @@ export default function KoreanAir() {
                 <div className="text-3xl font-bold tracking-[.02em]">
                   Key findings
                 </div>
-                <ul
-                  className={
-                    "list-disc list-outside text-[30px] tracking-[.02em] pl-6 space-y-1"
-                  }
-                >
+                <ul className="list-disc list-outside text-[30px] tracking-[.02em] pl-6 space-y-1">
                   <li>Clear display of mileage redemption options</li>
                   <li>Smooth and easy redemption of flight tickets</li>
                   <li>Understanding the required mileage for redemption</li>
@@ -850,7 +836,11 @@ export default function KoreanAir() {
             <li>Find out the mileage redemption options</li>
           </ul>
         </TestCard>
-        <SubSection title="Test results" color="text-brown8" spacing="space-y-24">
+        <SubSection
+          title="Test results"
+          color="text-brown8"
+          spacing="space-y-24"
+        >
           <div className="flex flex-wrap gap-y-[55px] justify-evenly">
             <Avatar
               name="Yingyang"
@@ -902,7 +892,7 @@ export default function KoreanAir() {
             could be done beyond the displayed mileage redemption options.
           </Text>
         </SubSection>
-        <SubSection title="Iterations" color="text-brown8" spacing="space-y-24" >
+        <SubSection title="Iterations" color="text-brown8" spacing="space-y-24">
           <div className="space-y-24">
             <div className="space-y-12">
               <div className="text-2xl font-medium tracking-[.02em]">
@@ -973,12 +963,7 @@ export default function KoreanAir() {
             href="https://www.figma.com/proto/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=97-342&t=2t1wPmhC6AgrGakk-1&scaling=scale-down&content-scaling=fixed&page-id=74%3A269&starting-point-node-id=97%3A342&show-proto-sidebar=1"
             target="_blank"
           >
-            <div
-              className={
-                "h-[70px] w-[357px] rounded-[64px] bg-brown3 text-[22px] font-semibold " +
-                "tracking-[.02em] flex items-center justify-center"
-              }
-            >
+            <div className="h-[70px] w-[357px] rounded-[64px] bg-brown3 text-[22px] font-semibold tracking-[.02em] flex items-center justify-center">
               View hi-fi prototype
             </div>
           </Link>
