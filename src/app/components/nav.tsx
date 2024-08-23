@@ -20,10 +20,10 @@ export default function Nav() {
   };
 
   return (
-    <div className="relative hidden lg:block">
+    <div className="relative mt-[10px] lg:mt-0 lg:block">
       <div
         className={
-          "absolute top-0 right-0 left-0 flex justify-between items-center p-16 h-[192px] z-20 " +
+          "absolute top-0 right-0 left-0 flex justify-between items-center lg:p-16 lg:h-[192px] z-20 " +
           `${
             isContact
               ? hovered
@@ -33,15 +33,12 @@ export default function Nav() {
           } `
         }
       >
-        <Link href="/">
-          <Image
-            src="/icons/nav.svg"
-            alt="miyuki nozawa"
-            width={155}
-            height={105}
-          />
-        </Link>
-        <div className="flex space-x-[4.5rem] font-light">
+        <div className="mx-auto lg:mx-0 w-[75px] lg:w-[155px] h-[50px] lg:h-[105px] relative">
+          <Link href="/">
+            <Image src="/icons/nav.svg" alt="miyuki nozawa" fill />
+          </Link>
+        </div>
+        <div className="hidden lg:flex space-x-[4.5rem] font-light">
           <div onMouseOver={handleHoverOff}>
             <NavLink
               href="/"
@@ -124,6 +121,12 @@ export default function Nav() {
         }
         onMouseEnter={handleHoverOn}
       ></div>
+      {/* mobile nav */}
+      <div className="absolute left-[20px] w-[30px] h-[50px] flex justify-center items-center z-40 lg:hidden">
+        <div className="w-full h-full">
+        <Image src="/icons/hamburger.svg" alt="menu" fill />
+        </div>
+      </div>
     </div>
   );
 }

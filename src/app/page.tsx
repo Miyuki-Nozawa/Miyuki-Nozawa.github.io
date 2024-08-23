@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex flex-col justify-between p-[20px] lg:p-16 pb-24 space-y-24 bg-base">
+    <main className="flex flex-col justify-between pt-[90px] p-[20px] lg:p-16 pb-24 space-y-24 bg-base">
       {/* Hero */}
       <div className="flex flex-col lg:flex-row">
         <div className="order-2 lg:order-1 lg:space-y-10 lg:pr-2 lg:pt-2 flex flex-col justify-between w-full lg:w-[480px] lg:mr-12">
