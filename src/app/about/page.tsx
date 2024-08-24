@@ -1,29 +1,41 @@
 import Image from "next/image";
 import Text from "@/app/components/text";
 
-const subheader = "font-manrope text-[2.8rem] tracking-widest font-bold";
+const subheader =
+  "font-manrope text-[24px] lg:text-[2.8rem] tracking-[.02em] lg:tracking-widest font-bold";
 
 export default function About() {
   return (
-    <main className="flex flex-col justify-between p-16">
-      <div className="font-manrope text-7xl font-bold mb-36">About Me</div>
+    <main className="flex flex-col space-y-12 lg:space-y-[150px] lg:justify-between px-[20px] lg:p-16 pt-[90px] pb-24 lg:pb-[175px]">
+      <div className="font-manrope text-[40px] lg:text-7xl font-bold">
+        About Me
+      </div>
       {/* Intro */}
-      <div>
-        <div className="flex space-x-7">
-          <Image
-            src="/about/niigata.png"
-            alt="niigata"
-            width={312}
-            height={382}
-          />
-          <Image src="/about/tokyo.png" alt="tokyo" width={312} height={382} />
-          <div className="w-1/2 text-[32px] pl-6 pr-20 font-light tracking-[.03em]">
+      <div className="space-y-4 lg:space-y-0">
+        <div className="flex flex-col lg:flex-row">
+          <div className="flex space-x-5 lg:space-x-7 order-2 lg:order-1 lg:w-[48%]">
+            <Image
+              src="/about/niigata.png"
+              alt="niigata"
+              width={312}
+              height={382}
+              className="rounded-md"
+            />
+            <Image
+              src="/about/tokyo.png"
+              alt="tokyo"
+              width={312}
+              height={382}
+              className="rounded-md"
+            />
+          </div>
+          <div className="order-1 lg:order-2 w-full lg:w-1/2 text-[20px] lg:text-[32px] lg:pl-10 lg:pr-14 font-light tracking-[.02em] mb-4 lg:mb-0">
             Hello. My name is Miyuki Nozawa. I am a UX/UI designer based in New
             York.
           </div>
         </div>
-        <div className="flex">
-          <Text className="w-1/2 pt-12 space-y-6 pr-7">
+        <div className="flex flex-col lg:flex-row">
+          <Text className="order-2 lg:order-1 flex flex-col lg:flex-row lg:block lg:w-1/2 pt-4 lg:pt-12 space-y-6 pr-7 text-[16px]">
             <div>
               With a background in international business law, I have lived in
               Asia, Europe, and America, and I’ve worked in multiple
@@ -35,54 +47,59 @@ export default function About() {
               differences.
             </div>
           </Text>
-          <div className="w-[312px] h-[382px] relative mr-8 my-auto">
+          <div className="order-1 lg:order-2 flex space-x-5 lg:space-x-7 justify-between">
             <Image
               src="/about/strasbourg.png"
               alt="strasbourg"
-              className="object-cover"
-              fill
+              width={312}
+              height={382}
+              className="rounded-md"
             />
-          </div>
-          <div className="w-[312px] h-[382px] relative my-auto">
             <Image
               src="/about/newyork.png"
               alt="new york"
-              className="object-cover"
-              fill
+              width={312}
+              height={382}
+              className="rounded-md"
             />
           </div>
         </div>
       </div>
       {/* Experiences */}
-      <div className="mt-44 space-y-10">
+      <div className="lg:mt-44 space-y-4 lg:space-y-10">
         <div className={subheader}>My experiences</div>
-        <Text className="w-[56%]">
+        <Text className="lg:w-[56%]">
           Across the various industries that I’ve worked in, such as fashion,
           textiles, cosmetics, and art, my roles have always involved elements
           of design.
         </Text>
-        <div className="flex justify-between">
-          <Image
-            src="/about/experiences-1.png"
-            alt="experiences"
-            width={758}
-            height={320}
-          />
-          <Image
-            src="/about/experiences-2.png"
-            alt="experiences"
-            width={536}
-            height={320}
-          />
+        <div className="flex flex-col lg:flex-row justify-between space-y-4 lg:space-y-0 lg:space-x-6">
+          <div className="w-full lg:w-[758px] h-[145px] lg:h-[320px] relative">
+            <Image
+              src="/about/experiences-1.png"
+              alt="experiences"
+              className="object-cover"
+              fill
+            />
+          </div>
+          <div className="w-full lg:w-[536px] h-[145px] lg:h-[320px] relative">
+            <Image
+              src="/about/experiences-2.png"
+              alt="experiences"
+              className="object-cover"
+              fill
+            />
+          </div>
         </div>
-        <div className="flex justify-between">
+        <div className="flex flex-col lg:flex-row justify-between space-y-4 lg:space-y-0">
           <Image
             src="/about/experiences-3.png"
             alt="experiences"
             width={650}
             height={320}
+            className="object-cover"
           />
-          <Text className="w-1/2 pl-4 flex items-center">
+          <Text className="lg:w-1/2 lg:pl-4 flex items-center">
             I became motivated to improve the usability issues of a
             company&apos;s website, so I began studying web development. This
             led me to stumble upon the concepts of UX/UI for the first time. As
@@ -90,10 +107,10 @@ export default function About() {
             actually more interested in the design aspect of building websites
             and applications, so I decided to pivot my focus completely to UX
             design.
-          </Text>{" "}
+          </Text>
         </div>
-        <div className="flex">
-          <Text className="w-1/2 pr-8 flex items-center">
+        <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0">
+          <Text className="lg:w-1/2 lg:pr-8 flex items-center">
             In the industries I&apos;ve worked in, I&apos;ve often engaged
             directly with consumers&apos; feedback and experimented to meet
             their needs. As a UX designer, conducting user tests is a
@@ -112,14 +129,14 @@ export default function About() {
         </div>
       </div>
       {/* Goals */}
-      <div className="my-44 space-y-10">
+      <div className="lg:my-44 space-y-4 lg:space-y-10">
         <div className={subheader}>My goal</div>
-        <Text className="w-1/2">
+        <Text className="lg:w-1/2">
           We are now in an era where people around the world can access the same
           websites and applications from anywhere, and these have become an
           integral part of business.
         </Text>
-        <div className="flex space-x-6">
+        <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-6">
           <Image
             src="/about/goal-1.png"
             alt="goal"
@@ -127,7 +144,7 @@ export default function About() {
             height={772}
             className="rounded"
           />
-          <div className="w-1/2 flex flex-col justify-between">
+          <div className="lg:w-1/2 flex flex-col justify-between space-y-4 lg:space-y-0">
             <Text>
               Leveraging my background, I aspire to become a UX/UI designer who
               can address the pain points of our users and play an integral role
@@ -138,7 +155,7 @@ export default function About() {
               collaborating with individuals from diverse backgrounds while
               offering my own unique perspective.
             </Text>
-            <div className="flex h-[55%] space-x-4">
+            <div className="flex h-[200px] lg:h-[55%] space-x-4">
               <div className="w-1/2 relative">
                 <Image
                   src="/about/goal-2.png"
