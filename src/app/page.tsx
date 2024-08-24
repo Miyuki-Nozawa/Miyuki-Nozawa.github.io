@@ -196,7 +196,7 @@ export default function Home() {
               <Image src="/icons/email.svg" alt="email" fill />
             </div>
           </Link>
-          <Link href="https://www.linkedin.com/in/miyuki-nozawa/">
+          <Link href="https://www.linkedin.com/in/miyuki-nozawa/" target="_blank">
             <div className="w-[30px] lg:w-[40px] h-[30px] lg:h-[40px] relative">
               <Image src="/icons/linkedin.svg" alt="linkedin" fill />
             </div>
