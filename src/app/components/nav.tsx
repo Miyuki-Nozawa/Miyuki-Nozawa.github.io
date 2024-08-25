@@ -6,21 +6,26 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
 
+const PROJECTS = ["resto", "korean-air", "pibu"];
+
 export default function Nav() {
-  const [hovered, setHovered] = useState(false);
-  const [mobileNavVisible, setMobileNavVisible] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+
+  const [projectsHovered, setProjectsHovered] = useState(false);
+  const [mobileNavVisible, setMobileNavVisible] = useState(false);
+  const [mobileProjectsVisible, setMobileProjectsVisible] = useState(false);
+
   const isContact = pathname.startsWith("/contact");
 
   const handleHoverOn = () => {
     document.body.style.overflow = "hidden";
-    setHovered(true);
+    setProjectsHovered(true);
   };
 
   const handleHoverOff = () => {
     document.body.style.overflow = "auto";
-    setHovered(false);
+    setProjectsHovered(false);
   };
 
   const openMobileNav = () => {
@@ -33,12 +38,18 @@ export default function Nav() {
     setMobileNavVisible(false);
   };
 
-  const handleMobileNavLink = (path: string) => {
+  const toggleMobileProjects = () => {
+    setMobileProjectsVisible(!mobileProjectsVisible);
+  };
+
+  const handleMobileNavLink = (event: React.MouseEvent, path: string) => {
+    event.stopPropagation();
     closeMobileNav();
+    setMobileProjectsVisible(false);
     router.push(path);
   };
 
-  const generateProjectLinks = (path: string, name: string) => (
+  const generateProjectLink = (path: string, name: string) => (
     <div onMouseOver={handleHoverOff}>
       <NavLink
         href={path}
@@ -46,6 +57,14 @@ export default function Nav() {
       >
         {name}
       </NavLink>
+    </div>
+  );
+  const generateMobileNavLink = (path: string, name: string) => (
+    <div
+      onClick={(event) => handleMobileNavLink(event, path)}
+      className={`${pathname === path ? "underline" : ""}`}
+    >
+      {name}
     </div>
   );
 
@@ -61,7 +80,7 @@ export default function Nav() {
   );
 
   const contactHoverClass =
-    isContact && !hovered
+    isContact && !projectsHovered
       ? "bg-transparent transition-all ease-in duration-700"
       : "bg-base";
 
@@ -79,33 +98,33 @@ export default function Nav() {
           </Link>
         </div>
         <div className="hidden lg:flex space-x-[4.5rem] font-light">
-          {generateProjectLinks("/", "Home")}
-          {generateProjectLinks("/about", "About")}
+          {generateProjectLink("/", "Home")}
+          {generateProjectLink("/about", "About")}
           <div
             onMouseOver={handleHoverOn}
             className="text-2xl tracking-widest hover:cursor-pointer"
           >
             Projects
           </div>
-          {generateProjectLinks("/resume", "Resume")}
-          {generateProjectLinks("/contact", "Contact")}
+          {generateProjectLink("/resume", "Resume")}
+          {generateProjectLink("/contact", "Contact")}
         </div>
       </div>
       <div
         className={
           "absolute top-[191px] left-0 right-0 z-20 bg-base transition-all overflow-hidden duration-500 " +
-          `${hovered ? "h-[300px]" : "h-0"}`
+          `${projectsHovered ? "h-[300px]" : "h-0"}`
         }
         onMouseLeave={handleHoverOff}
       >
         <div className="flex items-center justify-around h-[252px]">
-          {["resto", "korean-air", "pibu"].map(generateProjectCard)}
+          {PROJECTS.map(generateProjectCard)}
         </div>
       </div>
       {/* overlay */}
       <div
         className={`absolute lg:h-[2000px] lg:w-[1440px] z-10 transition-all duration-500 bg-black top-0 bottom-0 left-0 right-0 pointer-events-none ${
-          hovered ? "opacity-20" : "opacity-0"
+          projectsHovered ? "opacity-20" : "opacity-0"
         }`}
         onMouseEnter={handleHoverOn}
       ></div>
@@ -134,14 +153,32 @@ export default function Nav() {
             mobileNavVisible
               ? "translate-x-0"
               : "-translate-x-full pointer-events-none"
-          } transition-all duration-300`
+          } transition-all duration-300 overflow-auto`
         }
       >
-        <div onClick={() => handleMobileNavLink("/")}>Home</div>
-        <div onClick={() => handleMobileNavLink("/about")}>About</div>
-        <div onClick={() => handleMobileNavLink("/projects")}>Projects</div>
-        <div onClick={() => handleMobileNavLink("/resume")}>Resume</div>
-        <div onClick={() => handleMobileNavLink("/contact")}>Contact</div>
+        {generateMobileNavLink("/", "Home")}
+        {generateMobileNavLink("/about", "About")}
+        <div onClick={toggleMobileProjects} className="space-y-4">
+          <div>Projects</div>
+          {mobileProjectsVisible && (
+            <div className="space-y-[10px]">
+              {PROJECTS.map((project) => (
+                <Image
+                  key={project}
+                  src={`/${project}/logo-md.svg`}
+                  alt={project}
+                  width={390}
+                  height={222}
+                  onClick={(event) =>
+                    handleMobileNavLink(event, `/projects/${project}`)
+                  }
+                />
+              ))}
+            </div>
+          )}
+        </div>
+        {generateMobileNavLink("/resume", "Resume")}
+        {generateMobileNavLink("/contact", "Contact")}
       </div>
     </div>
   );
