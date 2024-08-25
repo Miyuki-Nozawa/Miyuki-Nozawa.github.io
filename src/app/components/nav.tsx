@@ -116,7 +116,7 @@ export default function Nav() {
       {/* overlay */}
       <div
         className={
-          "absolute h-[2000px] w-[1440px] z-10 transition-all duration-500 bg-black top-0 bottom-0 left-0 right-0 pointer-events-none " +
+          "absolute lg:h-[2000px] lg:w-[1440px] z-10 transition-all duration-500 bg-black top-0 bottom-0 left-0 right-0 pointer-events-none " +
           `${hovered ? "opacity-50" : "opacity-0"}`
         }
         onMouseEnter={handleHoverOn}
