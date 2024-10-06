@@ -67,10 +67,14 @@ body {
 }
 
 .cursor-wrapper.hovering {
-  background-image: url("/cursor-light.svg");
+  display: none;
 }
 
 body,
 * {
-  cursor: none !important;
+  cursor: none;
+}
+
+body.hovering * {
+  cursor: pointer;
 }
