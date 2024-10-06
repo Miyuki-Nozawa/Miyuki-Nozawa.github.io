@@ -35,7 +35,7 @@ export default function Home() {
   return (
     <main className="bg-white">
       {/* Hero */}
-      <div className="px-[60px] py-[120px] rounded-b-[200px] w-full bg-light-ivory">
+      <div className="px-[60px] py-[120px] rounded-b-[200px] w-full bg-base">
         <div className="space-y-[30px] text-center max-w-[890px] mx-auto">
           <Image
             className="mx-auto"
