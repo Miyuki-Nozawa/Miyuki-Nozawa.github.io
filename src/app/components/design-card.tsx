@@ -15,10 +15,10 @@ export default function DesignCard({
         <Image src={icon} alt={title} width={60} height={60} />
       </div>
       <div className="space-y-[20px]">
-        <div className="text-[27px] font-semibold h-[60px] flex items-center">
+        <div className="text-[27px] font-semibold h-[60px] flex items-center tracking-[.01em]">
           {title}
         </div>
-        <div className="text-[18px] space-y-[10px]">
+        <div className="text-[18px] space-y-[10px] tracking-[.01em]">
           {items.map((item) => (
             <div key={item}>{item}</div>
           ))}

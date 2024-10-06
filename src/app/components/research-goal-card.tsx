@@ -16,7 +16,7 @@ export default function ResearchGoalCard({
             height={30}
             className="mb-auto"
           />
-          <div className="text-[18px] inline">{children}</div>
+          <div className="text-[18px] inline tracking-[.01em]">{children}</div>
         </div>
       </div>
     </div>
