@@ -16,14 +16,6 @@ export default function ProjectCard({
   img: string;
   mirror?: boolean;
 }) {
-  const handleMouseEnter = () => {
-    handleCursorHoverStart();
-  };
-
-  const handleMouseLeave = () => {
-    handleCursorHoverStop();
-  };
-
   return (
     <div className="bg-light-ivory rounded-[200px] m-5 px-[60px] py-[160px] flex tracking-[.01em] space-x-5">
       <div className={`w-1/2 relative ${mirror ? "order-2" : "order-1"}`}>
@@ -51,8 +43,8 @@ export default function ProjectCard({
         </div>
         <button
           className="inline-block relative overflow-hidden px-[40px] py-[15px] text-[20px] font-semibold bg-dark-green text-white rounded-[32px] transition-colors duration-300 ease-in-out group"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          onMouseEnter={handleCursorHoverStart}
+          onMouseLeave={handleCursorHoverStop}
         >
           <span className="relative z-10 group-hover:text-black transition-all duration-500">
             View Case Study

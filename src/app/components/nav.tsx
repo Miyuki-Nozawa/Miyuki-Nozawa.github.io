@@ -17,14 +17,6 @@ export default function Nav() {
   const [mobileProjectsVisible, setMobileProjectsVisible] = useState(false);
   const [cursorVisible, setCursorVisible] = useState(false);
 
-  const handleMouseEnter = () => {
-    handleCursorHoverStop();
-  };
-
-  const handleMouseLeave = () => {
-    handleCursorHoverStart();
-  };
-
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
       const cursorWrapper = document.getElementById("cursorWrapper");
@@ -64,8 +56,8 @@ export default function Nav() {
   const generateNavLink = (path: string, name: string) => (
     <div
       className="px-[30px] py-[10px] rounded-[55px] hover:bg-navHover"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={handleCursorHoverStart}
+      onMouseLeave={handleCursorHoverStop}
     >
       <NavLink
         href={path}
