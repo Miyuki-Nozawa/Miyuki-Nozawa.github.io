@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import ProjectCard from "./components/project-card";
 import Link from "next/link";
+import { handleCursorHoverStart, handleCursorHoverStop } from "./cursor";
 
 export default function Home() {
   const footerRef = useRef<HTMLDivElement>(null);
@@ -98,7 +99,12 @@ export default function Home() {
             Let&apos;s connect!
           </div>
           <div className="font-semibold text-[22px] flex space-x-[30px]">
-            <Link href="mailto:nozawa.myk@gmail.com" target="_blank">
+            <Link
+              href="mailto:nozawa.myk@gmail.com"
+              target="_blank"
+              onMouseEnter={handleCursorHoverStart}
+              onMouseLeave={handleCursorHoverStop}
+            >
               <div className="flex items-center space-x-[20px] bg-beige rounded-[100px] px-[40px] py-[15px]">
                 <Image
                   src="/icons/email.svg"
@@ -109,7 +115,12 @@ export default function Home() {
                 <span>Email</span>
               </div>
             </Link>
-            <Link href="https://linkedin.com/in/miyuki-nozawa" target="_blank">
+            <Link
+              href="https://linkedin.com/in/miyuki-nozawa"
+              target="_blank"
+              onMouseEnter={handleCursorHoverStart}
+              onMouseLeave={handleCursorHoverStop}
+            >
               <div className="flex items-center space-x-[20px] bg-beige rounded-[100px] px-[40px] py-[15px]">
                 <Image
                   src="/icons/linkedin.svg"
