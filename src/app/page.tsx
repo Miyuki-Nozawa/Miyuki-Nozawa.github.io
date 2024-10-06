@@ -1,72 +1,9 @@
 "use client";
 
-// import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import ProjectCard from "./components/project-card";
 
 export default function Home() {
-  // const footerRef = useRef<HTMLDivElement>(null);
-  // const [isFooterVisible, setIsFooterVisible] = useState(false);
-  // const [cancelScroll, setCancelScroll] = useState(false);
-
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     ([entry]) => {
-  //       if (entry.isIntersecting) {
-  //         if (footerRef.current) {
-
-  //           const footerTop = footerRef.current.offsetTop;
-  //           const footerHeight = footerRef.current.offsetHeight;
-  //           const windowHeight = window.innerHeight;
-  //           const scrollToY = footerTop + footerHeight / 2 - windowHeight / 2;
-
-  //           window.scrollTo({
-  //             top: scrollToY,
-  //             behavior: "smooth",
-  //           });
-  //           setTimeout(() => setIsFooterVisible(true), 2000);
-  //         }
-  //       }
-  //     },
-  //     {
-  //       threshold: 0.1,
-  //     }
-  //   );
-
-  //   let ref = footerRef.current;
-
-  //   if (ref) {
-  //     observer.observe(ref);
-  //   }
-
-  //   return () => {
-  //     if (ref) {
-  //       observer.unobserve(ref);
-  //     }
-  //   };
-  // }, []);
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     if (!footerRef.current || !isFooterVisible) {
-  //       return;
-  //     }
-
-  //     window.scrollBy({
-  //       top: -window.innerHeight * 1.5 + 100,
-  //       behavior: "smooth",
-  //     });
-
-  //     setIsFooterVisible(false);
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, [isFooterVisible]);
-
   return (
     <main className="bg-white">
       {/* Hero */}
@@ -118,10 +55,7 @@ export default function Home() {
         description="A website to introduce a local business and expand their business"
         img="/home/pibu.png"
       />
-      <div
-        className="bg-green rounded-t-[200px] flex flex-col items-center justify-center"
-        // ref={footerRef}
-      >
+      <div className="bg-green rounded-t-[200px] flex flex-col items-center justify-center">
         <div className="flex flex-col items-center space-y-[60px] h-[100vh] justify-center mt-[200px]">
           <div className="text-white font-bold text-[60.75px]">
             Let&apos;s connect!

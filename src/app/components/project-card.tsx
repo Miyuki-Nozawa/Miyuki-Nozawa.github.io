@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { handleCursorHoverStart, handleCursorHoverStop } from "../cursor";
+import Link from "next/link";
 
 export default function ProjectCard({
   tags,
@@ -41,16 +42,20 @@ export default function ProjectCard({
           <div className="text-[41px] font-semibold">{subtitle}</div>
           <div className="text-[18px] py-[20px]">{description}</div>
         </div>
-        <button
-          className="inline-block relative overflow-hidden px-[40px] py-[15px] text-[20px] font-semibold bg-dark-green text-white rounded-[32px] transition-colors duration-300 ease-in-out group"
-          onMouseEnter={handleCursorHoverStart}
-          onMouseLeave={handleCursorHoverStop}
-        >
-          <span className="relative z-10 group-hover:text-black transition-all duration-500">
-            View Case Study
-          </span>
-          <span className="absolute w-[250px] h-[250px] inset-0 bg-projectCardButtonHover rounded-full translate-y-[20%] group-hover:translate-y-0 scale-0 group-hover:scale-125 transition-transform duration-500 ease-out origin-bottom"></span>
-        </button>
+        <div>
+          <Link href={`/projects/${title.toLowerCase()}`}>
+            <button
+              className="inline-block relative overflow-hidden px-[40px] py-[15px] text-[18px] font-semibold bg-dark-green text-white rounded-[32px] transition-colors duration-300 ease-in-out group"
+              onMouseEnter={handleCursorHoverStart}
+              onMouseLeave={handleCursorHoverStop}
+            >
+              <span className="relative z-10 group-hover:text-black transition-all duration-500">
+                View Case Study
+              </span>
+              <span className="absolute w-[250px] h-[250px] inset-0 bg-projectCardButtonHover rounded-full translate-y-[20%] group-hover:translate-y-0 scale-0 group-hover:scale-125 transition-transform duration-500 ease-out origin-bottom"></span>
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
