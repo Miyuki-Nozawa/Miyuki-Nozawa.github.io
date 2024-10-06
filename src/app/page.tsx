@@ -1,9 +1,37 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import ProjectCard from "./components/project-card";
+import Link from "next/link";
 
 export default function Home() {
+  const footerRef = useRef<HTMLDivElement>(null);
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsFooterVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.75,
+      }
+    );
+
+    let ref = footerRef.current;
+
+    if (ref) {
+      observer.observe(ref);
+    }
+
+    return () => {
+      if (ref) {
+        observer.unobserve(ref);
+      }
+    };
+  }, []);
+
   return (
     <main className="bg-white">
       {/* Hero */}
@@ -55,30 +83,43 @@ export default function Home() {
         description="A website to introduce a local business and expand their business"
         img="/home/pibu.png"
       />
-      <div className="bg-green rounded-t-[200px] flex flex-col items-center justify-center">
-        <div className="flex flex-col items-center space-y-[60px] h-[100vh] justify-center mt-[200px]">
+      <div
+        ref={footerRef}
+        className="bg-green rounded-t-[200px] flex flex-col items-center justify-center overflow-hidden"
+      >
+        <div
+          className={`flex flex-col items-center space-y-[60px] h-[100vh] justify-center mt-[200px] [transition:transform_1s,opacity_2s] ${
+            isFooterVisible
+              ? "translate-y-0 opacity-100"
+              : "translate-y-full opacity-0"
+          }`}
+        >
           <div className="text-white font-bold text-[60.75px]">
             Let&apos;s connect!
           </div>
           <div className="font-semibold text-[22px] flex space-x-[30px]">
-            <div className="flex items-center space-x-[20px] bg-beige rounded-[100px] px-[40px] py-[15px]">
-              <Image
-                src="/icons/email.svg"
-                alt="email"
-                width={37}
-                height={33}
-              />
-              <span>Email</span>
-            </div>
-            <div className="flex items-center space-x-[20px] bg-beige rounded-[100px] px-[40px] py-[15px]">
-              <Image
-                src="/icons/linkedin.svg"
-                alt="linkedin"
-                width={33}
-                height={33}
-              />
-              <span>LinkedIn</span>
-            </div>
+            <Link href="mailto:nozawa.myk@gmail.com" target="_blank">
+              <div className="flex items-center space-x-[20px] bg-beige rounded-[100px] px-[40px] py-[15px]">
+                <Image
+                  src="/icons/email.svg"
+                  alt="email"
+                  width={37}
+                  height={33}
+                />
+                <span>Email</span>
+              </div>
+            </Link>
+            <Link href="https://linkedin.com/in/miyuki-nozawa" target="_blank">
+              <div className="flex items-center space-x-[20px] bg-beige rounded-[100px] px-[40px] py-[15px]">
+                <Image
+                  src="/icons/linkedin.svg"
+                  alt="linkedin"
+                  width={33}
+                  height={33}
+                />
+                <span>LinkedIn</span>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
