@@ -7,6 +7,9 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    cursor: {
+      default: "url('/cursor.svg') 50 50, auto",
+    },
     fontFamily: {
       sans: ["var(--font-poppins)", "ui-sans-serif", "system-ui"],
       serif: ["ui-serif", "Georgia"],
@@ -17,6 +20,7 @@ const config: Config = {
       colors: {
         base: "#F8F8F6",
         base2: "#FAF9F5",
+        base3: "#D2D3C499",
         border: "#D9D9D9",
         green: "#556C3F",
         green2: "#445E2C",
@@ -48,7 +52,9 @@ const config: Config = {
         orange: "#C2705C",
         overlay: "rgba(0, 0, 0, 0.2)",
         gray: "#EBEBEB",
-        gray2: "#BEC8CA"
+        gray2: "#BEC8CA",
+        navHover: "rgba(150, 159, 50, 0.30)",
+        projectCardButtonHover: "#90A079",
       },
     },
   },

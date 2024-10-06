@@ -42,3 +42,35 @@ body {
   letter-spacing: 2.4px;
   text-transform: capitalize;
 }
+
+@keyframes rotateCursor {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.cursor-wrapper {
+  pointer-events: none;
+  z-index: 9999;
+  width: 100px;
+  height: 100px;
+  background-image: url("/cursor.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: rotateCursor 5s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cursor-wrapper.hovering {
+  background-image: url("/cursor-light.svg");
+}
+
+body,
+* {
+  cursor: none !important;
+}

@@ -1,10 +1,11 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import NavLink from "@/app/components/nav-link";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
 import Link from "next/link";
+import NavLink from "./nav-link";
+import { handleCursorHoverStart, handleCursorHoverStop } from "../cursor";
 
 const PROJECTS = ["resto", "korean-air", "pibu"];
 
@@ -12,21 +13,39 @@ export default function Nav() {
   const pathname = usePathname();
   const router = useRouter();
 
-  const [projectsHovered, setProjectsHovered] = useState(false);
   const [mobileNavVisible, setMobileNavVisible] = useState(false);
   const [mobileProjectsVisible, setMobileProjectsVisible] = useState(false);
+  const [cursorVisible, setCursorVisible] = useState(false);
+
+  const handleMouseEnter = () => {
+    handleCursorHoverStop();
+  };
+
+  const handleMouseLeave = () => {
+    handleCursorHoverStart();
+  };
+
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      const cursorWrapper = document.getElementById("cursorWrapper");
+      if (!cursorWrapper) return;
+
+      if (!cursorVisible) {
+        cursorWrapper.style.opacity = "1";
+        setCursorVisible(true);
+      }
+
+      cursorWrapper.style.left = `${event.clientX}px`;
+      cursorWrapper.style.top = `${event.clientY}px`;
+    };
+    document.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, [cursorVisible]);
 
   const isContact = pathname.startsWith("/contact");
-
-  const handleHoverOn = () => {
-    document.body.style.overflow = "hidden";
-    setProjectsHovered(true);
-  };
-
-  const handleHoverOff = () => {
-    document.body.style.overflow = "auto";
-    setProjectsHovered(false);
-  };
 
   const openMobileNav = () => {
     document.body.style.overflow = "hidden";
@@ -42,6 +61,21 @@ export default function Nav() {
     setMobileProjectsVisible(!mobileProjectsVisible);
   };
 
+  const generateNavLink = (path: string, name: string) => (
+    <div
+      className="px-[30px] py-[10px] rounded-[55px] hover:bg-navHover"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <NavLink
+        href={path}
+        className={`${pathname === path ? "font-bold" : ""} cursor-default`}
+      >
+        {name}
+      </NavLink>
+    </div>
+  );
+
   const handleMobileNavLink = (event: React.MouseEvent, path: string) => {
     event.stopPropagation();
     closeMobileNav();
@@ -49,16 +83,6 @@ export default function Nav() {
     router.push(path);
   };
 
-  const generateProjectLink = (path: string, name: string) => (
-    <div onMouseOver={handleHoverOff}>
-      <NavLink
-        href={path}
-        className={`${pathname === path ? "font-bold" : ""}`}
-      >
-        {name}
-      </NavLink>
-    </div>
-  );
   const generateMobileNavLink = (path: string, name: string) => (
     <div
       onClick={(event) => handleMobileNavLink(event, path)}
@@ -68,24 +92,16 @@ export default function Nav() {
     </div>
   );
 
-  const generateProjectCard = (project: string) => (
-    <Link key={project} href={`/projects/${project}`} onClick={handleHoverOff}>
-      <Image
-        src={`/${project}/logo-md.svg`}
-        alt={project}
-        width={338}
-        height={200}
-      />
-    </Link>
-  );
-
-  const contactHoverClass =
-    isContact && !projectsHovered
-      ? "bg-transparent transition-all ease-in duration-700"
-      : "bg-base";
+  const contactHoverClass = isContact
+    ? "bg-transparent transition-all ease-in duration-700"
+    : "bg-base";
 
   return (
     <div className="relative mt-[10px] lg:mt-0 lg:block">
+      <div
+        id="cursorWrapper"
+        className={`cursor-wrapper fixed ${cursorVisible ? "" : "hidden"}`}
+      ></div>
       <div
         className={
           "absolute top-0 right-0 left-0 flex justify-between items-center lg:p-16 lg:h-[192px] z-20 " +
@@ -97,37 +113,13 @@ export default function Nav() {
             <Image src="/icons/nav.svg" alt="miyuki nozawa" fill />
           </Link>
         </div>
-        <div className="hidden lg:flex space-x-[4.5rem] font-light">
-          {generateProjectLink("/", "Home")}
-          {generateProjectLink("/about", "About")}
-          <div
-            onMouseOver={handleHoverOn}
-            className="text-2xl tracking-widest hover:cursor-pointer"
-          >
-            Projects
-          </div>
-          {generateProjectLink("/resume", "Resume")}
-          {generateProjectLink("/contact", "Contact")}
+        <div className="hidden lg:flex space-x-[20px] font-light">
+          {generateNavLink("/", "Home")}
+          {generateNavLink("/resume", "Work")}
+          {generateNavLink("/about", "About")}
+          {generateNavLink("/contact", "Contact")}
         </div>
       </div>
-      <div
-        className={
-          "absolute top-[191px] left-0 right-0 z-20 bg-base transition-all overflow-hidden duration-500 " +
-          `${projectsHovered ? "h-[300px]" : "h-0"}`
-        }
-        onMouseLeave={handleHoverOff}
-      >
-        <div className="flex items-center justify-around h-[252px]">
-          {PROJECTS.map(generateProjectCard)}
-        </div>
-      </div>
-      {/* overlay */}
-      <div
-        className={`absolute lg:h-[2000px] lg:w-[1440px] z-10 transition-all duration-500 bg-black top-0 bottom-0 left-0 right-0 pointer-events-none ${
-          projectsHovered ? "opacity-20" : "opacity-0"
-        }`}
-        onMouseEnter={handleHoverOn}
-      ></div>
       {/* hamburger */}
       <div
         className="absolute left-[20px] w-[30px] h-[50px] flex justify-center items-center z-40 lg:hidden"

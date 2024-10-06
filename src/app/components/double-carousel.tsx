@@ -44,7 +44,7 @@ export default function DoubleCarousel({
       <div className="flex items-center justify-between w-full">
         <div
           className={`relative w-[20px] h-[36px] ${
-            current[0] === 0 ? "opacity-20" : "hover:cursor-pointer"
+            current[0] === 0 ? "opacity-20" : "cursor-default"
           }`}
           onClick={() => handleChange(-1)}
         >
@@ -72,7 +72,7 @@ export default function DoubleCarousel({
           className={`relative w-[20px] h-[36px] ${
             current[1] === items.length - 1
               ? "opacity-20"
-              : "hover:cursor-pointer"
+              : "cursor-default"
           }`}
           onClick={() => handleChange(1)}
         >

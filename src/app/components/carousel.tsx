@@ -33,7 +33,7 @@ export default function Carousel({
         <div className="flex items-center justify-between w-full">
           <div
             className={`relative w-[20px] h-[36px] ${
-              current === 0 ? "opacity-20" : "hover:cursor-pointer"
+              current === 0 ? "opacity-20" : "cursor-default"
             }`}
             onClick={() => handleChange(-1)}
           >
@@ -49,7 +49,7 @@ export default function Carousel({
             className={`relative w-[20px] h-[36px] ${
               current === items.length - 1
                 ? "opacity-20"
-                : "hover:cursor-pointer"
+                : "cursor-default"
             }`}
             onClick={() => handleChange(1)}
           >
@@ -61,7 +61,7 @@ export default function Carousel({
             {nav.items.map((item, index) => (
               <div
                 key={index}
-                className={`relative ${nav.itemClassName} hover:cursor-pointer`}
+                className={`relative ${nav.itemClassName} cursor-default`}
                 onClick={() => setCurrent(index)}
               >
                 <Image src={item} alt={`Item ${index + 1}`} fill />

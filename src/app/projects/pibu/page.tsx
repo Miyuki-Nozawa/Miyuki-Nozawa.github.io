@@ -908,7 +908,7 @@ export default function Pibu() {
               "/pibu/hifi-6.png",
             ]}
             nav={{
-              className: "relative w-[133px] h-[150px] hover:cursor-pointer",
+              className: "relative w-[133px] h-[150px] cursor-default",
               items: [
                 "/pibu/hifi-1-sm.png",
                 "/pibu/hifi-2-sm.png",
