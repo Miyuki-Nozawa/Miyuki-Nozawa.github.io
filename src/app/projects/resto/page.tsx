@@ -11,6 +11,8 @@ import Link from "next/link";
 import StarSection from "@/app/components/star-section";
 import Figma from "@/app/components/figma";
 import OutlinedCard from "@/app/components/outlined-card";
+import UserNeed from "@/app/components/user-need";
+import Down from "@/app/components/down";
 
 export default function Resto() {
   return (
@@ -483,7 +485,7 @@ export default function Resto() {
             language barriers during restaurant booking or encounter issues
             managing reservations.
           </OutlinedCard>
-          <Image src="/icons/down.svg" alt="down" width={50} height={50} className="mx-auto" />
+          <Down />
           <Paragraph>
             Then, I took the problems into clear questions that help find
             creative and practical solutions.
@@ -508,6 +510,176 @@ export default function Resto() {
               style={{ width: "100%", height: "auto" }}
             />
             <Figma href="/resto/project-goals">View the Project Goals</Figma>
+          </div>
+        </ProjectSubSection>
+      </ProjectSection>
+      <ProjectSection title="Ideate">
+        <ProjectSubSection title="Prioritizing Features that Align Business and User Needs">
+          <Paragraph>
+            I brainstormed key features that address the intersection of
+            business and user goals, while also considering technical
+            feasibility to ensure both are met.
+          </Paragraph>
+          <div className="py-[20px] flex justify-between">
+            <div className="px-[20px] space-x-[20px] flex">
+              <Image
+                src="/avatars/user-needs.svg"
+                alt="avatar"
+                width={100}
+                height={100}
+              />
+              <Image
+                src="/resto/speech-bubble.svg"
+                alt="speech"
+                width={0}
+                height={0}
+                style={{ width: "auto", height: "100%" }}
+              />
+            </div>
+            <div className="flex px-[20px] space-x-[30px]">
+              <div className="space-y-[30px]">
+                <UserNeed icon="/icons/filter.svg" title="Filter" />
+                <UserNeed
+                  icon="/icons/magnifying-glass-thin.svg"
+                  title="Search"
+                />
+                <UserNeed icon="/icons/map.svg" title="Map" />
+                <UserNeed icon="/icons/bell.svg" title="Notification" />
+              </div>
+              <div className="space-y-[30px]">
+                <UserNeed
+                  icon="/icons/star-hollow.svg"
+                  title="Reviews & Ratings"
+                />
+                <UserNeed
+                  icon="/icons/smile.svg"
+                  title="Utilization of icons"
+                />
+                <UserNeed icon="/icons/a.svg" title="Language Option" />
+                <UserNeed
+                  icon="/icons/calendar.svg"
+                  title="Simple Reservation"
+                />
+              </div>
+            </div>
+          </div>
+          <Down />
+          <Paragraph>
+            I conducted an <b>open card sort</b> using feature keywords with{" "}
+            <b>28 cards</b>, targeting <b>8 participants</b>, to identify how
+            users categorize them. When the participants categorized the cards
+            freely, most of them fell into <b>6 categories</b>. This helped us
+            understand which content people want to see under each menu.
+          </Paragraph>
+          <Image
+            src="/resto/card-sort.svg"
+            alt="card sort"
+            width={0}
+            height={0}
+            style={{ width: "100%", height: "auto" }}
+          />
+        </ProjectSubSection>
+        <ProjectSubSection title="Designing the App Structure with a Sitemap">
+          <Paragraph>
+            Based on the results of the card sort, I designed the app's
+            structure and created a sitemap. Referring to the research, which
+            showed that travelers tend to struggle with searching for
+            restaurants and managing reservations.
+          </Paragraph>
+          <div className="space-y-[30px]">
+            <Image
+              src="/resto/sitemap.svg"
+              alt="sitemap"
+              width={0}
+              height={0}
+              style={{ width: "100%", height: "auto" }}
+            />
+            <Figma href="/resto/sitemap">View the Sitemap</Figma>
+          </div>
+        </ProjectSubSection>
+        <ProjectSubSection title="Refining Key Design Decisions">
+          <Paragraph>
+            I created two task flows to clarify the steps necessary for users to
+            achieve specific goals and promote a user-friendly approach.
+          </Paragraph>
+          <div className="py-[20px] space-y-[30px]">
+            <div className="space-y-[50px]">
+              <div className="py-[20px] space-y-[30px]">
+                <div className="flex space-x-[10px]">
+                  <Image
+                    src="/icons/star-brown.svg"
+                    alt="star"
+                    width={33}
+                    height={33}
+                  />
+                  <span className="text-[22px] font-medium tracking-[.01em]">
+                    Discover restaurants or cafes and make reservations those
+                    tailored to your preferences
+                  </span>
+                </div>
+                <div className="py-[20px]">
+                  <Image
+                    src="/resto/user-flow-1.svg"
+                    alt="user flow"
+                    width={0}
+                    height={0}
+                    style={{ width: "100%", height: "auto" }}
+                  />
+                </div>
+              </div>
+              <div className="py-[20px] space-y-[30px]">
+                <div className="flex space-x-[10px]">
+                  <Image
+                    src="/icons/star-brown.svg"
+                    alt="star"
+                    width={33}
+                    height={33}
+                  />
+                  <span className="text-[22px] font-medium tracking-[.01em]">
+                    Check the reservations and the saved restaurants to plan
+                    your dining schedule during the trip
+                  </span>
+                </div>
+                <div className="py-[20px]">
+                  <Image
+                    src="/resto/user-flow-2.svg"
+                    alt="user flow"
+                    width={0}
+                    height={0}
+                    style={{ width: "100%", height: "auto" }}
+                  />
+                </div>
+              </div>
+            </div>
+            <Figma href="/resto/user-flows">View the Task Flows</Figma>
+          </div>
+        </ProjectSubSection>
+        <ProjectSubSection title="Mapping out User Needs and Goals">
+          <Paragraph>
+            I created a user flow to understand user needs and identify
+            potential issues or confusing elements that are related to “search”
+            and “reservations”.
+          </Paragraph>
+          <div className="py-[20px] space-y-[30px]">
+            <div className="py-[20px] space-y-[30px]">
+              <div className="flex space-x-[10px]">
+                <Image
+                  src="/icons/star-brown.svg"
+                  alt="star"
+                  width={33}
+                  height={33}
+                />
+                <span className="text-[22px] font-medium tracking-[.01em]">
+                  Discover restaurants or cafes and make reservations
+                </span>
+              </div>
+              <div className="pb-[30px] overflow-x-scroll">
+                <div className="py-[20px] w-[4626px] h-[875px] relative">
+                  <Image src="/resto/task-flow.svg" alt="task flow" fill />
+                </div>
+              </div>
+            </div>
+            <Figma href="/resto/user-flow">View the User Flow</Figma>
           </div>
         </ProjectSubSection>
       </ProjectSection>
