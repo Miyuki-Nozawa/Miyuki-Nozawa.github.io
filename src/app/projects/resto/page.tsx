@@ -9,6 +9,8 @@ import ProjectSubSection from "@/app/components/project-subsection";
 import Paragraph from "@/app/components/paragraph";
 import Link from "next/link";
 import StarSection from "@/app/components/star-section";
+import Figma from "@/app/components/figma";
+import OutlinedCard from "@/app/components/outlined-card";
 
 export default function Resto() {
   return (
@@ -256,9 +258,8 @@ export default function Resto() {
                   the importance of dining and travel planning, I conducted a
                   survey to gather quantitative data from a diverse group of
                   travelers. The survey included{" "}
-                  <b className="font-semibold">17 participants aged 18-34</b>,
-                  all of whom had travel experience, with{" "}
-                  <b className="font-semibold">12 having traveled to Japan</b>.
+                  <b>17 participants aged 18-34</b>, all of whom had travel
+                  experience, with <b>12 having traveled to Japan</b>.
                 </Paragraph>
               </div>
               <div className="py-[50px] space-y-[30px]">
@@ -285,14 +286,11 @@ export default function Resto() {
                 <Paragraph>
                   Then, in order to collect qualitative data on users' specific
                   thoughts and personal experiences, I conducted user interviews
-                  with{" "}
-                  <b className="font-semibold">5 participants aged 23-68</b>. To
-                  better understand their experiences traveling to Japan and the
-                  unique aspects of Japanese culture, I interviewed{" "}
-                  <b className="font-semibold">
-                    4 participants who had visited Japan
-                  </b>{" "}
-                  and <b className="font-semibold">1 Japanese participant</b>.
+                  with <b>5 participants aged 23-68</b>. To better understand
+                  their experiences traveling to Japan and the unique aspects of
+                  Japanese culture, I interviewed{" "}
+                  <b>4 participants who had visited Japan</b> and{" "}
+                  <b>1 Japanese participant</b>.
                 </Paragraph>
               </div>
               <div className="py-[50px] space-y-[30px]">
@@ -390,17 +388,7 @@ export default function Resto() {
                 />
               </div>
             </div>
-            <div className="space-x-[20px] flex items-center">
-              <Image
-                src="/icons/figma.svg"
-                alt="figma"
-                width={20}
-                height={27}
-              />
-              <span className="text-[18px] text-blueLink tracking-[.01em] underline">
-                <Link href="/resto/affinity-map">View the Affinity Map</Link>
-              </span>
-            </div>
+            <Figma href="/resto/affinity-map">View the Affinity Map</Figma>
           </div>
           <StarSection title="Key Findings">
             <div className="py-[20px] flex space-x-[20px]">
@@ -418,6 +406,109 @@ export default function Resto() {
               />
             </div>
           </StarSection>
+        </ProjectSubSection>
+        <ProjectSubSection title="Transforming Insights into Personas">
+          <Paragraph>
+            After conducting research, reviewing the findings, and organizing
+            the data, I created two personas in the early stages of the design
+            process to deepen my understanding of specific users and user needs.
+          </Paragraph>
+          <div className="space-y-[30px] pb-[20px]">
+            <div className="space-y-[10px]">
+              <div className="text-[22px] font-medium tracking-[.01em]">
+                Persona 1
+              </div>
+              <Paragraph>
+                Matt Kim, a 30-year-old product manager from San Francisco,
+                loves traveling to Japan and exploring local dining spots. He
+                faces challenges due to <b>the language barrier</b>, making it
+                difficult to find and reserve restaurants popular among locals.
+                His main frustrations include{" "}
+                <b>
+                  the time-consuming process of translating Japanese information
+                </b>{" "}
+                and <b>the difficulty of making phone reservations</b>.
+              </Paragraph>
+            </div>
+            <Image
+              src="/resto/persona-1.jpeg"
+              alt="persona"
+              width={1000}
+              height={984}
+              className="rounded-[20px]"
+            />
+          </div>
+          <div className="space-y-[30px]">
+            <div className="space-y-[10px]">
+              <div className="text-[22px] font-medium tracking-[.01em]">
+                Persona 2
+              </div>
+              <Paragraph>
+                Sarah Laine, a 26-year-old interior designer from New York, is
+                planning her first trip to Japan with friends and is excited to
+                explore Japanese cuisine. She faces challenges{" "}
+                <b>
+                  managing and sharing restaurant reservations among her group
+                </b>{" "}
+                and is worried about{" "}
+                <b>keeping track of them amidst a packed schedule</b>. Her goals
+                include{" "}
+                <b>
+                  visiting many tourist spots and sticking to their travel plan
+                </b>
+                .
+              </Paragraph>
+            </div>
+            <Image
+              src="/resto/persona-2.jpeg"
+              alt="persona"
+              width={1000}
+              height={984}
+              className="rounded-[20px]"
+            />
+          </div>
+          <Figma href="/resto/personas">View the Personas</Figma>
+        </ProjectSubSection>
+        <ProjectSubSection title="Exploring and Clarifying Solutions for User Needs">
+          <Paragraph>
+            To clarify the solutions needed to address specific user needs, I
+            created two POV statements based on the personas. Among them, I
+            selected the POV focusing on the language barrier and managing
+            restaurant lists, as these were identified as significant challenges
+            for many users.
+          </Paragraph>
+          <OutlinedCard title="POV (Point Of View) statement">
+            I’d like to explore ways to propose a streamlined and functional
+            reservation system catering to travelers who face challenges with
+            language barriers during restaurant booking or encounter issues
+            managing reservations.
+          </OutlinedCard>
+          <Image src="/icons/down.svg" alt="down" width={50} height={50} className="mx-auto" />
+          <Paragraph>
+            Then, I took the problems into clear questions that help find
+            creative and practical solutions.
+          </Paragraph>
+          <OutlinedCard title="HMW (How Might We) question">
+            How might we design a reservation system that easily accommodates
+            people facing language barriers, ensuring smooth booking
+            experiences?
+          </OutlinedCard>
+        </ProjectSubSection>
+        <ProjectSubSection title="Establishing Balanced Goals for Project Success">
+          <Paragraph>
+            As a step to generate ideas to solve the personas' problems, I
+            mapped out project goals based on the research findings.
+          </Paragraph>
+          <div className="py-[20px] space-y-[30px]">
+            <Image
+              src="/resto/project-goals.svg"
+              alt="project goals"
+              width={0}
+              height={0}
+              style={{ width: "100%", height: "auto" }}
+            />
+            <Figma href="/resto/project-goals">View the Project Goals</Figma>
+          </div>
         </ProjectSubSection>
       </ProjectSection>
     </div>
