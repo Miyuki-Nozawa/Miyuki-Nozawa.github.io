@@ -49,6 +49,7 @@ const config: Config = {
         "light-olive": "#E9EBDD",
         beige: "#EAE6DD",
         link: "#0066FF",
+        blueLink: "#0C4EB0",
         orange: "#C2705C",
         overlay: "rgba(0, 0, 0, 0.2)",
         gray: "#EBEBEB",
@@ -57,7 +58,7 @@ const config: Config = {
         projectCardButtonHover: "#90A079",
       },
       maxWidth: {
-        default: "1052px",
+        default: "1000px",
       },
     },
   },

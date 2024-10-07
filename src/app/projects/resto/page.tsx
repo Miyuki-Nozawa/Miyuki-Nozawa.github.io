@@ -5,6 +5,10 @@ import ResearchGoalCard from "@/app/components/research-goal-card";
 import Competitor from "@/app/components/competitor";
 import KeyCard from "@/app/components/key-card";
 import QuestionResponse from "@/app/components/question-response";
+import ProjectSubSection from "@/app/components/project-subsection";
+import Paragraph from "@/app/components/paragraph";
+import Link from "next/link";
+import StarSection from "@/app/components/star-section";
 
 export default function Resto() {
   return (
@@ -57,11 +61,8 @@ export default function Resto() {
       </div>
       {/* introduction */}
       <ProjectSection title="Introduction">
-        <div className="space-y-[30px]">
-          <div className="text-[40px] font-bold tracking-[.01em]">
-            Background
-          </div>
-          <div className="text-[18px] tracking-[.01em]">
+        <ProjectSubSection title="Background">
+          <Paragraph>
             After the pandemic, travel has become more accessible, allowing many
             people to explore various countries. According to a World Economic
             Forum report, Japan is one of the best tourist destinations for
@@ -71,32 +72,25 @@ export default function Resto() {
             booking suitable restaurants or cafes can be challenging.
             Additionally, organizing all the reservations and saved restaurants
             across different apps can be disorganized and sometimes difficult.
-          </div>
-        </div>
-        <div className="space-y-[30px]">
-          <div className="text-[40px] font-bold tracking-[.01em]">Problems</div>
-          <div className="text-[22px] font-medium tracking-[.01em]">
+          </Paragraph>
+        </ProjectSubSection>
+        <ProjectSubSection title="Problems">
+          <Paragraph md>
             Travelers often face difficulties in discovering suitable
             restaurants in Japan and managing their reservations efficiently.
-          </div>
-        </div>
-        <div className="space-y-[30px]">
-          <div className="text-[40px] font-bold tracking-[.01em]">
-            Solutions
-          </div>
-          <div className="text-[22px] font-medium tracking-[.01em]">
+          </Paragraph>
+        </ProjectSubSection>
+        <ProjectSubSection title="Solutions">
+          <Paragraph md>
             Developing an app that allows travelers to search for restaurants
             that match their preferences and manage reservations easily, without
             being hindered by language barriers.
-          </div>
-        </div>
+          </Paragraph>
+        </ProjectSubSection>
       </ProjectSection>
       {/* design process */}
       <ProjectSection>
-        <div className="space-y-[30px]">
-          <div className="text-[40px] font-bold tracking-[.01em]">
-            Design Process
-          </div>
+        <ProjectSubSection title="Design Process">
           <div className="grid grid-rows-2 grid-cols-3 gap-[30px]">
             <DesignCard
               icon="/icons/magnifying-glass.svg"
@@ -139,19 +133,16 @@ export default function Resto() {
               items={["Learning", "Different Approach"]}
             />
           </div>
-        </div>
+        </ProjectSubSection>
       </ProjectSection>
       {/* research */}
       <ProjectSection title="Research">
-        <div className="space-y-[30px]">
-          <div className="text-[40px] font-bold tracking-[.01em]">
-            Research Goal
-          </div>
-          <div className="text-[22px] font-medium tracking-[.01em]">
+        <ProjectSubSection title="Research Goal">
+          <Paragraph md>
             Understanding what users prioritize when searching for restaurants
             as well as their experiences and issues with reservations despite
             language barriers.
-          </div>
+          </Paragraph>
           <div className="grid grid-cols-2 gap-[30px] py-[20px]">
             <ResearchGoalCard>
               Identify what users prioritize in choosing restaurants when
@@ -170,21 +161,18 @@ export default function Resto() {
               locations
             </ResearchGoalCard>
           </div>
-        </div>
-        <div className="space-y-[30px]">
-          <div className="text-[40px] font-bold tracking-[.01em]">
-            Understanding the Competition
-          </div>
-          <div className="text-[18px] tracking-[.01em]">
+        </ProjectSubSection>
+        <ProjectSubSection title="Understanding the Competition">
+          <Paragraph>
             Before diving into the interview, I compared two direct competitors
             (Japanese reservation apps) and one indirect competitor (a
             well-known American reservation app) to understand what features are
             available in existing apps. I compared their target users, focus,
             and trends to identify which features address specific needs.
-          </div>
+          </Paragraph>
           <div className="py-[20px] flex justify-between">
             <Competitor
-              icon="/icons/rakuten.svg"
+              icon="/resto/gurunavi.svg"
               name="Gurunavi"
               desc="A reservation app in Japan"
               pros={[
@@ -200,7 +188,7 @@ export default function Resto() {
               ]}
             />
             <Competitor
-              icon="/icons/tabelog.svg"
+              icon="/resto/tabelog.svg"
               name="Tabelog"
               desc="A reservation app in Japan"
               pros={[
@@ -215,7 +203,7 @@ export default function Resto() {
               ]}
             />
             <Competitor
-              icon="/icons/resy.svg"
+              icon="/resto/resy.svg"
               name="Resy"
               desc="A reservation app in the United States"
               pros={[
@@ -227,41 +215,35 @@ export default function Resto() {
               cons={["Cannot make more than one reservation at the same time"]}
             />
           </div>
-          <div className="text-[18px] tracking-[.01em]">
+          <Paragraph>
             The direct competitor excels in search and restaurant details but
             has not focused on the reservation system, making it confusing for
             users who are not familiar with it. On the other hand, the indirect
             competitor, an American site, does not provide as detailed
             restaurant descriptions but has an excellent reservation system and
             incorporates the latest trends.
-          </div>
-          <div className="py-[20px]">
-            <div className="space-x-[10px] flex items-center">
-              <Image src="/icons/star.svg" alt="star" width={33} height={33} />
-              <span className="text-[22px] font-medium tracking-[.01em]">
-                Key Features
-              </span>
-            </div>
+          </Paragraph>
+          <StarSection title="Key Features">
             <div className="py-[20px] flex space-x-[20px]">
               <KeyCard
                 icon="/icons/calendar.svg"
                 label="Simple reservation system"
+                centered
               />
               <KeyCard
                 icon="/icons/magnifying-glass-thin.svg"
                 label="Easy search function"
+                centered
               />
               <KeyCard
                 icon="/icons/book.svg"
                 label="Introduces trendy spots and culture"
+                centered
               />
             </div>
-          </div>
-        </div>
-        <div className="space-y-[30px]">
-          <div className="text-[40px] font-bold tracking-[.01em]">
-            Exploring Travel Dining Experiences
-          </div>
+          </StarSection>
+        </ProjectSubSection>
+        <ProjectSubSection title="Exploring Travel Dining Experiences">
           <div className="space-y-[50px]">
             {/* survey */}
             <div className="space-y-[30px]">
@@ -269,7 +251,7 @@ export default function Resto() {
                 <div className="text-[27px] font-semibold tracking-[.01em]">
                   Survey
                 </div>
-                <div className="text-[18px] tracking-[.01em]">
+                <Paragraph>
                   To understand travelers' interests and priorities regarding
                   the importance of dining and travel planning, I conducted a
                   survey to gather quantitative data from a diverse group of
@@ -277,7 +259,7 @@ export default function Resto() {
                   <b className="font-semibold">17 participants aged 18-34</b>,
                   all of whom had travel experience, with{" "}
                   <b className="font-semibold">12 having traveled to Japan</b>.
-                </div>
+                </Paragraph>
               </div>
               <div className="py-[50px] space-y-[30px]">
                 <QuestionResponse
@@ -300,7 +282,7 @@ export default function Resto() {
                 <div className="text-[27px] font-semibold tracking-[.01em]">
                   User Interview
                 </div>
-                <div className="text-[18px] tracking-[.01em]">
+                <Paragraph>
                   Then, in order to collect qualitative data on users' specific
                   thoughts and personal experiences, I conducted user interviews
                   with{" "}
@@ -311,7 +293,7 @@ export default function Resto() {
                     4 participants who had visited Japan
                   </b>{" "}
                   and <b className="font-semibold">1 Japanese participant</b>.
-                </div>
+                </Paragraph>
               </div>
               <div className="py-[50px] space-y-[30px]">
                 <QuestionResponse
@@ -327,18 +309,7 @@ export default function Resto() {
                   name="Participant 2"
                 />
               </div>
-              <div className="py-[20px]">
-                <div className="space-x-[10px] flex items-center">
-                  <Image
-                    src="/icons/star.svg"
-                    alt="star"
-                    width={33}
-                    height={33}
-                  />
-                  <span className="text-[22px] font-medium tracking-[.01em]">
-                    Key Findings
-                  </span>
-                </div>
+              <StarSection title="Key Findings">
                 <div className="py-[20px] flex space-x-[20px]">
                   <KeyCard
                     icon="/icons/star-hollow.svg"
@@ -356,10 +327,98 @@ export default function Resto() {
                     sublabel="can be difficult"
                   />
                 </div>
-              </div>
+              </StarSection>
             </div>
           </div>
-        </div>
+        </ProjectSubSection>
+      </ProjectSection>
+      <ProjectSection title="Define">
+        <ProjectSubSection title="Gaining a Deeper Understanding of User Needs and Pain Points">
+          <Paragraph>
+            After implementing the secondary research methods, I recorded all
+            data points and ideas on individual sticky notes. I grouped them
+            based on interview topics and further categorized them into
+            patterns.
+          </Paragraph>
+          <div className="py-[20px] space-y-[30px]">
+            <div className="w-full h-[700px] px-[30px] py-[50px] space-y-[30px] bg-white rounded-[20px]">
+              <div className="text-[22px] font-medium tracking-[.01em]">
+                How was your experience when finding restaurants or cafes?
+              </div>
+              <div className="py-[20px] space-x-[50px] flex">
+                <Image
+                  src="/resto/affinity-map-1-1.svg"
+                  alt="affinity map"
+                  width={0}
+                  height={0}
+                  style={{ width: "auto", height: "500px" }}
+                />
+                <Image
+                  src="/resto/affinity-map-1-2.svg"
+                  alt="affinity map"
+                  width={0}
+                  height={0}
+                  style={{ width: "auto", height: "500px" }}
+                />
+              </div>
+            </div>
+            <div className="w-full h-[700px] px-[30px] py-[50px] space-y-[30px] bg-white rounded-[20px]">
+              <div className="text-[22px] font-medium tracking-[.01em]">
+                What criteria do you use when selecting restaurants?{" "}
+              </div>
+              <div className="py-[20px] space-x-[25px] flex overflow-x-scroll">
+                <Image
+                  src="/resto/affinity-map-2-1.svg"
+                  alt="affinity map"
+                  width={0}
+                  height={0}
+                  style={{ width: "auto", height: "500px" }}
+                />
+                <Image
+                  src="/resto/affinity-map-2-2.svg"
+                  alt="affinity map"
+                  width={0}
+                  height={0}
+                  style={{ width: "auto", height: "500px" }}
+                />
+                <Image
+                  src="/resto/affinity-map-2-3.svg"
+                  alt="affinity map"
+                  width={0}
+                  height={0}
+                  style={{ width: "auto", height: "500px" }}
+                />
+              </div>
+            </div>
+            <div className="space-x-[20px] flex items-center">
+              <Image
+                src="/icons/figma.svg"
+                alt="figma"
+                width={20}
+                height={27}
+              />
+              <span className="text-[18px] text-blueLink tracking-[.01em] underline">
+                <Link href="/resto/affinity-map">View the Affinity Map</Link>
+              </span>
+            </div>
+          </div>
+          <StarSection title="Key Findings">
+            <div className="py-[20px] flex space-x-[20px]">
+              <KeyCard
+                label="62% of participants"
+                sublabel="decide on a restaurant based on reviews or ratings"
+              />
+              <KeyCard
+                label="59% of participants"
+                sublabel="find it hard to choose a restaurant due to search challenges, despite considering dining important for their trip"
+              />
+              <KeyCard
+                label="Many participants"
+                sublabel="find the language barrier to be the biggest challenge when making or changing reservations"
+              />
+            </div>
+          </StarSection>
+        </ProjectSubSection>
       </ProjectSection>
     </div>
   );
