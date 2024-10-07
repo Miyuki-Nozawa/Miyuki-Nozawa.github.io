@@ -56,6 +56,7 @@ const config: Config = {
         gray2: "#BEC8CA",
         navHover: "rgba(150, 159, 50, 0.30)",
         projectCardButtonHover: "#90A079",
+        cream: "#DFD5BD",
       },
       maxWidth: {
         default: "1000px",

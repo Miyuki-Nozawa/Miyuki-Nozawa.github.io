@@ -14,6 +14,7 @@ import UserNeed from "@/app/components/user-need";
 import Down from "@/app/components/down";
 import ColorRow from "@/app/components/color-row";
 import MoodboardCard from "@/app/components/moodboard-card";
+import Button from "@/app/components/button";
 
 export default function Resto() {
   return (
@@ -847,10 +848,107 @@ export default function Resto() {
               />
               <ColorRow title="Neutral" colors={["F9F9F7", "FFFFFF"]} border />
             </MoodboardCard>
-            <div className="flex flex-col justify-between">
-              <MoodboardCard title="Logo">asdf</MoodboardCard>
-              <MoodboardCard title="Icons">asdf</MoodboardCard>
+            <div className="flex-1 flex flex-col justify-between">
+              <MoodboardCard title="Logo">
+                <div className="flex justify-between">
+                  <Image
+                    src="/resto/logo-lg.svg"
+                    alt="logo"
+                    width={168}
+                    height={158}
+                  />
+                  <div className="flex flex-col justify-between items-center">
+                    <Image
+                      src="/resto/logo-md.svg"
+                      alt="logo"
+                      width={100}
+                      height={60}
+                    />
+                    <div className="flex space-x-[30px] px-[15px]">
+                      <Image
+                        src="/resto/logo-sm-1.svg"
+                        alt="logo"
+                        width={60}
+                        height={60}
+                      />
+                      <Image
+                        src="/resto/logo-sm-2.svg"
+                        alt="logo"
+                        width={60}
+                        height={60}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </MoodboardCard>
+              <MoodboardCard title="Icons">
+                <div className="gap-[18px] flex flex-wrap">
+                  {[...Array(16)].map((_, i) => (
+                    <Image
+                      src={`/resto/icon-${i + 1}.svg`}
+                      alt="icon"
+                      width={35}
+                      height={35}
+                      key={i}
+                    />
+                  ))}
+                </div>
+              </MoodboardCard>
             </div>
+          </div>
+          <div className="flex space-x-[30px]">
+            <MoodboardCard title="Typography">
+              <div className="space-y-[15px] px-[10px]">
+                <div className="font-manrope text-[24px] font-semibold tracking-[.03em]">
+                  H1 - Manrope SemiBold 24px
+                </div>
+                <div className="font-manrope text-[20px] font-medium tracking-[.03em]">
+                  H2 - Manrope Medium 20px
+                </div>
+                <div className="font-manrope text-[18px] font-medium tracking-[.03em]">
+                  H3 - Manrope Medium 18px
+                </div>
+                <div className="font-manrope text-[16px] tracking-[.03em]">
+                  B1 - Manrope Regular 16px
+                </div>
+                <div className="font-manrope text-[14px] tracking-[.03em]">
+                  B2 - Manrope Regular 14px
+                </div>
+                <div className="font-manrope text-[16px] font-medium tracking-[.03em]">
+                  Button Text M - Manrope Medium 16px
+                </div>
+              </div>
+            </MoodboardCard>
+            <MoodboardCard title="Buttons">
+              <div className="flex space-x-[20px]">
+                <div className="space-y-[12px]">
+                  <div className="text-[14px] tracking-[.01em]">Default</div>
+                  <div className="space-y-[30px]">
+                    <Button className="bg-cream text-[#303030]">Search</Button>
+                    <Button className="bg-dark-orange text-[#FEFEFE]">
+                      Reserve Now
+                    </Button>
+                    <Button className="bg-[#E8DFBA] text-[#303030] shadow-[0px_1.9px_1.9px_0px_rgba(0,0,0,0.25)_inset]">
+                      Add filters
+                    </Button>
+                  </div>
+                </div>
+                <div className="space-y-[12px]">
+                  <div className="text-[14px] tracking-[.01em]">Disabled</div>
+                  <div className="space-y-[30px]">
+                    <Button className="bg-[rgba(223,213,189,0.50)] text-[rgba(48,48,48,0.50)]">
+                      Search
+                    </Button>
+                    <Button className="bg-[rgba(198,83,16,0.50)] text-white">
+                      Reserve Now
+                    </Button>
+                    <Button className="bg-[rgba(244,240,224,0.50)] text-[rgba(48,48,48,0.50)]">
+                      Add filters
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </MoodboardCard>
           </div>
         </ProjectSubSection>
       </ProjectSection>
