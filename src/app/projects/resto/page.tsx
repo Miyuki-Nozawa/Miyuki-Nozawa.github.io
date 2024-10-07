@@ -12,6 +12,8 @@ import Figma from "@/app/components/figma";
 import OutlinedCard from "@/app/components/outlined-card";
 import UserNeed from "@/app/components/user-need";
 import Down from "@/app/components/down";
+import ColorRow from "@/app/components/color-row";
+import MoodboardCard from "@/app/components/moodboard-card";
 
 export default function Resto() {
   return (
@@ -679,6 +681,176 @@ export default function Resto() {
               </div>
             </div>
             <Figma href="/resto/user-flow">View the User Flow</Figma>
+          </div>
+        </ProjectSubSection>
+      </ProjectSection>
+      <ProjectSection title="Prototype">
+        <ProjectSubSection title="Exploring Ideas from Low-Fi to Mid-Fi">
+          <Paragraph>
+            I created specific design layouts based on user flows, task flows,
+            and observations of how users prefer to search and prevent duplicate
+            reservations. Starting from low-fidelity sketches, I developed more
+            detailed layouts, digitizing them into mid-fidelity wireframes to
+            make the designs more tangible.
+          </Paragraph>
+          <div className="py-[20px] space-y-[30px]">
+            <div className="flex justify-between">
+              <Image
+                src="/resto/lofi-1.jpg"
+                alt="lofi"
+                width={315}
+                height={400}
+                className="rounded-[10px]"
+              />
+              <Image
+                src="/resto/lofi-2.jpg"
+                alt="lofi"
+                width={315}
+                height={400}
+                className="rounded-[10px]"
+              />
+              <Image
+                src="/resto/lofi-3.jpg"
+                alt="lofi"
+                width={315}
+                height={400}
+                className="rounded-[10px]"
+              />
+            </div>
+            <Figma href="/resto/lofi">View the Low-Fi Wireframes</Figma>
+          </div>
+          <div className="py-[20px] space-y-[30px]">
+            <div className="flex justify-between">
+              <Image
+                src="/resto/midfi-1.svg"
+                alt="midfi"
+                width={220}
+                height={600}
+                className="rounded-[10px]"
+              />
+              <Image
+                src="/resto/midfi-2.svg"
+                alt="midfi"
+                width={220}
+                height={600}
+                className="rounded-[10px]"
+              />
+              <Image
+                src="/resto/midfi-3.svg"
+                alt="midfi"
+                width={220}
+                height={600}
+                className="rounded-[10px]"
+              />
+              <Image
+                src="/resto/midfi-4.svg"
+                alt="midfi"
+                width={220}
+                height={600}
+                className="rounded-[10px]"
+              />
+            </div>
+            <Figma href="/resto/lofi">View the Mid-Fi Wireframes</Figma>
+          </div>
+        </ProjectSubSection>
+        <ProjectSubSection title="Ensuring Users Understand the Design Layouts">
+          <Paragraph>
+            After creating the mid-fidelity wireframes, I conducted a quick
+            usability test with 6 participants to check if users understood my
+            design layout and if they found the interface user-friendly.
+          </Paragraph>
+          <div className="py-[20px] space-y-[50px]">
+            <Image
+              src="/resto/test-1.svg"
+              alt="test"
+              width={0}
+              height={0}
+              style={{ width: "100%", height: "auto" }}
+            />
+            <Image
+              src="/resto/test-2.svg"
+              alt="test"
+              width={0}
+              height={0}
+              style={{ width: "100%", height: "auto" }}
+            />
+            <Image
+              src="/resto/test-3.svg"
+              alt="test"
+              width={0}
+              height={0}
+              style={{ width: "100%", height: "auto" }}
+            />
+          </div>
+        </ProjectSubSection>
+        <ProjectSubSection title="Refining Designs through Iterated Mid-Fi Wireframes">
+          <Paragraph>
+            Based on the results of the mid-fi usability test, I iterated on the
+            design to make it more user-friendly and help users achieve their
+            goals.
+          </Paragraph>
+          <div className="py-[20px] px-[50px] space-y-[30px]">
+            <Image
+              src="/resto/iteration-1.svg"
+              alt="iteration"
+              width={0}
+              height={0}
+              style={{ width: "100%", height: "auto" }}
+            />
+            <Image
+              src="/resto/iteration-2.svg"
+              alt="iteration"
+              width={0}
+              height={0}
+              style={{ width: "100%", height: "auto" }}
+            />
+            <Image
+              src="/resto/iteration-3.svg"
+              alt="iteration"
+              width={0}
+              height={0}
+              style={{ width: "100%", height: "auto" }}
+            />
+            <Image
+              src="/resto/iteration-4.svg"
+              alt="iteration"
+              width={0}
+              height={0}
+              style={{ width: "100%", height: "auto" }}
+            />
+          </div>
+        </ProjectSubSection>
+        <ProjectSubSection title="Building a Strong Brand">
+          <Paragraph>
+            To create a user-centered product, it&apos;s essential to build a
+            brand image that attracts users. I established brand values to
+            ensure that searching for and booking restaurants does not feel
+            difficult.
+          </Paragraph>
+          <div className="bg-white rounded-[20px] p-[10px]">
+            <Image
+              src="/resto/moodboard.png"
+              alt="moodboard"
+              width={980}
+              height={637}
+            />
+          </div>
+          <div className="flex space-x-[30px]">
+            <MoodboardCard title="Colors">
+              <ColorRow
+                title="Primary"
+                colors={["EE722B", "C65310", "953B1D"]}
+              />
+              <ColorRow
+                title="Secondary"
+                colors={["B8AE94", "F4F0E0", "DFD5BD"]}
+              />
+              <ColorRow title="Neutral" colors={["F9F9F7", "FFFFFF"]} border />
+            </MoodboardCard>
+            <div className="flex flex-col justify-between">
+              <MoodboardCard title="Logo">asdf</MoodboardCard>
+              <MoodboardCard title="Icons">asdf</MoodboardCard>
+            </div>
           </div>
         </ProjectSubSection>
       </ProjectSection>
