@@ -7,7 +7,6 @@ import KeyCard from "@/app/components/key-card";
 import QuestionResponse from "@/app/components/question-response";
 import ProjectSubSection from "@/app/components/project-subsection";
 import Paragraph from "@/app/components/paragraph";
-import Link from "next/link";
 import StarSection from "@/app/components/star-section";
 import Figma from "@/app/components/figma";
 import OutlinedCard from "@/app/components/outlined-card";
@@ -256,10 +255,10 @@ export default function Resto() {
                   Survey
                 </div>
                 <Paragraph>
-                  To understand travelers' interests and priorities regarding
-                  the importance of dining and travel planning, I conducted a
-                  survey to gather quantitative data from a diverse group of
-                  travelers. The survey included{" "}
+                  To understand travelers&apos; interests and priorities
+                  regarding the importance of dining and travel planning, I
+                  conducted a survey to gather quantitative data from a diverse
+                  group of travelers. The survey included{" "}
                   <b>17 participants aged 18-34</b>, all of whom had travel
                   experience, with <b>12 having traveled to Japan</b>.
                 </Paragraph>
@@ -286,11 +285,11 @@ export default function Resto() {
                   User Interview
                 </div>
                 <Paragraph>
-                  Then, in order to collect qualitative data on users' specific
-                  thoughts and personal experiences, I conducted user interviews
-                  with <b>5 participants aged 23-68</b>. To better understand
-                  their experiences traveling to Japan and the unique aspects of
-                  Japanese culture, I interviewed{" "}
+                  Then, in order to collect qualitative data on users&apos;
+                  specific thoughts and personal experiences, I conducted user
+                  interviews with <b>5 participants aged 23-68</b>. To better
+                  understand their experiences traveling to Japan and the unique
+                  aspects of Japanese culture, I interviewed{" "}
                   <b>4 participants who had visited Japan</b> and{" "}
                   <b>1 Japanese participant</b>.
                 </Paragraph>
@@ -498,7 +497,7 @@ export default function Resto() {
         </ProjectSubSection>
         <ProjectSubSection title="Establishing Balanced Goals for Project Success">
           <Paragraph>
-            As a step to generate ideas to solve the personas' problems, I
+            As a step to generate ideas to solve the personas&apos; problems, I
             mapped out project goals based on the research findings.
           </Paragraph>
           <div className="py-[20px] space-y-[30px]">
@@ -581,7 +580,7 @@ export default function Resto() {
         </ProjectSubSection>
         <ProjectSubSection title="Designing the App Structure with a Sitemap">
           <Paragraph>
-            Based on the results of the card sort, I designed the app's
+            Based on the results of the card sort, I designed the app&apos;s
             structure and created a sitemap. Referring to the research, which
             showed that travelers tend to struggle with searching for
             restaurants and managing reservations.
