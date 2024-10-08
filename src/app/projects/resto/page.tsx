@@ -96,7 +96,7 @@ export default function Resto() {
 
   const handleNav = (section: Section) => {
     if (refs[section].current) {
-      refs[section].current.scrollIntoView({ behavior: "smooth" });
+      refs[section].current.scrollIntoView();
     }
   };
 
