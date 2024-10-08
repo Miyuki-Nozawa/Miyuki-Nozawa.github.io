@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import ProjectCard from "./components/project-card";
 import Link from "next/link";
-import { handleCursorHoverStart, handleCursorHoverStop } from "./cursor";
+import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
 
 export default function Home() {
   const footerRef = useRef<HTMLDivElement>(null);
