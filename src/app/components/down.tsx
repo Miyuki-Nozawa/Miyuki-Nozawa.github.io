@@ -1,12 +1,13 @@
 import Image from "next/image";
 
-export default function Down() {
+export default function Down({ sm }: { sm?: boolean }) {
+  const [width, height] = sm ? [30, 30] : [50, 50];
   return (
     <Image
       src="/icons/down.svg"
       alt="down"
-      width={50}
-      height={50}
+      width={width}
+      height={height}
       className="mx-auto"
     />
   );

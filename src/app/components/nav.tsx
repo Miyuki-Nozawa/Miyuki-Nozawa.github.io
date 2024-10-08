@@ -100,9 +100,14 @@ export default function Nav() {
           `${contactHoverClass} `
         }
       >
-        <div className="mx-auto lg:mx-0 w-[75px] lg:w-[155px] h-[50px] lg:h-[105px] relative">
+        <div className="mx-auto lg:mx-0 w-[75px] lg:w-[155px] h-[50px] lg:h-[105px]">
           <Link href="/">
-            <Image src="/icons/nav.svg" alt="miyuki nozawa" fill />
+            <Image
+              src="/icons/nav.svg"
+              alt="miyuki nozawa"
+              width={150}
+              height={100}
+            />
           </Link>
         </div>
         <div className="hidden lg:flex space-x-[20px] font-light">
@@ -117,7 +122,7 @@ export default function Nav() {
         className="absolute left-[20px] w-[30px] h-[50px] flex justify-center items-center z-40 lg:hidden"
         onClick={openMobileNav}
       >
-        <div className="w-full h-full">
+        <div className="w-full h-full relative">
           <Image src="/icons/hamburger.svg" alt="menu" fill />
         </div>
       </div>
