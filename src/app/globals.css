@@ -78,3 +78,7 @@ body,
 body.hovering * {
   cursor: pointer;
 }
+
+b {
+  font-weight: 600;
+}
