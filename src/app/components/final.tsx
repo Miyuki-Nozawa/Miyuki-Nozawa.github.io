@@ -30,6 +30,7 @@ export default function Final({
                 alt="note"
                 width={27}
                 height={27}
+                className="mb-auto"
               />
               <span className="text-[18px] tracking-[.01em]">{note}</span>
             </div>

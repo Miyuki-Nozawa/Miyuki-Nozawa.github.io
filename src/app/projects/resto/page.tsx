@@ -113,7 +113,7 @@ export default function Resto() {
           <div
             key={section}
             className={`${
-              activeSection === section ? "text-green2" : "text-light-brown"
+              activeSection === section ? "text-green2" : "text-[#A9A497]"
             }`}
             onClick={() => handleNav(section)}
             onMouseEnter={handleCursorHoverStart}
@@ -742,6 +742,7 @@ export default function Resto() {
                         alt="star"
                         width={33}
                         height={33}
+                        className="mb-auto"
                       />
                       <span className="text-[22px] font-medium tracking-[.01em]">
                         Discover restaurants or cafes and make reservations
@@ -765,6 +766,7 @@ export default function Resto() {
                         alt="star"
                         width={33}
                         height={33}
+                        className="mb-auto"
                       />
                       <span className="text-[22px] font-medium tracking-[.01em]">
                         Check the reservations and the saved restaurants to plan
@@ -799,7 +801,8 @@ export default function Resto() {
                       alt="star"
                       width={33}
                       height={33}
-                    />
+                      className="mb-auto"
+                      />
                     <span className="text-[22px] font-medium tracking-[.01em]">
                       Discover restaurants or cafes and make reservations
                     </span>
@@ -923,7 +926,7 @@ export default function Resto() {
                 the design to make it more user-friendly and help users achieve
                 their goals.
               </Paragraph>
-              <div className="py-[20px] px-[50px] space-y-[50px]">
+              <div className="py-[20px] space-y-[50px]">
                 <Image
                   src="/resto/iteration-1.svg"
                   alt="iteration"
@@ -1336,18 +1339,32 @@ export default function Resto() {
                 through research.
               </Paragraph>
             </ProjectSubSection>
-            <ProjectSubSection title="Different Approach">
+            <ProjectSubSection title="Opportunities for Enhancement">
               <div className="space-y-[10px]">
                 <div className="text-[22px] font-medium tracking-[.01em]">
-                  Enhancing the Search Function
+                  Search Function
                 </div>
                 <Paragraph>
-                  Users can explore restaurants from various angles using
-                  RESTO’s search function. However, to offer a more personalized
-                  search experience, implementing an AI-powered system is
-                  essential. This could involve displaying recommendations based
-                  on users&apos; search history and favorite lists, or adding
-                  features that automatically suggest similar restaurants.
+                  While RESTO&apos;s current search function allows users to
+                  explore restaurants from multiple angles, there is room for
+                  improvement by incorporating an AI-powered recommendation
+                  system. This could suggest restaurants based on users’ search
+                  history, favorite lists, or automatically find similar
+                  options, leading to a more tailored and efficient search
+                  experience.
+                </Paragraph>
+              </div>
+              <div className="space-y-[10px]">
+                <div className="text-[22px] font-medium tracking-[.01em]">
+                  Multilingual Support
+                </div>
+                <Paragraph>
+                  Currently, users can find restaurants with English support and
+                  make reservations without worrying about language barriers.
+                  However, by expanding language support and incorporating
+                  translation features, RESTO could offer a more inclusive
+                  experience, making it easier for non-English speakers to
+                  navigate the platform and make reservations seamlessly.
                 </Paragraph>
               </div>
             </ProjectSubSection>

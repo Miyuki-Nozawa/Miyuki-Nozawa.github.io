@@ -13,7 +13,7 @@ export default function KeyCard({
 }) {
   return (
     <div
-      className={`p-[50px] bg-light-pink rounded-[20px] space-y-[30px] w-1/3 ${
+      className={`p-[49px] bg-pink rounded-[20px] space-y-[30px] w-1/3 ${
         centered ? "text-center" : ""
       }`}
     >

@@ -46,6 +46,7 @@ const config: Config = {
         olive: "#E5E7CB",
         paper: "#F2EFEA",
         "light-pink": "#DCC9BA",
+        pink: "#EAE0D6",
         "light-ivory": "#F9F7F2",
         "light-olive": "#E9EBDD",
         beige: "#EAE6DD",
