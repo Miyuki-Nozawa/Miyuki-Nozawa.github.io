@@ -17,7 +17,7 @@ export default function Figma({
     >
       <Image src="/icons/figma.svg" alt="figma" width={20} height={27} />
       <span className="text-[18px] text-blueLink tracking-[.01em] underline">
-        <Link href={href}>{children}</Link>
+        <Link href={href} target="_blank">{children}</Link>
       </span>
     </div>
   );

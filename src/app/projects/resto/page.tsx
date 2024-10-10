@@ -164,8 +164,17 @@ export default function Resto() {
                 <div>Type: End-to-end-application</div>
                 <div>Timeline: June - Aug 2024</div>
               </div>
-              <div className="self-end flex bg-brown3 rounded-[75px] px-[60px] py-[15px] justify-center items-center text-black text-[20px] font-semibold tracking-[.01em]">
-                View Hi-fi prototype
+              <div className="flex items-end">
+                <Link
+                  href="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&node-type=canvas&viewport=284%2C360%2C0.06&t=6NVbRlngR40WJKQQ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1"
+                  target="_blank"
+                  onMouseEnter={handleCursorHoverStart}
+                  onMouseLeave={handleCursorHoverStop}
+                >
+                  <div className="self-end flex bg-brown3 rounded-[75px] px-[60px] py-[15px] justify-center items-center text-black text-[20px] font-semibold tracking-[.01em]">
+                    View Hi-fi prototype
+                  </div>
+                </Link>
               </div>
             </div>
           </div>
@@ -508,7 +517,9 @@ export default function Resto() {
                     />
                   </div>
                 </div>
-                <Figma href="/resto/affinity-map">View the Affinity Map</Figma>
+                <Figma href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=90-2022&t=Rh2UA7lbJbDJRhGN-1">
+                  View the Affinity Map
+                </Figma>
               </div>
               <StarSection title="Key Findings">
                 <div className="py-[20px] flex space-x-[20px]">
@@ -591,7 +602,9 @@ export default function Resto() {
                   className="rounded-[20px]"
                 />
               </div>
-              <Figma href="/resto/personas">View the Personas</Figma>
+              <Figma href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=0-1&t=6g8QSShYxUqXAJml-1">
+                View the Personas
+              </Figma>
             </ProjectSubSection>
             <ProjectSubSection title="Exploring and Clarifying Solutions for User Needs">
               <Paragraph>
@@ -632,7 +645,7 @@ export default function Resto() {
                   height={0}
                   style={{ width: "100%", height: "auto" }}
                 />
-                <Figma href="/resto/project-goals">
+                <Figma href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1-278&t=6g8QSShYxUqXAJml-1">
                   View the Project Goals
                 </Figma>
               </div>
@@ -724,7 +737,9 @@ export default function Resto() {
                   height={0}
                   style={{ width: "100%", height: "auto" }}
                 />
-                <Figma href="/resto/sitemap">View the Sitemap</Figma>
+                <Figma href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=35-1840&t=Rh2UA7lbJbDJRhGN-1">
+                  View the Sitemap
+                </Figma>
               </div>
             </ProjectSubSection>
             <ProjectSubSection title="Refining Key Design Decisions">
@@ -784,7 +799,9 @@ export default function Resto() {
                     </div>
                   </div>
                 </div>
-                <Figma href="/resto/user-flows">View the Task Flows</Figma>
+                <Figma href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=42-8803&t=Rh2UA7lbJbDJRhGN-1">
+                  View the Task Flows
+                </Figma>
               </div>
             </ProjectSubSection>
             <ProjectSubSection title="Mapping out User Needs and Goals">
@@ -802,7 +819,7 @@ export default function Resto() {
                       width={33}
                       height={33}
                       className="mb-auto"
-                      />
+                    />
                     <span className="text-[22px] font-medium tracking-[.01em]">
                       Discover restaurants or cafes and make reservations
                     </span>
@@ -813,7 +830,9 @@ export default function Resto() {
                     </div>
                   </div>
                 </div>
-                <Figma href="/resto/user-flow">View the User Flow</Figma>
+                <Figma href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=80-1978&t=Rh2UA7lbJbDJRhGN-1">
+                  View the User Flow
+                </Figma>
               </div>
             </ProjectSubSection>
           </ProjectSection>
@@ -854,7 +873,9 @@ export default function Resto() {
                     className="rounded-[10px]"
                   />
                 </div>
-                <Figma href="/resto/lofi">View the Low-Fi Wireframes</Figma>
+                <Figma href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=46-55&t=6g8QSShYxUqXAJml-1">
+                  View the Low-Fi Wireframes
+                </Figma>
               </div>
               <div className="py-[20px] space-y-[30px]">
                 <div className="flex justify-between">
@@ -887,7 +908,9 @@ export default function Resto() {
                     className="rounded-[10px]"
                   />
                 </div>
-                <Figma href="/resto/lofi">View the Mid-Fi Wireframes</Figma>
+                <Figma href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1043-37036&t=6g8QSShYxUqXAJml-1">
+                  View the Mid-Fi Wireframes
+                </Figma>
               </div>
             </ProjectSubSection>
             <ProjectSubSection title="Ensuring Users Understand the Design Layouts">
@@ -1129,7 +1152,9 @@ export default function Resto() {
                     height={476}
                   />
                 </div>
-                <Figma href="/resto/hifi">View the Hi-Fi Wireframes</Figma>
+                <Figma href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=692-48559&t=6g8QSShYxUqXAJml-1">
+                  View the Hi-Fi Wireframes
+                </Figma>
               </div>
             </ProjectSubSection>
           </ProjectSection>
@@ -1310,7 +1335,8 @@ export default function Resto() {
                   mirror
                 />
                 <Link
-                  href="/resto/final"
+                  href="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&node-type=canvas&viewport=284%2C360%2C0.06&t=6NVbRlngR40WJKQQ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1"
+                  target="_blank"
                   onMouseEnter={handleCursorHoverStart}
                   onMouseLeave={handleCursorHoverStop}
                 >
