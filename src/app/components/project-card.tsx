@@ -8,6 +8,7 @@ export default function ProjectCard({
   subtitle,
   description,
   img,
+  page,
   mirror,
 }: {
   tags: string[];
@@ -15,6 +16,7 @@ export default function ProjectCard({
   subtitle: string;
   description: string;
   img: string;
+  page: string;
   mirror?: boolean;
 }) {
   return (
@@ -43,7 +45,7 @@ export default function ProjectCard({
           <div className="text-[18px] py-[20px]">{description}</div>
         </div>
         <div>
-          <Link href={`/projects/${title.toLowerCase()}`}>
+          <Link href={page}>
             <button
               className="inline-block relative overflow-hidden px-[40px] py-[15px] text-[18px] font-semibold bg-dark-green text-white rounded-[32px] transition-colors duration-300 ease-in-out group"
               onMouseEnter={handleCursorHoverStart}

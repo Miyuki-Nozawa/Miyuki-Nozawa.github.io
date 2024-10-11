@@ -66,6 +66,7 @@ export default function Home() {
         subtitle="Dining App in Japan"
         description="A mobile app that simplifies restaurant discovery and reservations for travelers in Japan"
         img="/home/resto.png"
+        page="/projects/resto"
       />
       {/* Korean Air */}
       <ProjectCard
@@ -74,6 +75,7 @@ export default function Home() {
         subtitle="Mileage Optimizer"
         description="A feature that enables effective utilization of mileage"
         img="/home/korean-air.png"
+        page="/projects/korean-air"
         mirror
       />
       {/* Pibu */}
@@ -83,6 +85,7 @@ export default function Home() {
         subtitle="Skincare Store Website"
         description="A website to introduce a local business and expand their business"
         img="/home/pibu.png"
+        page="/projects/pibu"
       />
       <div
         ref={footerRef}
