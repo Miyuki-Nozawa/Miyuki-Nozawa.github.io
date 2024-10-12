@@ -436,7 +436,7 @@ export default function Resto() {
                       <KeyCard
                         icon="/icons/star-hollow.svg"
                         label="Local tips & reviews"
-                        sublabel="can make dining at restaurants challenging"
+                        sublabel="can be the deciding factor when choosing a restaurant"
                       />
                       <KeyCard
                         icon="/icons/a.svg"
@@ -492,28 +492,30 @@ export default function Resto() {
                   <div className="text-[22px] font-medium tracking-[.01em]">
                     What criteria do you use when selecting restaurants?{" "}
                   </div>
-                  <div className="py-[20px] space-x-[25px] flex overflow-x-scroll">
-                    <Image
-                      src="/resto/affinity-map-2-1.svg"
-                      alt="affinity map"
-                      width={0}
-                      height={0}
-                      style={{ width: "auto", height: "500px" }}
-                    />
-                    <Image
-                      src="/resto/affinity-map-2-2.svg"
-                      alt="affinity map"
-                      width={0}
-                      height={0}
-                      style={{ width: "auto", height: "500px" }}
-                    />
-                    <Image
-                      src="/resto/affinity-map-2-3.svg"
-                      alt="affinity map"
-                      width={0}
-                      height={0}
-                      style={{ width: "auto", height: "500px" }}
-                    />
+                  <div className="pb-[20px]">
+                    <div className="pt-[20px] pb-[40px] space-x-[25px] flex overflow-x-scroll">
+                      <Image
+                        src="/resto/affinity-map-2-1.svg"
+                        alt="affinity map"
+                        width={0}
+                        height={0}
+                        style={{ width: "auto", height: "500px" }}
+                      />
+                      <Image
+                        src="/resto/affinity-map-2-2.svg"
+                        alt="affinity map"
+                        width={0}
+                        height={0}
+                        style={{ width: "auto", height: "500px" }}
+                      />
+                      <Image
+                        src="/resto/affinity-map-2-3.svg"
+                        alt="affinity map"
+                        width={0}
+                        height={0}
+                        style={{ width: "auto", height: "500px" }}
+                      />
+                    </div>
                   </div>
                 </div>
                 <Figma href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=90-2022&t=Rh2UA7lbJbDJRhGN-1">
@@ -528,7 +530,7 @@ export default function Resto() {
                   />
                   <KeyCard
                     label="59% of participants"
-                    sublabel="find it hard to choose a restaurant due to search challenges, despite considering dining important for their trip"
+                    sublabel="struggle to choose a restaurant due to search challenges, despite valuing dining on their trip."
                   />
                   <KeyCard
                     label="Many participants"
@@ -668,6 +670,7 @@ export default function Resto() {
                     alt="avatar"
                     width={100}
                     height={100}
+                    className="mt-auto"
                   />
                   <Image
                     src="/resto/speech-bubble.svg"

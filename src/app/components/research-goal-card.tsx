@@ -7,7 +7,7 @@ export default function ResearchGoalCard({
 }) {
   return (
     <div className="flex col-span-1">
-      <div className="flex items-center px-[30px] py-[60px] bg-white rounded-[20px] shadow-[1px_1px_1px_1px_rgba(0,0,0,0.10)]">
+      <div className="flex px-[30px] py-[60px] bg-white rounded-[20px] shadow-[1px_1px_1px_1px_rgba(0,0,0,0.10)]">
         <div className="space-x-[10px] flex">
           <Image
             src="/icons/loading.svg"
