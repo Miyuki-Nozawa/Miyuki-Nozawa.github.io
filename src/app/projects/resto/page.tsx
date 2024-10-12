@@ -103,7 +103,7 @@ export default function Resto() {
   return (
     <div className="relative">
       <div
-        className={`w-[150px] h-[500px] fixed top-20 right-0 transition-all duration-500 space-y-[20px] text-[18px] text- ${
+        className={`w-[150px] h-[500px] fixed top-20 right-0 transition-all duration-500 space-y-[20px] text-[18px] ${
           isNavVisible
             ? "opacity-100 translate-x-0"
             : "opacity-0 translate-x-[100%]"
@@ -456,7 +456,6 @@ export default function Resto() {
           </ProjectSection>
         </div>
         {/* define */}
-
         <div>
           <div ref={defineRef}></div>
           <ProjectSection title="Define">
