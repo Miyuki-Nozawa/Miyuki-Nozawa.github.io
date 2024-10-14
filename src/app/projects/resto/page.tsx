@@ -1299,10 +1299,18 @@ export default function Resto() {
               </div>
             </ProjectSubSection>
             <ProjectSubSection title="Final Prototype">
-              <div className="text-[27px] font-semibold tracking-[.01em]">
-                Introducing
+              <div className="py-[20px]">
+                <div className="bg-white rounded-[20px] px-[30px] py-[60px] space-y-[10px]">
+                  <div className="text-[22px] tracking-[.01em] font-medium">
+                    Resto - Dining App in Japan
+                  </div>
+                  <div className="text-[18px] tracking-[.01em]">
+                    A mobile app that simplifies restaurant discovery and
+                    reservation management for travelers in Japan.
+                  </div>
+                </div>
               </div>
-              <div className="py-[20px] space-y-[50px]">
+              <div className="space-y-[50px] py-[20px]">
                 <Final
                   video="/resto/final-1.mp4"
                   header="A search function that allows users to search based on their needs"
@@ -1336,16 +1344,18 @@ export default function Resto() {
                   ]}
                   mirror
                 />
-                <Link
-                  href="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&node-type=canvas&viewport=284%2C360%2C0.06&t=6NVbRlngR40WJKQQ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1"
-                  target="_blank"
-                  onMouseEnter={handleCursorHoverStart}
-                  onMouseLeave={handleCursorHoverStop}
-                >
-                  <div className="px-[60px] py-[15px] rounded-[75px] bg-brown3 text-[20px] font-semibold tracking-[.01em] inline-block">
-                    View Hi-fi Prototype
-                  </div>
-                </Link>
+                <div>
+                  <Link
+                    href="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&node-type=canvas&viewport=284%2C360%2C0.06&t=6NVbRlngR40WJKQQ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1"
+                    target="_blank"
+                    onMouseEnter={handleCursorHoverStart}
+                    onMouseLeave={handleCursorHoverStop}
+                  >
+                    <div className="px-[60px] py-[15px] rounded-[75px] bg-brown3 text-[20px] font-semibold tracking-[.01em] inline-block">
+                      View Hi-fi Prototype
+                    </div>
+                  </Link>
+                </div>
               </div>
             </ProjectSubSection>
           </ProjectSection>

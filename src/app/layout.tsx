@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.className} ${manrope.variable} ${inter.variable} max-w-[1440px] mx-auto bg-white tracking-[.02em] cursor-default`}
+        className={`${poppins.className} ${manrope.variable} ${inter.variable} max-w-[1440px] mx-auto bg-white text-black tracking-[.02em] cursor-default`}
       >
         <Nav />
         {/* spacer */}

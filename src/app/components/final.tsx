@@ -12,15 +12,15 @@ export default function Final({
   mirror?: boolean;
 }) {
   return (
-    <div className="flex items-center">
+    <div className="flex items-center space-x-[80px]">
       {!mirror && (
-        <div className="px-[50px] flex-shrink-0">
+        <div className="flex-shrink-0">
           <video className="w-[300px] h-[600px]" autoPlay muted loop>
             <source src={video} type="video/mp4" />
           </video>
         </div>
       )}
-      <div className="px-[50px] space-y-[30px]">
+      <div className="space-y-[30px]">
         <div className="text-[22px] font-medium tracking-[.01em]">{header}</div>
         <div className="space-y-[10px]">
           {notes.map((note) => (
@@ -38,7 +38,7 @@ export default function Final({
         </div>
       </div>
       {mirror && (
-        <div className="px-[50px] flex-shrink-0">
+        <div className="flex-shrink-0">
           <video className="w-[300px] h-[600px]" autoPlay muted loop>
             <source src={video} type="video/mp4" />
           </video>
