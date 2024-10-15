@@ -1,997 +1,1414 @@
-import Avatar from "@/app/components/avatar";
-import Carousel from "@/app/components/carousel";
-import Definition from "@/app/components/definition";
-import DiamondHeadedList from "@/app/components/diamond-headed-list";
-import DiamondHeader from "@/app/components/diamond-header";
-import DownArrow from "@/app/components/down-arrow";
-import FigmaLink from "@/app/components/figma-link";
-import KeyQuestions from "@/app/components/key-questions";
-import ParticpantResponses from "@/app/components/participant-responses";
-import Participants from "@/app/components/participants";
-import Persona from "@/app/components/persona";
-import ProjectContents from "@/app/components/project-contents";
-import ProjectHero from "@/app/components/project-hero";
-import ProjectStatement from "@/app/components/project-statement";
-import ResearchGoal from "@/app/components/research-goal";
-import ResearchGoalSummary from "@/app/components/research-goal-summary";
-import ResearchMethod from "@/app/components/research-method";
-import ResearchObjectives from "@/app/components/research-objectives";
-import ResearchSubsection from "@/app/components/research-subsection";
-import Section from "@/app/components/section";
-import Separator from "@/app/components/separator";
-import SubSection from "@/app/components/sub-section";
-import TaskFlow from "@/app/components/task-flow";
-import TestCard from "@/app/components/test-card";
-import Text from "@/app/components/text";
-import Transition from "@/app/components/transition";
+"use client";
+
+import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import DesignCard from "@/app/components/design-card";
+import ProjectSection from "@/app/components/project-section";
+import ResearchGoalCard from "@/app/components/research-goal-card";
+import Competitor from "@/app/components/competitor";
+import KeyCard from "@/app/components/key-card";
+import QuestionResponse from "@/app/components/question-response";
+import ProjectSubSection from "@/app/components/project-subsection";
+import Paragraph from "@/app/components/paragraph";
+import StarSection from "@/app/components/star-section";
+import Figma from "@/app/components/figma";
+import OutlinedCard from "@/app/components/outlined-card";
+import UserNeed from "@/app/components/user-need";
+import Down from "@/app/components/down";
+import ColorRow from "@/app/components/color-row";
+import MoodboardCard from "@/app/components/moodboard-card";
+import Button from "@/app/components/button";
+import TaskFlowCard from "@/app/components/task-flow-card";
+import Final from "@/app/components/final";
+import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
+
+enum Section {
+  RESEARCH = "RESEARCH",
+  DEFINE = "DEFINE",
+  IDEATE = "IDEATE",
+  PROTOTYPE = "PROTOTYPE",
+  TEST = "TEST",
+  NEXTSTEPS = "NEXT STEPS",
+}
+
+const SECTIONS = [
+  Section.RESEARCH,
+  Section.DEFINE,
+  Section.IDEATE,
+  Section.PROTOTYPE,
+  Section.TEST,
+  Section.NEXTSTEPS,
+];
 
 export default function KoreanAir() {
+  const researchRef = useRef<HTMLDivElement>(null);
+  const defineRef = useRef<HTMLDivElement>(null);
+  const ideateRef = useRef<HTMLDivElement>(null);
+  const prototypeRef = useRef<HTMLDivElement>(null);
+  const testRef = useRef<HTMLDivElement>(null);
+  const nextStepsRef = useRef<HTMLDivElement>(null);
+  const [isNavVisible, setIsNavVisible] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+
+  const refs = useMemo(
+    () => ({
+      [Section.RESEARCH]: researchRef,
+      [Section.DEFINE]: defineRef,
+      [Section.IDEATE]: ideateRef,
+      [Section.PROTOTYPE]: prototypeRef,
+      [Section.TEST]: testRef,
+      [Section.NEXTSTEPS]: nextStepsRef,
+    }),
+    []
+  );
+
+  useEffect(() => {
+    const handleScroll = () => {
+      let current = activeSection;
+      let isVisible = false;
+
+      for (const [name, ref] of Object.entries(refs)) {
+        if (ref.current) {
+          const rect = ref.current.getBoundingClientRect();
+          const viewportHeight = window.innerHeight;
+          const middleOfViewport = viewportHeight / 2;
+
+          if (rect.bottom < middleOfViewport) {
+            isVisible = true;
+            current = name;
+          }
+        }
+      }
+
+      setIsNavVisible(isVisible);
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [activeSection, refs]);
+
+  const handleNav = (section: Section) => {
+    if (refs[section].current) {
+      refs[section].current.scrollIntoView();
+    }
+  };
+
   return (
-    <div>
-      <ProjectHero
-        name="Korean Air"
-        video="/korean-air/hero.mp4"
-        logo="/korean-air/logo.png"
-        logoWidth={290}
-        logoHeight={50}
-        header="A feature that enables effective utilization of mileage"
-        projectType="Add a feature"
-        role="UX/UI designer"
-        projectDuration="1 month"
-        industry="Airline"
-        href="https://www.figma.com/proto/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?page-id=74%3A269&node-id=97-342&viewport=1506%2C343%2C0.13&t=mu551F7TELQoEYla-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=97%3A342&show-proto-sidebar=1"
-        headerClassName="text-3xl"
-        className="bg-base2 px-8 space-x-12 h-[650px] items-center"
-        classNameLeft="w-[57%] h-[400px]"
-        classNameRight="w-[43%] h-[450px]"
-        classNameButton="bg-brown3 text-black"
-      />
-      <ProjectStatement
-        statement={
-          "Korean Air has a comprehensive mileage program and they allow customers " +
-          "to use their mileage for flights, hotels, special services at the airport, " +
-          "etc. However, the display method for mileage on their website is unclear, " +
-          "requiring multiple visits to different pages to confirm details. Additionally, " +
-          "understanding how, and for what purposes, the accrued mileage can be used is " +
-          "difficult."
-        }
-        solution={
-          "Adding features that allow Korean Air users to easily understand what can be " +
-          "done with their mileage and utilize it effectively."
-        }
-        className="bg-dark-green text-white"
-        underline="border-white"
-      />
-      <ProjectContents />
-      {/* INTRODUCTION */}
-      <Section title="Introduction" underline="bg-dark-green" className="px-52">
-        <Text>
-          Korean Air, the flag carrier of South Korea and the largest airline
-          based on fleet size, international destinations, and international
-          flights, serves 120 cities in 43 countries. In 2022, it had 4,755
-          thousand passengers on international flights and 6,211 thousand on
-          domestic flights. It is one of the 10 airlines ranked as a 5-star
-          airline and among the top 20 airlines globally.
-          <div className="h-8"></div>
-          Korean Air flights can be booked through the Korean Air website, which
-          offers various reservation methods. In addition to standard cash
-          purchases, reservations can be made using mileage or a combination of
-          mileage and cash. Furthermore, by enrolling in the mileage program,
-          accumulated miles can be used not only for flights but also for
-          airport services and hotel bookings. Despite the variety of mileage
-          programs, using mileage can be complicated. Users often need to
-          navigate between different pages to check the number of mileage points
-          required for their purposes.
-        </Text>
-        <Transition
-          text={
-            "How can we add a feature that allows users to easily check and use their " +
-            "mileage?"
-          }
-        />
-      </Section>
-      {/* RESEARCH */}
-      <Section title="Research" underline="bg-brown" className="px-52 pb-12">
-        <ResearchGoalSummary className="bg-brown7">
-          <span className="font-bold">
-            Understanding what users value most when using mileage rewards
-          </span>{" "}
-          so that we can change the mileage display to make it easier to
-          understand, use, and increase user satisfaction.
-        </ResearchGoalSummary>
-        {/* research 1 */}
-        <ResearchGoal
-          title="Getting to know what features competitors offer regarding mileage or points"
-          start={1}
-        >
-          <Text>
-            Before conducting the interviews, I performed a competitive analysis
-            to understand the features incorporated by websites that use mileage
-            or points systems. I compared target users, the characteristics of
-            each system, and the pros and cons to identify which features meet
-            specific needs.
-          </Text>
-          <ResearchSubsection title="Competitive Analysis" color="brown">
-            <Text>
-              I compared two direct airline websites, including Korean Air, and
-              two indirect websites with reward systems. I identified the
-              strengths and areas for improvement for each website.
-            </Text>
-            <div className="relative w-full h-[564px]">
+    <div className="relative">
+      <div
+        className={`w-[150px] h-[500px] fixed top-20 right-0 transition-all duration-500 space-y-[20px] text-[18px] ${
+          isNavVisible
+            ? "opacity-100 translate-x-0"
+            : "opacity-0 translate-x-[100%]"
+        }`}
+      >
+        {SECTIONS.map((section) => (
+          <div
+            key={section}
+            className={`${
+              activeSection === section ? "text-green2" : "text-[#A9A497]"
+            }`}
+            onClick={() => handleNav(section)}
+            onMouseEnter={handleCursorHoverStart}
+            onMouseLeave={handleCursorHoverStop}
+          >
+            {section}
+          </div>
+        ))}
+      </div>
+      <div className="space-y-[20px] tracking-[.01em]">
+        {/* Hero */}
+        <div className="bg-base pt-[100px] pb-[130px] rounded-b-[200px]">
+          <div className="max-w-default mx-auto">
+            <div className="text-[40px] font-bold tracking-[.01em]">Resto</div>
+            <div className="text-[60px] font-bold tracking-[.01em]">
+              Dining App in Japan
+            </div>
+            <div className="text-[27px] font-semibold my-[30px] tracking-[.01em]">
+              A mobile app that simplifies restaurant discovery and reservation
+              management for travelers in Japan.
+            </div>
+            <div className="flex justify-between items-end my-[50px]">
+              <video className="w-[274px] h-[550px]" autoPlay muted loop>
+                <source src="/resto/hero.mp4" type="video/mp4" />
+              </video>
               <Image
-                src="/korean-air/competitor-table.svg"
-                alt="Competitor table"
-                className="object-contain"
-                fill
+                src="/resto/screen-1.png"
+                alt="Resto"
+                width={206}
+                height={453}
+              />
+              <Image
+                src="/resto/screen-2.png"
+                alt="Resto"
+                width={206}
+                height={453}
+              />
+              <Image
+                src="/resto/screen-3.png"
+                alt="Resto"
+                width={206}
+                height={453}
               />
             </div>
-            <Text>
-              Despite the specialized mileage and points systems on each
-              website, there can still be difficulties in redeeming mileage or
-              points. Since each site has separate pages for checking one&apos;s
-              mileage or points and for viewing available redemption options,
-              users need to navigate back and forth between various pages.
-              <div className="h-8"></div>
-              Through competitive analysis, I realized the need to display the
-              mileage or points required for redemption in a clear and specific
-              way. By clearly showing the target items that many users want to
-              redeem and the exact amount of mileage or points needed, I can
-              enhance users&apos; motivation to redeem and improve their overall
-              satisfaction. However, displaying all items at once can be
-              challenging, so it is necessary to find an effective method.
-            </Text>
-            <Link
-              href={
-                "https://docs.google.com/spreadsheets/d/1Dwxp4uFm2hkjlvu-P9qG-JDbw6w7bHrnVzl4e5HFRjk"
-              }
-              target="_blank"
-            >
-              <div
-                className={
-                  "px-8 py-[13.5px] mt-12 border-2 border-brown rounded-[5rem] " +
-                  "inline-block text-brown text-xl font-semibold"
-                }
-              >
-                View the competitive analysis
+            <div className="flex justify-between">
+              <div className="space-y-[20px] text-[22px] font-medium tracking-[.01em]">
+                <div>Role: UX/UI Designer</div>
+                <div>Type: End-to-end-application</div>
+                <div>Timeline: June - Aug 2024</div>
               </div>
-            </Link>
-          </ResearchSubsection>
-        </ResearchGoal>
-        {/* research 2 */}
-        <ResearchGoal
-          title="Getting to know how people use their mileage or points"
-          start={2}
-        >
-          <ResearchObjectives
-            questions={[
-              "Understand what users prioritize in mileage usage",
-              "Determine what goals can be achieved by using mileage",
-              "Understand the purpose and process of mileage utilization",
-              "Identify the confusion in mileage display and difficulty in using it",
-              "Determine how often users visit the mileage page to use accumulated " +
-                "mileage",
-            ]}
-            className="text-brown"
-          />
-          {/* research methods */}
-          <div className="space-y-12">
-            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] underline text-brown">
-              Research methods
-            </div>
-            <Text>
-              I conducted three different research methods to understand how
-              people use mileage and points systems, gather detailed insights
-              based on people&apos;s experiences, and identify issues with the
-              existing Korean Air website.
-            </Text>
-            <div className="space-y-24">
-              {/* survey */}
-              <ResearchMethod
-                title="Survey"
-                desc={
-                  "The first research method I used was a survey. The survey was " +
-                  "conducted to collect quantitative data from a wide range of people " +
-                  "to understand how they use airline mileage and credit card point " +
-                  "systems, and how well they comprehend the process of redeeming " +
-                  "miles or points."
-                }
-                color="light-brown"
-              >
-                <Participants
-                  title="Survey participants"
-                  desc1="12 people, age between 18-68"
-                  className="text-dark-green"
-                />
-                <KeyQuestions
-                  className="text-dark-green"
-                  questions={[
-                    "Have you redeemed your mileage (credit card points), and what did " +
-                      "you use it for?",
-                    "Are you aware of your mileage (credit card points) balance?",
-                    "Are you aware of required mileage (credit card points) for " +
-                      "redemptions?",
-                  ]}
-                />
-                <ParticpantResponses
-                  className="text-dark-green"
-                  img="/korean-air/survey-responses.svg"
-                  alt="Survey responses"
-                />
-              </ResearchMethod>
-              {/* user interview */}
-              <ResearchMethod
-                title="User interview"
-                desc={
-                  "The second research method I conducted was user interviews. User " +
-                  "interviews are used to collect qualitative data on more specific " +
-                  "thoughts and personal experiences of users, based on the wide " +
-                  "range of data obtained from the survey."
-                }
-                color="light-brown"
-              >
-                <Participants
-                  title="Interview participants"
-                  desc1="5 people who have joined an airline’s mileage program "
-                  desc2="Age between 33-68"
-                  className="text-dark-green"
-                />
-                <KeyQuestions
-                  className="text-dark-green"
-                  questions={[
-                    "How long have you been a member of the mileage program?",
-                    "What do you want to do with your mileage?",
-                    "Have you redeemed your mileage, and is there a time where you " +
-                      "found redeeming your mileage to be challenging?",
-                  ]}
-                />
-                <ParticpantResponses
-                  className="text-dark-green"
-                  img="/korean-air/interview-responses.svg"
-                  alt="Interview responses"
-                />
-              </ResearchMethod>
-              {/* usability testing */}
-              <ResearchMethod
-                title="Usability testing"
-                desc={
-                  "The third method I conducted was a usability test. I used the " +
-                  "existing Korean Air website to understand how people navigate the " +
-                  "site, what aspects they find difficult, and what areas need " +
-                  "improvement."
-                }
-                color="light-brown"
-              >
-                <Participants
-                  title="Interview participants"
-                  desc1="5 people, age between 33-68"
-                  desc2="(4 out of 5 people have used the Korean Air website)"
-                  className="text-dark-green"
-                />
-                <KeyQuestions
-                  className="text-dark-green"
-                  questions={[
-                    "Show me how to find your accumulated mileage",
-                    "Explain what you can do with your mileage",
-                  ]}
-                />
-                <ParticpantResponses
-                  className="text-dark-green"
-                  img="/korean-air/usability-responses.svg"
-                  alt="Usability responses"
-                />
-              </ResearchMethod>
-            </div>
-          </div>
-          {/* results */}
-          <div className="space-y-12">
-            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] text-brown underline">
-              Results
-            </div>
-            <Text>
-              Through surveys and interviews, I was able to gather statistics on
-              how enthusiastic people are about exchanging miles and points, and
-              how well they understand the system. I recorded the key points
-              from the surveys and interviews on individual sticky notes,
-              grouped them based on interview topics, and further categorized
-              them into patterns to create an affinity map. Creating the
-              affinity map allowed me to gain a deeper understanding of
-              users&apos; needs, motivations, and the confusing aspects of
-              Korean Air&apos;s mileage system on their website.
-            </Text>
-            <div className="space-y-24">
-              <div className="space-y-20">
-                <div className="space-y-8">
-                  <div className="font-bold text-[26px] tracking-tight">
-                    Motivation of mileage/points redemption
+              <div className="flex items-end">
+                <Link
+                  href="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&node-type=canvas&viewport=284%2C360%2C0.06&t=6NVbRlngR40WJKQQ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1"
+                  target="_blank"
+                  onMouseEnter={handleCursorHoverStart}
+                  onMouseLeave={handleCursorHoverStop}
+                >
+                  <div className="self-end flex bg-brown3 rounded-[75px] px-[60px] py-[15px] justify-center items-center text-black text-[20px] font-semibold tracking-[.01em]">
+                    View Hi-fi prototype
                   </div>
-                  <div className="text-[24px]">
-                    What do you want to do with your mileage/points?
-                  </div>
-                  <Image
-                    src="/korean-air/affinity-map-1.svg"
-                    alt="Motivation of mileage/points redemption"
-                    width={1040}
-                    height={755}
-                  />
-                </div>
-                <div className="space-y-8">
-                  <div className="font-bold text-3xl tracking-tight">
-                    Korean Air website
-                  </div>
-                  <div className="text-[24px]">Pain points</div>
-                  <Image
-                    src="/korean-air/affinity-map-2.svg"
-                    alt="Korean Air website"
-                    width={1040}
-                    height={1059}
-                  />
-                </div>
-                <FigmaLink href="https://www.figma.com/board/reZSsCdxDbS1QbXJlNEqFR/Capstone-1---Adding-a-Feature?node-id=112-726">
-                  View the full affinity map
-                </FigmaLink>
-              </div>
-              <Text>
-                Through the affinity map, I was able to identify what people
-                most want to exchange their mileage and points for, as well as
-                how knowledgeable they are about miles and points. Additionally,
-                I was able to clearly identify the usability issues and areas
-                for improvement on the Korean Air website.
-              </Text>
-              {/* paper */}
-              <div className="rounded-3xl bg-light-ivory px-20 py-12 space-y-12">
-                <DiamondHeadedList
-                  color="brown"
-                  title="Motivation of mileage redemption"
-                  items={["Flight tickets"]}
-                />
-                <DiamondHeadedList
-                  color="brown"
-                  title="Difficulties experienced when redeeming mileage"
-                  items={[
-                    "The website design wasn’t good",
-                    "The process was a bit complicating",
-                  ]}
-                />
-                <DiamondHeadedList
-                  color="brown"
-                  title={
-                    "Difficulties in displaying mileage information on the Korean " +
-                    "Air website"
-                  }
-                  items={[
-                    "Finding redemption options",
-                    "Finding accumulated mileage",
-                    "Navigating the website",
-                    "Mileage display method ",
-                    "The naming of menus",
-                  ]}
-                />
-              </div>
-              <Text>
-                After completing all the research, I was able to identify the
-                key points for adding a feature to Korean Air&apos;s website
-                that allows users to easily check and use their mileage. This
-                process helped me understand what is needed to meet the
-                users&apos; needs.
-              </Text>
-              <DownArrow />
-              {/* key findings */}
-              <div className="px-24 py-12 space-y-7 rounded-3xl border-brown border-2">
-                <div className="text-3xl font-bold tracking-[.02em]">
-                  Key findings
-                </div>
-                <ul className="list-disc list-outside text-[30px] tracking-[.02em] pl-6 space-y-1">
-                  <li>Clear display of mileage redemption options</li>
-                  <li>Smooth and easy redemption of flight tickets</li>
-                  <li>Understanding the required mileage for redemption</li>
-                  <li>Clear goals for mileage redemption</li>
-                </ul>
+                </Link>
               </div>
             </div>
-          </div>
-        </ResearchGoal>
-      </Section>
-      {/* DEFINE */}
-      <Section title="Define" underline="bg-green3" className="px-52">
-        <Text>
-          After conducting research, reviewing the findings, and organizing the
-          data, I created a persona to understand users&apos; needs and
-          behaviors and to ensure that design and decisions are centered around
-          the user.
-        </Text>
-        <div className="space-y-10">
-          <Persona
-            title="Persona"
-            desc={
-              "Lina Kim is a 30-year-old product manager living in Los Angeles who " +
-              "frequently flies with Korean Air to visit her family in Korea. Although " +
-              "she accumulates mileage with Korean Air’s SKYPASS program, she finds " +
-              "the process of redeeming miles for tickets complicated and has never " +
-              "used them. Her main goals are to understand how to redeem her mileage " +
-              "and to save costs on her trips to Korea, but she is frustrated by the " +
-              "complexity of the website and the time it takes to find the necessary " +
-              "information."
-            }
-            img="/korean-air/persona.jpeg"
-            className="text-dark-green"
-          />
-          <div className="w-full">
-            <FigmaLink href="https://www.figma.com/design/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=1-128">
-              View the persona
-            </FigmaLink>
           </div>
         </div>
-        <Text>
-          To clarify the solutions needed to address specific user needs, I
-          created two POV statements based on the personas. I chose one that
-          focuses on confirming the mileage required for redemption, as it is
-          the most crucial for achieving the personas&apos; goals.
-        </Text>
-        <Definition
-          title="POV (Point Of View) statement"
-          text={
-            "I’d like to explore ways for people joining the Korean Air mileage " +
-            "program (SKYPASS) to understand at a glance what they can redeem their " +
-            "mileage for because many people may not know how many miles are " +
-            "needed for redemption, leading to a lack of motivation to accumulate " +
-            "mileage."
-          }
-          className="bg-green5"
-        />
-        <Text>
-          Then, I took the problems into clear questions that help find creative
-          and practical solutions.
-        </Text>
-        <Definition
-          title="HMW (How Might We) question"
-          text={
-            "How might we allow SKYPASS members to check their accumulated mileage " +
-            "against the required mileage at once?"
-          }
-          className="bg-green5"
-        />
-        <DownArrow />
-      </Section>
-      {/* DESIGN */}
-      <Section
-        title="Design"
-        underline="bg-light-pink"
-        className="px-52"
-        text={
-          "As a step to generate ideas to solve the persona's problems, I set project " +
-          "goals and brainstormed feature ideas to address them."
-        }
-        relaxed
-      >
-        {/* project goals */}
-        <SubSection title="Project goals" color="text-brown4">
-          <div className="relative w-[1040px] h-[950px]">
-            <Image
-              src="/korean-air/project-goals.svg"
-              alt="Project goals"
-              fill
-            />
-          </div>
-          <FigmaLink href="https://www.figma.com/design/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=5-19">
-            View the project goals
-          </FigmaLink>
-        </SubSection>
-        {/* feature ideas */}
-        <SubSection title="Feature ideas" color="text-brown4">
-          <Text>
-            Considering the existing design and features of Korean Air, I
-            brainstormed key features that focus on overlapping goals of both
-            business and user objectives to achieve them.
-          </Text>
-          <Image
-            src="/korean-air/feature-ideas.svg"
-            alt="Feature ideas"
-            width={867}
-            height={604}
-            className="mx-auto"
-          />
-          <Transition
-            text={
-              "I considered how users would specifically utilize these features and " +
-              "reflected this in the task flow."
-            }
-            className="mt-20"
-          />
-        </SubSection>
-        <SubSection title="Task Flow" color="text-brown4">
-          <Text>
-            I created a task flow to clarify the steps necessary for users to
-            achieve a specific goal and promote a user-friendly approach.
-          </Text>
-          <TaskFlow
-            title="Check the required mileage for exchanging award tickets"
-            img="/korean-air/task-flow.png"
-            width={1473}
-            height={168}
-            className="w-[1473px] flex items-center"
-          />
-          <div>
-            <FigmaLink href="https://www.figma.com/board/reZSsCdxDbS1QbXJlNEqFR/Capstone-1---Adding-a-Feature?node-id=78-2052">
-              View the task flow
-            </FigmaLink>
-          </div>
-        </SubSection>
-        <SubSection
-          title="User Flow"
-          color="text-brown4"
-          subtitle={
-            "I created a user flow to understand user needs and identify potential " +
-            "issues or confusing elements."
-          }
-          spacing="space-y-20"
-        >
-          <div>
-            <div className="text-2xl font-medium tracking-[.02em] mb-12">
-              Check the required mileage for exchanging award tickets
+        {/* introduction */}
+        <ProjectSection title="Introduction">
+          <ProjectSubSection title="Background">
+            <Paragraph>
+              After the pandemic, travel has become more accessible, allowing
+              many people to explore various countries. According to a World
+              Economic Forum report, Japan is one of the best tourist
+              destinations for 2024, with 9.62 million foreign tourists visiting
+              in 2023. Many people look forward to experiencing Japan&apos;s
+              food culture, but for those unfamiliar with the language and
+              culture, finding and booking suitable restaurants or cafes can be
+              challenging. Additionally, organizing all the reservations and
+              saved restaurants across different apps can be disorganized and
+              sometimes difficult.
+            </Paragraph>
+          </ProjectSubSection>
+          <ProjectSubSection title="Problems">
+            <Paragraph md>
+              Travelers often face difficulties in discovering suitable
+              restaurants in Japan and managing their reservations efficiently.
+            </Paragraph>
+          </ProjectSubSection>
+          <ProjectSubSection title="Solutions">
+            <Paragraph md>
+              Developing an app that allows travelers to search for restaurants
+              that match their preferences and manage reservations easily,
+              without being hindered by language barriers.
+            </Paragraph>
+          </ProjectSubSection>
+        </ProjectSection>
+        {/* design process */}
+        <ProjectSection>
+          <ProjectSubSection title="Design Process">
+            <div className="grid grid-rows-2 grid-cols-3 gap-[30px]">
+              <DesignCard
+                icon="/icons/magnifying-glass.svg"
+                title="RESEARCH"
+                items={["Competitive Analysis", "Survey", "User Interviews"]}
+              />
+              <DesignCard
+                icon="/icons/target.svg"
+                title="DEFINE"
+                items={[
+                  "Affinity Map",
+                  "User Personas",
+                  "Problem Statement",
+                  "Project Goals",
+                ]}
+              />
+              <DesignCard
+                icon="/icons/lightbulb.svg"
+                title="IDEATE"
+                items={[
+                  "Feature Ideas",
+                  "Card Sort",
+                  "Sitemap",
+                  "Task & User Flows",
+                ]}
+              />
+              <DesignCard
+                icon="/icons/pencil.svg"
+                title="PROTOTYPE"
+                items={["Wireframes", "Branding", "Prototyping"]}
+              />
+              <DesignCard
+                icon="/icons/paper.svg"
+                title="TEST"
+                items={["Usability Testing", "Iterations"]}
+              />
+              <DesignCard
+                icon="/icons/next.svg"
+                title="NEXT STEPS"
+                items={["Learning", "Different Approach"]}
+              />
             </div>
-            <div className="overflow-scroll">
-              <div className="relative w-[1988px] h-[600px]">
+          </ProjectSubSection>
+        </ProjectSection>
+        {/* research */}
+        <div>
+          <div ref={researchRef}></div>
+          <ProjectSection title="Research">
+            <ProjectSubSection title="Research Goal">
+              <Paragraph md>
+                Understanding what users prioritize when searching for
+                restaurants as well as their experiences and issues with
+                reservations despite language barriers.
+              </Paragraph>
+              <div className="grid grid-cols-2 gap-[30px] py-[20px]">
+                <ResearchGoalCard>
+                  Identify what users prioritize in choosing restaurants when
+                  traveling
+                </ResearchGoalCard>
+                <ResearchGoalCard>
+                  Understand how people plan their trips and what kind of
+                  information is required for them
+                </ResearchGoalCard>
+                <ResearchGoalCard>
+                  Discover the key factors and challenges users face when
+                  searching for and selecting restaurants
+                </ResearchGoalCard>
+                <ResearchGoalCard>
+                  Understand how users manage their desired destinations and
+                  planned locations
+                </ResearchGoalCard>
+              </div>
+            </ProjectSubSection>
+            <ProjectSubSection title="Understanding the Competition">
+              <Paragraph>
+                Before diving into the interview, I compared two direct
+                competitors (Japanese reservation apps) and one indirect
+                competitor (a well-known American reservation app) to understand
+                what features are available in existing apps. I compared their
+                target users, focus, and trends to identify which features
+                address specific needs.
+              </Paragraph>
+              <div className="py-[20px] flex justify-between">
+                <Competitor
+                  icon="/resto/gurunavi.svg"
+                  name="Gurunavi"
+                  desc="A reservation app in Japan"
+                  pros={[
+                    "For people who are looking for casual restaurants",
+                    "Points system",
+                    "COVID-19 safety display",
+                    "No cancellation fee",
+                    "Introduces food-related culture",
+                  ]}
+                  cons={[
+                    "Multiple steps are required to modify reservations",
+                    "Only partial English support",
+                  ]}
+                />
+                <Competitor
+                  icon="/resto/tabelog.svg"
+                  name="Tabelog"
+                  desc="A reservation app in Japan"
+                  pros={[
+                    "For people who want to discover new places and want to see reviews",
+                    "Occasion suggestion",
+                    "Incorporating of user reviews",
+                    "Nationwide restaurant listings",
+                  ]}
+                  cons={[
+                    "Only allowing booking of course menus",
+                    "Multiple steps are required to modify reservations",
+                  ]}
+                />
+                <Competitor
+                  icon="/resto/resy.svg"
+                  name="Resy"
+                  desc="A reservation app in the United States"
+                  pros={[
+                    "For people who want to make reservations and discover new places",
+                    "Waiting list (Notification)",
+                    "Introducing trendy spots",
+                    "Available to send special requests to restaurants",
+                  ]}
+                  cons={[
+                    "Cannot make more than one reservation at the same time",
+                  ]}
+                />
+              </div>
+              <Paragraph>
+                The direct competitor excels in search and restaurant details
+                but has not focused on the reservation system, making it
+                confusing for users who are not familiar with it. On the other
+                hand, the indirect competitor, an American site, does not
+                provide as detailed restaurant descriptions but has an excellent
+                reservation system and incorporates the latest trends.
+              </Paragraph>
+              <StarSection title="Key Features">
+                <div className="py-[20px] flex space-x-[20px]">
+                  <KeyCard
+                    icon="/icons/calendar.svg"
+                    label="Simple reservation system"
+                    centered
+                  />
+                  <KeyCard
+                    icon="/icons/magnifying-glass-thin.svg"
+                    label="Easy search function"
+                    centered
+                  />
+                  <KeyCard
+                    icon="/icons/book.svg"
+                    label="Introduces trendy spots and culture"
+                    centered
+                  />
+                </div>
+              </StarSection>
+            </ProjectSubSection>
+            <ProjectSubSection title="Exploring Travel Dining Experiences">
+              <div className="space-y-[50px]">
+                {/* survey */}
+                <div className="space-y-[30px]">
+                  <div className="space-y-[10px]">
+                    <div className="text-[27px] font-semibold tracking-[.01em]">
+                      Survey
+                    </div>
+                    <Paragraph>
+                      To understand travelers&apos; interests and priorities
+                      regarding the importance of dining and travel planning, I
+                      conducted a survey to gather quantitative data from a
+                      diverse group of travelers. The survey included{" "}
+                      <b>17 participants aged 18-34</b>, all of whom had travel
+                      experience, with <b>12 having traveled to Japan</b>.
+                    </Paragraph>
+                  </div>
+                  <div className="py-[50px] space-y-[30px]">
+                    <QuestionResponse
+                      question="How important is dining out while traveling to you?"
+                      response="“Dining at restaurants is a priority, but I want to avoid calling them for reservations due to language barriers.”"
+                      avatar="/avatars/participant-1.svg"
+                      name="Participant 1"
+                    />
+                    <QuestionResponse
+                      question="How important is dining out while traveling to you?"
+                      response="“I decide restaurants based on reviews from locals or Google. I usually want to go to restaurants that are famous among both tourists and locals.”"
+                      avatar="/avatars/participant-2.svg"
+                      name="Participant 2"
+                    />
+                  </div>
+                </div>
+                {/* user interview */}
+                <div className="space-y-[30px]">
+                  <div className="space-y-[10px]">
+                    <div className="text-[27px] font-semibold tracking-[.01em]">
+                      User Interview
+                    </div>
+                    <Paragraph>
+                      Then, in order to collect qualitative data on users&apos;
+                      specific thoughts and personal experiences, I conducted
+                      user interviews with <b>5 participants aged 23-68</b>. To
+                      better understand their experiences traveling to Japan and
+                      the unique aspects of Japanese culture, I interviewed{" "}
+                      <b>4 participants who had visited Japan</b> and{" "}
+                      <b>1 Japanese participant</b>.
+                    </Paragraph>
+                  </div>
+                  <div className="py-[50px] space-y-[30px]">
+                    <QuestionResponse
+                      question="How was your experience when searching for and deciding on restaurants while traveling in Japan?"
+                      response="“It was difficult because there were too many choices, and I didn’t know how to choose the right one.” "
+                      avatar="/avatars/participant-3.svg"
+                      name="Participant 1"
+                    />
+                    <QuestionResponse
+                      question="Are there any struggles or difficulties you encounter when managing your restaurant list?"
+                      response="“I wish Google Maps had a filter for location, showing food types or price ranges”"
+                      avatar="/avatars/participant-4.svg"
+                      name="Participant 2"
+                    />
+                  </div>
+                  <StarSection title="Key Findings">
+                    <div className="py-[20px] flex space-x-[20px]">
+                      <KeyCard
+                        icon="/icons/star-hollow.svg"
+                        label="Local tips & reviews"
+                        sublabel="can be the deciding factor when choosing a restaurant"
+                      />
+                      <KeyCard
+                        icon="/icons/a.svg"
+                        label="Language barriers"
+                        sublabel="can make dining at restaurants challenging"
+                      />
+                      <KeyCard
+                        icon="/icons/find.svg"
+                        label="Finding restaurants & managing reservations"
+                        sublabel="can be difficult"
+                      />
+                    </div>
+                  </StarSection>
+                </div>
+              </div>
+            </ProjectSubSection>
+          </ProjectSection>
+        </div>
+        {/* define */}
+        <div>
+          <div ref={defineRef}></div>
+          <ProjectSection title="Define">
+            <ProjectSubSection title="Gaining a Deeper Understanding of User Needs and Pain Points">
+              <Paragraph>
+                After implementing the secondary research methods, I recorded
+                all data points and ideas on individual sticky notes. I grouped
+                them based on interview topics and further categorized them into
+                patterns.
+              </Paragraph>
+              <div className="py-[20px] space-y-[30px]">
+                <div className="w-full h-[700px] px-[30px] py-[50px] space-y-[30px] bg-white rounded-[20px]">
+                  <div className="text-[22px] font-medium tracking-[.01em]">
+                    How was your experience when finding restaurants or cafes?
+                  </div>
+                  <div className="py-[20px] space-x-[50px] flex">
+                    <Image
+                      src="/resto/affinity-map-1-1.svg"
+                      alt="affinity map"
+                      width={0}
+                      height={0}
+                      style={{ width: "auto", height: "500px" }}
+                    />
+                    <Image
+                      src="/resto/affinity-map-1-2.svg"
+                      alt="affinity map"
+                      width={0}
+                      height={0}
+                      style={{ width: "auto", height: "500px" }}
+                    />
+                  </div>
+                </div>
+                <div className="w-full h-[700px] px-[30px] py-[50px] space-y-[30px] bg-white rounded-[20px]">
+                  <div className="text-[22px] font-medium tracking-[.01em]">
+                    What criteria do you use when selecting restaurants?{" "}
+                  </div>
+                  <div className="pb-[20px]">
+                    <div className="pt-[20px] pb-[40px] space-x-[25px] flex overflow-x-scroll">
+                      <Image
+                        src="/resto/affinity-map-2-1.svg"
+                        alt="affinity map"
+                        width={0}
+                        height={0}
+                        style={{ width: "auto", height: "500px" }}
+                      />
+                      <Image
+                        src="/resto/affinity-map-2-2.svg"
+                        alt="affinity map"
+                        width={0}
+                        height={0}
+                        style={{ width: "auto", height: "500px" }}
+                      />
+                      <Image
+                        src="/resto/affinity-map-2-3.svg"
+                        alt="affinity map"
+                        width={0}
+                        height={0}
+                        style={{ width: "auto", height: "500px" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <Figma href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=90-2022&t=Rh2UA7lbJbDJRhGN-1">
+                  View the Affinity Map
+                </Figma>
+              </div>
+              <StarSection title="Key Findings">
+                <div className="py-[20px] flex space-x-[20px]">
+                  <KeyCard
+                    label="62% of participants"
+                    sublabel="decide on a restaurant based on reviews or ratings"
+                  />
+                  <KeyCard
+                    label="59% of participants"
+                    sublabel="struggle to choose a restaurant due to search challenges, despite valuing dining on their trip."
+                  />
+                  <KeyCard
+                    label="Many participants"
+                    sublabel="find the language barrier to be the biggest challenge when making or changing reservations"
+                  />
+                </div>
+              </StarSection>
+            </ProjectSubSection>
+            <ProjectSubSection title="Transforming Insights into Personas">
+              <Paragraph>
+                After conducting research, reviewing the findings, and
+                organizing the data, I created two personas in the early stages
+                of the design process to deepen my understanding of specific
+                users and user needs.
+              </Paragraph>
+              <div className="space-y-[30px] pb-[20px]">
+                <div className="space-y-[10px]">
+                  <div className="text-[22px] font-medium tracking-[.01em]">
+                    Persona 1
+                  </div>
+                  <Paragraph>
+                    Matt Kim, a 30-year-old product manager from San Francisco,
+                    loves traveling to Japan and exploring local dining spots.
+                    He faces challenges due to <b>the language barrier</b>,
+                    making it difficult to find and reserve restaurants popular
+                    among locals. His main frustrations include{" "}
+                    <b>
+                      the time-consuming process of translating Japanese
+                      information
+                    </b>{" "}
+                    and <b>the difficulty of making phone reservations</b>.
+                  </Paragraph>
+                </div>
                 <Image
-                  src="/korean-air/user-flow.png"
-                  alt="task flow"
-                  width={1988}
-                  height={400}
+                  src="/resto/persona-1.jpeg"
+                  alt="persona"
+                  width={1000}
+                  height={984}
+                  className="rounded-[20px]"
                 />
               </div>
-            </div>
-          </div>
-          <FigmaLink href="https://www.figma.com/board/reZSsCdxDbS1QbXJlNEqFR/Capstone-1---Adding-a-Feature?node-id=30-430">
-            View the user flow
-          </FigmaLink>
-        </SubSection>
-        <DownArrow />
-        <SubSection
-          title="Low-fidelity"
-          color="text-brown4"
-          textAbove={
-            "Based on user flows, task flows, and general observations of how users " +
-            "want to check their mileage, I sketched out a specific layout."
-          }
-        >
-          <div className="space-y-7">
-            <DiamondHeader color="light-pink" title="Home" />
-            <div className="flex space-x-4">
-              <div className="w-1/2 space-y-4">
-                <div className="text-[24px] tracking-[.02em]">Original</div>
-                <div className="relative w-[511px] h-[364px]">
-                  <Image
-                    src="/korean-air/home-original.png"
-                    alt="Home (original)"
-                    fill
-                  />
+              <div className="space-y-[30px]">
+                <div className="space-y-[10px]">
+                  <div className="text-[22px] font-medium tracking-[.01em]">
+                    Persona 2
+                  </div>
+                  <Paragraph>
+                    Sarah Laine, a 26-year-old interior designer from New York,
+                    is planning her first trip to Japan with friends and is
+                    excited to explore Japanese cuisine. She faces challenges{" "}
+                    <b>
+                      managing and sharing restaurant reservations among her
+                      group
+                    </b>{" "}
+                    and is worried about{" "}
+                    <b>keeping track of them amidst a packed schedule</b>. Her
+                    goals include{" "}
+                    <b>
+                      visiting many tourist spots and sticking to their travel
+                      plan
+                    </b>
+                    .
+                  </Paragraph>
                 </div>
+                <Image
+                  src="/resto/persona-2.jpeg"
+                  alt="persona"
+                  width={1000}
+                  height={984}
+                  className="rounded-[20px]"
+                />
               </div>
-              <div className="w-1/2 space-y-4">
-                <div className="text-[24px] tracking-[.02em]">Low-fidelity</div>
-                <div className="relative w-[511px] h-[364px]">
-                  <Image
-                    src="/korean-air/home-lofi.jpeg"
-                    alt="Home (lofi)"
-                    fill
-                  />
-                </div>
-                <div className="text-[24px] tracking-[.02em]">
-                  Display the accumulated mileage number under the my page icon.
-                </div>
+              <Figma href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=0-1&t=6g8QSShYxUqXAJml-1">
+                View the Personas
+              </Figma>
+            </ProjectSubSection>
+            <ProjectSubSection title="Exploring and Clarifying Solutions for User Needs">
+              <Paragraph>
+                To clarify the solutions needed to address specific user needs,
+                I created two POV statements based on the personas. Among them,
+                I selected the POV focusing on the language barrier and managing
+                restaurant lists, as these were identified as significant
+                challenges for many users.
+              </Paragraph>
+              <OutlinedCard title="POV (Point Of View) statement">
+                I’d like to explore ways to propose a streamlined and functional
+                reservation system catering to travelers who face challenges
+                with language barriers during restaurant booking or encounter
+                issues managing reservations.
+              </OutlinedCard>
+              <Down />
+              <Paragraph>
+                Then, I took the problems into clear questions that help find
+                creative and practical solutions.
+              </Paragraph>
+              <OutlinedCard title="HMW (How Might We) question">
+                How might we design a reservation system that easily
+                accommodates people facing language barriers, ensuring smooth
+                booking experiences?
+              </OutlinedCard>
+            </ProjectSubSection>
+            <ProjectSubSection title="Establishing Balanced Goals for Project Success">
+              <Paragraph>
+                As a step to generate ideas to solve the personas&apos;
+                problems, I mapped out project goals based on the research
+                findings.
+              </Paragraph>
+              <div className="py-[20px] space-y-[30px]">
+                <Image
+                  src="/resto/project-goals.svg"
+                  alt="project goals"
+                  width={0}
+                  height={0}
+                  style={{ width: "100%", height: "auto" }}
+                />
+                <Figma href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1-278&t=6g8QSShYxUqXAJml-1">
+                  View the Project Goals
+                </Figma>
               </div>
-            </div>
-          </div>
-          <div className="space-y-7">
-            <DiamondHeader color="light-pink" title="My page" />
-            <div className="flex space-x-4">
-              <div className="w-1/2 space-y-4">
-                <div className="text-[24px] tracking-[.02em]">Original</div>
-                <div className="relative w-[511px] h-[364px]">
-                  <Image
-                    src="/korean-air/my-page-original.png"
-                    alt="My page (original)"
-                    fill
-                  />
-                </div>
-              </div>
-              <div className="w-1/2 space-y-4">
-                <div className="text-[24px] tracking-[.02em]">Low-fidelity</div>
-                <div className="relative w-[511px] h-[364px]">
-                  <Image
-                    src="/korean-air/my-page-lofi.jpeg"
-                    alt="My page (lofi)"
-                    fill
-                  />
-                </div>
-                <div className="text-[24px] tracking-[.02em]">
-                  Below the accumulated mileage number on the My Page, display
-                  what the miles can be redeemed for and how many miles are
-                  needed in graphs.
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="space-y-7">
-            <DiamondHeader color="light-pink" title="My mileage page" />
-            <div className="flex space-x-4">
-              <div className="w-1/2 space-y-4">
-                <div className="text-[24px] tracking-[.02em]">Original</div>
-                <div className="relative w-[511px] h-[364px]">
-                  <Image
-                    src="/korean-air/my-mileage-original.png"
-                    alt="My mileage (original)"
-                    fill
-                  />
-                </div>
-              </div>
-              <div className="w-1/2 space-y-4">
-                <div className="text-[24px] tracking-[.02em]">Low-fidelity</div>
-                <div className="relative w-[511px] h-[364px]">
-                  <Image
-                    src="/korean-air/my-mileage-lofi.jpeg"
-                    alt="My mileage (lofi)"
-                    fill
-                  />
-                </div>
-                <div className="text-[24px] tracking-[.02em]">
-                  Below the accumulated mileage number on the My Mileage Page,
-                  display mileage redemption options
-                </div>
-              </div>
-            </div>
-          </div>
-          <FigmaLink href="https://www.figma.com/design/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=23-41">
-            View the full low-fidelity
-          </FigmaLink>
-        </SubSection>
-        <SubSection
-          title="Mid-fidelity"
-          color="text-brown4"
-          textAbove={
-            "I considered more detailed layouts based on the low-fidelity sketches " +
-            "and then digitized them to create mid-fidelity wireframes, making the " +
-            "detailed layout more tangible."
-          }
-        >
-          <Carousel
-            width={800}
-            height={568}
-            items={[
-              "/korean-air/midfi-1.png",
-              "/korean-air/midfi-2.png",
-              "/korean-air/midfi-3.png",
-              "/korean-air/midfi-4.png",
-            ]}
-            nav={{
-              itemClassName: "w-[194px] h-[138px]",
-              items: [
-                "/korean-air/midfi-1-sm.png",
-                "/korean-air/midfi-2-sm.png",
-                "/korean-air/midfi-3-sm.png",
-                "/korean-air/midfi-4-sm.png",
-              ],
-            }}
-          />
-          <FigmaLink href="https://www.figma.com/design/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=539-3691">
-            View the full mid-fidelity
-          </FigmaLink>
-        </SubSection>
-        {/* mid-fidelity test */}
-        <TestCard
-          title="Mid-fidelity test"
-          className="border-light-pink"
-          textAbove={
-            "After creating the mid-fidelity wireframes, I conducted a quick test to " +
-            "check if users understood my design layout and if they found the " +
-            "interface user-friendly."
-          }
-        >
-          <Text sm>
-            3 people, age 34-68
-            <br />
-            (2 people have used the Korean Air website)
-          </Text>
-          <div className="pt-7 space-y-20">
-            {/* test 1 */}
-            <div className="space-y-7">
-              <div className="text-[24px] tracking-[.02em] font-medium">
-                Check the accumulated mileage
-              </div>
-              <Text sm>
-                → People can easily check their saved mileage from the home
-                screen, eliminating the need to navigate back and forth just to
-                check the number of miles.
-              </Text>
-              <Image
-                src="/korean-air/midfi-test-1.svg"
-                alt="Mid-fidelity test"
-                width={940}
-                height={498}
-              />
-            </div>
-            {/* test 2 */}
-            <div className="space-y-7">
-              <div className="text-[24px] tracking-[.02em] font-medium">
-                Check how many miles are required to exchange for an flight
-                ticket
-              </div>
-              <Text sm>
-                → After testing two options, I found that displaying the miles
-                as a bar graph is more visually effective. However, to increase
-                people&apos;s motivation for redeeming miles, I need to make the
-                required number of miles more visible.
-              </Text>
-              <Image
-                src="/korean-air/midfi-test-2.svg"
-                alt="Mid-fidelity test"
-                width={940}
-                height={532}
-              />
-              <Image
-                src="/korean-air/midfi-test-3.svg"
-                alt="Mid-fidelity test"
-                width={940}
-                height={532}
-              />
-            </div>
-            {/* test 3 */}
-            <div className="space-y-7">
-              <div className="text-[24px] tracking-[.02em] font-medium">
-                Confirm what can be done with the accumulated mileage
-              </div>
-              <Text sm>
-                → People can easily learn about mileage redemption options, but
-                they can&apos;t immediately see the exact number of miles
-                required for each redemption. Therefore, it needs to be
-                displayed in a way that is clear and easy for everyone to
-                understand.
-              </Text>
-              <Image
-                src="/korean-air/midfi-test-4.svg"
-                alt="Mid-fidelity test"
-                width={940}
-                height={500}
-              />
-            </div>
-          </div>
-        </TestCard>
-        <Transition
-          text={
-            "Based on the results of the mid-fi test, I iterated on the design to " +
-            "make it more user-friendly and help users achieve their goals."
-          }
-          noPadding
-        />
-        <SubSection title="Mid-fidelity (iterations)" color="text-brown4">
-          <Image
-            src="/korean-air/midfi-iteration-1.svg"
-            alt="Mid-fidelity iteration"
-            width={1040}
-            height={950}
-          />
-          <Separator className="bg-light-pink" />
-          <Image
-            src="/korean-air/midfi-iteration-2.svg"
-            alt="Mid-fidelity iteration"
-            width={1040}
-            height={950}
-          />
-          <FigmaLink href="https://www.figma.com/design/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=539-3693">
-            View the iterated mid-fidelity
-          </FigmaLink>
-        </SubSection>
-        <SubSection title="Hi-fidelity" color="text-brown4">
-          <Text>
-            Considering Korean Air&apos;s image colors and existing design, I
-            applied the brand colors to the added features.
-          </Text>
-          <Carousel
-            width={800}
-            height={568}
-            items={[
-              "/korean-air/hifi-1.png",
-              "/korean-air/hifi-2.png",
-              "/korean-air/hifi-3.png",
-              "/korean-air/hifi-4.png",
-            ]}
-            nav={{
-              itemClassName: "w-[194px] h-[138px]",
-              items: [
-                "/korean-air/hifi-1-sm.png",
-                "/korean-air/hifi-2-sm.png",
-                "/korean-air/hifi-3-sm.png",
-                "/korean-air/hifi-4-sm.png",
-              ],
-            }}
-          />
-          <FigmaLink href="https://www.figma.com/design/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=539-3694">
-            View the full hi-fidelity
-          </FigmaLink>
-        </SubSection>
-      </Section>
-      {/* TEST */}
-      <Section title="Test" underline="bg-brown3" className="px-52 pb-24">
-        <Text>
-          To confirm whether high-fidelity wireframes can actually achieve user
-          goals, I conducted usability testing.
-        </Text>
-        {/* usability test */}
-        <TestCard title="Usability test" className="border-light-pink">
-          <div className="text-[24px] tracking-[.02em]">
-            5 people, age between 27-68
-          </div>
-          <ul
-            className={
-              "list-disc list-outside text-[26px] tracking-[.02em] font-medium " +
-              "pl-6 space-y-7"
-            }
-          >
-            <li>Check the accumulated mileage</li>
-            <li>
-              Check if users are eligible to book an award ticket for their
-              frequently used flight route using their accumulated mileage
-            </li>
-            <li>Find out the mileage redemption options</li>
-          </ul>
-        </TestCard>
-        <SubSection
-          title="Test results"
-          color="text-brown8"
-          spacing="space-y-24"
-        >
-          <div className="flex flex-wrap gap-y-[55px] justify-evenly">
-            <Avatar
-              name="Yingyang"
-              age="27"
-              desc={
-                "She was toggling back and forth between the nav bar and my page, " +
-                "unsure of where the frequently used flight info was located."
-              }
-            />
-            <Avatar
-              name="Hisayo"
-              age="32"
-              desc={
-                "She wasn't sure if the mileage redemption options listed on my " +
-                "mileage page are linked to the flight history and search records."
-              }
-            />
-            <Avatar
-              name="Peter"
-              age="34"
-              desc={
-                "He found the redemption options on my mileage page, but he wasn’t sure " +
-                "where to click to see other options from there."
-              }
-            />
-            <Avatar
-              name="Alex"
-              age="32"
-              desc={
-                "It was challenging for him to find the required mileage for the award " +
-                "ticket."
-              }
-            />
-            <Avatar
-              name="Minoru"
-              age="68"
-              desc={
-                "He expected to see detailed information about the mileage " +
-                "redemption options on the My Mileage Page."
-              }
-            />
-          </div>
-          <Text>
-            Users were able to smoothly check their accumulated mileage, but
-            they struggled a bit with other tasks. While the mileage redemption
-            options themselves were easy to view, many users found it unclear
-            what criteria were used to display flight and seat upgrade options.
-            Additionally, it seemed challenging for users to find out what else
-            could be done beyond the displayed mileage redemption options.
-          </Text>
-        </SubSection>
-        <SubSection title="Iterations" color="text-brown8" spacing="space-y-24">
-          <div className="space-y-24">
-            <div className="space-y-12">
-              <div className="text-2xl font-medium tracking-[.02em]">
-                My page
-              </div>
-              <Image
-                src="/korean-air/iterations-1.png"
-                alt="My page"
-                width={1040}
-                height={940}
-              />
-            </div>
-            <div className="space-y-12">
-              <div className="text-2xl font-medium tracking-[.02em]">
-                My Mileage Page
-              </div>
-              <Image
-                src="/korean-air/iterations-2.png"
-                alt="My Mileage Page"
-                width={1040}
-                height={1040}
-              />
-            </div>
-            <div className="space-y-12">
-              <div className="text-2xl font-medium tracking-[.02em]">
-                My Mileage Page - Pop up
-              </div>
-              <Image
-                src="/korean-air/iterations-3.png"
-                alt="My Mileage Page - Pop up"
-                width={1040}
-                height={945}
-              />
-            </div>
-          </div>
-        </SubSection>
-        <Transition
-          text={
-            "Based on usability testing, I improved the design of features to make it " +
-            "easier for Korean Air users to check their mileage and understand what " +
-            "they can exchange it for."
-          }
-          noPadding
-        />
-        <div className="w-full">
-          <Carousel
-            width={800}
-            height={568}
-            items={[
-              "/korean-air/prototype-1.png",
-              "/korean-air/prototype-2.png",
-              "/korean-air/prototype-3.png",
-              "/korean-air/prototype-4.png",
-            ]}
-            nav={{
-              itemClassName: "w-[194px] h-[138px]",
-              items: [
-                "/korean-air/prototype-1-sm.png",
-                "/korean-air/prototype-2-sm.png",
-                "/korean-air/prototype-3-sm.png",
-                "/korean-air/prototype-4-sm.png",
-              ],
-            }}
-          />
+            </ProjectSubSection>
+          </ProjectSection>
         </div>
-        <div className="w-full pl-[106px]">
-          <Link
-            href="https://www.figma.com/proto/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=97-342&t=2t1wPmhC6AgrGakk-1&scaling=scale-down&content-scaling=fixed&page-id=74%3A269&starting-point-node-id=97%3A342&show-proto-sidebar=1"
-            target="_blank"
-          >
-            <div className="h-[70px] w-[357px] rounded-[64px] bg-brown3 text-[22px] font-semibold tracking-[.02em] flex items-center justify-center">
-              View hi-fi prototype
-            </div>
-          </Link>
+        {/* ideate */}
+        <div>
+          <div ref={ideateRef}></div>
+          <ProjectSection title="Ideate">
+            <ProjectSubSection title="Prioritizing Features that Align Business and User Needs">
+              <Paragraph>
+                I brainstormed key features that address the intersection of
+                business and user goals, while also considering technical
+                feasibility to ensure both are met.
+              </Paragraph>
+              <div className="py-[20px] flex justify-between">
+                <div className="px-[20px] space-x-[20px] flex">
+                  <Image
+                    src="/avatars/user-needs.svg"
+                    alt="avatar"
+                    width={100}
+                    height={100}
+                    className="mt-auto"
+                  />
+                  <Image
+                    src="/resto/speech-bubble.svg"
+                    alt="speech"
+                    width={0}
+                    height={0}
+                    style={{ width: "auto", height: "100%" }}
+                  />
+                </div>
+                <div className="flex px-[20px] space-x-[30px]">
+                  <div className="space-y-[30px]">
+                    <UserNeed icon="/icons/filter.svg" title="Filter" />
+                    <UserNeed
+                      icon="/icons/magnifying-glass-thin.svg"
+                      title="Search"
+                    />
+                    <UserNeed icon="/icons/map.svg" title="Map" />
+                    <UserNeed icon="/icons/bell.svg" title="Notification" />
+                  </div>
+                  <div className="space-y-[30px]">
+                    <UserNeed
+                      icon="/icons/star-hollow.svg"
+                      title="Reviews & Ratings"
+                    />
+                    <UserNeed
+                      icon="/icons/smile.svg"
+                      title="Utilization of icons"
+                    />
+                    <UserNeed icon="/icons/a.svg" title="Language Option" />
+                    <UserNeed
+                      icon="/icons/calendar.svg"
+                      title="Simple Reservation"
+                    />
+                  </div>
+                </div>
+              </div>
+              <Down />
+              <Paragraph>
+                I conducted an <b>open card sort</b> using feature keywords with{" "}
+                <b>28 cards</b>, targeting <b>8 participants</b>, to identify
+                how users categorize them. When the participants categorized the
+                cards freely, most of them fell into <b>6 categories</b>. This
+                helped us understand which content people want to see under each
+                menu.
+              </Paragraph>
+              <Image
+                src="/resto/card-sort.svg"
+                alt="card sort"
+                width={0}
+                height={0}
+                style={{ width: "100%", height: "auto" }}
+              />
+            </ProjectSubSection>
+            <ProjectSubSection title="Designing the App Structure with a Sitemap">
+              <Paragraph>
+                Based on the results of the card sort, I designed the app&apos;s
+                structure and created a sitemap. Referring to the research,
+                which showed that travelers tend to struggle with searching for
+                restaurants and managing reservations.
+              </Paragraph>
+              <div className="space-y-[30px]">
+                <Image
+                  src="/resto/sitemap.svg"
+                  alt="sitemap"
+                  width={0}
+                  height={0}
+                  style={{ width: "100%", height: "auto" }}
+                />
+                <Figma href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=35-1840&t=Rh2UA7lbJbDJRhGN-1">
+                  View the Sitemap
+                </Figma>
+              </div>
+            </ProjectSubSection>
+            <ProjectSubSection title="Refining Key Design Decisions">
+              <Paragraph>
+                I created two task flows to clarify the steps necessary for
+                users to achieve specific goals and promote a user-friendly
+                approach.
+              </Paragraph>
+              <div className="py-[20px] space-y-[30px]">
+                <div className="space-y-[50px]">
+                  <div className="py-[20px] space-y-[30px]">
+                    <div className="flex space-x-[10px]">
+                      <Image
+                        src="/icons/star-brown.svg"
+                        alt="star"
+                        width={33}
+                        height={33}
+                        className="mb-auto"
+                      />
+                      <span className="text-[22px] font-medium tracking-[.01em]">
+                        Discover restaurants or cafes and make reservations
+                        those tailored to your preferences
+                      </span>
+                    </div>
+                    <div className="py-[20px]">
+                      <Image
+                        src="/resto/user-flow-1.svg"
+                        alt="user flow"
+                        width={0}
+                        height={0}
+                        style={{ width: "100%", height: "auto" }}
+                      />
+                    </div>
+                  </div>
+                  <div className="py-[20px] space-y-[30px]">
+                    <div className="flex space-x-[10px]">
+                      <Image
+                        src="/icons/star-brown.svg"
+                        alt="star"
+                        width={33}
+                        height={33}
+                        className="mb-auto"
+                      />
+                      <span className="text-[22px] font-medium tracking-[.01em]">
+                        Check the reservations and the saved restaurants to plan
+                        your dining schedule during the trip
+                      </span>
+                    </div>
+                    <div className="py-[20px]">
+                      <Image
+                        src="/resto/user-flow-2.svg"
+                        alt="user flow"
+                        width={0}
+                        height={0}
+                        style={{ width: "100%", height: "auto" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <Figma href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=42-8803&t=Rh2UA7lbJbDJRhGN-1">
+                  View the Task Flows
+                </Figma>
+              </div>
+            </ProjectSubSection>
+            <ProjectSubSection title="Mapping out User Needs and Goals">
+              <Paragraph>
+                I created a user flow to understand user needs and identify
+                potential issues or confusing elements that are related to
+                “search” and “reservations”.
+              </Paragraph>
+              <div className="py-[20px] space-y-[30px]">
+                <div className="py-[20px] space-y-[30px]">
+                  <div className="flex space-x-[10px]">
+                    <Image
+                      src="/icons/star-brown.svg"
+                      alt="star"
+                      width={33}
+                      height={33}
+                      className="mb-auto"
+                    />
+                    <span className="text-[22px] font-medium tracking-[.01em]">
+                      Discover restaurants or cafes and make reservations
+                    </span>
+                  </div>
+                  <div className="pb-[30px] overflow-x-scroll">
+                    <div className="py-[20px] w-[4626px] h-[875px] relative">
+                      <Image src="/resto/task-flow.svg" alt="task flow" fill />
+                    </div>
+                  </div>
+                </div>
+                <Figma href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=80-1978&t=Rh2UA7lbJbDJRhGN-1">
+                  View the User Flow
+                </Figma>
+              </div>
+            </ProjectSubSection>
+          </ProjectSection>
         </div>
-      </Section>
-      {/* CONCLUSION */}
-      <Section
-        title="Conclusion"
-        underline="bg-dark-green"
-        className="px-52 pb-24"
-        bg="bg-base"
-      >
-        <Text>
-          The goal of this project was to make it easier for Korean Air users to
-          understand and effectively utilize their mileage. Since the research
-          participants were not necessarily Korean Air users, I aimed to address
-          the needs of both current and potential users. The most challenging
-          part of the process was designing features that would not disrupt the
-          existing website’s design and functionality. Through repeated user
-          testing, I was able to gradually align with user goals, enabling them
-          to more easily see what they could use their mileage for compared to
-          the existing website. This iterative user testing process was
-          invaluable in refining my approach and ensuring that the final product
-          effectively met user needs. Moving forward, continuous feedback and
-          improvements will be key to maintaining and enhancing the website’s
-          usability and functionality.
-        </Text>
-      </Section>
+        {/* prototype */}
+        <div>
+          <div ref={prototypeRef}></div>
+          <ProjectSection title="Prototype">
+            <ProjectSubSection title="Exploring Ideas from Low-Fi to Mid-Fi">
+              <Paragraph>
+                I created specific design layouts based on user flows, task
+                flows, and observations of how users prefer to search and
+                prevent duplicate reservations. Starting from low-fidelity
+                sketches, I developed more detailed layouts, digitizing them
+                into mid-fidelity wireframes to make the designs more tangible.
+              </Paragraph>
+              <div className="py-[20px] space-y-[30px]">
+                <div className="flex justify-between">
+                  <Image
+                    src="/resto/lofi-1.jpg"
+                    alt="lofi"
+                    width={315}
+                    height={400}
+                    className="rounded-[10px]"
+                  />
+                  <Image
+                    src="/resto/lofi-2.jpg"
+                    alt="lofi"
+                    width={315}
+                    height={400}
+                    className="rounded-[10px]"
+                  />
+                  <Image
+                    src="/resto/lofi-3.jpg"
+                    alt="lofi"
+                    width={315}
+                    height={400}
+                    className="rounded-[10px]"
+                  />
+                </div>
+                <Figma href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=46-55&t=6g8QSShYxUqXAJml-1">
+                  View the Low-Fi Wireframes
+                </Figma>
+              </div>
+              <div className="py-[20px] space-y-[30px]">
+                <div className="flex justify-between">
+                  <Image
+                    src="/resto/midfi-1.svg"
+                    alt="midfi"
+                    width={220}
+                    height={600}
+                    className="rounded-[10px]"
+                  />
+                  <Image
+                    src="/resto/midfi-2.svg"
+                    alt="midfi"
+                    width={220}
+                    height={600}
+                    className="rounded-[10px]"
+                  />
+                  <Image
+                    src="/resto/midfi-3.svg"
+                    alt="midfi"
+                    width={220}
+                    height={600}
+                    className="rounded-[10px]"
+                  />
+                  <Image
+                    src="/resto/midfi-4.svg"
+                    alt="midfi"
+                    width={220}
+                    height={600}
+                    className="rounded-[10px]"
+                  />
+                </div>
+                <Figma href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1043-37036&t=6g8QSShYxUqXAJml-1">
+                  View the Mid-Fi Wireframes
+                </Figma>
+              </div>
+            </ProjectSubSection>
+            <ProjectSubSection title="Ensuring Users Understand the Design Layouts">
+              <Paragraph>
+                After creating the mid-fidelity wireframes, I conducted a quick
+                usability test with 6 participants to check if users understood
+                my design layout and if they found the interface user-friendly.
+              </Paragraph>
+              <div className="py-[20px] space-y-[50px]">
+                <Image
+                  src="/resto/test-1.svg"
+                  alt="test"
+                  width={0}
+                  height={0}
+                  style={{ width: "100%", height: "auto" }}
+                />
+                <Image
+                  src="/resto/test-2.svg"
+                  alt="test"
+                  width={0}
+                  height={0}
+                  style={{ width: "100%", height: "auto" }}
+                />
+                <Image
+                  src="/resto/test-3.svg"
+                  alt="test"
+                  width={0}
+                  height={0}
+                  style={{ width: "100%", height: "auto" }}
+                />
+              </div>
+            </ProjectSubSection>
+            <ProjectSubSection title="Refining Designs through Iterated Mid-Fi Wireframes">
+              <Paragraph>
+                Based on the results of the mid-fi usability test, I iterated on
+                the design to make it more user-friendly and help users achieve
+                their goals.
+              </Paragraph>
+              <div className="py-[20px] space-y-[50px]">
+                <Image
+                  src="/resto/iteration-1.svg"
+                  alt="iteration"
+                  width={0}
+                  height={0}
+                  style={{ width: "100%", height: "auto" }}
+                />
+                <Image
+                  src="/resto/iteration-2.svg"
+                  alt="iteration"
+                  width={0}
+                  height={0}
+                  style={{ width: "100%", height: "auto" }}
+                />
+                <Image
+                  src="/resto/iteration-3.svg"
+                  alt="iteration"
+                  width={0}
+                  height={0}
+                  style={{ width: "100%", height: "auto" }}
+                />
+                <Image
+                  src="/resto/iteration-4.svg"
+                  alt="iteration"
+                  width={0}
+                  height={0}
+                  style={{ width: "100%", height: "auto" }}
+                />
+              </div>
+            </ProjectSubSection>
+            <ProjectSubSection title="Building a Strong Brand">
+              <Paragraph>
+                To create a user-centered product, it&apos;s essential to build
+                a brand image that attracts users. I established brand values to
+                ensure that searching for and booking restaurants does not feel
+                difficult.
+              </Paragraph>
+              <div className="bg-white rounded-[20px] p-[10px]">
+                <Image
+                  src="/resto/moodboard.png"
+                  alt="moodboard"
+                  width={980}
+                  height={637}
+                />
+              </div>
+              <div className="flex space-x-[30px]">
+                <MoodboardCard title="Colors">
+                  <ColorRow
+                    title="Primary"
+                    colors={["EE722B", "C65310", "953B1D"]}
+                  />
+                  <ColorRow
+                    title="Secondary"
+                    colors={["B8AE94", "F4F0E0", "DFD5BD"]}
+                  />
+                  <ColorRow
+                    title="Neutral"
+                    colors={["F9F9F7", "FFFFFF"]}
+                    border
+                  />
+                </MoodboardCard>
+                <div className="flex-1 flex flex-col justify-between">
+                  <MoodboardCard title="Logo">
+                    <div className="flex justify-between">
+                      <Image
+                        src="/resto/logo-lg.svg"
+                        alt="logo"
+                        width={168}
+                        height={158}
+                      />
+                      <div className="flex flex-col justify-between items-center">
+                        <Image
+                          src="/resto/logo-md.svg"
+                          alt="logo"
+                          width={100}
+                          height={60}
+                        />
+                        <div className="flex space-x-[30px] px-[15px]">
+                          <Image
+                            src="/resto/logo-sm-1.svg"
+                            alt="logo"
+                            width={60}
+                            height={60}
+                          />
+                          <Image
+                            src="/resto/logo-sm-2.svg"
+                            alt="logo"
+                            width={60}
+                            height={60}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </MoodboardCard>
+                  <MoodboardCard title="Icons">
+                    <div className="gap-[18px] flex flex-wrap">
+                      {[...Array(16)].map((_, i) => (
+                        <Image
+                          src={`/resto/icon-${i + 1}.svg`}
+                          alt="icon"
+                          width={35}
+                          height={35}
+                          key={i}
+                        />
+                      ))}
+                    </div>
+                  </MoodboardCard>
+                </div>
+              </div>
+              <div className="flex space-x-[30px]">
+                <MoodboardCard title="Typography">
+                  <div className="space-y-[15px] px-[10px]">
+                    <div className="font-manrope text-[24px] font-semibold tracking-[.03em]">
+                      H1 - Manrope SemiBold 24px
+                    </div>
+                    <div className="font-manrope text-[20px] font-medium tracking-[.03em]">
+                      H2 - Manrope Medium 20px
+                    </div>
+                    <div className="font-manrope text-[18px] font-medium tracking-[.03em]">
+                      H3 - Manrope Medium 18px
+                    </div>
+                    <div className="font-manrope text-[16px] tracking-[.03em]">
+                      B1 - Manrope Regular 16px
+                    </div>
+                    <div className="font-manrope text-[14px] tracking-[.03em]">
+                      B2 - Manrope Regular 14px
+                    </div>
+                    <div className="font-manrope text-[16px] font-medium tracking-[.03em]">
+                      Button Text M - Manrope Medium 16px
+                    </div>
+                  </div>
+                </MoodboardCard>
+                <MoodboardCard title="Buttons">
+                  <div className="flex space-x-[20px]">
+                    <div className="space-y-[12px]">
+                      <div className="text-[14px] tracking-[.01em]">
+                        Default
+                      </div>
+                      <div className="space-y-[30px]">
+                        <Button className="bg-cream text-[#303030]">
+                          Search
+                        </Button>
+                        <Button className="bg-dark-orange text-[#FEFEFE]">
+                          Reserve Now
+                        </Button>
+                        <Button className="bg-[#E8DFBA] text-[#303030] shadow-[0px_1.9px_1.9px_0px_rgba(0,0,0,0.25)_inset]">
+                          Add filters
+                        </Button>
+                      </div>
+                    </div>
+                    <div className="space-y-[12px]">
+                      <div className="text-[14px] tracking-[.01em]">
+                        Disabled
+                      </div>
+                      <div className="space-y-[30px]">
+                        <Button className="bg-[rgba(223,213,189,0.50)] text-[rgba(48,48,48,0.50)]">
+                          Search
+                        </Button>
+                        <Button className="bg-[rgba(198,83,16,0.50)] text-white">
+                          Reserve Now
+                        </Button>
+                        <Button className="bg-[rgba(244,240,224,0.50)] text-[rgba(48,48,48,0.50)]">
+                          Add filters
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </MoodboardCard>
+              </div>
+            </ProjectSubSection>
+            <ProjectSubSection title="Applying Branding in Hi-Fi Wireframes">
+              <Paragraph>
+                I incorporated all branding elements into the wireframes to
+                create high-fidelity designs.
+              </Paragraph>
+              <div className="py-[20px] space-y-[30px]">
+                <div className="flex justify-between">
+                  <Image
+                    src="/resto/hifi-1.png"
+                    alt="hifi"
+                    width={220}
+                    height={476}
+                  />
+                  <Image
+                    src="/resto/hifi-2.png"
+                    alt="hifi"
+                    width={220}
+                    height={476}
+                  />
+                  <Image
+                    src="/resto/hifi-3.png"
+                    alt="hifi"
+                    width={220}
+                    height={476}
+                  />
+                  <Image
+                    src="/resto/hifi-4.png"
+                    alt="hifi"
+                    width={220}
+                    height={476}
+                  />
+                </div>
+                <Figma href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=692-48559&t=6g8QSShYxUqXAJml-1">
+                  View the Hi-Fi Wireframes
+                </Figma>
+              </div>
+            </ProjectSubSection>
+          </ProjectSection>
+        </div>
+        {/* test */}
+        <div>
+          <div ref={testRef}></div>
+          <ProjectSection title="Test">
+            <ProjectSubSection title="Enhancing Design for Better Usability">
+              <Paragraph>
+                To confirm whether high-fidelity wireframes can actually achieve
+                user goals, I conducted <b>usability testing</b> with{" "}
+                <b>5 participants</b>, including men and women in their 20s to
+                60s.
+              </Paragraph>
+              <div className="py-[20px] space-y-[50px]">
+                <TaskFlowCard
+                  title="Task Flow 1"
+                  subtitle="Search for restaurants that have an English menu"
+                  participants={[
+                    {
+                      name: "Participant 1",
+                      avatar: "/resto/task-flow-1-1.svg",
+                      comment:
+                        "“I like filtering and narrowing down the options if there are many displayed on the map.”",
+                    },
+                    {
+                      name: "Participant 3",
+                      avatar: "/resto/task-flow-1-2.svg",
+                      comment:
+                        "“The only thing that slowed me down in the process was finding the right tag. I guess I would like to type it if that’s possible.”",
+                    },
+                  ]}
+                  conclusions={["4/5 were able to complete the task easily"]}
+                  image="/resto/task-flow-1.svg"
+                />
+                <TaskFlowCard
+                  title="Task Flow 2"
+                  subtitle="Choose a restaurant that is popular among locals"
+                  participants={[
+                    {
+                      name: "Participant 2",
+                      avatar: "/resto/task-flow-2-1.svg",
+                      comment:
+                        "“Location icon colors look similar and I didn’t realize that they are different colors and have different meanings.”",
+                    },
+                    {
+                      name: "Participant 5",
+                      avatar: "/resto/task-flow-2-2.svg",
+                      comment:
+                        "“I want to see a list of restaurants instead of checking everything on the map.”",
+                    },
+                  ]}
+                  conclusions={[
+                    "3/5 had difficulties to find out which one is popular",
+                    "2/5 didn’t use the filter function to narrow down the options",
+                  ]}
+                  image="/resto/task-flow-2.svg"
+                  mirror
+                />
+                <TaskFlowCard
+                  title="Task Flow 3"
+                  subtitle="Search for restaurants near a famous landmark"
+                  participants={[
+                    {
+                      name: "Participant 3",
+                      avatar: "/resto/task-flow-3-1.svg",
+                      comment:
+                        "“I think this was pretty straightforward and a great feature.”",
+                    },
+                    {
+                      name: "Participant 4",
+                      avatar: "/resto/task-flow-3-2.svg",
+                      comment:
+                        "“This was very easy, and it’s helpful for finding restaurants when my schedule is packed.”",
+                    },
+                  ]}
+                  conclusions={[
+                    "5/5 were able to complete the task without any issues",
+                  ]}
+                  image="/resto/task-flow-3.svg"
+                />
+                <TaskFlowCard
+                  title="Task Flow 4"
+                  subtitle="Make a reservation without scheduling conflicts"
+                  participants={[
+                    {
+                      name: "Participant 1",
+                      avatar: "/resto/task-flow-4-1.svg",
+                      comment:
+                        "“I want to see the notification before the completion page. Otherwise I have to go back to the previous page to select a different time again.”",
+                    },
+                    {
+                      name: "Participant 5",
+                      avatar: "/resto/task-flow-4-2.svg",
+                      comment:
+                        "“It would be better if a notification appears when clicking on an available time slot if there is already another reservation.”",
+                    },
+                  ]}
+                  conclusions={[
+                    "4/5 were unsure about another reservation until the end",
+                    "3/5 wanted to see the notification when choosing the time slot",
+                  ]}
+                  image="/resto/task-flow-4.svg"
+                  mirror
+                />
+              </div>
+            </ProjectSubSection>
+            <ProjectSubSection title="Iterating Designs for User-Centric Solutions">
+              <Paragraph>
+                Based on the usability testing, I refined the design of the app
+                that makes it easy for travelers to book and manage restaurant
+                reservations.
+              </Paragraph>
+              <div className="py-[20px] space-y-[50px]">
+                <Image
+                  src="/resto/iteration-1.png"
+                  alt="iteration"
+                  width={1000}
+                  height={531}
+                />
+                <Image
+                  src="/resto/iteration-2.png"
+                  alt="iteration"
+                  width={1000}
+                  height={531}
+                />
+                <Image
+                  src="/resto/iteration-3.png"
+                  alt="iteration"
+                  width={1000}
+                  height={531}
+                />
+                <Image
+                  src="/resto/iteration-4.png"
+                  alt="iteration"
+                  width={1000}
+                  height={531}
+                />
+              </div>
+            </ProjectSubSection>
+            <ProjectSubSection title="Final Prototype">
+              <div className="py-[20px]">
+                <div className="bg-white rounded-[20px] px-[30px] py-[60px] space-y-[10px]">
+                  <div className="text-[22px] tracking-[.01em] font-medium">
+                    Resto - Dining App in Japan
+                  </div>
+                  <div className="text-[18px] tracking-[.01em]">
+                    A mobile app that simplifies restaurant discovery and
+                    reservation management for travelers in Japan.
+                  </div>
+                </div>
+              </div>
+              <div className="space-y-[50px] py-[20px]">
+                <Final
+                  video="/resto/final-1.mp4"
+                  header="A search function that allows users to search based on their needs"
+                  notes={[
+                    "Reduce the difficulty of making reservations due to language barriers",
+                    "Make restaurant selection smooth and easy",
+                  ]}
+                />
+                <Final
+                  video="/resto/final-2.mp4"
+                  header="Clear and trustworthy reviews help users effortlessly choose their ideal restaurant"
+                  notes={[
+                    "Offer a more authentic local experience",
+                    "Assist in the discovery of hidden local gems",
+                  ]}
+                  mirror
+                />
+                <Final
+                  video="/resto/final-3.mp4"
+                  header="Searching for restaurants near landmarks helps users quickly find dining options"
+                  notes={[
+                    "Make trip planning easier",
+                    "Choose restaurants based on sightseeing locations",
+                  ]}
+                />
+                <Final
+                  video="/resto/final-4.mp4"
+                  header="A seamless reservation system empowers travelers to plan smooth journeys"
+                  notes={[
+                    "Eliminate double bookings for a perfectly organized trip",
+                  ]}
+                  mirror
+                />
+                <div>
+                  <Link
+                    href="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&node-type=canvas&viewport=284%2C360%2C0.06&t=6NVbRlngR40WJKQQ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1"
+                    target="_blank"
+                    onMouseEnter={handleCursorHoverStart}
+                    onMouseLeave={handleCursorHoverStop}
+                  >
+                    <div className="px-[60px] py-[15px] rounded-[75px] bg-brown3 text-[20px] font-semibold tracking-[.01em] inline-block">
+                      View Hi-fi Prototype
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </ProjectSubSection>
+          </ProjectSection>
+        </div>
+        {/* next steps */}
+        <div>
+          <div ref={nextStepsRef}></div>
+          <ProjectSection title="Next Steps">
+            <ProjectSubSection title="Learning">
+              <Paragraph>
+                Throughout the process, from research to design, it is essential
+                to understand users&apos; pain points and consider how to
+                enhance the user experience in order to create a better product.
+                Since everyone has different travel purposes and preferences
+                when choosing a restaurant, it was crucial to identify the
+                problems that diverse users face and what they desire.
+                Throughout this project, I came to understand the importance of
+                user feedback and the necessity of collecting valuable insights
+                through research.
+              </Paragraph>
+            </ProjectSubSection>
+            <ProjectSubSection title="Opportunities for Enhancement">
+              <div className="space-y-[10px]">
+                <div className="text-[22px] font-medium tracking-[.01em]">
+                  Search Function
+                </div>
+                <Paragraph>
+                  While RESTO&apos;s current search function allows users to
+                  explore restaurants from multiple angles, there is room for
+                  improvement by incorporating an AI-powered recommendation
+                  system. This could suggest restaurants based on users’ search
+                  history, favorite lists, or automatically find similar
+                  options, leading to a more tailored and efficient search
+                  experience.
+                </Paragraph>
+              </div>
+              <div className="space-y-[10px]">
+                <div className="text-[22px] font-medium tracking-[.01em]">
+                  Multilingual Support
+                </div>
+                <Paragraph>
+                  Currently, users can find restaurants with English support and
+                  make reservations without worrying about language barriers.
+                  However, by expanding language support and incorporating
+                  translation features, RESTO could offer a more inclusive
+                  experience, making it easier for non-English speakers to
+                  navigate the platform and make reservations seamlessly.
+                </Paragraph>
+              </div>
+            </ProjectSubSection>
+          </ProjectSection>
+        </div>
+      </div>
     </div>
   );
 }
