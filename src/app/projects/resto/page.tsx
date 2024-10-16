@@ -146,77 +146,73 @@ export default function Resto() {
           nextSteps={["Learning", "Different Approach"]}
         />
         {/* research */}
-        <div>
-          <div ref={researchRef}></div>
-          <Research
-            desc="Understanding what users prioritize when searching for restaurants as well as their experiences and issues with reservations despite language barriers."
-            goals={[
-              "Identify what users prioritize in choosing restaurants when traveling",
-              "Understand how people plan their trips and what kind of information is required for them",
-              "Discover the key factors and challenges users face when searching for and selecting restaurants",
-              "Understand how users manage their desired destinations and planned locations",
-            ]}
-            researchCompetition={researchCompetition}
-            researchExplorationTitle="Exploring Travel Dining Experiences"
-            researchExploration={researchExploration}
-          />
-        </div>
+        <Research
+          ref={researchRef}
+          desc="Understanding what users prioritize when searching for restaurants as well as their experiences and issues with reservations despite language barriers."
+          goals={[
+            "Identify what users prioritize in choosing restaurants when traveling",
+            "Understand how people plan their trips and what kind of information is required for them",
+            "Discover the key factors and challenges users face when searching for and selecting restaurants",
+            "Understand how users manage their desired destinations and planned locations",
+          ]}
+          researchCompetition={researchCompetition}
+          researchExplorationTitle="Exploring Travel Dining Experiences"
+          researchExploration={researchExploration}
+        />
         {/* define */}
-        <div>
-          <div ref={defineRef}></div>
-          <Define
-            desc="After implementing the secondary research methods, I recorded all data points and ideas on individual sticky notes. I grouped them based on interview topics and further categorized them into patterns."
-            affinityMaps={[
-              {
-                label:
-                  "How was your experience when finding restaurants or cafes?",
-                map: affinityMap1,
-              },
-              {
-                label: "What criteria do you use when selecting restaurants?",
-                map: affinityMap2,
-              },
-            ]}
-            affinityMapUrl="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=90-2022&t=Rh2UA7lbJbDJRhGN-1"
-            affinityMapKeyFindings={[
-              {
-                label: "62% of participants",
-                sublabel: "decide on a restaurant based on reviews or ratings",
-              },
-              {
-                label: "59% of participants",
-                sublabel:
-                  "struggle to choose a restaurant due to search challenges, despite valuing dining on their trip.",
-              },
-              {
-                label: "Many participants",
-                sublabel:
-                  "find the language barrier to be the biggest challenge when making or changing reservations",
-              },
-            ]}
-            personaDesc="After conducting research, reviewing the findings, and organizing the data, I created two personas in the early stages of the design process to deepen my understanding of specific users and user needs."
-            personas={[
-              {
-                name: "Persona 1",
-                desc: persona1Desc,
-                image: "/resto/persona-1.jpeg",
-              },
-              {
-                name: "Persona 2",
-                desc: persona2Desc,
-                image: "/resto/persona-2.jpeg",
-              },
-            ]}
-            personasUrl="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=0-1&t=6g8QSShYxUqXAJml-1"
-            exploringDesc1="To clarify the solutions needed to address specific user needs, I created two POV statements based on the personas. Among them, I selected the POV focusing on the language barrier and managing restaurant lists, as these were identified as significant challenges for many users."
-            povStatement="I’d like to explore ways to propose a streamlined and functional reservation system catering to travelers who face challenges with language barriers during restaurant booking or encounter issues managing reservations."
-            exploringDesc2="Then, I took the problems into clear questions that help find creative and practical solutions."
-            hmwQuestion="How might we design a reservation system that easily accommodates people facing language barriers, ensuring smooth booking experiences?"
-            projectGoalsDesc="As a step to generate ideas to solve the personas' problems, I mapped out project goals based on the research findings."
-            projectGoals="/resto/project-goals.svg"
-            projectGoalsUrl="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1-278&t=6g8QSShYxUqXAJml-1"
-          />
-        </div>
+        <Define
+          ref={defineRef}
+          desc="After implementing the secondary research methods, I recorded all data points and ideas on individual sticky notes. I grouped them based on interview topics and further categorized them into patterns."
+          affinityMaps={[
+            {
+              label:
+                "How was your experience when finding restaurants or cafes?",
+              map: affinityMap1,
+            },
+            {
+              label: "What criteria do you use when selecting restaurants?",
+              map: affinityMap2,
+            },
+          ]}
+          affinityMapUrl="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=90-2022&t=Rh2UA7lbJbDJRhGN-1"
+          affinityMapKeyFindings={[
+            {
+              label: "62% of participants",
+              sublabel: "decide on a restaurant based on reviews or ratings",
+            },
+            {
+              label: "59% of participants",
+              sublabel:
+                "struggle to choose a restaurant due to search challenges, despite valuing dining on their trip.",
+            },
+            {
+              label: "Many participants",
+              sublabel:
+                "find the language barrier to be the biggest challenge when making or changing reservations",
+            },
+          ]}
+          personaDesc="After conducting research, reviewing the findings, and organizing the data, I created two personas in the early stages of the design process to deepen my understanding of specific users and user needs."
+          personas={[
+            {
+              name: "Persona 1",
+              desc: persona1Desc,
+              image: "/resto/persona-1.jpeg",
+            },
+            {
+              name: "Persona 2",
+              desc: persona2Desc,
+              image: "/resto/persona-2.jpeg",
+            },
+          ]}
+          personasUrl="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=0-1&t=6g8QSShYxUqXAJml-1"
+          exploringDesc1="To clarify the solutions needed to address specific user needs, I created two POV statements based on the personas. Among them, I selected the POV focusing on the language barrier and managing restaurant lists, as these were identified as significant challenges for many users."
+          povStatement="I’d like to explore ways to propose a streamlined and functional reservation system catering to travelers who face challenges with language barriers during restaurant booking or encounter issues managing reservations."
+          exploringDesc2="Then, I took the problems into clear questions that help find creative and practical solutions."
+          hmwQuestion="How might we design a reservation system that easily accommodates people facing language barriers, ensuring smooth booking experiences?"
+          projectGoalsDesc="As a step to generate ideas to solve the personas' problems, I mapped out project goals based on the research findings."
+          projectGoals="/resto/project-goals.svg"
+          projectGoalsUrl="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1-278&t=6g8QSShYxUqXAJml-1"
+        />
         {/* ideate */}
         <div>
           <div ref={ideateRef}></div>
