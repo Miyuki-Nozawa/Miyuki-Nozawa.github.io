@@ -6,12 +6,9 @@ import Link from "next/link";
 
 import ProjectSection from "@/app/components/project-section";
 import Competitor from "@/app/components/competitor";
-import KeyCard from "@/app/components/key-card";
 import ProjectSubSection from "@/app/components/project-subsection";
 import Paragraph from "@/app/components/paragraph";
-import StarSection from "@/app/components/star-section";
 import Figma from "@/app/components/figma";
-import OutlinedCard from "@/app/components/outlined-card";
 import UserNeed from "@/app/components/user-need";
 import Down from "@/app/components/down";
 import ColorRow from "@/app/components/color-row";
@@ -25,6 +22,7 @@ import Hero from "@/app/components/hero";
 import ResearchCompetition from "@/app/components/research-competition";
 import Research from "@/app/components/research";
 import ResearchExploration from "@/app/components/research-exploration";
+import Define from "@/app/components/define";
 import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
 
 export default function Resto() {
@@ -166,200 +164,58 @@ export default function Resto() {
         {/* define */}
         <div>
           <div ref={defineRef}></div>
-          <ProjectSection title="Define">
-            <ProjectSubSection title="Gaining a Deeper Understanding of User Needs and Pain Points">
-              <Paragraph>
-                After implementing the secondary research methods, I recorded
-                all data points and ideas on individual sticky notes. I grouped
-                them based on interview topics and further categorized them into
-                patterns.
-              </Paragraph>
-              <div className="py-[20px] space-y-[30px]">
-                <div className="w-full h-[700px] px-[30px] py-[50px] space-y-[30px] bg-white rounded-[20px]">
-                  <div className="text-[22px] font-medium tracking-[.01em]">
-                    How was your experience when finding restaurants or cafes?
-                  </div>
-                  <div className="py-[20px] space-x-[50px] flex">
-                    <Image
-                      src="/resto/affinity-map-1-1.svg"
-                      alt="affinity map"
-                      width={0}
-                      height={0}
-                      style={{ width: "auto", height: "500px" }}
-                    />
-                    <Image
-                      src="/resto/affinity-map-1-2.svg"
-                      alt="affinity map"
-                      width={0}
-                      height={0}
-                      style={{ width: "auto", height: "500px" }}
-                    />
-                  </div>
-                </div>
-                <div className="w-full h-[700px] px-[30px] py-[50px] space-y-[30px] bg-white rounded-[20px]">
-                  <div className="text-[22px] font-medium tracking-[.01em]">
-                    What criteria do you use when selecting restaurants?{" "}
-                  </div>
-                  <div className="pb-[20px]">
-                    <div className="pt-[20px] pb-[40px] space-x-[25px] flex overflow-x-scroll">
-                      <Image
-                        src="/resto/affinity-map-2-1.svg"
-                        alt="affinity map"
-                        width={0}
-                        height={0}
-                        style={{ width: "auto", height: "500px" }}
-                      />
-                      <Image
-                        src="/resto/affinity-map-2-2.svg"
-                        alt="affinity map"
-                        width={0}
-                        height={0}
-                        style={{ width: "auto", height: "500px" }}
-                      />
-                      <Image
-                        src="/resto/affinity-map-2-3.svg"
-                        alt="affinity map"
-                        width={0}
-                        height={0}
-                        style={{ width: "auto", height: "500px" }}
-                      />
-                    </div>
-                  </div>
-                </div>
-                <Figma href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=90-2022&t=Rh2UA7lbJbDJRhGN-1">
-                  View the Affinity Map
-                </Figma>
-              </div>
-              <StarSection title="Key Findings">
-                <div className="py-[20px] flex space-x-[20px]">
-                  <KeyCard
-                    label="62% of participants"
-                    sublabel="decide on a restaurant based on reviews or ratings"
-                  />
-                  <KeyCard
-                    label="59% of participants"
-                    sublabel="struggle to choose a restaurant due to search challenges, despite valuing dining on their trip."
-                  />
-                  <KeyCard
-                    label="Many participants"
-                    sublabel="find the language barrier to be the biggest challenge when making or changing reservations"
-                  />
-                </div>
-              </StarSection>
-            </ProjectSubSection>
-            <ProjectSubSection title="Transforming Insights into Personas">
-              <Paragraph>
-                After conducting research, reviewing the findings, and
-                organizing the data, I created two personas in the early stages
-                of the design process to deepen my understanding of specific
-                users and user needs.
-              </Paragraph>
-              <div className="space-y-[30px] pb-[20px]">
-                <div className="space-y-[10px]">
-                  <div className="text-[22px] font-medium tracking-[.01em]">
-                    Persona 1
-                  </div>
-                  <Paragraph>
-                    Matt Kim, a 30-year-old product manager from San Francisco,
-                    loves traveling to Japan and exploring local dining spots.
-                    He faces challenges due to <b>the language barrier</b>,
-                    making it difficult to find and reserve restaurants popular
-                    among locals. His main frustrations include{" "}
-                    <b>
-                      the time-consuming process of translating Japanese
-                      information
-                    </b>{" "}
-                    and <b>the difficulty of making phone reservations</b>.
-                  </Paragraph>
-                </div>
-                <Image
-                  src="/resto/persona-1.jpeg"
-                  alt="persona"
-                  width={1000}
-                  height={984}
-                  className="rounded-[20px]"
-                />
-              </div>
-              <div className="space-y-[30px]">
-                <div className="space-y-[10px]">
-                  <div className="text-[22px] font-medium tracking-[.01em]">
-                    Persona 2
-                  </div>
-                  <Paragraph>
-                    Sarah Laine, a 26-year-old interior designer from New York,
-                    is planning her first trip to Japan with friends and is
-                    excited to explore Japanese cuisine. She faces challenges{" "}
-                    <b>
-                      managing and sharing restaurant reservations among her
-                      group
-                    </b>{" "}
-                    and is worried about{" "}
-                    <b>keeping track of them amidst a packed schedule</b>. Her
-                    goals include{" "}
-                    <b>
-                      visiting many tourist spots and sticking to their travel
-                      plan
-                    </b>
-                    .
-                  </Paragraph>
-                </div>
-                <Image
-                  src="/resto/persona-2.jpeg"
-                  alt="persona"
-                  width={1000}
-                  height={984}
-                  className="rounded-[20px]"
-                />
-              </div>
-              <Figma href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=0-1&t=6g8QSShYxUqXAJml-1">
-                View the Personas
-              </Figma>
-            </ProjectSubSection>
-            <ProjectSubSection title="Exploring and Clarifying Solutions for User Needs">
-              <Paragraph>
-                To clarify the solutions needed to address specific user needs,
-                I created two POV statements based on the personas. Among them,
-                I selected the POV focusing on the language barrier and managing
-                restaurant lists, as these were identified as significant
-                challenges for many users.
-              </Paragraph>
-              <OutlinedCard title="POV (Point Of View) statement">
-                I’d like to explore ways to propose a streamlined and functional
-                reservation system catering to travelers who face challenges
-                with language barriers during restaurant booking or encounter
-                issues managing reservations.
-              </OutlinedCard>
-              <Down />
-              <Paragraph>
-                Then, I took the problems into clear questions that help find
-                creative and practical solutions.
-              </Paragraph>
-              <OutlinedCard title="HMW (How Might We) question">
-                How might we design a reservation system that easily
-                accommodates people facing language barriers, ensuring smooth
-                booking experiences?
-              </OutlinedCard>
-            </ProjectSubSection>
-            <ProjectSubSection title="Establishing Balanced Goals for Project Success">
-              <Paragraph>
-                As a step to generate ideas to solve the personas&apos;
-                problems, I mapped out project goals based on the research
-                findings.
-              </Paragraph>
-              <div className="py-[20px] space-y-[30px]">
-                <Image
-                  src="/resto/project-goals.svg"
-                  alt="project goals"
-                  width={0}
-                  height={0}
-                  style={{ width: "100%", height: "auto" }}
-                />
-                <Figma href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1-278&t=6g8QSShYxUqXAJml-1">
-                  View the Project Goals
-                </Figma>
-              </div>
-            </ProjectSubSection>
-          </ProjectSection>
+          <Define
+            desc="After implementing the secondary research methods, I recorded all data points and ideas on individual sticky notes. I grouped them based on interview topics and further categorized them into patterns."
+            affinityMaps={[
+              {
+                label:
+                  "How was your experience when finding restaurants or cafes?",
+                map: affinityMap1,
+              },
+              {
+                label: "What criteria do you use when selecting restaurants?",
+                map: affinityMap2,
+              },
+            ]}
+            affinityMapUrl="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=90-2022&t=Rh2UA7lbJbDJRhGN-1"
+            affinityMapKeyFindings={[
+              {
+                label: "62% of participants",
+                sublabel: "decide on a restaurant based on reviews or ratings",
+              },
+              {
+                label: "59% of participants",
+                sublabel:
+                  "struggle to choose a restaurant due to search challenges, despite valuing dining on their trip.",
+              },
+              {
+                label: "Many participants",
+                sublabel:
+                  "find the language barrier to be the biggest challenge when making or changing reservations",
+              },
+            ]}
+            personaDesc="After conducting research, reviewing the findings, and organizing the data, I created two personas in the early stages of the design process to deepen my understanding of specific users and user needs."
+            personas={[
+              {
+                name: "Persona 1",
+                desc: persona1Desc,
+                image: "/resto/persona-1.jpeg",
+              },
+              {
+                name: "Persona 2",
+                desc: persona2Desc,
+                image: "/resto/persona-2.jpeg",
+              },
+            ]}
+            personasUrl="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=0-1&t=6g8QSShYxUqXAJml-1"
+            exploringDesc1="To clarify the solutions needed to address specific user needs, I created two POV statements based on the personas. Among them, I selected the POV focusing on the language barrier and managing restaurant lists, as these were identified as significant challenges for many users."
+            povStatement="I’d like to explore ways to propose a streamlined and functional reservation system catering to travelers who face challenges with language barriers during restaurant booking or encounter issues managing reservations."
+            exploringDesc2="Then, I took the problems into clear questions that help find creative and practical solutions."
+            hmwQuestion="How might we design a reservation system that easily accommodates people facing language barriers, ensuring smooth booking experiences?"
+            projectGoalsDesc="As a step to generate ideas to solve the personas' problems, I mapped out project goals based on the research findings."
+            projectGoals="/resto/project-goals.svg"
+            projectGoalsUrl="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1-278&t=6g8QSShYxUqXAJml-1"
+          />
         </div>
         {/* ideate */}
         <div>
@@ -1292,4 +1148,74 @@ const researchExploration = (
       },
     ]}
   />
+);
+
+const affinityMap1 = (
+  <div className="py-[20px] space-x-[50px] flex">
+    <Image
+      src="/resto/affinity-map-1-1.svg"
+      alt="affinity map"
+      width={0}
+      height={0}
+      style={{ width: "auto", height: "500px" }}
+    />
+    <Image
+      src="/resto/affinity-map-1-2.svg"
+      alt="affinity map"
+      width={0}
+      height={0}
+      style={{ width: "auto", height: "500px" }}
+    />
+  </div>
+);
+
+const affinityMap2 = (
+  <div className="pb-[20px]">
+    <div className="pt-[20px] pb-[40px] space-x-[25px] flex overflow-x-scroll">
+      <Image
+        src="/resto/affinity-map-2-1.svg"
+        alt="affinity map"
+        width={0}
+        height={0}
+        style={{ width: "auto", height: "500px" }}
+      />
+      <Image
+        src="/resto/affinity-map-2-2.svg"
+        alt="affinity map"
+        width={0}
+        height={0}
+        style={{ width: "auto", height: "500px" }}
+      />
+      <Image
+        src="/resto/affinity-map-2-3.svg"
+        alt="affinity map"
+        width={0}
+        height={0}
+        style={{ width: "auto", height: "500px" }}
+      />
+    </div>
+  </div>
+);
+
+const persona1Desc = (
+  <Paragraph>
+    Matt Kim, a 30-year-old product manager from San Francisco, loves traveling
+    to Japan and exploring local dining spots. He faces challenges due to{" "}
+    <b>the language barrier</b>, making it difficult to find and reserve
+    restaurants popular among locals. His main frustrations include{" "}
+    <b>the time-consuming process of translating Japanese information</b> and{" "}
+    <b>the difficulty of making phone reservations</b>.
+  </Paragraph>
+);
+
+const persona2Desc = (
+  <Paragraph>
+    Sarah Laine, a 26-year-old interior designer from New York, is planning her
+    first trip to Japan with friends and is excited to explore Japanese cuisine.
+    She faces challenges{" "}
+    <b>managing and sharing restaurant reservations among her group</b> and is
+    worried about <b>keeping track of them amidst a packed schedule</b>. Her
+    goals include{" "}
+    <b>visiting many tourist spots and sticking to their travel plan</b>.
+  </Paragraph>
 );

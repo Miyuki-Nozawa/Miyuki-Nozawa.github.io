@@ -2,7 +2,7 @@ import KeyCard from "@/app/components/key-card";
 import StarSection from "@/app/components/star-section";
 import { KeyCardT } from "@/types";
 
-export default function KeyFeatures({
+export default function KeySection({
   title,
   cards,
 }: {

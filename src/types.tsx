@@ -8,7 +8,7 @@ export type DiamondColor =
   | "dark-green";
 
 export type KeyCardT = {
-  icon: string;
+  icon?: string;
   label: string;
   sublabel?: string;
 }[];
