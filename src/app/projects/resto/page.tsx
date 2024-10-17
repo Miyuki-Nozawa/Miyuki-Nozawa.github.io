@@ -2,20 +2,15 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
-import ProjectSection from "@/app/components/project-section";
 import Competitor from "@/app/components/competitor";
-import ProjectSubSection from "@/app/components/project-subsection";
 import Paragraph from "@/app/components/paragraph";
-import Figma from "@/app/components/figma";
 import UserNeed from "@/app/components/user-need";
 import Down from "@/app/components/down";
 import ColorRow from "@/app/components/color-row";
 import MoodboardCard from "@/app/components/moodboard-card";
 import Button from "@/app/components/button";
 import TaskFlowCard from "@/app/components/task-flow-card";
-import Final from "@/app/components/final";
 import Introduction from "@/app/components/introduction";
 import DesignProcess from "@/app/components/design-process";
 import Hero from "@/app/components/hero";
@@ -23,9 +18,11 @@ import ResearchCompetition from "@/app/components/research-competition";
 import Research from "@/app/components/research";
 import ResearchExploration from "@/app/components/research-exploration";
 import Define from "@/app/components/define";
-import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
 import Ideate from "@/app/components/ideate";
 import Prototype from "@/app/components/prototype";
+import Test from "@/app/components/test";
+import NextSteps from "@/app/components/next-steps";
+import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
 
 export default function Resto() {
   const researchRef = useRef<HTMLDivElement>(null);
@@ -88,6 +85,7 @@ export default function Resto() {
 
   return (
     <div className="relative">
+      {/* nav bar */}
       <div
         className={`w-[150px] h-[500px] fixed top-20 right-0 transition-all duration-500 space-y-[20px] text-[18px] ${
           isNavVisible
@@ -251,6 +249,7 @@ export default function Resto() {
         />
         {/* prototype */}
         <Prototype
+          ref={prototypeRef}
           exploring={{
             desc: "I created specific design layouts based on user flows, task flows, and observations of how users prefer to search and prevent duplicate reservations. Starting from low-fidelity sketches, I developed more detailed layouts, digitizing them into mid-fidelity wireframes to make the designs more tangible.",
             lofi: {
@@ -308,252 +307,72 @@ export default function Resto() {
           }}
         />
         {/* test */}
-        <div>
-          <div ref={testRef}></div>
-          <ProjectSection title="Test">
-            <ProjectSubSection title="Enhancing Design for Better Usability">
-              <Paragraph>
-                To confirm whether high-fidelity wireframes can actually achieve
-                user goals, I conducted <b>usability testing</b> with{" "}
-                <b>5 participants</b>, including men and women in their 20s to
-                60s.
-              </Paragraph>
-              <div className="py-[20px] space-y-[50px]">
-                <TaskFlowCard
-                  title="Task Flow 1"
-                  subtitle="Search for restaurants that have an English menu"
-                  participants={[
-                    {
-                      name: "Participant 1",
-                      avatar: "/resto/task-flow-1-1.svg",
-                      comment:
-                        "“I like filtering and narrowing down the options if there are many displayed on the map.”",
-                    },
-                    {
-                      name: "Participant 3",
-                      avatar: "/resto/task-flow-1-2.svg",
-                      comment:
-                        "“The only thing that slowed me down in the process was finding the right tag. I guess I would like to type it if that’s possible.”",
-                    },
-                  ]}
-                  conclusions={["4/5 were able to complete the task easily"]}
-                  image="/resto/task-flow-1.svg"
-                />
-                <TaskFlowCard
-                  title="Task Flow 2"
-                  subtitle="Choose a restaurant that is popular among locals"
-                  participants={[
-                    {
-                      name: "Participant 2",
-                      avatar: "/resto/task-flow-2-1.svg",
-                      comment:
-                        "“Location icon colors look similar and I didn’t realize that they are different colors and have different meanings.”",
-                    },
-                    {
-                      name: "Participant 5",
-                      avatar: "/resto/task-flow-2-2.svg",
-                      comment:
-                        "“I want to see a list of restaurants instead of checking everything on the map.”",
-                    },
-                  ]}
-                  conclusions={[
-                    "3/5 had difficulties to find out which one is popular",
-                    "2/5 didn’t use the filter function to narrow down the options",
-                  ]}
-                  image="/resto/task-flow-2.svg"
-                  mirror
-                />
-                <TaskFlowCard
-                  title="Task Flow 3"
-                  subtitle="Search for restaurants near a famous landmark"
-                  participants={[
-                    {
-                      name: "Participant 3",
-                      avatar: "/resto/task-flow-3-1.svg",
-                      comment:
-                        "“I think this was pretty straightforward and a great feature.”",
-                    },
-                    {
-                      name: "Participant 4",
-                      avatar: "/resto/task-flow-3-2.svg",
-                      comment:
-                        "“This was very easy, and it’s helpful for finding restaurants when my schedule is packed.”",
-                    },
-                  ]}
-                  conclusions={[
-                    "5/5 were able to complete the task without any issues",
-                  ]}
-                  image="/resto/task-flow-3.svg"
-                />
-                <TaskFlowCard
-                  title="Task Flow 4"
-                  subtitle="Make a reservation without scheduling conflicts"
-                  participants={[
-                    {
-                      name: "Participant 1",
-                      avatar: "/resto/task-flow-4-1.svg",
-                      comment:
-                        "“I want to see the notification before the completion page. Otherwise I have to go back to the previous page to select a different time again.”",
-                    },
-                    {
-                      name: "Participant 5",
-                      avatar: "/resto/task-flow-4-2.svg",
-                      comment:
-                        "“It would be better if a notification appears when clicking on an available time slot if there is already another reservation.”",
-                    },
-                  ]}
-                  conclusions={[
-                    "4/5 were unsure about another reservation until the end",
-                    "3/5 wanted to see the notification when choosing the time slot",
-                  ]}
-                  image="/resto/task-flow-4.svg"
-                  mirror
-                />
-              </div>
-            </ProjectSubSection>
-            <ProjectSubSection title="Iterating Designs for User-Centric Solutions">
-              <Paragraph>
-                Based on the usability testing, I refined the design of the app
-                that makes it easy for travelers to book and manage restaurant
-                reservations.
-              </Paragraph>
-              <div className="py-[20px] space-y-[50px]">
-                <Image
-                  src="/resto/iteration-1.png"
-                  alt="iteration"
-                  width={1000}
-                  height={531}
-                />
-                <Image
-                  src="/resto/iteration-2.png"
-                  alt="iteration"
-                  width={1000}
-                  height={531}
-                />
-                <Image
-                  src="/resto/iteration-3.png"
-                  alt="iteration"
-                  width={1000}
-                  height={531}
-                />
-                <Image
-                  src="/resto/iteration-4.png"
-                  alt="iteration"
-                  width={1000}
-                  height={531}
-                />
-              </div>
-            </ProjectSubSection>
-            <ProjectSubSection title="Final Prototype">
-              <div className="py-[20px]">
-                <div className="bg-white rounded-[20px] px-[30px] py-[60px] space-y-[10px]">
-                  <div className="text-[22px] tracking-[.01em] font-medium">
-                    Resto - Dining App in Japan
-                  </div>
-                  <div className="text-[18px] tracking-[.01em]">
-                    A mobile app that simplifies restaurant discovery and
-                    reservation management for travelers in Japan.
-                  </div>
-                </div>
-              </div>
-              <div className="space-y-[50px] py-[20px]">
-                <Final
-                  video="/resto/final-1.mp4"
-                  header="A search function that allows users to search based on their needs"
-                  notes={[
-                    "Reduce the difficulty of making reservations due to language barriers",
-                    "Make restaurant selection smooth and easy",
-                  ]}
-                />
-                <Final
-                  video="/resto/final-2.mp4"
-                  header="Clear and trustworthy reviews help users effortlessly choose their ideal restaurant"
-                  notes={[
-                    "Offer a more authentic local experience",
-                    "Assist in the discovery of hidden local gems",
-                  ]}
-                  mirror
-                />
-                <Final
-                  video="/resto/final-3.mp4"
-                  header="Searching for restaurants near landmarks helps users quickly find dining options"
-                  notes={[
-                    "Make trip planning easier",
-                    "Choose restaurants based on sightseeing locations",
-                  ]}
-                />
-                <Final
-                  video="/resto/final-4.mp4"
-                  header="A seamless reservation system empowers travelers to plan smooth journeys"
-                  notes={[
-                    "Eliminate double bookings for a perfectly organized trip",
-                  ]}
-                  mirror
-                />
-                <div>
-                  <Link
-                    href="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&node-type=canvas&viewport=284%2C360%2C0.06&t=6NVbRlngR40WJKQQ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1"
-                    target="_blank"
-                    onMouseEnter={handleCursorHoverStart}
-                    onMouseLeave={handleCursorHoverStop}
-                  >
-                    <div className="px-[60px] py-[15px] rounded-[75px] bg-brown3 text-[20px] font-semibold tracking-[.01em] inline-block">
-                      View Hi-fi Prototype
-                    </div>
-                  </Link>
-                </div>
-              </div>
-            </ProjectSubSection>
-          </ProjectSection>
-        </div>
+        <Test
+          ref={testRef}
+          enhancing={{
+            desc: enhancingDesc,
+            taskFlows: enhancingTaskFlows,
+          }}
+          iterating={{
+            desc: "Based on the usability testing, I refined the design of the app that makes it easy for travelers to book and manage restaurant reservations.",
+            images: [
+              "/resto/iteration-1.png",
+              "/resto/iteration-2.png",
+              "/resto/iteration-3.png",
+              "/resto/iteration-4.png",
+            ],
+          }}
+          final={{
+            header: "Resto - Dining App in Japan",
+            desc: "A mobile app that simplifies restaurant discovery and reservation management for travelers in Japan.",
+            demos: [
+              {
+                video: "/resto/final-1.mp4",
+                header:
+                  "A search function that allows users to search based on their needs",
+                notes: [
+                  "Reduce the difficulty of making reservations due to language barriers",
+                  "Make restaurant selection smooth and easy",
+                ],
+              },
+              {
+                video: "/resto/final-2.mp4",
+                header:
+                  "Clear and trustworthy reviews help users effortlessly choose their ideal restaurant",
+                notes: [
+                  "Offer a more authentic local experience",
+                  "Assist in the discovery of hidden local gems",
+                ],
+                mirror: true,
+              },
+              {
+                video: "/resto/final-3.mp4",
+                header:
+                  "Searching for restaurants near landmarks helps users quickly find dining options",
+                notes: [
+                  "Make trip planning easier",
+                  "Choose restaurants based on sightseeing locations",
+                ],
+              },
+              {
+                video: "/resto/final-4.mp4",
+                header:
+                  "A seamless reservation system empowers travelers to plan smooth journeys",
+                notes: [
+                  "Eliminate double bookings for a perfectly organized trip",
+                ],
+                mirror: true,
+              },
+            ],
+            url: "https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&node-type=canvas&viewport=284%2C360%2C0.06&t=6NVbRlngR40WJKQQ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1",
+          }}
+        />
         {/* next steps */}
-        <div>
-          <div ref={nextStepsRef}></div>
-          <ProjectSection title="Next Steps">
-            <ProjectSubSection title="Learning">
-              <Paragraph>
-                Throughout the process, from research to design, it is essential
-                to understand users&apos; pain points and consider how to
-                enhance the user experience in order to create a better product.
-                Since everyone has different travel purposes and preferences
-                when choosing a restaurant, it was crucial to identify the
-                problems that diverse users face and what they desire.
-                Throughout this project, I came to understand the importance of
-                user feedback and the necessity of collecting valuable insights
-                through research.
-              </Paragraph>
-            </ProjectSubSection>
-            <ProjectSubSection title="Opportunities for Enhancement">
-              <div className="space-y-[10px]">
-                <div className="text-[22px] font-medium tracking-[.01em]">
-                  Search Function
-                </div>
-                <Paragraph>
-                  While RESTO&apos;s current search function allows users to
-                  explore restaurants from multiple angles, there is room for
-                  improvement by incorporating an AI-powered recommendation
-                  system. This could suggest restaurants based on users’ search
-                  history, favorite lists, or automatically find similar
-                  options, leading to a more tailored and efficient search
-                  experience.
-                </Paragraph>
-              </div>
-              <div className="space-y-[10px]">
-                <div className="text-[22px] font-medium tracking-[.01em]">
-                  Multilingual Support
-                </div>
-                <Paragraph>
-                  Currently, users can find restaurants with English support and
-                  make reservations without worrying about language barriers.
-                  However, by expanding language support and incorporating
-                  translation features, RESTO could offer a more inclusive
-                  experience, making it easier for non-English speakers to
-                  navigate the platform and make reservations seamlessly.
-                </Paragraph>
-              </div>
-            </ProjectSubSection>
-          </ProjectSection>
-        </div>
+        <NextSteps
+          ref={nextStepsRef}
+          learning="Throughout the process, from research to design, it is essential to understand users' pain points and consider how to enhance the user experience in order to create a better product. Since everyone has different travel purposes and preferences when choosing a restaurant, it was crucial to identify the problems that diverse users face and what they desire. Throughout this project, I came to understand the importance of user feedback and the necessity of collecting valuable insights through research."
+          opportunities={opportunitiesForEnhancement}
+        />
       </div>
     </div>
   );
@@ -971,6 +790,138 @@ const building = (
           </div>
         </div>
       </MoodboardCard>
+    </div>
+  </>
+);
+
+const enhancingDesc = (
+  <Paragraph>
+    To confirm whether high-fidelity wireframes can actually achieve user goals,
+    I conducted <b>usability testing</b> with <b>5 participants</b>, including
+    men and women in their 20s to 60s.
+  </Paragraph>
+);
+
+const enhancingTaskFlows = (
+  <div className="py-[20px] space-y-[50px]">
+    <TaskFlowCard
+      title="Task Flow 1"
+      subtitle="Search for restaurants that have an English menu"
+      participants={[
+        {
+          name: "Participant 1",
+          avatar: "/resto/task-flow-1-1.svg",
+          comment:
+            "“I like filtering and narrowing down the options if there are many displayed on the map.”",
+        },
+        {
+          name: "Participant 3",
+          avatar: "/resto/task-flow-1-2.svg",
+          comment:
+            "“The only thing that slowed me down in the process was finding the right tag. I guess I would like to type it if that’s possible.”",
+        },
+      ]}
+      conclusions={["4/5 were able to complete the task easily"]}
+      image="/resto/task-flow-1.svg"
+    />
+    <TaskFlowCard
+      title="Task Flow 2"
+      subtitle="Choose a restaurant that is popular among locals"
+      participants={[
+        {
+          name: "Participant 2",
+          avatar: "/resto/task-flow-2-1.svg",
+          comment:
+            "“Location icon colors look similar and I didn’t realize that they are different colors and have different meanings.”",
+        },
+        {
+          name: "Participant 5",
+          avatar: "/resto/task-flow-2-2.svg",
+          comment:
+            "“I want to see a list of restaurants instead of checking everything on the map.”",
+        },
+      ]}
+      conclusions={[
+        "3/5 had difficulties to find out which one is popular",
+        "2/5 didn’t use the filter function to narrow down the options",
+      ]}
+      image="/resto/task-flow-2.svg"
+      mirror
+    />
+    <TaskFlowCard
+      title="Task Flow 3"
+      subtitle="Search for restaurants near a famous landmark"
+      participants={[
+        {
+          name: "Participant 3",
+          avatar: "/resto/task-flow-3-1.svg",
+          comment:
+            "“I think this was pretty straightforward and a great feature.”",
+        },
+        {
+          name: "Participant 4",
+          avatar: "/resto/task-flow-3-2.svg",
+          comment:
+            "“This was very easy, and it’s helpful for finding restaurants when my schedule is packed.”",
+        },
+      ]}
+      conclusions={["5/5 were able to complete the task without any issues"]}
+      image="/resto/task-flow-3.svg"
+    />
+    <TaskFlowCard
+      title="Task Flow 4"
+      subtitle="Make a reservation without scheduling conflicts"
+      participants={[
+        {
+          name: "Participant 1",
+          avatar: "/resto/task-flow-4-1.svg",
+          comment:
+            "“I want to see the notification before the completion page. Otherwise I have to go back to the previous page to select a different time again.”",
+        },
+        {
+          name: "Participant 5",
+          avatar: "/resto/task-flow-4-2.svg",
+          comment:
+            "“It would be better if a notification appears when clicking on an available time slot if there is already another reservation.”",
+        },
+      ]}
+      conclusions={[
+        "4/5 were unsure about another reservation until the end",
+        "3/5 wanted to see the notification when choosing the time slot",
+      ]}
+      image="/resto/task-flow-4.svg"
+      mirror
+    />
+  </div>
+);
+
+const opportunitiesForEnhancement = (
+  <>
+    <div className="space-y-[10px]">
+      <div className="text-[22px] font-medium tracking-[.01em]">
+        Search Function
+      </div>
+      <Paragraph>
+        While RESTO&apos;s current search function allows users to explore
+        restaurants from multiple angles, there is room for improvement by
+        incorporating an AI-powered recommendation system. This could suggest
+        restaurants based on users’ search history, favorite lists, or
+        automatically find similar options, leading to a more tailored and
+        efficient search experience.
+      </Paragraph>
+    </div>
+    <div className="space-y-[10px]">
+      <div className="text-[22px] font-medium tracking-[.01em]">
+        Multilingual Support
+      </div>
+      <Paragraph>
+        Currently, users can find restaurants with English support and make
+        reservations without worrying about language barriers. However, by
+        expanding language support and incorporating translation features, RESTO
+        could offer a more inclusive experience, making it easier for
+        non-English speakers to navigate the platform and make reservations
+        seamlessly.
+      </Paragraph>
     </div>
   </>
 );
