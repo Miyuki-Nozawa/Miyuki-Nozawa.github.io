@@ -24,6 +24,7 @@ import Research from "@/app/components/research";
 import ResearchExploration from "@/app/components/research-exploration";
 import Define from "@/app/components/define";
 import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
+import Ideate from "@/app/components/ideate";
 
 export default function Resto() {
   const researchRef = useRef<HTMLDivElement>(null);
@@ -214,191 +215,39 @@ export default function Resto() {
           projectGoalsUrl="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1-278&t=6g8QSShYxUqXAJml-1"
         />
         {/* ideate */}
-        <div>
-          <div ref={ideateRef}></div>
-          <ProjectSection title="Ideate">
-            <ProjectSubSection title="Prioritizing Features that Align Business and User Needs">
-              <Paragraph>
-                I brainstormed key features that address the intersection of
-                business and user goals, while also considering technical
-                feasibility to ensure both are met.
-              </Paragraph>
-              <div className="py-[20px] flex justify-between">
-                <div className="px-[20px] space-x-[20px] flex">
-                  <Image
-                    src="/avatars/user-needs.svg"
-                    alt="avatar"
-                    width={100}
-                    height={100}
-                    className="mt-auto"
-                  />
-                  <Image
-                    src="/resto/speech-bubble.svg"
-                    alt="speech"
-                    width={0}
-                    height={0}
-                    style={{ width: "auto", height: "100%" }}
-                  />
-                </div>
-                <div className="flex px-[20px] space-x-[30px]">
-                  <div className="space-y-[30px]">
-                    <UserNeed icon="/icons/filter.svg" title="Filter" />
-                    <UserNeed
-                      icon="/icons/magnifying-glass-thin.svg"
-                      title="Search"
-                    />
-                    <UserNeed icon="/icons/map.svg" title="Map" />
-                    <UserNeed icon="/icons/bell.svg" title="Notification" />
-                  </div>
-                  <div className="space-y-[30px]">
-                    <UserNeed
-                      icon="/icons/star-hollow.svg"
-                      title="Reviews & Ratings"
-                    />
-                    <UserNeed
-                      icon="/icons/smile.svg"
-                      title="Utilization of icons"
-                    />
-                    <UserNeed icon="/icons/a.svg" title="Language Option" />
-                    <UserNeed
-                      icon="/icons/calendar.svg"
-                      title="Simple Reservation"
-                    />
-                  </div>
-                </div>
-              </div>
-              <Down />
-              <Paragraph>
-                I conducted an <b>open card sort</b> using feature keywords with{" "}
-                <b>28 cards</b>, targeting <b>8 participants</b>, to identify
-                how users categorize them. When the participants categorized the
-                cards freely, most of them fell into <b>6 categories</b>. This
-                helped us understand which content people want to see under each
-                menu.
-              </Paragraph>
-              <Image
-                src="/resto/card-sort.svg"
-                alt="card sort"
-                width={0}
-                height={0}
-                style={{ width: "100%", height: "auto" }}
-              />
-            </ProjectSubSection>
-            <ProjectSubSection title="Designing the App Structure with a Sitemap">
-              <Paragraph>
-                Based on the results of the card sort, I designed the app&apos;s
-                structure and created a sitemap. Referring to the research,
-                which showed that travelers tend to struggle with searching for
-                restaurants and managing reservations.
-              </Paragraph>
-              <div className="space-y-[30px]">
-                <Image
-                  src="/resto/sitemap.svg"
-                  alt="sitemap"
-                  width={0}
-                  height={0}
-                  style={{ width: "100%", height: "auto" }}
-                />
-                <Figma href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=35-1840&t=Rh2UA7lbJbDJRhGN-1">
-                  View the Sitemap
-                </Figma>
-              </div>
-            </ProjectSubSection>
-            <ProjectSubSection title="Refining Key Design Decisions">
-              <Paragraph>
-                I created two task flows to clarify the steps necessary for
-                users to achieve specific goals and promote a user-friendly
-                approach.
-              </Paragraph>
-              <div className="py-[20px] space-y-[30px]">
-                <div className="space-y-[50px]">
-                  <div className="py-[20px] space-y-[30px]">
-                    <div className="flex space-x-[10px]">
-                      <Image
-                        src="/icons/star-brown.svg"
-                        alt="star"
-                        width={33}
-                        height={33}
-                        className="mb-auto"
-                      />
-                      <span className="text-[22px] font-medium tracking-[.01em]">
-                        Discover restaurants or cafes and make reservations
-                        those tailored to your preferences
-                      </span>
-                    </div>
-                    <div className="py-[20px]">
-                      <Image
-                        src="/resto/user-flow-1.svg"
-                        alt="user flow"
-                        width={0}
-                        height={0}
-                        style={{ width: "100%", height: "auto" }}
-                      />
-                    </div>
-                  </div>
-                  <div className="py-[20px] space-y-[30px]">
-                    <div className="flex space-x-[10px]">
-                      <Image
-                        src="/icons/star-brown.svg"
-                        alt="star"
-                        width={33}
-                        height={33}
-                        className="mb-auto"
-                      />
-                      <span className="text-[22px] font-medium tracking-[.01em]">
-                        Check the reservations and the saved restaurants to plan
-                        your dining schedule during the trip
-                      </span>
-                    </div>
-                    <div className="py-[20px]">
-                      <Image
-                        src="/resto/user-flow-2.svg"
-                        alt="user flow"
-                        width={0}
-                        height={0}
-                        style={{ width: "100%", height: "auto" }}
-                      />
-                    </div>
-                  </div>
-                </div>
-                <Figma href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=42-8803&t=Rh2UA7lbJbDJRhGN-1">
-                  View the Task Flows
-                </Figma>
-              </div>
-            </ProjectSubSection>
-            <ProjectSubSection title="Mapping out User Needs and Goals">
-              <Paragraph>
-                I created a user flow to understand user needs and identify
-                potential issues or confusing elements that are related to
-                “search” and “reservations”.
-              </Paragraph>
-              <div className="py-[20px] space-y-[30px]">
-                <div className="py-[20px] space-y-[30px]">
-                  <div className="flex space-x-[10px]">
-                    <Image
-                      src="/icons/star-brown.svg"
-                      alt="star"
-                      width={33}
-                      height={33}
-                      className="mb-auto"
-                    />
-                    <span className="text-[22px] font-medium tracking-[.01em]">
-                      Discover restaurants or cafes and make reservations
-                    </span>
-                  </div>
-                  <div className="pb-[30px] overflow-x-scroll">
-                    <div className="py-[20px] w-[4626px] h-[875px] relative">
-                      <Image src="/resto/task-flow.svg" alt="task flow" fill />
-                    </div>
-                  </div>
-                </div>
-                <Figma href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=80-1978&t=Rh2UA7lbJbDJRhGN-1">
-                  View the User Flow
-                </Figma>
-              </div>
-            </ProjectSubSection>
-          </ProjectSection>
-        </div>
+        <Ideate
+          brainstorm={{
+            desc: "I brainstormed key features that address the intersection of business and user goals, while also considering technical feasibility to ensure both are met.",
+            content: brainstorm,
+          }}
+          sitemap={{
+            desc: "Based on the results of the card sort, I designed the app's structure and created a sitemap. Referring to the research, which showed that travelers tend to struggle with searching for restaurants and managing reservations.",
+            img: "/resto/sitemap.svg",
+            url: "https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=35-1840&t=Rh2UA7lbJbDJRhGN-1",
+          }}
+          refine={{
+            desc: "I created two task flows to clarify the steps necessary for users to achieve specific goals and promote a user-friendly approach.",
+            flows: [
+              {
+                label:
+                  "Discover restaurants or cafes and make reservations those tailored to your preferences",
+                img: "/resto/user-flow-1.svg",
+              },
+              {
+                label:
+                  "Check the reservations and the saved restaurants to plan your dining schedule during the trip",
+                img: "/resto/user-flow-2.svg",
+              },
+            ],
+            url: "https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=42-8803&t=Rh2UA7lbJbDJRhGN-1",
+          }}
+          map={{
+            desc: "I created a user flow to understand user needs and identify potential issues or confusing elements that are related to “search” and “reservations”.",
+            label: "Discover restaurants or cafes and make reservations",
+            img: "/resto/task-flow.svg",
+            url: "https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=80-1978&t=Rh2UA7lbJbDJRhGN-1",
+          }}
+        />
         {/* prototype */}
         <div>
           <div ref={prototypeRef}></div>
@@ -1214,4 +1063,56 @@ const persona2Desc = (
     goals include{" "}
     <b>visiting many tourist spots and sticking to their travel plan</b>.
   </Paragraph>
+);
+
+const brainstorm = (
+  <>
+    <div className="py-[20px] flex justify-between">
+      <div className="px-[20px] space-x-[20px] flex">
+        <Image
+          src="/avatars/user-needs.svg"
+          alt="avatar"
+          width={100}
+          height={100}
+          className="mt-auto"
+        />
+        <Image
+          src="/resto/speech-bubble.svg"
+          alt="speech"
+          width={0}
+          height={0}
+          style={{ width: "auto", height: "100%" }}
+        />
+      </div>
+      <div className="flex px-[20px] space-x-[30px]">
+        <div className="space-y-[30px]">
+          <UserNeed icon="/icons/filter.svg" title="Filter" />
+          <UserNeed icon="/icons/magnifying-glass-thin.svg" title="Search" />
+          <UserNeed icon="/icons/map.svg" title="Map" />
+          <UserNeed icon="/icons/bell.svg" title="Notification" />
+        </div>
+        <div className="space-y-[30px]">
+          <UserNeed icon="/icons/star-hollow.svg" title="Reviews & Ratings" />
+          <UserNeed icon="/icons/smile.svg" title="Utilization of icons" />
+          <UserNeed icon="/icons/a.svg" title="Language Option" />
+          <UserNeed icon="/icons/calendar.svg" title="Simple Reservation" />
+        </div>
+      </div>
+    </div>
+    <Down />
+    <Paragraph>
+      I conducted an <b>open card sort</b> using feature keywords with{" "}
+      <b>28 cards</b>, targeting <b>8 participants</b>, to identify how users
+      categorize them. When the participants categorized the cards freely, most
+      of them fell into <b>6 categories</b>. This helped us understand which
+      content people want to see under each menu.
+    </Paragraph>
+    <Image
+      src="/resto/card-sort.svg"
+      alt="card sort"
+      width={0}
+      height={0}
+      style={{ width: "100%", height: "auto" }}
+    />
+  </>
 );
