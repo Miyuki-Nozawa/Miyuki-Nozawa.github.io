@@ -25,6 +25,7 @@ import ResearchExploration from "@/app/components/research-exploration";
 import Define from "@/app/components/define";
 import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
 import Ideate from "@/app/components/ideate";
+import Prototype from "@/app/components/prototype";
 
 export default function Resto() {
   const researchRef = useRef<HTMLDivElement>(null);
@@ -249,327 +250,63 @@ export default function Resto() {
           }}
         />
         {/* prototype */}
-        <div>
-          <div ref={prototypeRef}></div>
-          <ProjectSection title="Prototype">
-            <ProjectSubSection title="Exploring Ideas from Low-Fi to Mid-Fi">
-              <Paragraph>
-                I created specific design layouts based on user flows, task
-                flows, and observations of how users prefer to search and
-                prevent duplicate reservations. Starting from low-fidelity
-                sketches, I developed more detailed layouts, digitizing them
-                into mid-fidelity wireframes to make the designs more tangible.
-              </Paragraph>
-              <div className="py-[20px] space-y-[30px]">
-                <div className="flex justify-between">
-                  <Image
-                    src="/resto/lofi-1.jpg"
-                    alt="lofi"
-                    width={315}
-                    height={400}
-                    className="rounded-[10px]"
-                  />
-                  <Image
-                    src="/resto/lofi-2.jpg"
-                    alt="lofi"
-                    width={315}
-                    height={400}
-                    className="rounded-[10px]"
-                  />
-                  <Image
-                    src="/resto/lofi-3.jpg"
-                    alt="lofi"
-                    width={315}
-                    height={400}
-                    className="rounded-[10px]"
-                  />
-                </div>
-                <Figma href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=46-55&t=6g8QSShYxUqXAJml-1">
-                  View the Low-Fi Wireframes
-                </Figma>
-              </div>
-              <div className="py-[20px] space-y-[30px]">
-                <div className="flex justify-between">
-                  <Image
-                    src="/resto/midfi-1.svg"
-                    alt="midfi"
-                    width={220}
-                    height={600}
-                    className="rounded-[10px]"
-                  />
-                  <Image
-                    src="/resto/midfi-2.svg"
-                    alt="midfi"
-                    width={220}
-                    height={600}
-                    className="rounded-[10px]"
-                  />
-                  <Image
-                    src="/resto/midfi-3.svg"
-                    alt="midfi"
-                    width={220}
-                    height={600}
-                    className="rounded-[10px]"
-                  />
-                  <Image
-                    src="/resto/midfi-4.svg"
-                    alt="midfi"
-                    width={220}
-                    height={600}
-                    className="rounded-[10px]"
-                  />
-                </div>
-                <Figma href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1043-37036&t=6g8QSShYxUqXAJml-1">
-                  View the Mid-Fi Wireframes
-                </Figma>
-              </div>
-            </ProjectSubSection>
-            <ProjectSubSection title="Ensuring Users Understand the Design Layouts">
-              <Paragraph>
-                After creating the mid-fidelity wireframes, I conducted a quick
-                usability test with 6 participants to check if users understood
-                my design layout and if they found the interface user-friendly.
-              </Paragraph>
-              <div className="py-[20px] space-y-[50px]">
-                <Image
-                  src="/resto/test-1.svg"
-                  alt="test"
-                  width={0}
-                  height={0}
-                  style={{ width: "100%", height: "auto" }}
-                />
-                <Image
-                  src="/resto/test-2.svg"
-                  alt="test"
-                  width={0}
-                  height={0}
-                  style={{ width: "100%", height: "auto" }}
-                />
-                <Image
-                  src="/resto/test-3.svg"
-                  alt="test"
-                  width={0}
-                  height={0}
-                  style={{ width: "100%", height: "auto" }}
-                />
-              </div>
-            </ProjectSubSection>
-            <ProjectSubSection title="Refining Designs through Iterated Mid-Fi Wireframes">
-              <Paragraph>
-                Based on the results of the mid-fi usability test, I iterated on
-                the design to make it more user-friendly and help users achieve
-                their goals.
-              </Paragraph>
-              <div className="py-[20px] space-y-[50px]">
-                <Image
-                  src="/resto/iteration-1.svg"
-                  alt="iteration"
-                  width={0}
-                  height={0}
-                  style={{ width: "100%", height: "auto" }}
-                />
-                <Image
-                  src="/resto/iteration-2.svg"
-                  alt="iteration"
-                  width={0}
-                  height={0}
-                  style={{ width: "100%", height: "auto" }}
-                />
-                <Image
-                  src="/resto/iteration-3.svg"
-                  alt="iteration"
-                  width={0}
-                  height={0}
-                  style={{ width: "100%", height: "auto" }}
-                />
-                <Image
-                  src="/resto/iteration-4.svg"
-                  alt="iteration"
-                  width={0}
-                  height={0}
-                  style={{ width: "100%", height: "auto" }}
-                />
-              </div>
-            </ProjectSubSection>
-            <ProjectSubSection title="Building a Strong Brand">
-              <Paragraph>
-                To create a user-centered product, it&apos;s essential to build
-                a brand image that attracts users. I established brand values to
-                ensure that searching for and booking restaurants does not feel
-                difficult.
-              </Paragraph>
-              <div className="bg-white rounded-[20px] p-[10px]">
-                <Image
-                  src="/resto/moodboard.png"
-                  alt="moodboard"
-                  width={980}
-                  height={637}
-                />
-              </div>
-              <div className="flex space-x-[30px]">
-                <MoodboardCard title="Colors">
-                  <ColorRow
-                    title="Primary"
-                    colors={["EE722B", "C65310", "953B1D"]}
-                  />
-                  <ColorRow
-                    title="Secondary"
-                    colors={["B8AE94", "F4F0E0", "DFD5BD"]}
-                  />
-                  <ColorRow
-                    title="Neutral"
-                    colors={["F9F9F7", "FFFFFF"]}
-                    border
-                  />
-                </MoodboardCard>
-                <div className="flex-1 flex flex-col justify-between">
-                  <MoodboardCard title="Logo">
-                    <div className="flex justify-between">
-                      <Image
-                        src="/resto/logo-lg.svg"
-                        alt="logo"
-                        width={168}
-                        height={158}
-                      />
-                      <div className="flex flex-col justify-between items-center">
-                        <Image
-                          src="/resto/logo-md.svg"
-                          alt="logo"
-                          width={100}
-                          height={60}
-                        />
-                        <div className="flex space-x-[30px] px-[15px]">
-                          <Image
-                            src="/resto/logo-sm-1.svg"
-                            alt="logo"
-                            width={60}
-                            height={60}
-                          />
-                          <Image
-                            src="/resto/logo-sm-2.svg"
-                            alt="logo"
-                            width={60}
-                            height={60}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </MoodboardCard>
-                  <MoodboardCard title="Icons">
-                    <div className="gap-[18px] flex flex-wrap">
-                      {[...Array(16)].map((_, i) => (
-                        <Image
-                          src={`/resto/icon-${i + 1}.svg`}
-                          alt="icon"
-                          width={35}
-                          height={35}
-                          key={i}
-                        />
-                      ))}
-                    </div>
-                  </MoodboardCard>
-                </div>
-              </div>
-              <div className="flex space-x-[30px]">
-                <MoodboardCard title="Typography">
-                  <div className="space-y-[15px] px-[10px]">
-                    <div className="font-manrope text-[24px] font-semibold tracking-[.03em]">
-                      H1 - Manrope SemiBold 24px
-                    </div>
-                    <div className="font-manrope text-[20px] font-medium tracking-[.03em]">
-                      H2 - Manrope Medium 20px
-                    </div>
-                    <div className="font-manrope text-[18px] font-medium tracking-[.03em]">
-                      H3 - Manrope Medium 18px
-                    </div>
-                    <div className="font-manrope text-[16px] tracking-[.03em]">
-                      B1 - Manrope Regular 16px
-                    </div>
-                    <div className="font-manrope text-[14px] tracking-[.03em]">
-                      B2 - Manrope Regular 14px
-                    </div>
-                    <div className="font-manrope text-[16px] font-medium tracking-[.03em]">
-                      Button Text M - Manrope Medium 16px
-                    </div>
-                  </div>
-                </MoodboardCard>
-                <MoodboardCard title="Buttons">
-                  <div className="flex space-x-[20px]">
-                    <div className="space-y-[12px]">
-                      <div className="text-[14px] tracking-[.01em]">
-                        Default
-                      </div>
-                      <div className="space-y-[30px]">
-                        <Button className="bg-cream text-[#303030]">
-                          Search
-                        </Button>
-                        <Button className="bg-dark-orange text-[#FEFEFE]">
-                          Reserve Now
-                        </Button>
-                        <Button className="bg-[#E8DFBA] text-[#303030] shadow-[0px_1.9px_1.9px_0px_rgba(0,0,0,0.25)_inset]">
-                          Add filters
-                        </Button>
-                      </div>
-                    </div>
-                    <div className="space-y-[12px]">
-                      <div className="text-[14px] tracking-[.01em]">
-                        Disabled
-                      </div>
-                      <div className="space-y-[30px]">
-                        <Button className="bg-[rgba(223,213,189,0.50)] text-[rgba(48,48,48,0.50)]">
-                          Search
-                        </Button>
-                        <Button className="bg-[rgba(198,83,16,0.50)] text-white">
-                          Reserve Now
-                        </Button>
-                        <Button className="bg-[rgba(244,240,224,0.50)] text-[rgba(48,48,48,0.50)]">
-                          Add filters
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </MoodboardCard>
-              </div>
-            </ProjectSubSection>
-            <ProjectSubSection title="Applying Branding in Hi-Fi Wireframes">
-              <Paragraph>
-                I incorporated all branding elements into the wireframes to
-                create high-fidelity designs.
-              </Paragraph>
-              <div className="py-[20px] space-y-[30px]">
-                <div className="flex justify-between">
-                  <Image
-                    src="/resto/hifi-1.png"
-                    alt="hifi"
-                    width={220}
-                    height={476}
-                  />
-                  <Image
-                    src="/resto/hifi-2.png"
-                    alt="hifi"
-                    width={220}
-                    height={476}
-                  />
-                  <Image
-                    src="/resto/hifi-3.png"
-                    alt="hifi"
-                    width={220}
-                    height={476}
-                  />
-                  <Image
-                    src="/resto/hifi-4.png"
-                    alt="hifi"
-                    width={220}
-                    height={476}
-                  />
-                </div>
-                <Figma href="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=692-48559&t=6g8QSShYxUqXAJml-1">
-                  View the Hi-Fi Wireframes
-                </Figma>
-              </div>
-            </ProjectSubSection>
-          </ProjectSection>
-        </div>
+        <Prototype
+          exploring={{
+            desc: "I created specific design layouts based on user flows, task flows, and observations of how users prefer to search and prevent duplicate reservations. Starting from low-fidelity sketches, I developed more detailed layouts, digitizing them into mid-fidelity wireframes to make the designs more tangible.",
+            lofi: {
+              images: [
+                "/resto/lofi-1.jpg",
+                "/resto/lofi-2.jpg",
+                "/resto/lofi-3.jpg",
+              ],
+              width: 315,
+              height: 400,
+              url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=46-55&t=6g8QSShYxUqXAJml-1",
+            },
+            midfi: {
+              images: [
+                "/resto/midfi-1.svg",
+                "/resto/midfi-2.svg",
+                "/resto/midfi-3.svg",
+                "/resto/midfi-4.svg",
+              ],
+              width: 220,
+              height: 600,
+              url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1043-37036&t=6g8QSShYxUqXAJml-1",
+            },
+          }}
+          tests={{
+            desc: "After creating the mid-fidelity wireframes, I conducted a quick usability test with 6 participants to check if users understood my design layout and if they found the interface user-friendly.",
+            images: [
+              "/resto/test-1.svg",
+              "/resto/test-2.svg",
+              "/resto/test-3.svg",
+            ],
+          }}
+          refining={{
+            desc: "Based on the results of the mid-fi usability test, I iterated on the design to make it more user-friendly and help users achieve their goals.",
+            images: [
+              "/resto/iteration-1.svg",
+              "/resto/iteration-2.svg",
+              "/resto/iteration-3.svg",
+              "/resto/iteration-4.svg",
+            ],
+          }}
+          building={{
+            desc: "To create a user-centered product, it&apos;s essential to build a brand image that attracts users. I established brand values to ensure that searching for and booking restaurants does not feel difficult.",
+            content: building,
+          }}
+          branding={{
+            desc: "I incorporated all branding elements into the wireframes to create high-fidelity designs.",
+            images: [
+              "/resto/hifi-1.png",
+              "/resto/hifi-2.png",
+              "/resto/hifi-3.png",
+              "/resto/hifi-4.png",
+            ],
+            url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=692-48559&t=6g8QSShYxUqXAJml-1",
+          }}
+        />
         {/* test */}
         <div>
           <div ref={testRef}></div>
@@ -1114,5 +851,126 @@ const brainstorm = (
       height={0}
       style={{ width: "100%", height: "auto" }}
     />
+  </>
+);
+
+const building = (
+  <>
+    <div className="bg-white rounded-[20px] p-[10px]">
+      <Image
+        src="/resto/moodboard.png"
+        alt="moodboard"
+        width={980}
+        height={637}
+      />
+    </div>
+    <div className="flex space-x-[30px]">
+      <MoodboardCard title="Colors">
+        <ColorRow title="Primary" colors={["EE722B", "C65310", "953B1D"]} />
+        <ColorRow title="Secondary" colors={["B8AE94", "F4F0E0", "DFD5BD"]} />
+        <ColorRow title="Neutral" colors={["F9F9F7", "FFFFFF"]} border />
+      </MoodboardCard>
+      <div className="flex-1 flex flex-col justify-between">
+        <MoodboardCard title="Logo">
+          <div className="flex justify-between">
+            <Image
+              src="/resto/logo-lg.svg"
+              alt="logo"
+              width={168}
+              height={158}
+            />
+            <div className="flex flex-col justify-between items-center">
+              <Image
+                src="/resto/logo-md.svg"
+                alt="logo"
+                width={100}
+                height={60}
+              />
+              <div className="flex space-x-[30px] px-[15px]">
+                <Image
+                  src="/resto/logo-sm-1.svg"
+                  alt="logo"
+                  width={60}
+                  height={60}
+                />
+                <Image
+                  src="/resto/logo-sm-2.svg"
+                  alt="logo"
+                  width={60}
+                  height={60}
+                />
+              </div>
+            </div>
+          </div>
+        </MoodboardCard>
+        <MoodboardCard title="Icons">
+          <div className="gap-[18px] flex flex-wrap">
+            {[...Array(16)].map((_, i) => (
+              <Image
+                src={`/resto/icon-${i + 1}.svg`}
+                alt="icon"
+                width={35}
+                height={35}
+                key={i}
+              />
+            ))}
+          </div>
+        </MoodboardCard>
+      </div>
+    </div>
+    <div className="flex space-x-[30px]">
+      <MoodboardCard title="Typography">
+        <div className="space-y-[15px] px-[10px]">
+          <div className="font-manrope text-[24px] font-semibold tracking-[.03em]">
+            H1 - Manrope SemiBold 24px
+          </div>
+          <div className="font-manrope text-[20px] font-medium tracking-[.03em]">
+            H2 - Manrope Medium 20px
+          </div>
+          <div className="font-manrope text-[18px] font-medium tracking-[.03em]">
+            H3 - Manrope Medium 18px
+          </div>
+          <div className="font-manrope text-[16px] tracking-[.03em]">
+            B1 - Manrope Regular 16px
+          </div>
+          <div className="font-manrope text-[14px] tracking-[.03em]">
+            B2 - Manrope Regular 14px
+          </div>
+          <div className="font-manrope text-[16px] font-medium tracking-[.03em]">
+            Button Text M - Manrope Medium 16px
+          </div>
+        </div>
+      </MoodboardCard>
+      <MoodboardCard title="Buttons">
+        <div className="flex space-x-[20px]">
+          <div className="space-y-[12px]">
+            <div className="text-[14px] tracking-[.01em]">Default</div>
+            <div className="space-y-[30px]">
+              <Button className="bg-cream text-[#303030]">Search</Button>
+              <Button className="bg-dark-orange text-[#FEFEFE]">
+                Reserve Now
+              </Button>
+              <Button className="bg-[#E8DFBA] text-[#303030] shadow-[0px_1.9px_1.9px_0px_rgba(0,0,0,0.25)_inset]">
+                Add filters
+              </Button>
+            </div>
+          </div>
+          <div className="space-y-[12px]">
+            <div className="text-[14px] tracking-[.01em]">Disabled</div>
+            <div className="space-y-[30px]">
+              <Button className="bg-[rgba(223,213,189,0.50)] text-[rgba(48,48,48,0.50)]">
+                Search
+              </Button>
+              <Button className="bg-[rgba(198,83,16,0.50)] text-white">
+                Reserve Now
+              </Button>
+              <Button className="bg-[rgba(244,240,224,0.50)] text-[rgba(48,48,48,0.50)]">
+                Add filters
+              </Button>
+            </div>
+          </div>
+        </div>
+      </MoodboardCard>
+    </div>
   </>
 );
