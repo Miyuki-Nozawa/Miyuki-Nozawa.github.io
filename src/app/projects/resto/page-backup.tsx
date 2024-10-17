@@ -1,57 +1,400 @@
 "use client";
 
+import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 
-import Button from "@/app/components/button";
-import ColorRow from "@/app/components/color-row";
 import Competitor from "@/app/components/competitor";
-import Define from "@/app/components/define";
-import DesignProcess from "@/app/components/design-process";
-import Down from "@/app/components/down";
-import Hero from "@/app/components/hero";
-import Ideate from "@/app/components/ideate";
-import Introduction from "@/app/components/introduction";
-import MoodboardCard from "@/app/components/moodboard-card";
-import NextSteps from "@/app/components/next-steps";
 import Paragraph from "@/app/components/paragraph";
-import Project from "@/app/components/project";
-import Prototype from "@/app/components/prototype";
-import Research from "@/app/components/research";
-import ResearchCompetition from "@/app/components/research-competition";
-import ResearchExploration from "@/app/components/research-exploration";
-import TaskFlowCard from "@/app/components/task-flow-card";
-import Test from "@/app/components/test";
 import UserNeed from "@/app/components/user-need";
+import Down from "@/app/components/down";
+import ColorRow from "@/app/components/color-row";
+import MoodboardCard from "@/app/components/moodboard-card";
+import Button from "@/app/components/button";
+import TaskFlowCard from "@/app/components/task-flow-card";
+import Introduction from "@/app/components/introduction";
+import DesignProcess from "@/app/components/design-process";
+import Hero from "@/app/components/hero";
+import ResearchCompetition from "@/app/components/research-competition";
+import Research from "@/app/components/research";
+import ResearchExploration from "@/app/components/research-exploration";
+import Define from "@/app/components/define";
+import Ideate from "@/app/components/ideate";
+import Prototype from "@/app/components/prototype";
+import Test from "@/app/components/test";
+import NextSteps from "@/app/components/next-steps";
+import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
 
 export default function Resto() {
+  const researchRef = useRef<HTMLDivElement>(null);
+  const defineRef = useRef<HTMLDivElement>(null);
+  const ideateRef = useRef<HTMLDivElement>(null);
+  const prototypeRef = useRef<HTMLDivElement>(null);
+  const testRef = useRef<HTMLDivElement>(null);
+  const nextStepsRef = useRef<HTMLDivElement>(null);
+  const [isNavVisible, setIsNavVisible] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+
+  const refs = useMemo(
+    () => ({
+      [Section.RESEARCH]: researchRef,
+      [Section.DEFINE]: defineRef,
+      [Section.IDEATE]: ideateRef,
+      [Section.PROTOTYPE]: prototypeRef,
+      [Section.TEST]: testRef,
+      [Section.NEXTSTEPS]: nextStepsRef,
+    }),
+    []
+  );
+
+  useEffect(() => {
+    const handleScroll = () => {
+      let current = activeSection;
+      let isVisible = false;
+
+      for (const [name, ref] of Object.entries(refs)) {
+        if (ref.current) {
+          const rect = ref.current.getBoundingClientRect();
+          const viewportHeight = window.innerHeight;
+          const middleOfViewport = viewportHeight / 2;
+
+          if (rect.bottom < middleOfViewport) {
+            isVisible = true;
+            current = name;
+          }
+        }
+      }
+
+      setIsNavVisible(isVisible);
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [activeSection, refs]);
+
+  const handleNav = (section: Section) => {
+    if (refs[section].current) {
+      refs[section].current.scrollIntoView();
+    }
+  };
+
   return (
-    <Project
-      hero={hero}
-      introduction={introduction}
-      designprocess={designProcess}
-      research={research}
-      define={define}
-      ideate={ideate}
-      prototype={prototype}
-      test={test}
-      nextsteps={nextSteps}
-    />
+    <div className="relative">
+      {/* nav bar */}
+      <div
+        className={`w-[150px] h-[500px] fixed top-20 right-0 transition-all duration-500 space-y-[20px] text-[18px] ${
+          isNavVisible
+            ? "opacity-100 translate-x-0"
+            : "opacity-0 translate-x-[100%]"
+        }`}
+      >
+        {SECTIONS.map((section) => (
+          <div
+            key={section}
+            className={`${
+              activeSection === section ? "text-green2" : "text-[#A9A497]"
+            }`}
+            onClick={() => handleNav(section)}
+            onMouseEnter={handleCursorHoverStart}
+            onMouseLeave={handleCursorHoverStop}
+          >
+            {section}
+          </div>
+        ))}
+      </div>
+      <div className="space-y-[20px] tracking-[.01em]">
+        {/* hero */}
+        <Hero
+          title="Resto"
+          subtitle="Dining App in Japan"
+          desc="A mobile app that simplifies restaurant discovery and reservation management for travelers in Japan."
+          role="UX/UI Designer"
+          type="End-to-end-application"
+          timeline="June - Aug 2024"
+          url="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&node-type=canvas&viewport=284%2C360%2C0.06&t=6NVbRlngR40WJKQQ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1"
+        >
+          {heroSection}
+        </Hero>
+        {/* introduction */}
+        <Introduction
+          background="After the pandemic, travel has become more accessible, allowing many people to explore various countries. According to a World Economic Forum report, Japan is one of the best tourist destinations for 2024, with 9.62 million foreign tourists visiting in 2023. Many people look forward to experiencing Japan's food culture, but for those unfamiliar with the language and culture, finding and booking suitable restaurants or cafes can be challenging. Additionally, organizing all the reservations and saved restaurants across different apps can be disorganized and sometimes difficult."
+          problems="Travelers often face difficulties in discovering suitable restaurants in Japan and managing their reservations efficiently."
+          solutions="Developing an app that allows travelers to search for restaurants that match their preferences and manage reservations easily, without being hindered by language barriers."
+        />
+        {/* design process */}
+        <DesignProcess
+          research={["Competitive Analysis", "Survey", "User Interviews"]}
+          define={[
+            "Affinity Map",
+            "User Personas",
+            "Problem Statement",
+            "Project Goals",
+          ]}
+          ideate={[
+            "Feature Ideas",
+            "Card Sort",
+            "Sitemap",
+            "Task & User Flows",
+          ]}
+          prototype={["Wireframes", "Branding", "Prototyping"]}
+          test={["Usability Testing", "Iterations"]}
+          nextSteps={["Learning", "Different Approach"]}
+        />
+        {/* research */}
+        <Research
+          ref={researchRef}
+          desc="Understanding what users prioritize when searching for restaurants as well as their experiences and issues with reservations despite language barriers."
+          goals={[
+            "Identify what users prioritize in choosing restaurants when traveling",
+            "Understand how people plan their trips and what kind of information is required for them",
+            "Discover the key factors and challenges users face when searching for and selecting restaurants",
+            "Understand how users manage their desired destinations and planned locations",
+          ]}
+          researchCompetition={researchCompetition}
+          researchExplorationTitle="Exploring Travel Dining Experiences"
+          researchExploration={researchExploration}
+        />
+        {/* define */}
+        <Define
+          ref={defineRef}
+          desc="After implementing the secondary research methods, I recorded all data points and ideas on individual sticky notes. I grouped them based on interview topics and further categorized them into patterns."
+          affinityMaps={[
+            {
+              label:
+                "How was your experience when finding restaurants or cafes?",
+              map: affinityMap1,
+            },
+            {
+              label: "What criteria do you use when selecting restaurants?",
+              map: affinityMap2,
+            },
+          ]}
+          affinityMapUrl="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=90-2022&t=Rh2UA7lbJbDJRhGN-1"
+          affinityMapKeyFindings={[
+            {
+              label: "62% of participants",
+              sublabel: "decide on a restaurant based on reviews or ratings",
+            },
+            {
+              label: "59% of participants",
+              sublabel:
+                "struggle to choose a restaurant due to search challenges, despite valuing dining on their trip.",
+            },
+            {
+              label: "Many participants",
+              sublabel:
+                "find the language barrier to be the biggest challenge when making or changing reservations",
+            },
+          ]}
+          personaDesc="After conducting research, reviewing the findings, and organizing the data, I created two personas in the early stages of the design process to deepen my understanding of specific users and user needs."
+          personas={[
+            {
+              name: "Persona 1",
+              desc: persona1Desc,
+              image: "/resto/persona-1.jpeg",
+            },
+            {
+              name: "Persona 2",
+              desc: persona2Desc,
+              image: "/resto/persona-2.jpeg",
+            },
+          ]}
+          personasUrl="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=0-1&t=6g8QSShYxUqXAJml-1"
+          exploringDesc1="To clarify the solutions needed to address specific user needs, I created two POV statements based on the personas. Among them, I selected the POV focusing on the language barrier and managing restaurant lists, as these were identified as significant challenges for many users."
+          povStatement="I’d like to explore ways to propose a streamlined and functional reservation system catering to travelers who face challenges with language barriers during restaurant booking or encounter issues managing reservations."
+          exploringDesc2="Then, I took the problems into clear questions that help find creative and practical solutions."
+          hmwQuestion="How might we design a reservation system that easily accommodates people facing language barriers, ensuring smooth booking experiences?"
+          projectGoalsDesc="As a step to generate ideas to solve the personas' problems, I mapped out project goals based on the research findings."
+          projectGoals="/resto/project-goals.svg"
+          projectGoalsUrl="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1-278&t=6g8QSShYxUqXAJml-1"
+        />
+        {/* ideate */}
+        <Ideate
+          brainstorm={{
+            desc: "I brainstormed key features that address the intersection of business and user goals, while also considering technical feasibility to ensure both are met.",
+            content: brainstorm,
+          }}
+          sitemap={{
+            desc: "Based on the results of the card sort, I designed the app's structure and created a sitemap. Referring to the research, which showed that travelers tend to struggle with searching for restaurants and managing reservations.",
+            img: "/resto/sitemap.svg",
+            url: "https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=35-1840&t=Rh2UA7lbJbDJRhGN-1",
+          }}
+          refine={{
+            desc: "I created two task flows to clarify the steps necessary for users to achieve specific goals and promote a user-friendly approach.",
+            flows: [
+              {
+                label:
+                  "Discover restaurants or cafes and make reservations those tailored to your preferences",
+                img: "/resto/user-flow-1.svg",
+              },
+              {
+                label:
+                  "Check the reservations and the saved restaurants to plan your dining schedule during the trip",
+                img: "/resto/user-flow-2.svg",
+              },
+            ],
+            url: "https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=42-8803&t=Rh2UA7lbJbDJRhGN-1",
+          }}
+          map={{
+            desc: "I created a user flow to understand user needs and identify potential issues or confusing elements that are related to “search” and “reservations”.",
+            label: "Discover restaurants or cafes and make reservations",
+            img: "/resto/task-flow.svg",
+            url: "https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=80-1978&t=Rh2UA7lbJbDJRhGN-1",
+          }}
+        />
+        {/* prototype */}
+        <Prototype
+          ref={prototypeRef}
+          exploring={{
+            desc: "I created specific design layouts based on user flows, task flows, and observations of how users prefer to search and prevent duplicate reservations. Starting from low-fidelity sketches, I developed more detailed layouts, digitizing them into mid-fidelity wireframes to make the designs more tangible.",
+            lofi: {
+              images: [
+                "/resto/lofi-1.jpg",
+                "/resto/lofi-2.jpg",
+                "/resto/lofi-3.jpg",
+              ],
+              width: 315,
+              height: 400,
+              url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=46-55&t=6g8QSShYxUqXAJml-1",
+            },
+            midfi: {
+              images: [
+                "/resto/midfi-1.svg",
+                "/resto/midfi-2.svg",
+                "/resto/midfi-3.svg",
+                "/resto/midfi-4.svg",
+              ],
+              width: 220,
+              height: 600,
+              url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1043-37036&t=6g8QSShYxUqXAJml-1",
+            },
+          }}
+          tests={{
+            desc: "After creating the mid-fidelity wireframes, I conducted a quick usability test with 6 participants to check if users understood my design layout and if they found the interface user-friendly.",
+            images: [
+              "/resto/test-1.svg",
+              "/resto/test-2.svg",
+              "/resto/test-3.svg",
+            ],
+          }}
+          refining={{
+            desc: "Based on the results of the mid-fi usability test, I iterated on the design to make it more user-friendly and help users achieve their goals.",
+            images: [
+              "/resto/iteration-1.svg",
+              "/resto/iteration-2.svg",
+              "/resto/iteration-3.svg",
+              "/resto/iteration-4.svg",
+            ],
+          }}
+          building={{
+            desc: "To create a user-centered product, it&apos;s essential to build a brand image that attracts users. I established brand values to ensure that searching for and booking restaurants does not feel difficult.",
+            content: building,
+          }}
+          branding={{
+            desc: "I incorporated all branding elements into the wireframes to create high-fidelity designs.",
+            images: [
+              "/resto/hifi-1.png",
+              "/resto/hifi-2.png",
+              "/resto/hifi-3.png",
+              "/resto/hifi-4.png",
+            ],
+            url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=692-48559&t=6g8QSShYxUqXAJml-1",
+          }}
+        />
+        {/* test */}
+        <Test
+          ref={testRef}
+          enhancing={{
+            desc: enhancingDesc,
+            taskFlows: enhancingTaskFlows,
+          }}
+          iterating={{
+            desc: "Based on the usability testing, I refined the design of the app that makes it easy for travelers to book and manage restaurant reservations.",
+            images: [
+              "/resto/iteration-1.png",
+              "/resto/iteration-2.png",
+              "/resto/iteration-3.png",
+              "/resto/iteration-4.png",
+            ],
+          }}
+          final={{
+            header: "Resto - Dining App in Japan",
+            desc: "A mobile app that simplifies restaurant discovery and reservation management for travelers in Japan.",
+            demos: [
+              {
+                video: "/resto/final-1.mp4",
+                header:
+                  "A search function that allows users to search based on their needs",
+                notes: [
+                  "Reduce the difficulty of making reservations due to language barriers",
+                  "Make restaurant selection smooth and easy",
+                ],
+              },
+              {
+                video: "/resto/final-2.mp4",
+                header:
+                  "Clear and trustworthy reviews help users effortlessly choose their ideal restaurant",
+                notes: [
+                  "Offer a more authentic local experience",
+                  "Assist in the discovery of hidden local gems",
+                ],
+                mirror: true,
+              },
+              {
+                video: "/resto/final-3.mp4",
+                header:
+                  "Searching for restaurants near landmarks helps users quickly find dining options",
+                notes: [
+                  "Make trip planning easier",
+                  "Choose restaurants based on sightseeing locations",
+                ],
+              },
+              {
+                video: "/resto/final-4.mp4",
+                header:
+                  "A seamless reservation system empowers travelers to plan smooth journeys",
+                notes: [
+                  "Eliminate double bookings for a perfectly organized trip",
+                ],
+                mirror: true,
+              },
+            ],
+            url: "https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&node-type=canvas&viewport=284%2C360%2C0.06&t=6NVbRlngR40WJKQQ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1",
+          }}
+        />
+        {/* next steps */}
+        <NextSteps
+          ref={nextStepsRef}
+          learning="Throughout the process, from research to design, it is essential to understand users' pain points and consider how to enhance the user experience in order to create a better product. Since everyone has different travel purposes and preferences when choosing a restaurant, it was crucial to identify the problems that diverse users face and what they desire. Throughout this project, I came to understand the importance of user feedback and the necessity of collecting valuable insights through research."
+          opportunities={opportunitiesForEnhancement}
+        />
+      </div>
+    </div>
   );
 }
 
-const hero = () => (
-  <Hero
-    title="Resto"
-    subtitle="Dining App in Japan"
-    desc="A mobile app that simplifies restaurant discovery and reservation management for travelers in Japan."
-    role="UX/UI Designer"
-    type="End-to-end-application"
-    timeline="June - Aug 2024"
-    url="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&node-type=canvas&viewport=284%2C360%2C0.06&t=6NVbRlngR40WJKQQ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1"
-  >
-    {heroSection}
-  </Hero>
-);
+enum Section {
+  RESEARCH = "RESEARCH",
+  DEFINE = "DEFINE",
+  IDEATE = "IDEATE",
+  PROTOTYPE = "PROTOTYPE",
+  TEST = "TEST",
+  NEXTSTEPS = "NEXT STEPS",
+}
+
+const SECTIONS = [
+  Section.RESEARCH,
+  Section.DEFINE,
+  Section.IDEATE,
+  Section.PROTOTYPE,
+  Section.TEST,
+  Section.NEXTSTEPS,
+];
 
 const heroSection = (
   <div className="flex justify-between items-end my-[50px]">
@@ -62,260 +405,6 @@ const heroSection = (
     <Image src="/resto/screen-2.png" alt="Resto" width={206} height={453} />
     <Image src="/resto/screen-3.png" alt="Resto" width={206} height={453} />
   </div>
-);
-
-const introduction = () => (
-  <Introduction
-    background="After the pandemic, travel has become more accessible, allowing many people to explore various countries. According to a World Economic Forum report, Japan is one of the best tourist destinations for 2024, with 9.62 million foreign tourists visiting in 2023. Many people look forward to experiencing Japan's food culture, but for those unfamiliar with the language and culture, finding and booking suitable restaurants or cafes can be challenging. Additionally, organizing all the reservations and saved restaurants across different apps can be disorganized and sometimes difficult."
-    problems="Travelers often face difficulties in discovering suitable restaurants in Japan and managing their reservations efficiently."
-    solutions="Developing an app that allows travelers to search for restaurants that match their preferences and manage reservations easily, without being hindered by language barriers."
-  />
-);
-
-const designProcess = () => (
-  <DesignProcess
-    research={["Competitive Analysis", "Survey", "User Interviews"]}
-    define={[
-      "Affinity Map",
-      "User Personas",
-      "Problem Statement",
-      "Project Goals",
-    ]}
-    ideate={["Feature Ideas", "Card Sort", "Sitemap", "Task & User Flows"]}
-    prototype={["Wireframes", "Branding", "Prototyping"]}
-    test={["Usability Testing", "Iterations"]}
-    nextSteps={["Learning", "Different Approach"]}
-  />
-);
-
-const research = (ref: React.ForwardedRef<HTMLDivElement>) => (
-  <Research
-    ref={ref}
-    desc="Understanding what users prioritize when searching for restaurants as well as their experiences and issues with reservations despite language barriers."
-    goals={[
-      "Identify what users prioritize in choosing restaurants when traveling",
-      "Understand how people plan their trips and what kind of information is required for them",
-      "Discover the key factors and challenges users face when searching for and selecting restaurants",
-      "Understand how users manage their desired destinations and planned locations",
-    ]}
-    researchCompetition={researchCompetition}
-    researchExplorationTitle="Exploring Travel Dining Experiences"
-    researchExploration={researchExploration}
-  />
-);
-
-const define = (ref: React.ForwardedRef<HTMLDivElement>) => (
-  <Define
-    ref={ref}
-    desc="After implementing the secondary research methods, I recorded all data points and ideas on individual sticky notes. I grouped them based on interview topics and further categorized them into patterns."
-    affinityMaps={[
-      {
-        label: "How was your experience when finding restaurants or cafes?",
-        map: affinityMap1,
-      },
-      {
-        label: "What criteria do you use when selecting restaurants?",
-        map: affinityMap2,
-      },
-    ]}
-    affinityMapUrl="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=90-2022&t=Rh2UA7lbJbDJRhGN-1"
-    affinityMapKeyFindings={[
-      {
-        label: "62% of participants",
-        sublabel: "decide on a restaurant based on reviews or ratings",
-      },
-      {
-        label: "59% of participants",
-        sublabel:
-          "struggle to choose a restaurant due to search challenges, despite valuing dining on their trip.",
-      },
-      {
-        label: "Many participants",
-        sublabel:
-          "find the language barrier to be the biggest challenge when making or changing reservations",
-      },
-    ]}
-    personaDesc="After conducting research, reviewing the findings, and organizing the data, I created two personas in the early stages of the design process to deepen my understanding of specific users and user needs."
-    personas={[
-      {
-        name: "Persona 1",
-        desc: persona1Desc,
-        image: "/resto/persona-1.jpeg",
-      },
-      {
-        name: "Persona 2",
-        desc: persona2Desc,
-        image: "/resto/persona-2.jpeg",
-      },
-    ]}
-    personasUrl="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=0-1&t=6g8QSShYxUqXAJml-1"
-    exploringDesc1="To clarify the solutions needed to address specific user needs, I created two POV statements based on the personas. Among them, I selected the POV focusing on the language barrier and managing restaurant lists, as these were identified as significant challenges for many users."
-    povStatement="I’d like to explore ways to propose a streamlined and functional reservation system catering to travelers who face challenges with language barriers during restaurant booking or encounter issues managing reservations."
-    exploringDesc2="Then, I took the problems into clear questions that help find creative and practical solutions."
-    hmwQuestion="How might we design a reservation system that easily accommodates people facing language barriers, ensuring smooth booking experiences?"
-    projectGoalsDesc="As a step to generate ideas to solve the personas' problems, I mapped out project goals based on the research findings."
-    projectGoals="/resto/project-goals.svg"
-    projectGoalsUrl="https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1-278&t=6g8QSShYxUqXAJml-1"
-  />
-);
-
-const ideate = (ref: React.ForwardedRef<HTMLDivElement>) => (
-  <Ideate
-    ref={ref}
-    brainstorm={{
-      desc: "I brainstormed key features that address the intersection of business and user goals, while also considering technical feasibility to ensure both are met.",
-      content: brainstorm,
-    }}
-    sitemap={{
-      desc: "Based on the results of the card sort, I designed the app's structure and created a sitemap. Referring to the research, which showed that travelers tend to struggle with searching for restaurants and managing reservations.",
-      img: "/resto/sitemap.svg",
-      url: "https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=35-1840&t=Rh2UA7lbJbDJRhGN-1",
-    }}
-    refine={{
-      desc: "I created two task flows to clarify the steps necessary for users to achieve specific goals and promote a user-friendly approach.",
-      flows: [
-        {
-          label:
-            "Discover restaurants or cafes and make reservations those tailored to your preferences",
-          img: "/resto/user-flow-1.svg",
-        },
-        {
-          label:
-            "Check the reservations and the saved restaurants to plan your dining schedule during the trip",
-          img: "/resto/user-flow-2.svg",
-        },
-      ],
-      url: "https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=42-8803&t=Rh2UA7lbJbDJRhGN-1",
-    }}
-    map={{
-      desc: "I created a user flow to understand user needs and identify potential issues or confusing elements that are related to “search” and “reservations”.",
-      label: "Discover restaurants or cafes and make reservations",
-      img: "/resto/task-flow.svg",
-      url: "https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=80-1978&t=Rh2UA7lbJbDJRhGN-1",
-    }}
-  />
-);
-
-const prototype = (ref: React.ForwardedRef<HTMLDivElement>) => (
-  <Prototype
-    ref={ref}
-    exploring={{
-      desc: "I created specific design layouts based on user flows, task flows, and observations of how users prefer to search and prevent duplicate reservations. Starting from low-fidelity sketches, I developed more detailed layouts, digitizing them into mid-fidelity wireframes to make the designs more tangible.",
-      lofi: {
-        images: ["/resto/lofi-1.jpg", "/resto/lofi-2.jpg", "/resto/lofi-3.jpg"],
-        width: 315,
-        height: 400,
-        url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=46-55&t=6g8QSShYxUqXAJml-1",
-      },
-      midfi: {
-        images: [
-          "/resto/midfi-1.svg",
-          "/resto/midfi-2.svg",
-          "/resto/midfi-3.svg",
-          "/resto/midfi-4.svg",
-        ],
-        width: 220,
-        height: 600,
-        url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1043-37036&t=6g8QSShYxUqXAJml-1",
-      },
-    }}
-    tests={{
-      desc: "After creating the mid-fidelity wireframes, I conducted a quick usability test with 6 participants to check if users understood my design layout and if they found the interface user-friendly.",
-      images: ["/resto/test-1.svg", "/resto/test-2.svg", "/resto/test-3.svg"],
-    }}
-    refining={{
-      desc: "Based on the results of the mid-fi usability test, I iterated on the design to make it more user-friendly and help users achieve their goals.",
-      images: [
-        "/resto/iteration-1.svg",
-        "/resto/iteration-2.svg",
-        "/resto/iteration-3.svg",
-        "/resto/iteration-4.svg",
-      ],
-    }}
-    building={{
-      desc: "To create a user-centered product, it&apos;s essential to build a brand image that attracts users. I established brand values to ensure that searching for and booking restaurants does not feel difficult.",
-      content: building,
-    }}
-    branding={{
-      desc: "I incorporated all branding elements into the wireframes to create high-fidelity designs.",
-      images: [
-        "/resto/hifi-1.png",
-        "/resto/hifi-2.png",
-        "/resto/hifi-3.png",
-        "/resto/hifi-4.png",
-      ],
-      url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=692-48559&t=6g8QSShYxUqXAJml-1",
-    }}
-  />
-);
-
-const test = (ref: React.ForwardedRef<HTMLDivElement>) => (
-  <Test
-    ref={ref}
-    enhancing={{
-      desc: enhancingDesc,
-      taskFlows: enhancingTaskFlows,
-    }}
-    iterating={{
-      desc: "Based on the usability testing, I refined the design of the app that makes it easy for travelers to book and manage restaurant reservations.",
-      images: [
-        "/resto/iteration-1.png",
-        "/resto/iteration-2.png",
-        "/resto/iteration-3.png",
-        "/resto/iteration-4.png",
-      ],
-    }}
-    final={{
-      header: "Resto - Dining App in Japan",
-      desc: "A mobile app that simplifies restaurant discovery and reservation management for travelers in Japan.",
-      demos: [
-        {
-          video: "/resto/final-1.mp4",
-          header:
-            "A search function that allows users to search based on their needs",
-          notes: [
-            "Reduce the difficulty of making reservations due to language barriers",
-            "Make restaurant selection smooth and easy",
-          ],
-        },
-        {
-          video: "/resto/final-2.mp4",
-          header:
-            "Clear and trustworthy reviews help users effortlessly choose their ideal restaurant",
-          notes: [
-            "Offer a more authentic local experience",
-            "Assist in the discovery of hidden local gems",
-          ],
-          mirror: true,
-        },
-        {
-          video: "/resto/final-3.mp4",
-          header:
-            "Searching for restaurants near landmarks helps users quickly find dining options",
-          notes: [
-            "Make trip planning easier",
-            "Choose restaurants based on sightseeing locations",
-          ],
-        },
-        {
-          video: "/resto/final-4.mp4",
-          header:
-            "A seamless reservation system empowers travelers to plan smooth journeys",
-          notes: ["Eliminate double bookings for a perfectly organized trip"],
-          mirror: true,
-        },
-      ],
-      url: "https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&node-type=canvas&viewport=284%2C360%2C0.06&t=6NVbRlngR40WJKQQ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1",
-    }}
-  />
-);
-
-const nextSteps = (ref: React.ForwardedRef<HTMLDivElement>) => (
-  <NextSteps
-    ref={ref}
-    learning="Throughout the process, from research to design, it is essential to understand users' pain points and consider how to enhance the user experience in order to create a better product. Since everyone has different travel purposes and preferences when choosing a restaurant, it was crucial to identify the problems that diverse users face and what they desire. Throughout this project, I came to understand the importance of user feedback and the necessity of collecting valuable insights through research."
-    opportunities={opportunitiesForEnhancement}
-  />
 );
 
 const researchCompetition = (
