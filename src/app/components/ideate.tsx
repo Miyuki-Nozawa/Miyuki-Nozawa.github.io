@@ -6,39 +6,36 @@ import Paragraph from "@/app/components/paragraph";
 import ProjectSection from "@/app/components/project-section";
 import ProjectSubSection from "@/app/components/project-subsection";
 
+export type IdeateProps = {
+  brainstorm: {
+    desc: string;
+    content: React.ReactNode;
+  };
+  sitemap?: {
+    desc: string;
+    img: string;
+    url: string;
+  };
+  refine: {
+    desc: string;
+    flows: Flow[];
+    url: string;
+  };
+  map: {
+    desc: string;
+    label: string;
+    img: React.ReactNode;
+    url: string;
+  };
+};
+
 type Flow = {
   label: string;
   img: string;
 };
 
 export default forwardRef(function Ideate(
-  {
-    brainstorm,
-    sitemap,
-    refine,
-    map,
-  }: {
-    brainstorm: {
-      desc: string;
-      content: React.ReactNode;
-    };
-    sitemap?: {
-      desc: string;
-      img: string;
-      url: string;
-    };
-    refine: {
-      desc: string;
-      flows: Flow[];
-      url: string;
-    };
-    map: {
-      desc: string;
-      label: string;
-      img: React.ReactNode;
-      url: string;
-    };
-  },
+  { brainstorm, sitemap, refine, map }: IdeateProps,
   ref: React.ForwardedRef<HTMLDivElement>
 ) {
   return (

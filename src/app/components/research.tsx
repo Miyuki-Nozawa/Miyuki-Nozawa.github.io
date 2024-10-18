@@ -4,21 +4,26 @@ import Paragraph from "@/app/components/paragraph";
 import ProjectSection from "@/app/components/project-section";
 import ProjectSubSection from "@/app/components/project-subsection";
 import ResearchGoalCard from "@/app/components/research-goal-card";
+import ResearchCompetition, {
+  ResearchCompetitionProps,
+} from "@/app/components/research-competition";
+import ResearchExploration, {
+  ResearchExplorationProps,
+} from "@/app/components/research-exploration";
+
+export type ResearchProps = {
+  desc: string;
+  goals: string[];
+  researchCompetition: ResearchCompetitionProps & {
+    children: React.ReactNode;
+  };
+  researchExploration: ResearchExplorationProps & {
+    title: string;
+  };
+};
 
 export default forwardRef(function Research(
-  {
-    desc,
-    goals,
-    researchCompetition,
-    researchExplorationTitle,
-    researchExploration,
-  }: {
-    desc: string;
-    goals: string[];
-    researchCompetition: React.ReactNode;
-    researchExplorationTitle: string;
-    researchExploration: React.ReactNode;
-  },
+  { desc, goals, researchCompetition, researchExploration }: ResearchProps,
   ref: React.ForwardedRef<HTMLDivElement>
 ) {
   return (
@@ -34,10 +39,22 @@ export default forwardRef(function Research(
           </div>
         </ProjectSubSection>
         <ProjectSubSection title="Understanding the Competition">
-          {researchCompetition}
+          <ResearchCompetition
+            desc={researchCompetition.desc}
+            notes={researchCompetition.notes}
+            features={researchCompetition.features}
+          >
+            {researchCompetition.children}
+          </ResearchCompetition>
         </ProjectSubSection>
-        <ProjectSubSection title={researchExplorationTitle}>
-          {researchExploration}
+        <ProjectSubSection title={researchExploration.title}>
+          <ResearchExploration
+            surveyDesc={researchExploration.surveyDesc}
+            surveyQuestions={researchExploration.surveyQuestions}
+            userInterviewDesc={researchExploration.userInterviewDesc}
+            userInterviewQuestions={researchExploration.userInterviewQuestions}
+            findings={researchExploration.findings}
+          />
         </ProjectSubSection>
       </ProjectSection>
     </div>

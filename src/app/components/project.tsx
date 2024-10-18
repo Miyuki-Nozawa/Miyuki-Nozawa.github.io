@@ -2,27 +2,40 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
+import Hero, { HeroProps } from "@/app/components/hero";
+import Introduction, { IntroductionProps } from "@/app/components/introduction";
+import DesignProcess, {
+  DesignProcessProps,
+} from "@/app/components/design-process";
+import Research, { ResearchProps } from "@/app/components/research";
+import Define, { DefineProps } from "@/app/components/define";
+import Ideate, { IdeateProps } from "@/app/components/ideate";
+import Prototype, { PrototypeProps } from "@/app/components/prototype";
+import Test, { TestProps } from "@/app/components/test";
+import NextSteps, { NextStepsProps } from "@/app/components/next-steps";
 
 export default function Project({
   hero,
   introduction,
-  designprocess,
+  designProcess,
   research,
   define,
   ideate,
   prototype,
   test,
-  nextsteps,
+  nextSteps,
 }: {
-  hero: () => React.ReactNode;
-  introduction: () => React.ReactNode;
-  designprocess: () => React.ReactNode;
-  research: (ref: React.ForwardedRef<HTMLDivElement>) => React.ReactNode;
-  define: (ref: React.ForwardedRef<HTMLDivElement>) => React.ReactNode;
-  ideate: (ref: React.ForwardedRef<HTMLDivElement>) => React.ReactNode;
-  prototype: (ref: React.ForwardedRef<HTMLDivElement>) => React.ReactNode;
-  test: (ref: React.ForwardedRef<HTMLDivElement>) => React.ReactNode;
-  nextsteps: (ref: React.ForwardedRef<HTMLDivElement>) => React.ReactNode;
+  hero: HeroProps & {
+    children: React.ReactNode;
+  };
+  introduction: IntroductionProps;
+  designProcess: DesignProcessProps;
+  research: ResearchProps;
+  define: DefineProps;
+  ideate: IdeateProps;
+  prototype: PrototypeProps;
+  test: TestProps;
+  nextSteps: NextStepsProps;
 }) {
   const researchRef = useRef<HTMLDivElement>(null);
   const defineRef = useRef<HTMLDivElement>(null);
@@ -107,15 +120,70 @@ export default function Project({
         ))}
       </div>
       <div className="space-y-[20px] tracking-[.01em]">
-        {hero()}
-        {introduction()}
-        {designprocess()}
-        {research(researchRef)}
-        {define(defineRef)}
-        {ideate(ideateRef)}
-        {prototype(prototypeRef)}
-        {test(testRef)}
-        {nextsteps(nextStepsRef)}
+        <Hero
+          title={hero.title}
+          subtitle={hero.subtitle}
+          desc={hero.desc}
+          role={hero.role}
+          type={hero.type}
+          timeline={hero.timeline}
+          url={hero.url}
+        >
+          {hero.children}
+        </Hero>
+        <Introduction
+          background={introduction.background}
+          problems={introduction.problems}
+          solutions={introduction.solutions}
+        />
+        <DesignProcess
+          research={designProcess.research}
+          define={designProcess.define}
+          ideate={designProcess.ideate}
+          prototype={designProcess.prototype}
+          test={designProcess.test}
+          nextSteps={designProcess.nextSteps}
+        />
+        <Research
+          ref={researchRef}
+          desc={research.desc}
+          goals={research.goals}
+          researchCompetition={research.researchCompetition}
+          researchExploration={research.researchExploration}
+        />
+        <Define
+          ref={defineRef}
+          affinity={define.affinity}
+          personas={define.personas}
+          exploring={define.exploring}
+          goals={define.goals}
+        />
+        <Ideate
+          ref={ideateRef}
+          brainstorm={ideate.brainstorm}
+          sitemap={ideate.sitemap}
+          refine={ideate.refine}
+          map={ideate.map}
+        />
+        <Prototype
+          ref={prototypeRef}
+          exploring={prototype.exploring}
+          tests={prototype.tests}
+          refining={prototype.refining}
+          building={prototype.building}
+          branding={prototype.branding}
+        />
+        <Test
+          ref={testRef}
+          enhancing={test.enhancing}
+          iterating={test.iterating}
+          final={test.final}
+        />
+        <NextSteps
+          ref={nextStepsRef}
+          learning={nextSteps.learning}
+          opportunities={nextSteps.opportunities}
+        />
       </div>
     </div>
   );

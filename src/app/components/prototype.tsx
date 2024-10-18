@@ -6,6 +6,31 @@ import Paragraph from "@/app/components/paragraph";
 import ProjectSection from "@/app/components/project-section";
 import ProjectSubSection from "@/app/components/project-subsection";
 
+export type PrototypeProps = {
+  exploring: {
+    desc: string;
+    lofi: Images;
+    midfi: Images;
+  };
+  tests: {
+    desc: string;
+    images: string[];
+  };
+  refining: {
+    desc: string;
+    images: string[];
+  };
+  building?: {
+    desc: string;
+    content: React.ReactNode;
+  };
+  branding: {
+    desc: string;
+    images: string[];
+    url: string;
+  };
+};
+
 type Images = {
   images: string[];
   width: number;
@@ -14,36 +39,7 @@ type Images = {
 };
 
 export default forwardRef(function Prototype(
-  {
-    exploring,
-    tests,
-    refining,
-    building,
-    branding,
-  }: {
-    exploring: {
-      desc: string;
-      lofi: Images;
-      midfi: Images;
-    };
-    tests: {
-      desc: string;
-      images: string[];
-    };
-    refining: {
-      desc: string;
-      images: string[];
-    };
-    building?: {
-      desc: string;
-      content: React.ReactNode;
-    };
-    branding: {
-      desc: string;
-      images: string[];
-      url: string;
-    };
-  },
+  { exploring, tests, refining, building, branding }: PrototypeProps,
   ref: React.ForwardedRef<HTMLDivElement>
 ) {
   return (
@@ -76,7 +72,6 @@ export default forwardRef(function Prototype(
                   alt="midfi"
                   width={exploring.midfi.width}
                   height={exploring.midfi.height}
-                  className="rounded-[10px]"
                 />
               ))}
             </div>

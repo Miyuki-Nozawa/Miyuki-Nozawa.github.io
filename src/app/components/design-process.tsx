@@ -2,6 +2,15 @@ import ProjectSection from "@/app/components/project-section";
 import ProjectSubSection from "@/app/components/project-subsection";
 import DesignCard from "@/app/components/design-card";
 
+export type DesignProcessProps = {
+  research: string[];
+  define: string[];
+  ideate: string[];
+  prototype: string[];
+  test: string[];
+  nextSteps: string[];
+};
+
 export default function DesignProcess({
   research,
   define,
@@ -9,14 +18,7 @@ export default function DesignProcess({
   prototype,
   test,
   nextSteps,
-}: {
-  research: string[];
-  define: string[];
-  ideate: string[];
-  prototype: string[];
-  test: string[];
-  nextSteps: string[];
-}) {
+}: DesignProcessProps) {
   return (
     <ProjectSection>
       <ProjectSubSection title="Design Process">

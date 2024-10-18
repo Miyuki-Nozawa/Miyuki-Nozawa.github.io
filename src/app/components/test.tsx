@@ -8,6 +8,23 @@ import ProjectSubSection from "@/app/components/project-subsection";
 import Final from "@/app/components/final";
 import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
 
+export type TestProps = {
+  enhancing: {
+    desc: React.ReactNode;
+    taskFlows: React.ReactNode;
+  };
+  iterating: {
+    desc: string;
+    images: string[];
+  };
+  final: {
+    header: string;
+    desc: string;
+    demos: Demo[];
+    url: string;
+  };
+};
+
 type Demo = {
   video: string;
   header: string;
@@ -16,26 +33,7 @@ type Demo = {
 };
 
 export default forwardRef(function Test(
-  {
-    enhancing,
-    iterating,
-    final,
-  }: {
-    enhancing: {
-      desc: React.ReactNode;
-      taskFlows: React.ReactNode;
-    };
-    iterating: {
-      desc: string;
-      images: string[];
-    };
-    final: {
-      header: string;
-      desc: string;
-      demos: Demo[];
-      url: string;
-    };
-  },
+  { enhancing, iterating, final }: TestProps,
   ref: React.ForwardedRef<HTMLDivElement>
 ) {
   return (
@@ -66,9 +64,7 @@ export default forwardRef(function Test(
               <div className="text-[22px] tracking-[.01em] font-medium">
                 {final.header}
               </div>
-              <div className="text-[18px] tracking-[.01em]">
-                {final.desc}
-              </div>
+              <div className="text-[18px] tracking-[.01em]">{final.desc}</div>
             </div>
           </div>
           <div className="space-y-[50px] py-[20px]">

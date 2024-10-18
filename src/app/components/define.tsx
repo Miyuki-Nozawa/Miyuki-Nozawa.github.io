@@ -10,6 +10,31 @@ import OutlinedCard from "@/app/components/outlined-card";
 import Down from "@/app/components/down";
 import { KeyCardT } from "@/types";
 
+export type DefineProps = {
+  affinity: {
+    desc: string;
+    maps: AffinityMap[];
+    url: string;
+    findings: KeyCardT;
+  };
+  personas: {
+    desc: string;
+    personas: Persona[];
+    url: string;
+  };
+  exploring: {
+    desc: string;
+    povStatement: string;
+    hmwQuestion: string;
+    summary: string;
+  };
+  goals: {
+    desc: string;
+    img: string;
+    url: string;
+  };
+};
+
 type AffinityMap = {
   label: string;
   map: React.ReactNode;
@@ -22,37 +47,7 @@ type Persona = {
 };
 
 export default forwardRef(function Define(
-  {
-    desc,
-    affinityMaps,
-    affinityMapUrl,
-    affinityMapKeyFindings,
-    personaDesc,
-    personas,
-    personasUrl,
-    exploringDesc1,
-    povStatement,
-    hmwQuestion,
-    exploringDesc2,
-    projectGoalsDesc,
-    projectGoals,
-    projectGoalsUrl,
-  }: {
-    desc: string;
-    affinityMaps: AffinityMap[];
-    affinityMapUrl: string;
-    affinityMapKeyFindings: KeyCardT;
-    personaDesc: string;
-    personas: Persona[];
-    personasUrl: string;
-    exploringDesc1: string;
-    povStatement: string;
-    hmwQuestion: string;
-    exploringDesc2: string;
-    projectGoalsDesc: string;
-    projectGoals: string;
-    projectGoalsUrl: string;
-  },
+  { affinity, personas, exploring, goals }: DefineProps,
   ref: React.ForwardedRef<HTMLDivElement>
 ) {
   return (
@@ -60,9 +55,9 @@ export default forwardRef(function Define(
       <div ref={ref}></div>
       <ProjectSection title="Define">
         <ProjectSubSection title="Gaining a Deeper Understanding of User Needs and Pain Points">
-          <Paragraph>{desc}</Paragraph>
+          <Paragraph>{affinity.desc}</Paragraph>
           <div className="py-[20px] space-y-[30px]">
-            {affinityMaps.map(({ label, map }, i) => (
+            {affinity.maps.map(({ label, map }, i) => (
               <div
                 key={i}
                 className="w-full h-[700px] px-[30px] py-[50px] space-y-[30px] bg-white rounded-[20px]"
@@ -73,14 +68,14 @@ export default forwardRef(function Define(
                 {map}
               </div>
             ))}
-            <Figma href={affinityMapUrl}>View the Affinity Map</Figma>
+            <Figma href={affinity.url}>View the Affinity Map</Figma>
           </div>
-          <KeySection title="Key Findings" cards={affinityMapKeyFindings} />
+          <KeySection title="Key Findings" cards={affinity.findings} />
         </ProjectSubSection>
         <ProjectSubSection title="Transforming Insights into Personas">
-          <Paragraph>{personaDesc}</Paragraph>
+          <Paragraph>{personas.desc}</Paragraph>
           <div className="space-y-[20px]">
-            {personas.map(({ name, desc, image }, i) => (
+            {personas.personas.map(({ name, desc, image }, i) => (
               <div key={i} className="space-y-[30px] pb-[20px]">
                 <div className="space-y-[10px]">
                   <div className="text-[22px] font-medium tracking-[.01em]">
@@ -98,30 +93,30 @@ export default forwardRef(function Define(
               </div>
             ))}
           </div>
-          <Figma href={personasUrl}>View the Personas</Figma>
+          <Figma href={personas.url}>View the Personas</Figma>
         </ProjectSubSection>
         <ProjectSubSection title="Exploring and Clarifying Solutions for User Needs">
-          <Paragraph>{exploringDesc1}</Paragraph>
+          <Paragraph>{exploring.desc}</Paragraph>
           <OutlinedCard title="POV (Point Of View) statement">
-            {povStatement}
+            {exploring.povStatement}
           </OutlinedCard>
           <Down />
-          <Paragraph>{exploringDesc2}</Paragraph>
+          <Paragraph>{exploring.summary}</Paragraph>
           <OutlinedCard title="HMW (How Might We) question">
-            {hmwQuestion}
+            {exploring.hmwQuestion}
           </OutlinedCard>
         </ProjectSubSection>
         <ProjectSubSection title="Establishing Balanced Goals for Project Success">
-          <Paragraph>{projectGoalsDesc}</Paragraph>
+          <Paragraph>{goals.desc}</Paragraph>
           <div className="py-[20px] space-y-[30px]">
             <Image
-              src={projectGoals}
+              src={goals.img}
               alt="project goals"
               width={0}
               height={0}
               style={{ width: "100%", height: "auto" }}
             />
-            <Figma href={projectGoalsUrl}>View the Project Goals</Figma>
+            <Figma href={goals.url}>View the Project Goals</Figma>
           </div>
         </ProjectSubSection>
       </ProjectSection>

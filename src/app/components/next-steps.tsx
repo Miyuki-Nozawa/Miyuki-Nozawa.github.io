@@ -4,14 +4,13 @@ import Paragraph from "@/app/components/paragraph";
 import ProjectSection from "@/app/components/project-section";
 import ProjectSubSection from "@/app/components/project-subsection";
 
+export type NextStepsProps = {
+  learning: string;
+  opportunities: React.ReactNode;
+};
+
 export default forwardRef(function NextSteps(
-  {
-    learning,
-    opportunities,
-  }: {
-    learning: string;
-    opportunities: React.ReactNode;
-  },
+  { learning, opportunities }: NextStepsProps,
   ref: React.ForwardedRef<HTMLDivElement>
 ) {
   return (

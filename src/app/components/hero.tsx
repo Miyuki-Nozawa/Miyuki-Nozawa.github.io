@@ -2,6 +2,17 @@ import Link from "next/link";
 
 import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
 
+export type HeroProps = {
+  title: string;
+  subtitle: string;
+  desc: string;
+  role: string;
+  type: string;
+  timeline: string;
+  url: string;
+  children: React.ReactNode;
+};
+
 export default function Hero({
   title,
   subtitle,
@@ -11,16 +22,7 @@ export default function Hero({
   timeline,
   url,
   children,
-}: {
-  title: string;
-  subtitle: string;
-  desc: string;
-  role: string;
-  type: string;
-  timeline: string;
-  url: string;
-  children: React.ReactNode;
-}) {
+}: HeroProps) {
   return (
     <div className="bg-base pt-[100px] pb-[130px] rounded-b-[200px]">
       <div className="max-w-default mx-auto">

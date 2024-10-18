@@ -3,6 +3,14 @@ import Paragraph from "@/app/components/paragraph";
 import QuestionResponse from "@/app/components/question-response";
 import { KeyCardT } from "@/types";
 
+export type ResearchExplorationProps = {
+  surveyDesc: React.ReactNode;
+  surveyQuestions: QuestionResponseT;
+  userInterviewDesc: React.ReactNode;
+  userInterviewQuestions: QuestionResponseT;
+  findings: KeyCardT;
+};
+
 type QuestionResponseT = {
   question: string;
   response: string;
@@ -16,13 +24,7 @@ export default function ResearchExploration({
   userInterviewDesc,
   userInterviewQuestions,
   findings,
-}: {
-  surveyDesc: React.ReactNode;
-  surveyQuestions: QuestionResponseT;
-  userInterviewDesc: React.ReactNode;
-  userInterviewQuestions: QuestionResponseT;
-  findings: KeyCardT;
-}) {
+}: ResearchExplorationProps) {
   return (
     <div className="space-y-[50px]">
       {/* survey */}
