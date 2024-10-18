@@ -49,19 +49,15 @@ const hero = () => (
     timeline="June - Aug 2024"
     url="https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&node-type=canvas&viewport=284%2C360%2C0.06&t=6NVbRlngR40WJKQQ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1"
   >
-    {heroSection}
+    <div className="flex justify-between items-end my-[50px]">
+      <video className="w-[274px] h-[550px]" autoPlay muted loop>
+        <source src="/resto/hero.mp4" type="video/mp4" />
+      </video>
+      <Image src="/resto/screen-1.png" alt="Resto" width={206} height={453} />
+      <Image src="/resto/screen-2.png" alt="Resto" width={206} height={453} />
+      <Image src="/resto/screen-3.png" alt="Resto" width={206} height={453} />
+    </div>
   </Hero>
-);
-
-const heroSection = (
-  <div className="flex justify-between items-end my-[50px]">
-    <video className="w-[274px] h-[550px]" autoPlay muted loop>
-      <source src="/resto/hero.mp4" type="video/mp4" />
-    </video>
-    <Image src="/resto/screen-1.png" alt="Resto" width={206} height={453} />
-    <Image src="/resto/screen-2.png" alt="Resto" width={206} height={453} />
-    <Image src="/resto/screen-3.png" alt="Resto" width={206} height={453} />
-  </div>
 );
 
 const introduction = () => (
@@ -98,9 +94,149 @@ const research = (ref: React.ForwardedRef<HTMLDivElement>) => (
       "Discover the key factors and challenges users face when searching for and selecting restaurants",
       "Understand how users manage their desired destinations and planned locations",
     ]}
-    researchCompetition={researchCompetition}
+    researchCompetition={
+      <ResearchCompetition
+        desc="Before diving into the interview, I compared two direct competitors (Japanese reservation apps) and one indirect competitor (a well-known American reservation app) to understand what features are available in existing apps. I compared their target users, focus, and trends to identify which features address specific needs."
+        notes={[
+          "The direct competitor excels in search and restaurant details but has not focused on the reservation system, making it confusing for users who are not familiar with it. On the other hand, the indirect competitor, an American site, does not provide as detailed restaurant descriptions but has an excellent reservation system and incorporates the latest trends.",
+        ]}
+        features={[
+          {
+            icon: "/icons/calendar.svg",
+            label: "Simple reservation system",
+          },
+          {
+            icon: "/icons/magnifying-glass-thin.svg",
+            label: "Easy search function",
+          },
+          {
+            icon: "/icons/book.svg",
+            label: "Introduces trendy spots and culture",
+          },
+        ]}
+      >
+        <div className="py-[20px] flex justify-between">
+          <Competitor
+            icon="/resto/gurunavi.svg"
+            name="Gurunavi"
+            desc="A reservation app in Japan"
+            pros={[
+              "For people who are looking for casual restaurants",
+              "Points system",
+              "COVID-19 safety display",
+              "No cancellation fee",
+              "Introduces food-related culture",
+            ]}
+            cons={[
+              "Multiple steps are required to modify reservations",
+              "Only partial English support",
+            ]}
+          />
+          <Competitor
+            icon="/resto/tabelog.svg"
+            name="Tabelog"
+            desc="A reservation app in Japan"
+            pros={[
+              "For people who want to discover new places and want to see reviews",
+              "Occasion suggestion",
+              "Incorporating of user reviews",
+              "Nationwide restaurant listings",
+            ]}
+            cons={[
+              "Only allowing booking of course menus",
+              "Multiple steps are required to modify reservations",
+            ]}
+          />
+          <Competitor
+            icon="/resto/resy.svg"
+            name="Resy"
+            desc="A reservation app in the United States"
+            pros={[
+              "For people who want to make reservations and discover new places",
+              "Waiting list (Notification)",
+              "Introducing trendy spots",
+              "Available to send special requests to restaurants",
+            ]}
+            cons={["Cannot make more than one reservation at the same time"]}
+          />
+        </div>
+      </ResearchCompetition>
+    }
     researchExplorationTitle="Exploring Travel Dining Experiences"
-    researchExploration={researchExploration}
+    researchExploration={
+      <ResearchExploration
+        surveyDesc={
+          <Paragraph>
+            To understand travelers&apos; interests and priorities regarding the
+            importance of dining and travel planning, I conducted a survey to
+            gather quantitative data from a diverse group of travelers. The
+            survey included <b>17 participants aged 18-34</b>, all of whom had
+            travel experience, with <b>12 having traveled to Japan</b>.
+          </Paragraph>
+        }
+        surveyQuestions={[
+          {
+            question: "How important is dining out while traveling to you?",
+            response:
+              "“Dining at restaurants is a priority, but I want to avoid calling them for reservations due to language barriers.”",
+            avatar: "/avatars/participant-1.svg",
+            name: "Participant 1",
+          },
+          {
+            question: "How important is dining out while traveling to you?",
+            response:
+              "“I decide restaurants based on reviews from locals or Google. I usually want to go to restaurants that are famous among both tourists and locals.”",
+            avatar: "/avatars/participant-2.svg",
+            name: "Participant 2",
+          },
+        ]}
+        userInterviewDesc={
+          <Paragraph>
+            Then, in order to collect qualitative data on users&apos; specific
+            thoughts and personal experiences, I conducted user interviews with{" "}
+            <b>5 participants aged 23-68</b>. To better understand their
+            experiences traveling to Japan and the unique aspects of Japanese
+            culture, I interviewed <b>4 participants who had visited Japan</b>{" "}
+            and <b>1 Japanese participant</b>.
+          </Paragraph>
+        }
+        userInterviewQuestions={[
+          {
+            question:
+              "How was your experience when searching for and deciding on restaurants while traveling in Japan?",
+            response:
+              "“It was difficult because there were too many choices, and I didn’t know how to choose the right one.” ",
+            avatar: "/avatars/participant-3.svg",
+            name: "Participant 1",
+          },
+          {
+            question:
+              "Are there any struggles or difficulties you encounter when managing your restaurant list?",
+            response:
+              "“I wish Google Maps had a filter for location, showing food types or price ranges”",
+            avatar: "/avatars/participant-4.svg",
+            name: "Participant 2",
+          },
+        ]}
+        findings={[
+          {
+            icon: "/icons/star-hollow.svg",
+            label: "Local tips & reviews",
+            sublabel: "can be the deciding factor when choosing a restaurant",
+          },
+          {
+            icon: "/icons/a.svg",
+            label: "Language barriers",
+            sublabel: "can make dining at restaurants challenging",
+          },
+          {
+            icon: "/icons/find.svg",
+            label: "Finding restaurants & managing reservations",
+            sublabel: "can be difficult",
+          },
+        ]}
+      />
+    }
   />
 );
 
@@ -111,11 +247,54 @@ const define = (ref: React.ForwardedRef<HTMLDivElement>) => (
     affinityMaps={[
       {
         label: "How was your experience when finding restaurants or cafes?",
-        map: affinityMap1,
+        map: (
+          <div className="py-[20px] space-x-[50px] flex">
+            <Image
+              src="/resto/affinity-map-1-1.svg"
+              alt="affinity map"
+              width={0}
+              height={0}
+              style={{ width: "auto", height: "500px" }}
+            />
+            <Image
+              src="/resto/affinity-map-1-2.svg"
+              alt="affinity map"
+              width={0}
+              height={0}
+              style={{ width: "auto", height: "500px" }}
+            />
+          </div>
+        ),
       },
       {
         label: "What criteria do you use when selecting restaurants?",
-        map: affinityMap2,
+        map: (
+          <div className="pb-[20px]">
+            <div className="pt-[20px] pb-[40px] space-x-[25px] flex overflow-x-scroll">
+              <Image
+                src="/resto/affinity-map-2-1.svg"
+                alt="affinity map"
+                width={0}
+                height={0}
+                style={{ width: "auto", height: "500px" }}
+              />
+              <Image
+                src="/resto/affinity-map-2-2.svg"
+                alt="affinity map"
+                width={0}
+                height={0}
+                style={{ width: "auto", height: "500px" }}
+              />
+              <Image
+                src="/resto/affinity-map-2-3.svg"
+                alt="affinity map"
+                width={0}
+                height={0}
+                style={{ width: "auto", height: "500px" }}
+              />
+            </div>
+          </div>
+        ),
       },
     ]}
     affinityMapUrl="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=90-2022&t=Rh2UA7lbJbDJRhGN-1"
@@ -139,12 +318,36 @@ const define = (ref: React.ForwardedRef<HTMLDivElement>) => (
     personas={[
       {
         name: "Persona 1",
-        desc: persona1Desc,
+        desc: (
+          <Paragraph>
+            Matt Kim, a 30-year-old product manager from San Francisco, loves
+            traveling to Japan and exploring local dining spots. He faces
+            challenges due to <b>the language barrier</b>, making it difficult
+            to find and reserve restaurants popular among locals. His main
+            frustrations include{" "}
+            <b>
+              the time-consuming process of translating Japanese information
+            </b>{" "}
+            and <b>the difficulty of making phone reservations</b>.
+          </Paragraph>
+        ),
         image: "/resto/persona-1.jpeg",
       },
       {
         name: "Persona 2",
-        desc: persona2Desc,
+        desc: (
+          <Paragraph>
+            Sarah Laine, a 26-year-old interior designer from New York, is
+            planning her first trip to Japan with friends and is excited to
+            explore Japanese cuisine. She faces challenges{" "}
+            <b>managing and sharing restaurant reservations among her group</b>{" "}
+            and is worried about{" "}
+            <b>keeping track of them amidst a packed schedule</b>. Her goals
+            include{" "}
+            <b>visiting many tourist spots and sticking to their travel plan</b>
+            .
+          </Paragraph>
+        ),
         image: "/resto/persona-2.jpeg",
       },
     ]}
@@ -164,7 +367,69 @@ const ideate = (ref: React.ForwardedRef<HTMLDivElement>) => (
     ref={ref}
     brainstorm={{
       desc: "I brainstormed key features that address the intersection of business and user goals, while also considering technical feasibility to ensure both are met.",
-      content: brainstorm,
+      content: (
+        <>
+          <div className="py-[20px] flex justify-between">
+            <div className="px-[20px] space-x-[20px] flex">
+              <Image
+                src="/avatars/user-needs.svg"
+                alt="avatar"
+                width={100}
+                height={100}
+                className="mt-auto"
+              />
+              <Image
+                src="/resto/speech-bubble.svg"
+                alt="speech"
+                width={0}
+                height={0}
+                style={{ width: "auto", height: "100%" }}
+              />
+            </div>
+            <div className="flex px-[20px] space-x-[30px]">
+              <div className="space-y-[30px]">
+                <UserNeed icon="/icons/filter.svg" title="Filter" />
+                <UserNeed
+                  icon="/icons/magnifying-glass-thin.svg"
+                  title="Search"
+                />
+                <UserNeed icon="/icons/map.svg" title="Map" />
+                <UserNeed icon="/icons/bell.svg" title="Notification" />
+              </div>
+              <div className="space-y-[30px]">
+                <UserNeed
+                  icon="/icons/star-hollow.svg"
+                  title="Reviews & Ratings"
+                />
+                <UserNeed
+                  icon="/icons/smile.svg"
+                  title="Utilization of icons"
+                />
+                <UserNeed icon="/icons/a.svg" title="Language Option" />
+                <UserNeed
+                  icon="/icons/calendar.svg"
+                  title="Simple Reservation"
+                />
+              </div>
+            </div>
+          </div>
+          <Down />
+          <Paragraph>
+            I conducted an <b>open card sort</b> using feature keywords with{" "}
+            <b>28 cards</b>, targeting <b>8 participants</b>, to identify how
+            users categorize them. When the participants categorized the cards
+            freely, most of them fell into <b>6 categories</b>. This helped us
+            understand which content people want to see under each menu.
+          </Paragraph>
+          <Image
+            src="/resto/card-sort.svg"
+            alt="card sort"
+            width={0}
+            height={0}
+            style={{ width: "100%", height: "auto" }}
+          />
+        </>
+      ),
     }}
     sitemap={{
       desc: "Based on the results of the card sort, I designed the app's structure and created a sitemap. Referring to the research, which showed that travelers tend to struggle with searching for restaurants and managing reservations.",
@@ -234,7 +499,132 @@ const prototype = (ref: React.ForwardedRef<HTMLDivElement>) => (
     }}
     building={{
       desc: "To create a user-centered product, it&apos;s essential to build a brand image that attracts users. I established brand values to ensure that searching for and booking restaurants does not feel difficult.",
-      content: building,
+      content: (
+        <>
+          <div className="bg-white rounded-[20px] p-[10px]">
+            <Image
+              src="/resto/moodboard.png"
+              alt="moodboard"
+              width={980}
+              height={637}
+            />
+          </div>
+          <div className="flex space-x-[30px]">
+            <MoodboardCard title="Colors">
+              <ColorRow
+                title="Primary"
+                colors={["EE722B", "C65310", "953B1D"]}
+              />
+              <ColorRow
+                title="Secondary"
+                colors={["B8AE94", "F4F0E0", "DFD5BD"]}
+              />
+              <ColorRow title="Neutral" colors={["F9F9F7", "FFFFFF"]} border />
+            </MoodboardCard>
+            <div className="flex-1 flex flex-col justify-between">
+              <MoodboardCard title="Logo">
+                <div className="flex justify-between">
+                  <Image
+                    src="/resto/logo-lg.svg"
+                    alt="logo"
+                    width={168}
+                    height={158}
+                  />
+                  <div className="flex flex-col justify-between items-center">
+                    <Image
+                      src="/resto/logo-md.svg"
+                      alt="logo"
+                      width={100}
+                      height={60}
+                    />
+                    <div className="flex space-x-[30px] px-[15px]">
+                      <Image
+                        src="/resto/logo-sm-1.svg"
+                        alt="logo"
+                        width={60}
+                        height={60}
+                      />
+                      <Image
+                        src="/resto/logo-sm-2.svg"
+                        alt="logo"
+                        width={60}
+                        height={60}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </MoodboardCard>
+              <MoodboardCard title="Icons">
+                <div className="gap-[18px] flex flex-wrap">
+                  {[...Array(16)].map((_, i) => (
+                    <Image
+                      src={`/resto/icon-${i + 1}.svg`}
+                      alt="icon"
+                      width={35}
+                      height={35}
+                      key={i}
+                    />
+                  ))}
+                </div>
+              </MoodboardCard>
+            </div>
+          </div>
+          <div className="flex space-x-[30px]">
+            <MoodboardCard title="Typography">
+              <div className="space-y-[15px] px-[10px]">
+                <div className="font-manrope text-[24px] font-semibold tracking-[.03em]">
+                  H1 - Manrope SemiBold 24px
+                </div>
+                <div className="font-manrope text-[20px] font-medium tracking-[.03em]">
+                  H2 - Manrope Medium 20px
+                </div>
+                <div className="font-manrope text-[18px] font-medium tracking-[.03em]">
+                  H3 - Manrope Medium 18px
+                </div>
+                <div className="font-manrope text-[16px] tracking-[.03em]">
+                  B1 - Manrope Regular 16px
+                </div>
+                <div className="font-manrope text-[14px] tracking-[.03em]">
+                  B2 - Manrope Regular 14px
+                </div>
+                <div className="font-manrope text-[16px] font-medium tracking-[.03em]">
+                  Button Text M - Manrope Medium 16px
+                </div>
+              </div>
+            </MoodboardCard>
+            <MoodboardCard title="Buttons">
+              <div className="flex space-x-[20px]">
+                <div className="space-y-[12px]">
+                  <div className="text-[14px] tracking-[.01em]">Default</div>
+                  <div className="space-y-[30px]">
+                    <Button className="bg-cream text-[#303030]">Search</Button>
+                    <Button className="bg-dark-orange text-[#FEFEFE]">
+                      Reserve Now
+                    </Button>
+                    <Button className="bg-[#E8DFBA] text-[#303030] shadow-[0px_1.9px_1.9px_0px_rgba(0,0,0,0.25)_inset]">
+                      Add filters
+                    </Button>
+                  </div>
+                </div>
+                <div className="space-y-[12px]">
+                  <div className="text-[14px] tracking-[.01em]">Disabled</div>
+                  <div className="space-y-[30px]">
+                    <Button className="bg-[rgba(223,213,189,0.50)] text-[rgba(48,48,48,0.50)]">
+                      Search
+                    </Button>
+                    <Button className="bg-[rgba(198,83,16,0.50)] text-white">
+                      Reserve Now
+                    </Button>
+                    <Button className="bg-[rgba(244,240,224,0.50)] text-[rgba(48,48,48,0.50)]">
+                      Add filters
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </MoodboardCard>
+          </div>
+        </>
+      ),
     }}
     branding={{
       desc: "I incorporated all branding elements into the wireframes to create high-fidelity designs.",
@@ -253,8 +643,107 @@ const test = (ref: React.ForwardedRef<HTMLDivElement>) => (
   <Test
     ref={ref}
     enhancing={{
-      desc: enhancingDesc,
-      taskFlows: enhancingTaskFlows,
+      desc: (
+        <Paragraph>
+          To confirm whether high-fidelity wireframes can actually achieve user
+          goals, I conducted <b>usability testing</b> with <b>5 participants</b>
+          , including men and women in their 20s to 60s.
+        </Paragraph>
+      ),
+      taskFlows: (
+        <div className="py-[20px] space-y-[50px]">
+          <TaskFlowCard
+            title="Task Flow 1"
+            subtitle="Search for restaurants that have an English menu"
+            participants={[
+              {
+                name: "Participant 1",
+                avatar: "/resto/task-flow-1-1.svg",
+                comment:
+                  "“I like filtering and narrowing down the options if there are many displayed on the map.”",
+              },
+              {
+                name: "Participant 3",
+                avatar: "/resto/task-flow-1-2.svg",
+                comment:
+                  "“The only thing that slowed me down in the process was finding the right tag. I guess I would like to type it if that’s possible.”",
+              },
+            ]}
+            conclusions={["4/5 were able to complete the task easily"]}
+            image="/resto/task-flow-1.svg"
+          />
+          <TaskFlowCard
+            title="Task Flow 2"
+            subtitle="Choose a restaurant that is popular among locals"
+            participants={[
+              {
+                name: "Participant 2",
+                avatar: "/resto/task-flow-2-1.svg",
+                comment:
+                  "“Location icon colors look similar and I didn’t realize that they are different colors and have different meanings.”",
+              },
+              {
+                name: "Participant 5",
+                avatar: "/resto/task-flow-2-2.svg",
+                comment:
+                  "“I want to see a list of restaurants instead of checking everything on the map.”",
+              },
+            ]}
+            conclusions={[
+              "3/5 had difficulties to find out which one is popular",
+              "2/5 didn’t use the filter function to narrow down the options",
+            ]}
+            image="/resto/task-flow-2.svg"
+            mirror
+          />
+          <TaskFlowCard
+            title="Task Flow 3"
+            subtitle="Search for restaurants near a famous landmark"
+            participants={[
+              {
+                name: "Participant 3",
+                avatar: "/resto/task-flow-3-1.svg",
+                comment:
+                  "“I think this was pretty straightforward and a great feature.”",
+              },
+              {
+                name: "Participant 4",
+                avatar: "/resto/task-flow-3-2.svg",
+                comment:
+                  "“This was very easy, and it’s helpful for finding restaurants when my schedule is packed.”",
+              },
+            ]}
+            conclusions={[
+              "5/5 were able to complete the task without any issues",
+            ]}
+            image="/resto/task-flow-3.svg"
+          />
+          <TaskFlowCard
+            title="Task Flow 4"
+            subtitle="Make a reservation without scheduling conflicts"
+            participants={[
+              {
+                name: "Participant 1",
+                avatar: "/resto/task-flow-4-1.svg",
+                comment:
+                  "“I want to see the notification before the completion page. Otherwise I have to go back to the previous page to select a different time again.”",
+              },
+              {
+                name: "Participant 5",
+                avatar: "/resto/task-flow-4-2.svg",
+                comment:
+                  "“It would be better if a notification appears when clicking on an available time slot if there is already another reservation.”",
+              },
+            ]}
+            conclusions={[
+              "4/5 were unsure about another reservation until the end",
+              "3/5 wanted to see the notification when choosing the time slot",
+            ]}
+            image="/resto/task-flow-4.svg"
+            mirror
+          />
+        </div>
+      ),
     }}
     iterating={{
       desc: "Based on the usability testing, I refined the design of the app that makes it easy for travelers to book and manage restaurant reservations.",
@@ -314,525 +803,35 @@ const nextSteps = (ref: React.ForwardedRef<HTMLDivElement>) => (
   <NextSteps
     ref={ref}
     learning="Throughout the process, from research to design, it is essential to understand users' pain points and consider how to enhance the user experience in order to create a better product. Since everyone has different travel purposes and preferences when choosing a restaurant, it was crucial to identify the problems that diverse users face and what they desire. Throughout this project, I came to understand the importance of user feedback and the necessity of collecting valuable insights through research."
-    opportunities={opportunitiesForEnhancement}
-  />
-);
-
-const researchCompetition = (
-  <ResearchCompetition
-    desc="Before diving into the interview, I compared two direct competitors (Japanese reservation apps) and one indirect competitor (a well-known American reservation app) to understand what features are available in existing apps. I compared their target users, focus, and trends to identify which features address specific needs."
-    notes={[
-      "The direct competitor excels in search and restaurant details but has not focused on the reservation system, making it confusing for users who are not familiar with it. On the other hand, the indirect competitor, an American site, does not provide as detailed restaurant descriptions but has an excellent reservation system and incorporates the latest trends.",
-    ]}
-    features={[
-      {
-        icon: "/icons/calendar.svg",
-        label: "Simple reservation system",
-      },
-      {
-        icon: "/icons/magnifying-glass-thin.svg",
-        label: "Easy search function",
-      },
-      {
-        icon: "/icons/book.svg",
-        label: "Introduces trendy spots and culture",
-      },
-    ]}
-  >
-    <div className="py-[20px] flex justify-between">
-      <Competitor
-        icon="/resto/gurunavi.svg"
-        name="Gurunavi"
-        desc="A reservation app in Japan"
-        pros={[
-          "For people who are looking for casual restaurants",
-          "Points system",
-          "COVID-19 safety display",
-          "No cancellation fee",
-          "Introduces food-related culture",
-        ]}
-        cons={[
-          "Multiple steps are required to modify reservations",
-          "Only partial English support",
-        ]}
-      />
-      <Competitor
-        icon="/resto/tabelog.svg"
-        name="Tabelog"
-        desc="A reservation app in Japan"
-        pros={[
-          "For people who want to discover new places and want to see reviews",
-          "Occasion suggestion",
-          "Incorporating of user reviews",
-          "Nationwide restaurant listings",
-        ]}
-        cons={[
-          "Only allowing booking of course menus",
-          "Multiple steps are required to modify reservations",
-        ]}
-      />
-      <Competitor
-        icon="/resto/resy.svg"
-        name="Resy"
-        desc="A reservation app in the United States"
-        pros={[
-          "For people who want to make reservations and discover new places",
-          "Waiting list (Notification)",
-          "Introducing trendy spots",
-          "Available to send special requests to restaurants",
-        ]}
-        cons={["Cannot make more than one reservation at the same time"]}
-      />
-    </div>
-  </ResearchCompetition>
-);
-
-const researchExploration = (
-  <ResearchExploration
-    surveyDesc={
-      <Paragraph>
-        To understand travelers&apos; interests and priorities regarding the
-        importance of dining and travel planning, I conducted a survey to gather
-        quantitative data from a diverse group of travelers. The survey included{" "}
-        <b>17 participants aged 18-34</b>, all of whom had travel experience,
-        with <b>12 having traveled to Japan</b>.
-      </Paragraph>
+    opportunities={
+      <>
+        <div className="space-y-[10px]">
+          <div className="text-[22px] font-medium tracking-[.01em]">
+            Search Function
+          </div>
+          <Paragraph>
+            While RESTO&apos;s current search function allows users to explore
+            restaurants from multiple angles, there is room for improvement by
+            incorporating an AI-powered recommendation system. This could
+            suggest restaurants based on users’ search history, favorite lists,
+            or automatically find similar options, leading to a more tailored
+            and efficient search experience.
+          </Paragraph>
+        </div>
+        <div className="space-y-[10px]">
+          <div className="text-[22px] font-medium tracking-[.01em]">
+            Multilingual Support
+          </div>
+          <Paragraph>
+            Currently, users can find restaurants with English support and make
+            reservations without worrying about language barriers. However, by
+            expanding language support and incorporating translation features,
+            RESTO could offer a more inclusive experience, making it easier for
+            non-English speakers to navigate the platform and make reservations
+            seamlessly.
+          </Paragraph>
+        </div>
+      </>
     }
-    surveyQuestions={[
-      {
-        question: "How important is dining out while traveling to you?",
-        response:
-          "“Dining at restaurants is a priority, but I want to avoid calling them for reservations due to language barriers.”",
-        avatar: "/avatars/participant-1.svg",
-        name: "Participant 1",
-      },
-      {
-        question: "How important is dining out while traveling to you?",
-        response:
-          "“I decide restaurants based on reviews from locals or Google. I usually want to go to restaurants that are famous among both tourists and locals.”",
-        avatar: "/avatars/participant-2.svg",
-        name: "Participant 2",
-      },
-    ]}
-    userInterviewDesc={
-      <Paragraph>
-        Then, in order to collect qualitative data on users&apos; specific
-        thoughts and personal experiences, I conducted user interviews with{" "}
-        <b>5 participants aged 23-68</b>. To better understand their experiences
-        traveling to Japan and the unique aspects of Japanese culture, I
-        interviewed <b>4 participants who had visited Japan</b> and{" "}
-        <b>1 Japanese participant</b>.
-      </Paragraph>
-    }
-    userInterviewQuestions={[
-      {
-        question:
-          "How was your experience when searching for and deciding on restaurants while traveling in Japan?",
-        response:
-          "“It was difficult because there were too many choices, and I didn’t know how to choose the right one.” ",
-        avatar: "/avatars/participant-3.svg",
-        name: "Participant 1",
-      },
-      {
-        question:
-          "Are there any struggles or difficulties you encounter when managing your restaurant list?",
-        response:
-          "“I wish Google Maps had a filter for location, showing food types or price ranges”",
-        avatar: "/avatars/participant-4.svg",
-        name: "Participant 2",
-      },
-    ]}
-    findings={[
-      {
-        icon: "/icons/star-hollow.svg",
-        label: "Local tips & reviews",
-        sublabel: "can be the deciding factor when choosing a restaurant",
-      },
-      {
-        icon: "/icons/a.svg",
-        label: "Language barriers",
-        sublabel: "can make dining at restaurants challenging",
-      },
-      {
-        icon: "/icons/find.svg",
-        label: "Finding restaurants & managing reservations",
-        sublabel: "can be difficult",
-      },
-    ]}
   />
-);
-
-const affinityMap1 = (
-  <div className="py-[20px] space-x-[50px] flex">
-    <Image
-      src="/resto/affinity-map-1-1.svg"
-      alt="affinity map"
-      width={0}
-      height={0}
-      style={{ width: "auto", height: "500px" }}
-    />
-    <Image
-      src="/resto/affinity-map-1-2.svg"
-      alt="affinity map"
-      width={0}
-      height={0}
-      style={{ width: "auto", height: "500px" }}
-    />
-  </div>
-);
-
-const affinityMap2 = (
-  <div className="pb-[20px]">
-    <div className="pt-[20px] pb-[40px] space-x-[25px] flex overflow-x-scroll">
-      <Image
-        src="/resto/affinity-map-2-1.svg"
-        alt="affinity map"
-        width={0}
-        height={0}
-        style={{ width: "auto", height: "500px" }}
-      />
-      <Image
-        src="/resto/affinity-map-2-2.svg"
-        alt="affinity map"
-        width={0}
-        height={0}
-        style={{ width: "auto", height: "500px" }}
-      />
-      <Image
-        src="/resto/affinity-map-2-3.svg"
-        alt="affinity map"
-        width={0}
-        height={0}
-        style={{ width: "auto", height: "500px" }}
-      />
-    </div>
-  </div>
-);
-
-const persona1Desc = (
-  <Paragraph>
-    Matt Kim, a 30-year-old product manager from San Francisco, loves traveling
-    to Japan and exploring local dining spots. He faces challenges due to{" "}
-    <b>the language barrier</b>, making it difficult to find and reserve
-    restaurants popular among locals. His main frustrations include{" "}
-    <b>the time-consuming process of translating Japanese information</b> and{" "}
-    <b>the difficulty of making phone reservations</b>.
-  </Paragraph>
-);
-
-const persona2Desc = (
-  <Paragraph>
-    Sarah Laine, a 26-year-old interior designer from New York, is planning her
-    first trip to Japan with friends and is excited to explore Japanese cuisine.
-    She faces challenges{" "}
-    <b>managing and sharing restaurant reservations among her group</b> and is
-    worried about <b>keeping track of them amidst a packed schedule</b>. Her
-    goals include{" "}
-    <b>visiting many tourist spots and sticking to their travel plan</b>.
-  </Paragraph>
-);
-
-const brainstorm = (
-  <>
-    <div className="py-[20px] flex justify-between">
-      <div className="px-[20px] space-x-[20px] flex">
-        <Image
-          src="/avatars/user-needs.svg"
-          alt="avatar"
-          width={100}
-          height={100}
-          className="mt-auto"
-        />
-        <Image
-          src="/resto/speech-bubble.svg"
-          alt="speech"
-          width={0}
-          height={0}
-          style={{ width: "auto", height: "100%" }}
-        />
-      </div>
-      <div className="flex px-[20px] space-x-[30px]">
-        <div className="space-y-[30px]">
-          <UserNeed icon="/icons/filter.svg" title="Filter" />
-          <UserNeed icon="/icons/magnifying-glass-thin.svg" title="Search" />
-          <UserNeed icon="/icons/map.svg" title="Map" />
-          <UserNeed icon="/icons/bell.svg" title="Notification" />
-        </div>
-        <div className="space-y-[30px]">
-          <UserNeed icon="/icons/star-hollow.svg" title="Reviews & Ratings" />
-          <UserNeed icon="/icons/smile.svg" title="Utilization of icons" />
-          <UserNeed icon="/icons/a.svg" title="Language Option" />
-          <UserNeed icon="/icons/calendar.svg" title="Simple Reservation" />
-        </div>
-      </div>
-    </div>
-    <Down />
-    <Paragraph>
-      I conducted an <b>open card sort</b> using feature keywords with{" "}
-      <b>28 cards</b>, targeting <b>8 participants</b>, to identify how users
-      categorize them. When the participants categorized the cards freely, most
-      of them fell into <b>6 categories</b>. This helped us understand which
-      content people want to see under each menu.
-    </Paragraph>
-    <Image
-      src="/resto/card-sort.svg"
-      alt="card sort"
-      width={0}
-      height={0}
-      style={{ width: "100%", height: "auto" }}
-    />
-  </>
-);
-
-const building = (
-  <>
-    <div className="bg-white rounded-[20px] p-[10px]">
-      <Image
-        src="/resto/moodboard.png"
-        alt="moodboard"
-        width={980}
-        height={637}
-      />
-    </div>
-    <div className="flex space-x-[30px]">
-      <MoodboardCard title="Colors">
-        <ColorRow title="Primary" colors={["EE722B", "C65310", "953B1D"]} />
-        <ColorRow title="Secondary" colors={["B8AE94", "F4F0E0", "DFD5BD"]} />
-        <ColorRow title="Neutral" colors={["F9F9F7", "FFFFFF"]} border />
-      </MoodboardCard>
-      <div className="flex-1 flex flex-col justify-between">
-        <MoodboardCard title="Logo">
-          <div className="flex justify-between">
-            <Image
-              src="/resto/logo-lg.svg"
-              alt="logo"
-              width={168}
-              height={158}
-            />
-            <div className="flex flex-col justify-between items-center">
-              <Image
-                src="/resto/logo-md.svg"
-                alt="logo"
-                width={100}
-                height={60}
-              />
-              <div className="flex space-x-[30px] px-[15px]">
-                <Image
-                  src="/resto/logo-sm-1.svg"
-                  alt="logo"
-                  width={60}
-                  height={60}
-                />
-                <Image
-                  src="/resto/logo-sm-2.svg"
-                  alt="logo"
-                  width={60}
-                  height={60}
-                />
-              </div>
-            </div>
-          </div>
-        </MoodboardCard>
-        <MoodboardCard title="Icons">
-          <div className="gap-[18px] flex flex-wrap">
-            {[...Array(16)].map((_, i) => (
-              <Image
-                src={`/resto/icon-${i + 1}.svg`}
-                alt="icon"
-                width={35}
-                height={35}
-                key={i}
-              />
-            ))}
-          </div>
-        </MoodboardCard>
-      </div>
-    </div>
-    <div className="flex space-x-[30px]">
-      <MoodboardCard title="Typography">
-        <div className="space-y-[15px] px-[10px]">
-          <div className="font-manrope text-[24px] font-semibold tracking-[.03em]">
-            H1 - Manrope SemiBold 24px
-          </div>
-          <div className="font-manrope text-[20px] font-medium tracking-[.03em]">
-            H2 - Manrope Medium 20px
-          </div>
-          <div className="font-manrope text-[18px] font-medium tracking-[.03em]">
-            H3 - Manrope Medium 18px
-          </div>
-          <div className="font-manrope text-[16px] tracking-[.03em]">
-            B1 - Manrope Regular 16px
-          </div>
-          <div className="font-manrope text-[14px] tracking-[.03em]">
-            B2 - Manrope Regular 14px
-          </div>
-          <div className="font-manrope text-[16px] font-medium tracking-[.03em]">
-            Button Text M - Manrope Medium 16px
-          </div>
-        </div>
-      </MoodboardCard>
-      <MoodboardCard title="Buttons">
-        <div className="flex space-x-[20px]">
-          <div className="space-y-[12px]">
-            <div className="text-[14px] tracking-[.01em]">Default</div>
-            <div className="space-y-[30px]">
-              <Button className="bg-cream text-[#303030]">Search</Button>
-              <Button className="bg-dark-orange text-[#FEFEFE]">
-                Reserve Now
-              </Button>
-              <Button className="bg-[#E8DFBA] text-[#303030] shadow-[0px_1.9px_1.9px_0px_rgba(0,0,0,0.25)_inset]">
-                Add filters
-              </Button>
-            </div>
-          </div>
-          <div className="space-y-[12px]">
-            <div className="text-[14px] tracking-[.01em]">Disabled</div>
-            <div className="space-y-[30px]">
-              <Button className="bg-[rgba(223,213,189,0.50)] text-[rgba(48,48,48,0.50)]">
-                Search
-              </Button>
-              <Button className="bg-[rgba(198,83,16,0.50)] text-white">
-                Reserve Now
-              </Button>
-              <Button className="bg-[rgba(244,240,224,0.50)] text-[rgba(48,48,48,0.50)]">
-                Add filters
-              </Button>
-            </div>
-          </div>
-        </div>
-      </MoodboardCard>
-    </div>
-  </>
-);
-
-const enhancingDesc = (
-  <Paragraph>
-    To confirm whether high-fidelity wireframes can actually achieve user goals,
-    I conducted <b>usability testing</b> with <b>5 participants</b>, including
-    men and women in their 20s to 60s.
-  </Paragraph>
-);
-
-const enhancingTaskFlows = (
-  <div className="py-[20px] space-y-[50px]">
-    <TaskFlowCard
-      title="Task Flow 1"
-      subtitle="Search for restaurants that have an English menu"
-      participants={[
-        {
-          name: "Participant 1",
-          avatar: "/resto/task-flow-1-1.svg",
-          comment:
-            "“I like filtering and narrowing down the options if there are many displayed on the map.”",
-        },
-        {
-          name: "Participant 3",
-          avatar: "/resto/task-flow-1-2.svg",
-          comment:
-            "“The only thing that slowed me down in the process was finding the right tag. I guess I would like to type it if that’s possible.”",
-        },
-      ]}
-      conclusions={["4/5 were able to complete the task easily"]}
-      image="/resto/task-flow-1.svg"
-    />
-    <TaskFlowCard
-      title="Task Flow 2"
-      subtitle="Choose a restaurant that is popular among locals"
-      participants={[
-        {
-          name: "Participant 2",
-          avatar: "/resto/task-flow-2-1.svg",
-          comment:
-            "“Location icon colors look similar and I didn’t realize that they are different colors and have different meanings.”",
-        },
-        {
-          name: "Participant 5",
-          avatar: "/resto/task-flow-2-2.svg",
-          comment:
-            "“I want to see a list of restaurants instead of checking everything on the map.”",
-        },
-      ]}
-      conclusions={[
-        "3/5 had difficulties to find out which one is popular",
-        "2/5 didn’t use the filter function to narrow down the options",
-      ]}
-      image="/resto/task-flow-2.svg"
-      mirror
-    />
-    <TaskFlowCard
-      title="Task Flow 3"
-      subtitle="Search for restaurants near a famous landmark"
-      participants={[
-        {
-          name: "Participant 3",
-          avatar: "/resto/task-flow-3-1.svg",
-          comment:
-            "“I think this was pretty straightforward and a great feature.”",
-        },
-        {
-          name: "Participant 4",
-          avatar: "/resto/task-flow-3-2.svg",
-          comment:
-            "“This was very easy, and it’s helpful for finding restaurants when my schedule is packed.”",
-        },
-      ]}
-      conclusions={["5/5 were able to complete the task without any issues"]}
-      image="/resto/task-flow-3.svg"
-    />
-    <TaskFlowCard
-      title="Task Flow 4"
-      subtitle="Make a reservation without scheduling conflicts"
-      participants={[
-        {
-          name: "Participant 1",
-          avatar: "/resto/task-flow-4-1.svg",
-          comment:
-            "“I want to see the notification before the completion page. Otherwise I have to go back to the previous page to select a different time again.”",
-        },
-        {
-          name: "Participant 5",
-          avatar: "/resto/task-flow-4-2.svg",
-          comment:
-            "“It would be better if a notification appears when clicking on an available time slot if there is already another reservation.”",
-        },
-      ]}
-      conclusions={[
-        "4/5 were unsure about another reservation until the end",
-        "3/5 wanted to see the notification when choosing the time slot",
-      ]}
-      image="/resto/task-flow-4.svg"
-      mirror
-    />
-  </div>
-);
-
-const opportunitiesForEnhancement = (
-  <>
-    <div className="space-y-[10px]">
-      <div className="text-[22px] font-medium tracking-[.01em]">
-        Search Function
-      </div>
-      <Paragraph>
-        While RESTO&apos;s current search function allows users to explore
-        restaurants from multiple angles, there is room for improvement by
-        incorporating an AI-powered recommendation system. This could suggest
-        restaurants based on users’ search history, favorite lists, or
-        automatically find similar options, leading to a more tailored and
-        efficient search experience.
-      </Paragraph>
-    </div>
-    <div className="space-y-[10px]">
-      <div className="text-[22px] font-medium tracking-[.01em]">
-        Multilingual Support
-      </div>
-      <Paragraph>
-        Currently, users can find restaurants with English support and make
-        reservations without worrying about language barriers. However, by
-        expanding language support and incorporating translation features, RESTO
-        could offer a more inclusive experience, making it easier for
-        non-English speakers to navigate the platform and make reservations
-        seamlessly.
-      </Paragraph>
-    </div>
-  </>
 );
