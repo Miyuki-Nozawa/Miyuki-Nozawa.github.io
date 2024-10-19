@@ -60,7 +60,7 @@ export default function KoreanAir() {
       [Section.TEST]: testRef,
       [Section.NEXTSTEPS]: nextStepsRef,
     }),
-    []
+    [],
   );
 
   useEffect(() => {
@@ -882,28 +882,28 @@ export default function KoreanAir() {
               <div className="py-[20px] space-y-[30px]">
                 <div className="flex justify-between">
                   <Image
-                    src="/resto/midfi-1.svg"
+                    src="/korean-air/midfi-test-1.svg"
                     alt="midfi"
                     width={220}
                     height={600}
                     className="rounded-[10px]"
                   />
                   <Image
-                    src="/resto/midfi-2.svg"
+                    src="/korean-air/midfi-test-2.svg"
                     alt="midfi"
                     width={220}
                     height={600}
                     className="rounded-[10px]"
                   />
                   <Image
-                    src="/resto/midfi-3.svg"
+                    src="/korean-air/midfi-test-3.svg"
                     alt="midfi"
                     width={220}
                     height={600}
                     className="rounded-[10px]"
                   />
                   <Image
-                    src="/resto/midfi-4.svg"
+                    src="/korean-air/midfi-test-4.svg"
                     alt="midfi"
                     width={220}
                     height={600}
