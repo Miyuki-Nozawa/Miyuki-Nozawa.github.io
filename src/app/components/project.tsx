@@ -25,9 +25,7 @@ export default function Project({
   test,
   nextSteps,
 }: {
-  hero: HeroProps & {
-    children: React.ReactNode;
-  };
+  hero: HeroProps;
   introduction: IntroductionProps;
   designProcess: DesignProcessProps;
   research: ResearchProps;
@@ -55,7 +53,7 @@ export default function Project({
       [Section.TEST]: testRef,
       [Section.NEXTSTEPS]: nextStepsRef,
     }),
-    []
+    [],
   );
 
   useEffect(() => {
