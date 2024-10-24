@@ -2,10 +2,7 @@
 
 import Image from "next/image";
 
-import Button from "@/app/components/button";
-import ColorRow from "@/app/components/color-row";
 import Competitor from "@/app/components/competitor";
-import MoodboardCard from "@/app/components/moodboard-card";
 import Paragraph from "@/app/components/paragraph";
 import Project from "@/app/components/project";
 import TaskFlowCard from "@/app/components/task-flow-card";
