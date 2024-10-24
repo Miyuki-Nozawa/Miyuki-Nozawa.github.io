@@ -18,7 +18,6 @@ export default function KeySection({
             icon={icon}
             label={label}
             sublabel={sublabel}
-            centered
           />
         ))}
       </div>

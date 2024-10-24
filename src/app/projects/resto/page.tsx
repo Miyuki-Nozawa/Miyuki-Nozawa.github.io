@@ -157,59 +157,64 @@ const research: ResearchProps = {
   },
   researchExploration: {
     title: "Exploring Travel Dining Experiences",
-    surveyDesc: (
-      <Paragraph>
-        To understand travelers&apos; interests and priorities regarding the
-        importance of dining and travel planning, I conducted a survey to gather
-        quantitative data from a diverse group of travelers. The survey included{" "}
-        <b>17 participants aged 18-34</b>, all of whom had travel experience,
-        with <b>12 having traveled to Japan</b>.
-      </Paragraph>
-    ),
-    surveyQuestions: [
-      {
-        question: "How important is dining out while traveling to you?",
-        response:
-          "“Dining at restaurants is a priority, but I want to avoid calling them for reservations due to language barriers.”",
-        avatar: "/avatars/participant-1.svg",
-        name: "Participant 1",
-      },
-      {
-        question: "How important is dining out while traveling to you?",
-        response:
-          "“I decide restaurants based on reviews from locals or Google. I usually want to go to restaurants that are famous among both tourists and locals.”",
-        avatar: "/avatars/participant-2.svg",
-        name: "Participant 2",
-      },
-    ],
-    userInterviewDesc: (
-      <Paragraph>
-        Then, in order to collect qualitative data on users&apos; specific
-        thoughts and personal experiences, I conducted user interviews with{" "}
-        <b>5 participants aged 23-68</b>. To better understand their experiences
-        traveling to Japan and the unique aspects of Japanese culture, I
-        interviewed <b>4 participants who had visited Japan</b> and{" "}
-        <b>1 Japanese participant</b>.
-      </Paragraph>
-    ),
-    userInterviewQuestions: [
-      {
-        question:
-          "How was your experience when searching for and deciding on restaurants while traveling in Japan?",
-        response:
-          "“It was difficult because there were too many choices, and I didn’t know how to choose the right one.” ",
-        avatar: "/avatars/participant-3.svg",
-        name: "Participant 1",
-      },
-      {
-        question:
-          "Are there any struggles or difficulties you encounter when managing your restaurant list?",
-        response:
-          "“I wish Google Maps had a filter for location, showing food types or price ranges.”",
-        avatar: "/avatars/participant-4.svg",
-        name: "Participant 2",
-      },
-    ],
+    survey: {
+      desc: (
+        <Paragraph>
+          To understand travelers&apos; interests and priorities regarding the
+          importance of dining and travel planning, I conducted a survey to
+          gather quantitative data from a diverse group of travelers. The survey
+          included <b>17 participants aged 18-34</b>, all of whom had travel
+          experience, with <b>12 having traveled to Japan</b>.
+        </Paragraph>
+      ),
+      questions: [
+        {
+          question: "How important is dining out while traveling to you?",
+          response:
+            "“Dining at restaurants is a priority, but I want to avoid calling them for reservations due to language barriers.”",
+          avatar: "/avatars/participant-1.svg",
+          name: "Participant 1",
+        },
+        {
+          question: "How important is dining out while traveling to you?",
+          response:
+            "“I decide restaurants based on reviews from locals or Google. I usually want to go to restaurants that are famous among both tourists and locals.”",
+          avatar: "/avatars/participant-2.svg",
+          name: "Participant 2",
+        },
+      ],
+    },
+
+    userInterview: {
+      desc: (
+        <Paragraph>
+          Then, in order to collect qualitative data on users&apos; specific
+          thoughts and personal experiences, I conducted user interviews with{" "}
+          <b>5 participants aged 23-68</b>. To better understand their
+          experiences traveling to Japan and the unique aspects of Japanese
+          culture, I interviewed <b>4 participants who had visited Japan</b> and{" "}
+          <b>1 Japanese participant</b>.
+        </Paragraph>
+      ),
+      questions: [
+        {
+          question:
+            "How was your experience when searching for and deciding on restaurants while traveling in Japan?",
+          response:
+            "“It was difficult because there were too many choices, and I didn’t know how to choose the right one.” ",
+          avatar: "/avatars/participant-3.svg",
+          name: "Participant 1",
+        },
+        {
+          question:
+            "Are there any struggles or difficulties you encounter when managing your restaurant list?",
+          response:
+            "“I wish Google Maps had a filter for location, showing food types or price ranges.”",
+          avatar: "/avatars/participant-4.svg",
+          name: "Participant 2",
+        },
+      ],
+    },
     findings: [
       {
         icon: "/icons/star-hollow.svg",
@@ -474,7 +479,14 @@ const prototype: PrototypeProps = {
     },
   },
   tests: {
-    desc: "After creating the mid-fidelity wireframes, I conducted a quick usability test with 6 participants to check if users understood my design layout and if they found the interface user-friendly.",
+    desc: (
+      <Paragraph>
+        After creating the mid-fidelity wireframes, I conducted a quick
+        <b>usability test</b> with <b>6 participants</b> to check if users
+        understood my design layout and if they found the interface
+        user-friendly.
+      </Paragraph>
+    ),
     images: ["/resto/test-1.svg", "/resto/test-2.svg", "/resto/test-3.svg"],
   },
   refining: {
@@ -641,19 +653,23 @@ const test: TestProps = {
           participants={[
             {
               name: "Participant 1",
-              avatar: "/resto/task-flow-1-1.svg",
+              avatar: "/avatars/task-flow-1-1.svg",
               comment:
                 "“I like filtering and narrowing down the options if there are many displayed on the map.”",
             },
             {
               name: "Participant 3",
-              avatar: "/resto/task-flow-1-2.svg",
+              avatar: "/avatars/task-flow-1-2.svg",
               comment:
                 "“The only thing that slowed me down in the process was finding the right tag. I guess I would like to type it if that’s possible.”",
             },
           ]}
           conclusions={["4/5 were able to complete the task easily"]}
-          image="/resto/task-flow-1.svg"
+          image={{
+            src: "/avatars/task-flow-1.svg",
+            width: 220,
+            height: 440,
+          }}
         />
         <TaskFlowCard
           title="Task Flow 2"
@@ -661,13 +677,13 @@ const test: TestProps = {
           participants={[
             {
               name: "Participant 2",
-              avatar: "/resto/task-flow-2-1.svg",
+              avatar: "/avatars/task-flow-2-1.svg",
               comment:
                 "“Location icon colors look similar and I didn’t realize that they are different colors and have different meanings.”",
             },
             {
               name: "Participant 5",
-              avatar: "/resto/task-flow-2-2.svg",
+              avatar: "/avatars/task-flow-2-2.svg",
               comment:
                 "“I want to see a list of restaurants instead of checking everything on the map.”",
             },
@@ -676,7 +692,11 @@ const test: TestProps = {
             "3/5 had difficulties to find out which one is popular",
             "2/5 didn’t use the filter function to narrow down the options",
           ]}
-          image="/resto/task-flow-2.svg"
+          image={{
+            src: "/resto/task-flow-2.svg",
+            width: 220,
+            height: 440,
+          }}
           mirror
         />
         <TaskFlowCard
@@ -685,13 +705,13 @@ const test: TestProps = {
           participants={[
             {
               name: "Participant 3",
-              avatar: "/resto/task-flow-3-1.svg",
+              avatar: "/avatars/task-flow-3-1.svg",
               comment:
                 "“I think this was pretty straightforward and a great feature.”",
             },
             {
               name: "Participant 4",
-              avatar: "/resto/task-flow-3-2.svg",
+              avatar: "/avatars/task-flow-3-2.svg",
               comment:
                 "“This was very easy, and it’s helpful for finding restaurants when my schedule is packed.”",
             },
@@ -699,7 +719,11 @@ const test: TestProps = {
           conclusions={[
             "5/5 were able to complete the task without any issues",
           ]}
-          image="/resto/task-flow-3.svg"
+          image={{
+            src: "/resto/task-flow-3.svg",
+            width: 220,
+            height: 440,
+          }}
         />
         <TaskFlowCard
           title="Task Flow 4"
@@ -707,13 +731,13 @@ const test: TestProps = {
           participants={[
             {
               name: "Participant 1",
-              avatar: "/resto/task-flow-4-1.svg",
+              avatar: "/avatars/task-flow-4-1.svg",
               comment:
                 "“I want to see the notification before the completion page. Otherwise I have to go back to the previous page to select a different time again.”",
             },
             {
               name: "Participant 5",
-              avatar: "/resto/task-flow-4-2.svg",
+              avatar: "/avatars/task-flow-4-2.svg",
               comment:
                 "“It would be better if a notification appears when clicking on an available time slot if there is already another reservation.”",
             },
@@ -722,7 +746,11 @@ const test: TestProps = {
             "4/5 were unsure about another reservation until the end",
             "3/5 wanted to see the notification when choosing the time slot",
           ]}
-          image="/resto/task-flow-4.svg"
+          image={{
+            src: "/resto/task-flow-4.svg",
+            width: 220,
+            height: 440,
+          }}
           mirror
         />
       </div>

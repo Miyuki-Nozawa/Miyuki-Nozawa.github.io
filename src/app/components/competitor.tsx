@@ -6,23 +6,33 @@ export default function Competitor({
   desc,
   pros,
   cons,
+  wide,
 }: {
   icon: string;
   name: string;
-  desc: string;
+  desc?: string;
   pros: string[];
   cons: string[];
+  wide?: boolean;
 }) {
+  const width = wide ? "max-w-[485px]" : "max-w-[316px]";
+  const [logoW, logoH] = wide ? [222, 50] : [100, 100];
+  const padding = wide ? "px-[20px] py-[30px]" : "p-[20px]";
+
   return (
-    <div className="p-[20px] space-y-[20px] max-w-[316px] bg-white rounded-[20px] shadow-[0px_2px_2px_0px_rgba(0,0,0,0.25)]">
-      <div className="flex space-x-[10px]">
-        <Image src={icon} alt={name} width={100} height={100} />
-        <div className="flex flex-col justify-evenly">
-          <div className="text-[18px] font-semibold tracking-[.01em]">
-            {name}
+    <div
+      className={`space-y-[20px] bg-white rounded-[20px] shadow-[0px_2px_2px_0px_rgba(0,0,0,0.25)] ${width} ${padding}`}
+    >
+      <div className={`flex space-x-[10px] ${wide ? "justify-center" : ""}`}>
+        <Image src={icon} alt={name} width={logoW} height={logoH} />
+        {desc && (
+          <div className="flex flex-col justify-evenly">
+            <div className="text-[18px] font-semibold tracking-[.01em]">
+              {name}
+            </div>
+            <div className="text-[14px] tracking-[.01em]">{desc}</div>
           </div>
-          <div className="text-[14px] tracking-[.01em]">{desc}</div>
-        </div>
+        )}
       </div>
       <div className="space-y-[20px]">
         {pros.map((pro) => (

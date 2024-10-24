@@ -4,25 +4,32 @@ import QuestionResponse from "@/app/components/question-response";
 import { KeyCardT } from "@/types";
 
 export type ResearchExplorationProps = {
-  surveyDesc: React.ReactNode;
-  surveyQuestions: QuestionResponseT;
-  userInterviewDesc: React.ReactNode;
-  userInterviewQuestions: QuestionResponseT;
+  survey: {
+    desc: React.ReactNode;
+    questions: QuestionResponseT;
+  };
+  userInterview: {
+    desc: React.ReactNode;
+    questions: QuestionResponseT;
+  };
+  usabilityTesting?: {
+    desc: React.ReactNode;
+    questions: QuestionResponseT;
+  };
   findings: KeyCardT;
 };
 
 type QuestionResponseT = {
-  question: string;
+  question?: string;
   response: string;
   avatar: string;
   name: string;
 }[];
 
 export default function ResearchExploration({
-  surveyDesc,
-  surveyQuestions,
-  userInterviewDesc,
-  userInterviewQuestions,
+  survey,
+  userInterview,
+  usabilityTesting,
   findings,
 }: ResearchExplorationProps) {
   return (
@@ -33,10 +40,10 @@ export default function ResearchExploration({
           <div className="text-[27px] font-semibold tracking-[.01em]">
             Survey
           </div>
-          {surveyDesc}
+          {survey.desc}
         </div>
         <div className="py-[50px] space-y-[30px]">
-          {surveyQuestions.map(({ question, response, avatar, name }, i) => (
+          {survey.questions.map(({ question, response, avatar, name }, i) => (
             <QuestionResponse
               key={i}
               question={question}
@@ -53,10 +60,10 @@ export default function ResearchExploration({
           <div className="text-[27px] font-semibold tracking-[.01em]">
             User Interview
           </div>
-          <Paragraph>{userInterviewDesc}</Paragraph>
+          <Paragraph>{userInterview.desc}</Paragraph>
         </div>
         <div className="py-[50px] space-y-[30px]">
-          {userInterviewQuestions.map(
+          {userInterview.questions.map(
             ({ question, response, avatar, name }, i) => (
               <QuestionResponse
                 key={i}
@@ -68,6 +75,30 @@ export default function ResearchExploration({
             )
           )}
         </div>
+        {/* usability testing */}
+        {usabilityTesting && (
+          <>
+            <div className="space-y-[10px]">
+              <div className="text-[27px] font-semibold tracking-[.01em]">
+                Usability Testing
+              </div>
+              <Paragraph>{usabilityTesting.desc}</Paragraph>
+            </div>
+            <div className="py-[50px] space-y-[30px]">
+              {usabilityTesting.questions.map(
+                ({ question, response, avatar, name }, i) => (
+                  <QuestionResponse
+                    key={i}
+                    question={question}
+                    response={response}
+                    avatar={avatar}
+                    name={name}
+                  />
+                )
+              )}
+            </div>
+          </>
+        )}
         <KeySection title="Key Findings" cards={findings} />
       </div>
     </div>

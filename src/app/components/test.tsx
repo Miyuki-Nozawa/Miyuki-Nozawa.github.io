@@ -30,6 +30,7 @@ type Demo = {
   header: string;
   notes: string[];
   mirror?: boolean;
+  wide?: boolean;
 };
 
 export default forwardRef(function Test(
@@ -68,13 +69,14 @@ export default forwardRef(function Test(
             </div>
           </div>
           <div className="space-y-[50px] py-[20px]">
-            {final.demos.map(({ video, header, notes, mirror }, i) => (
+            {final.demos.map(({ video, header, notes, mirror, wide }, i) => (
               <Final
                 key={i}
                 video={video}
                 header={header}
                 notes={notes}
                 mirror={mirror}
+                wide={wide}
               />
             ))}
             <div>

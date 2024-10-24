@@ -49,10 +49,9 @@ export default forwardRef(function Research(
         </ProjectSubSection>
         <ProjectSubSection title={researchExploration.title}>
           <ResearchExploration
-            surveyDesc={researchExploration.surveyDesc}
-            surveyQuestions={researchExploration.surveyQuestions}
-            userInterviewDesc={researchExploration.userInterviewDesc}
-            userInterviewQuestions={researchExploration.userInterviewQuestions}
+            survey={researchExploration.survey}
+            userInterview={researchExploration.userInterview}
+            usabilityTesting={researchExploration.usabilityTesting}
             findings={researchExploration.findings}
           />
         </ProjectSubSection>

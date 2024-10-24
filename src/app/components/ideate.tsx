@@ -16,15 +16,27 @@ export type IdeateProps = {
     img: string;
     url: string;
   };
-  refine: {
+  refine?: {
     desc: string;
     flows: Flow[];
     url: string;
   };
-  map: {
+  map?: {
     desc: string;
     label: string;
     img: React.ReactNode;
+    url: string;
+  };
+  taskFlow?: {
+    desc: string;
+    label: string;
+    img: string;
+    url: string;
+  };
+  userFlow?: {
+    desc: string;
+    label: string;
+    img: string;
     url: string;
   };
 };
@@ -35,7 +47,7 @@ type Flow = {
 };
 
 export default forwardRef(function Ideate(
-  { brainstorm, sitemap, refine, map }: IdeateProps,
+  { brainstorm, sitemap, refine, map, taskFlow, userFlow }: IdeateProps,
   ref: React.ForwardedRef<HTMLDivElement>
 ) {
   return (
@@ -61,42 +73,67 @@ export default forwardRef(function Ideate(
             </div>
           </ProjectSubSection>
         )}
-        <ProjectSubSection title="Refining Key Design Decisions">
-          <Paragraph>{refine.desc}</Paragraph>
-          <div className="py-[20px] space-y-[30px]">
-            <div className="space-y-[50px]">
-              {refine.flows.map(({ label, img }, i) => (
-                <div key={i} className="py-[20px] space-y-[30px]">
-                  <div className="flex space-x-[10px]">
-                    <Image
-                      src="/icons/star-brown.svg"
-                      alt="star"
-                      width={33}
-                      height={33}
-                      className="mb-auto"
-                    />
-                    <span className="text-[22px] font-medium tracking-[.01em]">
-                      {label}
-                    </span>
+        {refine && (
+          <ProjectSubSection title="Refining Key Design Decisions">
+            <Paragraph>{refine.desc}</Paragraph>
+            <div className="py-[20px] space-y-[30px]">
+              <div className="space-y-[50px]">
+                {refine.flows.map(({ label, img }, i) => (
+                  <div key={i} className="py-[20px] space-y-[30px]">
+                    <div className="flex space-x-[10px]">
+                      <Image
+                        src="/icons/star-brown.svg"
+                        alt="star"
+                        width={33}
+                        height={33}
+                        className="mb-auto"
+                      />
+                      <span className="text-[22px] font-medium tracking-[.01em]">
+                        {label}
+                      </span>
+                    </div>
+                    <div className="py-[20px]">
+                      <Image
+                        src={img}
+                        alt="user flow"
+                        width={0}
+                        height={0}
+                        style={{ width: "100%", height: "auto" }}
+                      />
+                    </div>
                   </div>
-                  <div className="py-[20px]">
-                    <Image
-                      src={img}
-                      alt="user flow"
-                      width={0}
-                      height={0}
-                      style={{ width: "100%", height: "auto" }}
-                    />
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
+              <Figma href={refine.url}>View the Task Flows</Figma>
             </div>
-            <Figma href={refine.url}>View the Task Flows</Figma>
-          </div>
-        </ProjectSubSection>
-        <ProjectSubSection title="Mapping out User Needs and Goals">
-          <Paragraph>{map.desc}</Paragraph>
-          <div className="py-[20px] space-y-[30px]">
+          </ProjectSubSection>
+        )}
+        {map && (
+          <ProjectSubSection title="Mapping out User Needs and Goals">
+            <Paragraph>{map.desc}</Paragraph>
+            <div className="py-[20px] space-y-[30px]">
+              <div className="py-[20px] space-y-[30px]">
+                <div className="flex space-x-[10px]">
+                  <Image
+                    src="/icons/star-brown.svg"
+                    alt="star"
+                    width={33}
+                    height={33}
+                    className="mb-auto"
+                  />
+                  <span className="text-[22px] font-medium tracking-[.01em]">
+                    {map.label}
+                  </span>
+                </div>
+                <div className="pb-[30px] overflow-x-scroll">{map.img}</div>
+              </div>
+              <Figma href={map.url}>View the User Flow</Figma>
+            </div>
+          </ProjectSubSection>
+        )}
+        {taskFlow && (
+          <ProjectSubSection title="Task Flow: Refining Key Design Decisions">
+            <Paragraph>{taskFlow.desc}</Paragraph>
             <div className="py-[20px] space-y-[30px]">
               <div className="flex space-x-[10px]">
                 <Image
@@ -104,17 +141,52 @@ export default forwardRef(function Ideate(
                   alt="star"
                   width={33}
                   height={33}
-                  className="mb-auto"
                 />
                 <span className="text-[22px] font-medium tracking-[.01em]">
-                  {map.label}
+                  {taskFlow.label}
                 </span>
               </div>
-              <div className="pb-[30px] overflow-x-scroll">{map.img}</div>
+              <div className="py-[20px]">
+                <Image
+                  src={taskFlow.img}
+                  alt="task flow"
+                  width={0}
+                  height={0}
+                  style={{ width: "100%", height: "auto" }}
+                />
+              </div>
+              <Figma href={taskFlow.url}>View the Task Flow</Figma>
             </div>
-            <Figma href={map.url}>View the User Flow</Figma>
-          </div>
-        </ProjectSubSection>
+          </ProjectSubSection>
+        )}
+        {userFlow && (
+          <ProjectSubSection title="User Flow: Mapping Out User Needs and Goals">
+            <Paragraph>{userFlow.desc}</Paragraph>
+            <div className="py-[20px] space-y-[30px]">
+              <div className="flex space-x-[10px]">
+                <Image
+                  src="/icons/star-brown.svg"
+                  alt="star"
+                  width={33}
+                  height={33}
+                />
+                <span className="text-[22px] font-medium tracking-[.01em]">
+                  {userFlow.label}
+                </span>
+              </div>
+              <div className="py-[20px]">
+                <Image
+                  src={userFlow.img}
+                  alt="task flow"
+                  width={0}
+                  height={0}
+                  style={{ width: "100%", height: "auto" }}
+                />
+              </div>
+              <Figma href={userFlow.url}>View the Task Flow</Figma>
+            </div>
+          </ProjectSubSection>
+        )}
       </ProjectSection>
     </div>
   );

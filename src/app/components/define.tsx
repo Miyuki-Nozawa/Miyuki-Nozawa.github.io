@@ -60,7 +60,7 @@ export default forwardRef(function Define(
             {affinity.maps.map(({ label, map }, i) => (
               <div
                 key={i}
-                className="w-full h-[700px] px-[30px] py-[50px] space-y-[30px] bg-white rounded-[20px]"
+                className="w-full px-[30px] py-[50px] space-y-[30px] bg-white rounded-[20px]"
               >
                 <div className="text-[22px] font-medium tracking-[.01em]">
                   {label}

@@ -53,7 +53,7 @@ export default function Project({
       [Section.TEST]: testRef,
       [Section.NEXTSTEPS]: nextStepsRef,
     }),
-    [],
+    []
   );
 
   useEffect(() => {
@@ -118,70 +118,15 @@ export default function Project({
         ))}
       </div>
       <div className="space-y-[20px] tracking-[.01em]">
-        <Hero
-          title={hero.title}
-          subtitle={hero.subtitle}
-          desc={hero.desc}
-          role={hero.role}
-          type={hero.type}
-          timeline={hero.timeline}
-          url={hero.url}
-        >
-          {hero.children}
-        </Hero>
-        <Introduction
-          background={introduction.background}
-          problems={introduction.problems}
-          solutions={introduction.solutions}
-        />
-        <DesignProcess
-          research={designProcess.research}
-          define={designProcess.define}
-          ideate={designProcess.ideate}
-          prototype={designProcess.prototype}
-          test={designProcess.test}
-          nextSteps={designProcess.nextSteps}
-        />
-        <Research
-          ref={researchRef}
-          desc={research.desc}
-          goals={research.goals}
-          researchCompetition={research.researchCompetition}
-          researchExploration={research.researchExploration}
-        />
-        <Define
-          ref={defineRef}
-          affinity={define.affinity}
-          personas={define.personas}
-          exploring={define.exploring}
-          goals={define.goals}
-        />
-        <Ideate
-          ref={ideateRef}
-          brainstorm={ideate.brainstorm}
-          sitemap={ideate.sitemap}
-          refine={ideate.refine}
-          map={ideate.map}
-        />
-        <Prototype
-          ref={prototypeRef}
-          exploring={prototype.exploring}
-          tests={prototype.tests}
-          refining={prototype.refining}
-          building={prototype.building}
-          branding={prototype.branding}
-        />
-        <Test
-          ref={testRef}
-          enhancing={test.enhancing}
-          iterating={test.iterating}
-          final={test.final}
-        />
-        <NextSteps
-          ref={nextStepsRef}
-          learning={nextSteps.learning}
-          opportunities={nextSteps.opportunities}
-        />
+        <Hero {...hero}>{hero.children}</Hero>
+        <Introduction {...introduction} />
+        <DesignProcess {...designProcess} />
+        <Research ref={researchRef} {...research} />
+        <Define ref={defineRef} {...define} />
+        <Ideate ref={ideateRef} {...ideate} />
+        <Prototype ref={prototypeRef} {...prototype} />
+        <Test ref={testRef} {...test} />
+        <NextSteps ref={nextStepsRef} {...nextSteps} />
       </div>
     </div>
   );
