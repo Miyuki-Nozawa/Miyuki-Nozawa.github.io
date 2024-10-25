@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
+
 import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
 import Hero, { HeroProps } from "@/app/components/hero";
 import Introduction, { IntroductionProps } from "@/app/components/introduction";
@@ -13,6 +15,8 @@ import Ideate, { IdeateProps } from "@/app/components/ideate";
 import Prototype, { PrototypeProps } from "@/app/components/prototype";
 import Test, { TestProps } from "@/app/components/test";
 import NextSteps, { NextStepsProps } from "@/app/components/next-steps";
+import Bottom from "@/app/components/bottom";
+import Link from "next/link";
 
 export default function Project({
   hero,
@@ -41,8 +45,10 @@ export default function Project({
   const prototypeRef = useRef<HTMLDivElement>(null);
   const testRef = useRef<HTMLDivElement>(null);
   const nextStepsRef = useRef<HTMLDivElement>(null);
+  const footerRef = useRef<HTMLDivElement>(null);
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
 
   const refs = useMemo(
     () => ({
@@ -74,7 +80,7 @@ export default function Project({
         }
       }
 
-      setIsNavVisible(isVisible);
+      setIsNavVisible(isVisible && !isFooterVisible);
       setActiveSection(current);
     };
 
@@ -85,12 +91,40 @@ export default function Project({
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [activeSection, refs]);
+  }, [activeSection, refs, isFooterVisible]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsFooterVisible(entry.isIntersecting);
+        setIsNavVisible(isNavVisible && !entry.isIntersecting);
+      },
+      {
+        threshold: 0.75,
+      }
+    );
+
+    let ref = footerRef.current;
+
+    if (ref) {
+      observer.observe(ref);
+    }
+
+    return () => {
+      if (ref) {
+        observer.unobserve(ref);
+      }
+    };
+  }, []);
 
   const handleNav = (section: Section) => {
     if (refs[section].current) {
       refs[section].current.scrollIntoView();
     }
+  };
+
+  const goToTop = () => {
+    window.scrollTo({ top: 0 });
   };
 
   return (
@@ -128,6 +162,22 @@ export default function Project({
         <Test ref={testRef} {...test} />
         <NextSteps ref={nextStepsRef} {...nextSteps} />
       </div>
+      <Bottom ref={footerRef} visible={isFooterVisible}>
+        <div className="space-y-[10px] flex flex-col items-center">
+          <div className="text-[60px] font-bold text-white tracking-[.01em]">
+            Back to Top
+          </div>
+          <Image
+            src="/icons/top-arrow.svg"
+            alt="top"
+            width={70}
+            height={70}
+            onMouseEnter={handleCursorHoverStart}
+            onMouseLeave={handleCursorHoverStop}
+            onClick={goToTop}
+          />
+        </div>
+      </Bottom>
     </div>
   );
 }

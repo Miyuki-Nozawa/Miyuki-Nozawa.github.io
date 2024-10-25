@@ -2,9 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import ProjectCard from "./components/project-card";
 import Link from "next/link";
+
+import ProjectCard from "@/app/components/project-card";
 import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
+import Bottom from "@/app/components/bottom";
 
 export default function Home() {
   const footerRef = useRef<HTMLDivElement>(null);
@@ -87,17 +89,9 @@ export default function Home() {
         img="/home/pibu.png"
         page="/projects/pibu"
       />
-      <div
-        ref={footerRef}
-        className="bg-green rounded-t-[200px] flex flex-col items-center justify-center overflow-hidden"
-      >
-        <div
-          className={`flex flex-col items-center space-y-[60px] h-[100vh] justify-center mt-[200px] [transition:transform_1s,opacity_2s] ${
-            isFooterVisible
-              ? "translate-y-0 opacity-100"
-              : "translate-y-full opacity-0"
-          }`}
-        >
+      {/* Footer */}
+      <Bottom ref={footerRef} visible={isFooterVisible}>
+        <>
           <div className="text-white font-bold text-[60.75px]">
             Let&apos;s connect!
           </div>
@@ -135,8 +129,8 @@ export default function Home() {
               </div>
             </Link>
           </div>
-        </div>
-      </div>
+        </>
+      </Bottom>
     </main>
   );
 }
