@@ -12,11 +12,7 @@ export default function KeyCard({
   centered?: boolean;
 }) {
   return (
-    <div
-      className={`p-[49px] bg-pink rounded-[20px] space-y-[30px] w-1/3 ${
-        centered ? "text-center" : ""
-      }`}
-    >
+    <div className="px-[40px] py-[50px] bg-pink rounded-[20px] space-y-[30px] w-1/3">
       {icon && (
         <Image
           src={icon}
@@ -27,9 +23,21 @@ export default function KeyCard({
         />
       )}
       <div className="space-y-[10px]">
-        <div className="text-[22px] font-medium tracking-[.01em]">{label}</div>
+        <div
+          className={`text-[22px] font-medium tracking-[.01em] ${
+            centered ? "text-center" : ""
+          }`}
+        >
+          {label}
+        </div>
         {sublabel && (
-          <div className="text-[18px] tracking-[.01em]">{sublabel}</div>
+          <div
+            className={`text-[18px] tracking-[.01em] ${
+              centered ? "text-center" : ""
+            }`}
+          >
+            {sublabel}
+          </div>
         )}
       </div>
     </div>

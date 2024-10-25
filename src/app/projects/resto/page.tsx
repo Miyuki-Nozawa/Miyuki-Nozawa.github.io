@@ -176,7 +176,7 @@ const research: ResearchProps = {
           name: "Participant 1",
         },
         {
-          question: "How important is dining out while traveling to you?",
+          question: "How do you search for restaurants during your travels?",
           response:
             "“I decide restaurants based on reviews from locals or Google. I usually want to go to restaurants that are famous among both tourists and locals.”",
           avatar: "/avatars/participant-2.svg",
@@ -228,7 +228,7 @@ const research: ResearchProps = {
       },
       {
         icon: "/icons/find.svg",
-        label: "Finding restaurants & managing reservations",
+        label: "Finding restaurants, managing bookings",
         sublabel: "can be difficult",
       },
     ],
@@ -237,7 +237,7 @@ const research: ResearchProps = {
 
 const define: DefineProps = {
   affinity: {
-    desc: "After implementing the secondary research methods, I recorded all data points and ideas on individual sticky notes. I grouped them based on interview topics and further categorized them into patterns.",
+    desc: "I recorded the points and ideas obtained from the surveys and user interviews on individual sticky notes. Then I grouped them by interview topics, further categorized them into patterns, and created an affinity map.",
     maps: [
       {
         label: "How was your experience when finding restaurants or cafes?",
@@ -759,10 +759,26 @@ const test: TestProps = {
   iterating: {
     desc: "Based on the usability testing, I refined the design of the app to make it easier for travelers to book and manage restaurant reservations.",
     images: [
-      "/resto/iteration-1.png",
-      "/resto/iteration-2.png",
-      "/resto/iteration-3.png",
-      "/resto/iteration-4.png",
+      {
+        src: "/resto/iteration-1.png",
+        width: 1000,
+        height: 512,
+      },
+      {
+        src: "/resto/iteration-2.png",
+        width: 1000,
+        height: 512,
+      },
+      {
+        src: "/resto/iteration-3.png",
+        width: 1000,
+        height: 512,
+      },
+      {
+        src: "/resto/iteration-4.png",
+        width: 1000,
+        height: 512,
+      },
     ],
   },
   final: {

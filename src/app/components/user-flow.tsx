@@ -18,7 +18,7 @@ export default function UserFlow({
       <div className="text-2xl font-medium tracking-[.02em]">{title}</div>
       <div className="overflow-scroll">
         <div className={`relative ${className} flex items-center`}>
-          <Image src={img} alt="task flow" width={width} height={height} />
+          <Image src={img} alt="user flow" width={width} height={height} />
         </div>
       </div>
     </div>

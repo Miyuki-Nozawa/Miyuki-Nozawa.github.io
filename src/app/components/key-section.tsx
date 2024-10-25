@@ -12,12 +12,13 @@ export default function KeySection({
   return (
     <StarSection title={title}>
       <div className="py-[20px] flex space-x-[20px]">
-        {cards.map(({ icon, label, sublabel }, i) => (
+        {cards.map(({ icon, label, sublabel, centered }, i) => (
           <KeyCard
             key={i}
             icon={icon}
             label={label}
             sublabel={sublabel}
+            centered={centered}
           />
         ))}
       </div>

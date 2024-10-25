@@ -174,16 +174,17 @@ export default forwardRef(function Ideate(
                   {userFlow.label}
                 </span>
               </div>
-              <div className="py-[20px]">
-                <Image
-                  src={userFlow.img}
-                  alt="task flow"
-                  width={0}
-                  height={0}
-                  style={{ width: "100%", height: "auto" }}
-                />
+              <div className="pt-[20px] pb-[50px] overflow-x-scroll">
+                <div className="w-[2346px] h-[625px]">
+                  <Image
+                    src={userFlow.img}
+                    alt="user flow"
+                    width={2346}
+                    height={625}
+                  />
+                </div>
               </div>
-              <Figma href={userFlow.url}>View the Task Flow</Figma>
+              <Figma href={userFlow.url}>View the User Flow</Figma>
             </div>
           </ProjectSubSection>
         )}

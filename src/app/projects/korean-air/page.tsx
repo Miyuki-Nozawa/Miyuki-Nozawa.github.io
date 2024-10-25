@@ -92,15 +92,16 @@ const research: ResearchProps = {
     features: [
       {
         icon: "/icons/desktop.svg",
-        label: "A clear display of mileage or points",
+        label: "Make mileage or points easily visible",
       },
       {
         icon: "/icons/fire.svg",
-        label: "Boost user motivation",
+        label: "Boost motivation",
+        centered: true,
       },
       {
         icon: "/icons/file.svg",
-        label: "Present redemption options",
+        label: "Clearly display redemption options",
       },
     ],
     children: (
@@ -376,7 +377,7 @@ const define: DefineProps = {
     povStatement:
       "I’d like to explore ways for people joining the Korean Air mileage program (SKYPASS) to understand at a glance what they can redeem their mileage for because many people may not know how many miles are needed for redemption, leading to a lack of motivation to accumulate mileage.",
     summary:
-      "Then, I took the problems into clear questions that help find creative and practical solutions.",
+      "Then, I took the problem into clear questions that help find creative and practical solutions.",
     hmwQuestion:
       "How might we allow SKYPASS members to check their accumulated mileage against the required mileage at once?",
   },
@@ -419,7 +420,7 @@ const ideate: IdeateProps = {
               <div key={i} className="flex space-x-[10px]">
                 <Image
                   alt="feature"
-                  src="/icons/brown-diamond.svg"
+                  src="/icons/brown-diamond-2.svg"
                   width={27}
                   height={27}
                   className="mb-auto"
@@ -433,7 +434,7 @@ const ideate: IdeateProps = {
     ),
   },
   taskFlow: {
-    desc: "I created a task flow to clarify the steps necessary for the personas to achieve their goals and ensure a user-friendly experience.",
+    desc: "I created a task flow to clarify the steps necessary for the persona to achieve her goals and ensure a user-friendly experience.",
     label: "Check the required mileage for exchanging award tickets",
     img: "/korean-air/task-flow.svg",
     url: "https://www.figma.com/board/reZSsCdxDbS1QbXJlNEqFR/Capstone-1---Adding-a-Feature?node-id=78-2052&t=kbOQafEoUowSmyvq-1",
@@ -603,9 +604,21 @@ const test: TestProps = {
   iterating: {
     desc: "Based on the usability testing, I refined the design of the feature that makes it easy for users to see their accumulated mileage and redemption options.",
     images: [
-      "/korean-air/iteration-1.png",
-      "/korean-air/iteration-2.png",
-      "/korean-air/iteration-3.png",
+      {
+        src: "/korean-air/iterating-1.svg",
+        width: 1000,
+        height: 355,
+      },
+      {
+        src: "/korean-air/iterating-2.svg",
+        width: 1000,
+        height: 474,
+      },
+      {
+        src: "/korean-air/iterating-3.svg",
+        width: 1000,
+        height: 355,
+      },
     ],
   },
   final: {
@@ -614,7 +627,7 @@ const test: TestProps = {
     demos: [
       {
         video: "/korean-air/final-1.mp4",
-        header: "A mileage display under the account icon",
+        header: "Display miles under the account icon",
         notes: [
           "Easily check your mileage at a glance",
           "Clearly show that mileage actions can be done from the account page",

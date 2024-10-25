@@ -15,7 +15,7 @@ export type TestProps = {
   };
   iterating: {
     desc: string;
-    images: string[];
+    images: Image[];
   };
   final: {
     header: string;
@@ -23,6 +23,12 @@ export type TestProps = {
     demos: Demo[];
     url: string;
   };
+};
+
+type Image = {
+  src: string;
+  width: number;
+  height: number;
 };
 
 type Demo = {
@@ -47,14 +53,14 @@ export default forwardRef(function Test(
         </ProjectSubSection>
         <ProjectSubSection title="Iterating Designs for User-Centric Solutions">
           <Paragraph>{iterating.desc}</Paragraph>
-          <div className="py-[20px] space-y-[50px]">
-            {iterating.images.map((img, i) => (
+          <div className="py-[20px] space-y-[100px]">
+            {iterating.images.map(({ src, width, height }, i) => (
               <Image
                 key={i}
-                src={img}
+                src={src}
                 alt="iteration"
-                width={1000}
-                height={531}
+                width={width}
+                height={height}
               />
             ))}
           </div>

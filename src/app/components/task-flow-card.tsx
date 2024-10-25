@@ -62,13 +62,14 @@ export default function TaskFlowCard({
         {conclusions.map((conclusion) => (
           <div
             key={conclusion}
-            className="flex space-x-[10px] items-center mx-auto"
+            className="flex space-x-[10px] mx-auto"
           >
             <Image
               alt="star"
               src="/icons/star-filled.svg"
               width={27}
               height={27}
+              className="mb-auto"
             />
             <span className="text-[18px] tracking-[.01em]">{conclusion}</span>
           </div>
