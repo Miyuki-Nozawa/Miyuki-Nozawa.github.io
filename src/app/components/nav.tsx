@@ -11,6 +11,7 @@ const PROJECTS = ["resto", "korean-air", "pibu"];
 
 export default function Nav() {
   const pathname = usePathname();
+  const isAboutPage = pathname === "/about";
   const router = useRouter();
 
   const [mobileNavVisible, setMobileNavVisible] = useState(false);
@@ -97,7 +98,7 @@ export default function Nav() {
       <div
         className={
           "absolute top-0 right-0 left-0 flex justify-between items-center lg:p-16 lg:h-[192px] z-20 " +
-          `${contactHoverClass} `
+          `${contactHoverClass} ${isAboutPage ? "bg-transparent" : ""}`
         }
       >
         <div className="mx-auto lg:mx-0 w-[75px] lg:w-[155px] h-[50px] lg:h-[105px]">
