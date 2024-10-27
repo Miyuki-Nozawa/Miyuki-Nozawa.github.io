@@ -62,14 +62,16 @@ export default function Home() {
         </div>
       </div>
       {/* Resto */}
-      <ProjectCard
-        tags={["UX/UI design", "Mobile", "End-to-end"]}
-        title="Resto"
-        subtitle="Dining App in Japan"
-        description="A mobile app that simplifies restaurant discovery and reservations for travelers in Japan"
-        img="/home/resto.png"
-        page="/projects/resto"
-      />
+      <div id="work">
+        <ProjectCard
+          tags={["UX/UI design", "Mobile", "End-to-end"]}
+          title="Resto"
+          subtitle="Dining App in Japan"
+          description="A mobile app that simplifies restaurant discovery and reservations for travelers in Japan"
+          img="/home/resto.png"
+          page="/projects/resto"
+        />
+      </div>
       {/* Korean Air */}
       <ProjectCard
         tags={["UX/UI design", "Website", "Add a feature"]}

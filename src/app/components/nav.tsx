@@ -38,8 +38,6 @@ export default function Nav() {
     };
   }, [cursorVisible]);
 
-  const isContact = pathname.startsWith("/contact");
-
   const openMobileNav = () => {
     document.body.style.overflow = "hidden";
     setMobileNavVisible(true);
@@ -54,15 +52,18 @@ export default function Nav() {
     setMobileProjectsVisible(!mobileProjectsVisible);
   };
 
-  const generateNavLink = (path: string, name: string) => (
+  const generateNavLink = (path: string, name: string, newTab?: boolean) => (
     <div
-      className="px-[30px] py-[10px] rounded-[55px] hover:bg-navHover"
+      className={`px-[30px] py-[10px] rounded-[55px] ${
+        isAboutPage ? "hover:bg-black/10" : "hover:bg-navHover"
+      }`}
       onMouseEnter={handleCursorHoverStart}
       onMouseLeave={handleCursorHoverStop}
     >
       <NavLink
         href={path}
         className={`${pathname === path ? "font-bold" : ""} cursor-default`}
+        target={newTab ? "_blank" : "_self"}
       >
         {name}
       </NavLink>
@@ -85,10 +86,6 @@ export default function Nav() {
     </div>
   );
 
-  const contactHoverClass = isContact
-    ? "bg-transparent transition-all ease-in duration-700"
-    : "bg-base";
-
   return (
     <div className="relative mt-[10px] lg:mt-0 lg:block">
       <div
@@ -98,7 +95,7 @@ export default function Nav() {
       <div
         className={
           "absolute top-0 right-0 left-0 flex justify-between items-center lg:p-16 lg:h-[192px] z-20 " +
-          `${contactHoverClass} ${isAboutPage ? "bg-transparent" : ""}`
+          `${isAboutPage ? "bg-transparent" : "bg-base"}`
         }
       >
         <div className="mx-auto lg:mx-0 w-[75px] lg:w-[155px] h-[50px] lg:h-[105px]">
@@ -113,9 +110,13 @@ export default function Nav() {
         </div>
         <div className="hidden lg:flex space-x-[20px] font-light">
           {generateNavLink("/", "Home")}
-          {generateNavLink("/resume", "Work")}
+          {generateNavLink("/#work", "Work")}
           {generateNavLink("/about", "About")}
-          {generateNavLink("/contact", "Contact")}
+          {generateNavLink(
+            "https://drive.google.com/file/d/1yQAmS53BZt76VrnzwTMF22o4CABhC1IJ/view?usp=sharing",
+            "Resume",
+            true
+          )}
         </div>
       </div>
       {/* hamburger */}
@@ -168,7 +169,6 @@ export default function Nav() {
           )}
         </div>
         {generateMobileNavLink("/resume", "Resume")}
-        {generateMobileNavLink("/contact", "Contact")}
       </div>
     </div>
   );
