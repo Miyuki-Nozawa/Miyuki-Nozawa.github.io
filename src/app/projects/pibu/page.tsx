@@ -46,7 +46,7 @@ const hero: HeroProps = {
   timeline: "May - June 2024",
   url: "https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&node-type=canvas&viewport=284%2C360%2C0.06&t=6NVbRlngR40WJKQQ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1",
   children: (
-    <div className="flex space-x-[25px] py-[20px]">
+    <div className="flex space-x-[25px] py-[20px] pb-[50px]">
       <Image src="/pibu/desktop.png" alt="Pibu" width={775} height={454} />
       <Image
         src="/pibu/mobile.png"

@@ -232,8 +232,13 @@ const research: ResearchProps = {
       },
       {
         icon: "/icons/find.svg",
-        label: "Finding restaurants, managing bookings",
+        label: "Restaurant discovery",
         sublabel: "can be difficult",
+      },
+      {
+        icon: "/icons/pencil.svg",
+        label: "Reviewing & managing bookings",
+        sublabel: "can be a struggle",
       },
     ],
   },
@@ -298,18 +303,23 @@ const define: DefineProps = {
     url: "https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=90-2022&t=Rh2UA7lbJbDJRhGN-1",
     findings: [
       {
+        label: "72% of participants",
+        sublabel:
+          "believe that choosing dining options is important during travel",
+      },
+      {
         label: "62% of participants",
         sublabel: "decide on a restaurant based on reviews or ratings",
       },
       {
         label: "59% of participants",
         sublabel:
-          "struggle to choose a restaurant due to search challenges, despite valuing dining on their trip",
+          "faced challenges in choosing a restaurant, even though they valued dining on their trip",
       },
       {
         label: "Many participants",
         sublabel:
-          "find the language barrier to be the biggest challenge when making or changing reservations",
+          "find that the language barrier is the biggest challenge when making or changing reservations",
       },
     ],
   },
@@ -686,7 +696,7 @@ const test: TestProps = {
           ]}
           conclusions={["4/5 were able to complete the task easily"]}
           image={{
-            src: "/avatars/task-flow-1.svg",
+            src: "/resto/task-flow-1.svg",
             width: 220,
             height: 440,
           }}
