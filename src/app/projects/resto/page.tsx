@@ -99,12 +99,16 @@ const research: ResearchProps = {
         label: "Simple reservation system",
       },
       {
+        icon: "/icons/gear.svg",
+        label: "Flexible reservation methods",
+      },
+      {
         icon: "/icons/magnifying-glass-thin.svg",
-        label: "Easy search function",
+        label: "User-friendly search function",
       },
       {
         icon: "/icons/book.svg",
-        label: "Introduces trendy spots and culture",
+        label: "Guide to popular spots and culture",
       },
     ],
     children: (
@@ -627,10 +631,26 @@ const prototype: PrototypeProps = {
   branding: {
     desc: "I incorporated all branding elements into the wireframes to create high-fidelity designs.",
     images: [
-      "/resto/hifi-1.png",
-      "/resto/hifi-2.png",
-      "/resto/hifi-3.png",
-      "/resto/hifi-4.png",
+      {
+        src: "/resto/hifi-1.png",
+        width: 220,
+        height: 476,
+      },
+      {
+        src: "/resto/hifi-2.png",
+        width: 220,
+        height: 476,
+      },
+      {
+        src: "/resto/hifi-3.png",
+        width: 220,
+        height: 476,
+      },
+      {
+        src: "/resto/hifi-4.png",
+        width: 220,
+        height: 476,
+      },
     ],
     url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=692-48559&t=6g8QSShYxUqXAJml-1",
   },
@@ -786,7 +806,10 @@ const test: TestProps = {
     desc: "A mobile app that simplifies restaurant discovery and reservation management for travelers in Japan.",
     demos: [
       {
-        video: "/resto/final-1.mp4",
+        video: {
+          src: "/resto/final-1.mp4",
+          className: "w-[300px] h-[600px]",
+        },
         header:
           "A search function that allows users to search based on their needs",
         notes: [
@@ -795,7 +818,10 @@ const test: TestProps = {
         ],
       },
       {
-        video: "/resto/final-2.mp4",
+        video: {
+          src: "/resto/final-2.mp4",
+          className: "w-[300px] h-[600px]",
+        },
         header:
           "Clear and trustworthy reviews help users effortlessly choose their ideal restaurant",
         notes: [
@@ -805,7 +831,10 @@ const test: TestProps = {
         mirror: true,
       },
       {
-        video: "/resto/final-3.mp4",
+        video: {
+          src: "/resto/final-3.mp4",
+          className: "w-[300px] h-[600px]",
+        },
         header:
           "Searching for restaurants near landmarks helps users quickly find dining options",
         notes: [
@@ -814,7 +843,10 @@ const test: TestProps = {
         ],
       },
       {
-        video: "/resto/final-4.mp4",
+        video: {
+          src: "/resto/final-4.mp4",
+          className: "w-[300px] h-[600px]",
+        },
         header:
           "A seamless reservation system empowers travelers to plan smooth journeys",
         notes: ["Eliminate double bookings for a perfectly organized trip"],

@@ -11,5 +11,4 @@ export type KeyCardT = {
   icon?: string;
   label: string;
   sublabel?: string;
-  centered?: boolean;
 }[];

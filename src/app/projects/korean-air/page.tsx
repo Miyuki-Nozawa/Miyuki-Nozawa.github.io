@@ -91,17 +91,20 @@ const research: ResearchProps = {
     ],
     features: [
       {
-        icon: "/icons/desktop.svg",
-        label: "Make mileage or points easily visible",
+        icon: "/icons/laptop.svg",
+        label: "Clear visibility of mileage or points",
       },
       {
         icon: "/icons/fire.svg",
-        label: "Boost motivation",
-        centered: true,
+        label: "Features that enhance user motivation",
+      },
+      {
+        icon: "/icons/hamburger.svg",
+        label: "Variety of redemption options",
       },
       {
         icon: "/icons/file.svg",
-        label: "Clearly display redemption options",
+        label: "Clear display of redemption options",
       },
     ],
     children: (
@@ -626,7 +629,10 @@ const test: TestProps = {
     desc: "A feature that allows users to easily and effectively utilize their mileage for various options.",
     demos: [
       {
-        video: "/korean-air/final-1.mp4",
+        video: {
+          src: "/korean-air/final-1.mp4",
+          className: "w-[500px] h-[323px]",
+        },
         header: "Display miles under the account icon",
         notes: [
           "Easily check your mileage at a glance",
@@ -635,7 +641,10 @@ const test: TestProps = {
         wide: true,
       },
       {
-        video: "/korean-air/final-2.mp4",
+        video: {
+          src: "/korean-air/final-2.mp4",
+          className: "w-[500px] h-[323px]",
+        },
         header:
           "Show the miles needed to exchange for tickets of frequently used flights on the homepage",
         notes: ["Make it easy to check the miles needed for ticket exchanges"],
@@ -643,7 +652,10 @@ const test: TestProps = {
         wide: true,
       },
       {
-        video: "/korean-air/final-3.mp4",
+        video: {
+          src: "/korean-air/final-3.mp4",
+          className: "w-[500px] h-[323px]",
+        },
         header: "Display of mileage redemption options",
         notes: [
           "Display what the mileage can be used for and how much more is needed",

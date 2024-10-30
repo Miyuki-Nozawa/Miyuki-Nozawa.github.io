@@ -5,7 +5,7 @@ import Image from "next/image";
 import Paragraph from "@/app/components/paragraph";
 import ProjectSection from "@/app/components/project-section";
 import ProjectSubSection from "@/app/components/project-subsection";
-import Final from "@/app/components/final";
+import Final, { Video } from "@/app/components/final";
 import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
 
 export type TestProps = {
@@ -21,7 +21,12 @@ export type TestProps = {
     header: string;
     desc: string;
     demos: Demo[];
-    url: string;
+    url?: string;
+    urls?: {
+      desktop?: string;
+      mobile?: string;
+    };
+    wideSpace?: boolean;
   };
 };
 
@@ -32,11 +37,13 @@ type Image = {
 };
 
 type Demo = {
-  video: string;
+  video: Video;
+  image?: Image;
   header: string;
   notes: string[];
   mirror?: boolean;
   wide?: boolean;
+  vertical?: boolean;
 };
 
 export default forwardRef(function Test(
@@ -74,28 +81,66 @@ export default forwardRef(function Test(
               <div className="text-[18px] tracking-[.01em]">{final.desc}</div>
             </div>
           </div>
-          <div className="space-y-[50px] py-[20px]">
-            {final.demos.map(({ video, header, notes, mirror, wide }, i) => (
-              <Final
-                key={i}
-                video={video}
-                header={header}
-                notes={notes}
-                mirror={mirror}
-                wide={wide}
-              />
-            ))}
+          <div
+            className={`py-[20px] ${
+              final.wideSpace ? "space-y-[100px]" : "space-y-[50px]"
+            }`}
+          >
+            {final.demos.map(
+              ({ video, image, header, notes, mirror, wide, vertical }, i) => (
+                <Final
+                  key={i}
+                  video={video}
+                  image={image}
+                  header={header}
+                  notes={notes}
+                  mirror={mirror}
+                  wide={wide}
+                  vertical={vertical}
+                />
+              )
+            )}
             <div>
-              <Link
-                href={final.url}
-                target="_blank"
-                onMouseEnter={handleCursorHoverStart}
-                onMouseLeave={handleCursorHoverStop}
-              >
-                <div className="px-[60px] py-[15px] rounded-[75px] bg-brown3 text-[20px] font-semibold tracking-[.01em] inline-block">
-                  View Hi-fi Prototype
+              {final.url && (
+                <Link
+                  href={final.url}
+                  target="_blank"
+                  onMouseEnter={handleCursorHoverStart}
+                  onMouseLeave={handleCursorHoverStop}
+                >
+                  <div className="px-[60px] py-[15px] rounded-[75px] bg-brown3 text-[20px] font-semibold tracking-[.01em] inline-block">
+                    View Hi-fi Prototype
+                  </div>
+                </Link>
+              )}
+              {final.urls && (
+                <div className="flex justify-between">
+                  {final.urls.desktop && (
+                    <Link
+                      href={final.urls.desktop}
+                      target="_blank"
+                      onMouseEnter={handleCursorHoverStart}
+                      onMouseLeave={handleCursorHoverStop}
+                    >
+                      <div className="px-[60px] py-[15px] rounded-[75px] bg-brown3 text-[20px] font-semibold tracking-[.01em] inline-block">
+                        View Desktop Prototype
+                      </div>
+                    </Link>
+                  )}
+                  {final.urls.mobile && (
+                    <Link
+                      href={final.urls.mobile}
+                      target="_blank"
+                      onMouseEnter={handleCursorHoverStart}
+                      onMouseLeave={handleCursorHoverStop}
+                    >
+                      <div className="px-[60px] py-[15px] rounded-[75px] bg-brown3 text-[20px] font-semibold tracking-[.01em] inline-block">
+                        View Mobile Prototype
+                      </div>
+                    </Link>
+                  )}
                 </div>
-              </Link>
+              )}
             </div>
           </div>
         </ProjectSubSection>

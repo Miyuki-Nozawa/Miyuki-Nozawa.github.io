@@ -9,8 +9,15 @@ import ProjectSubSection from "@/app/components/project-subsection";
 export type PrototypeProps = {
   exploring: {
     desc: string;
+    alternateTitle?: string;
     lofi: Images;
-    midfi: Images;
+    midfi?: Images;
+  };
+  adding?: {
+    desc: string;
+    images: string[];
+    imagesSm: string[];
+    url: string;
   };
   tests: {
     desc: React.ReactNode;
@@ -26,7 +33,7 @@ export type PrototypeProps = {
   };
   branding?: {
     desc: string;
-    images: string[];
+    images: Image[];
     url: string;
   };
   final?: {
@@ -34,6 +41,12 @@ export type PrototypeProps = {
     images: string[];
     url: string;
   };
+};
+
+type Image = {
+  src: string;
+  width: number;
+  height: number;
 };
 
 type Images = {
@@ -46,53 +59,92 @@ type Images = {
 };
 
 export default forwardRef(function Prototype(
-  { exploring, tests, refining, building, branding, final }: PrototypeProps,
+  {
+    exploring,
+    adding,
+    tests,
+    refining,
+    building,
+    branding,
+    final,
+  }: PrototypeProps,
   ref: React.ForwardedRef<HTMLDivElement>
 ) {
   return (
     <div>
       <div ref={ref}></div>
       <ProjectSection title="Prototype">
-        <ProjectSubSection title="Exploring Ideas from Low-Fi to Mid-Fi">
-          <Paragraph>{exploring.desc}</Paragraph>
-          <div className="py-[20px] space-y-[30px]">
-            <div className="flex justify-between">
-              {exploring.lofi.images.map((img, i) => (
-                <div key={i} className="space-y-[10px] flex-1">
-                  <Image
-                    src={img}
-                    alt="lofi"
-                    width={exploring.lofi.width}
-                    height={exploring.lofi.height}
-                    className="rounded-[10px]"
-                  />
-                  {exploring.lofi.descs && (
-                    <div
-                      className={`text-[18px] tracking-[.01em] ${exploring.lofi.descClass}`}
-                    >
-                      {exploring.lofi.descs[i]}
-                    </div>
-                  )}
+        {exploring && (
+          <ProjectSubSection
+            title={
+              exploring.alternateTitle ||
+              "Exploring Ideas from Low-Fi to Mid-Fi"
+            }
+          >
+            <Paragraph>{exploring.desc}</Paragraph>
+            <div className="py-[20px] space-y-[30px]">
+              <div className="flex justify-between">
+                {exploring.lofi.images.map((img, i) => (
+                  <div key={i} className="space-y-[10px] flex-1">
+                    <Image
+                      src={img}
+                      alt="lofi"
+                      width={exploring.lofi.width}
+                      height={exploring.lofi.height}
+                      className="rounded-[10px]"
+                    />
+                    {exploring.lofi.descs && (
+                      <div
+                        className={`text-[18px] tracking-[.01em] ${exploring.lofi.descClass}`}
+                      >
+                        {exploring.lofi.descs[i]}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <Figma href={exploring.lofi.url}>
+                View the Low-Fi Wireframes
+              </Figma>
+            </div>
+            {exploring.midfi && (
+              <div className="py-[20px] space-y-[30px]">
+                <div className="flex justify-between">
+                  {exploring.midfi.images.map((img, i) => (
+                    <Image
+                      key={i}
+                      src={img}
+                      alt="midfi"
+                      width={exploring.midfi?.width}
+                      height={exploring.midfi?.height}
+                    />
+                  ))}
                 </div>
-              ))}
+                <Figma href={exploring.midfi.url}>
+                  View the Mid-Fi Wireframes
+                </Figma>
+              </div>
+            )}
+          </ProjectSubSection>
+        )}
+        {adding && (
+          <ProjectSubSection title="Adding Detail to the Layouts">
+            <Paragraph>{adding.desc}</Paragraph>
+            <div className="py-[20px] flex justify-between">
+              <div className="flex space-x-[20px]">
+                {adding.images.map((img, i) => (
+                  <Image key={i} src={img} alt="add" width={316} height={616} />
+                ))}
+              </div>
+              <div className="flex space-x-[20px]">
+                {adding.imagesSm.map((img, i) => (
+                  <Image key={i} src={img} alt="add" width={150} height={489} className="mt-auto" />
+                ))}
+              </div>
             </div>
-            <Figma href={exploring.lofi.url}>View the Low-Fi Wireframes</Figma>
-          </div>
-          <div className="py-[20px] space-y-[30px]">
-            <div className="flex justify-between">
-              {exploring.midfi.images.map((img, i) => (
-                <Image
-                  key={i}
-                  src={img}
-                  alt="midfi"
-                  width={exploring.midfi.width}
-                  height={exploring.midfi.height}
-                />
-              ))}
-            </div>
-            <Figma href={exploring.midfi.url}>View the Mid-Fi Wireframes</Figma>
-          </div>
-        </ProjectSubSection>
+            <Figma href={adding.url}>View the Mid-Fi Wireframes</Figma>
+          </ProjectSubSection>
+        )}
         <ProjectSubSection title="Ensuring Users Understand the Design Layouts">
           {tests.desc}
           <div className="py-[20px] space-y-[50px]">
@@ -137,10 +189,11 @@ export default forwardRef(function Prototype(
                 {branding.images.map((img, i) => (
                   <Image
                     key={i}
-                    src={img}
+                    src={img.src}
                     alt="branding"
-                    width={220}
-                    height={476}
+                    width={img.width}
+                    height={img.height}
+                    className="mt-auto"
                   />
                 ))}
               </div>

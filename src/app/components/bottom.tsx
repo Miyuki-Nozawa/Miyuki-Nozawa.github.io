@@ -7,7 +7,7 @@ export default forwardRef(function Bottom(
   return (
     <div
       ref={ref}
-      className="bg-green rounded-t-[200px] flex flex-col items-center justify-center overflow-hidden"
+      className="bg-green rounded-t-[200px] flex flex-col items-center justify-center overflow-hidden mt-[20px]"
     >
       <div
         className={`flex flex-col items-center space-y-[60px] h-[100vh] justify-center mt-[200px] [transition:transform_1s,opacity_2s] ${

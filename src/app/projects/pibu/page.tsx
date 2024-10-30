@@ -1,1096 +1,716 @@
-import Avatar from "@/app/components/avatar";
-import BrandSection from "@/app/components/brand-section";
-import Card from "@/app/components/card";
-import Carousel from "@/app/components/carousel";
-import Category from "@/app/components/category";
-import Color from "@/app/components/color";
-import Definition from "@/app/components/definition";
-import DiamondHeadedList from "@/app/components/diamond-headed-list";
-import DiamondHeader from "@/app/components/diamond-header";
-import DoubleCarousel from "@/app/components/double-carousel";
-import DownArrow from "@/app/components/down-arrow";
-import FigmaLink from "@/app/components/figma-link";
-import KeyQuestions from "@/app/components/key-questions";
-import ParticpantResponses from "@/app/components/participant-responses";
-import Participants from "@/app/components/participants";
-import Persona from "@/app/components/persona";
-import ProjectContents from "@/app/components/project-contents";
-import ProjectHero from "@/app/components/project-hero";
-import ProjectStatement from "@/app/components/project-statement";
-import ResearchGoal from "@/app/components/research-goal";
-import ResearchGoalSummary from "@/app/components/research-goal-summary";
-import ResearchMethod from "@/app/components/research-method";
-import ResearchObjectives from "@/app/components/research-objectives";
-import ResearchSubsection from "@/app/components/research-subsection";
-import Section from "@/app/components/section";
-import Separator from "@/app/components/separator";
-import SubSection from "@/app/components/sub-section";
-import TaskFlow from "@/app/components/task-flow";
-import TestCard from "@/app/components/test-card";
-import Text from "@/app/components/text";
-import Transition from "@/app/components/transition";
-import UserFlow from "@/app/components/user-flow";
-import localFont from "next/font/local";
-import Image from "next/image";
-import Link from "next/link";
+"use client";
 
-const avenir = localFont({
-  src: [
-    {
-      path: "./fonts/AvenirNext-Regular.otf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "./fonts/AvenirNext-Medium.otf",
-      weight: "500",
-      style: "medium",
-    },
-  ],
-});
+import Image from "next/image";
+
+import Button from "@/app/components/button";
+import ColorRow from "@/app/components/color-row";
+import Competitor from "@/app/components/competitor";
+import Down from "@/app/components/down";
+import MoodboardCard from "@/app/components/moodboard-card";
+import Paragraph from "@/app/components/paragraph";
+import Project from "@/app/components/project";
+import TaskFlowCard from "@/app/components/task-flow-card";
+import UserNeed from "@/app/components/user-need";
+import { DefineProps } from "@/app/components/define";
+import { DesignProcessProps } from "@/app/components/design-process";
+import { HeroProps } from "@/app/components/hero";
+import { IdeateProps } from "@/app/components/ideate";
+import { IntroductionProps } from "@/app/components/introduction";
+import { NextStepsProps } from "@/app/components/next-steps";
+import { PrototypeProps } from "@/app/components/prototype";
+import { ResearchProps } from "@/app/components/research";
+import { TestProps } from "@/app/components/test";
 
 export default function Pibu() {
   return (
-    <div>
-      <ProjectHero
-        name="Pibu"
-        video="/pibu/hero.mp4"
-        logo="/pibu/logo.svg"
-        logoWidth={136}
-        logoHeight={75}
-        header="A website to introduce a local business and expand their business"
-        projectType="Responsive web design"
-        role="UX/UI designer"
-        projectDuration="1 month"
-        industry="Beauty, personal care"
-        href="https://www.figma.com/proto/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?page-id=597%3A7713&node-id=807-7005&viewport=341%2C-827%2C0.03&t=WZCKh2jkLMYF6wKx-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=807%3A7005&show-proto-sidebar=1"
-        headerClassName="text-[28px] font-manrope font-bold"
-        className="px-24 space-x-12 w-full"
-        classNameLeft="w-[646px] h-[500px]"
-        classNameRight="w-[520px] h-[500px]"
-        classNameButton="bg-brown text-white"
-      />
-      <ProjectStatement
-        statement={
-          "Pibu, a local Korean skincare store in NY wants to create an e-commerce " +
-          "website to expand their business. While they have a defined target " +
-          "audience and brand theme, they are unsure how to align the website with " +
-          "these aspects effectively. They are also uncertain about the type of " +
-          "content they should include to enhance customers' desire to make " +
-          "purchases. Additionally, Pibu aims to build an original website without " +
-          "relying on SquareSpace templates. It's crucial to develop a uniquely " +
-          "designed, user-friendly website that stands out from competitors."
-        }
-        solution={
-          "Developing a website to increase awareness of Pibu, focusing on e-commerce " +
-          "for business expansion and emphasizing user-friendliness."
-        }
-        className="bg-light-green"
-        underline="border-black"
-      />
-      <ProjectContents />
-      {/* INTRODUCTION */}
-      <Section title="Introduction" underline="bg-brown" className="px-52">
-        <Text>
-          Pibu is a family-owned Korean skincare store located in New York City.
-          They target individuals of all genders in their 20s to 40s and offer a
-          variety of skincare products. Since opening their store just 6 months
-          ago, they have not become widely known yet. Their customers are mainly
-          local residents, and they are considering the development of a website
-          and an e-commerce platform to expand their business. They are hoping
-          to have a website that matches their target customers and the
-          aesthetic of their store.
-          <Transition
-            text={
-              "How can we build an e-commerce centric website to increase the recognition " +
-              "of Pibu and assist in its business expansion?"
-            }
-            className="pt-12"
-          />
-        </Text>
-      </Section>
-      {/* RESEARCH */}
-      <Section
-        title="Research"
-        underline="bg-light-pink"
-        className="px-52 pb-12"
-      >
-        <ResearchGoalSummary className="bg-light-pink">
-          <div className="text-[28px]">
-            <span className="font-bold">
-              Understand which information is beneficial for users and what
-              motivates them to increase their desire to make purchases.
-            </span>{" "}
-            This will help us encourage users to shop at Pibu, thereby
-            increasing its recognition and contributing to business expansion.
-          </div>
-        </ResearchGoalSummary>
-        {/* research 1 */}
-        <ResearchGoal
-          title={
-            "Getting to know what services competitors are offering and how they are acquiring users"
-          }
-          start={1}
-        >
-          <Text>
-            First, I conducted a competitive analysis to understand the
-            structure and features of general skincare e-commerce sites. I
-            examined how competitors are providing their e-commerce sites, how
-            they enhance user purchasing intent, and whether they have features
-            that attract users.
-          </Text>
-          <ResearchSubsection title="Competitive Analysis" color="light-pink">
-            <Text>
-              I compared two direct websites specializing in K-beauty and one
-              indirect website focusing on general skincare. Based on each
-              site&apos;s brand value and target users, I identified how they
-              are presenting their websites.
-            </Text>
-            <div className="relative w-full h-[443px]">
-              <Image
-                src="/pibu/competitor-table.svg"
-                alt="Competitor table"
-                className="object-contain"
-                fill
-              />
-            </div>
-            <div className="space-y-7">
-              <Text>
-                While all e-commerce websites share basic functionalities, each
-                one incorporates unique features tailored to their target users.
-                Direct competitors have fewer products but offer a simple and
-                very user-friendly layout. On the other hand, indirect
-                competitors, with a broader range of brands and products, use
-                icons and other design elements to make the vast amount of
-                information more accessible.
-              </Text>
-              <Text>
-                Through competitive analysis, I learned that understanding the
-                information users need and how to present it is crucial. With
-                many competitors in the market, unique features and content are
-                essential for differentiating ourselves from others.
-                Additionally, it&apos;s important to consider the functionality
-                of the website to enhance users&apos; purchase motivation.
-              </Text>
-            </div>
-            <Link
-              href="https://docs.google.com/spreadsheets/d/1gXhtSzPpXVYKsOGuF8s_V30XgVSgRQyaChlTCKN0HSg"
-              target="_blank"
-            >
-              <div className="px-8 py-5 mt-12 border-2 border-brown9 rounded-[5rem] inline-block text-brown9 text-xl font-semibold">
-                View the competitive analysis
-              </div>
-            </Link>
-          </ResearchSubsection>
-          {/* research objectives */}
-          <ResearchObjectives
-            questions={[
-              "Identify what users prioritize in choosing websites",
-              "Understand what kind of information users expect regarding skincare products",
-              "Determine what increases user’s purchasing desire",
-              "Understand what motivates users to buy skincare products",
-              "Understand the user's pain points when purchasing skincare products",
-            ]}
-            className="text-brown9"
-          />
-          {/* research methods */}
-          <div className="space-y-12">
-            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] text-brown9 underline">
-              Research methods
-            </div>
-            <Text>
-              I conducted two different research methods to obtain quantitative
-              data on skincare product purchases and qualitative data based on
-              users&apos; specific experiences.
-            </Text>
-            <div className="space-y-24">
-              {/* survey */}
-              <ResearchMethod
-                title="Survey"
-                desc={
-                  "The first research method I used was a survey. The survey was " +
-                  "conducted to collect quantitative data from a wide range of " +
-                  "people to understand how interested people are in skincare " +
-                  "products, and what criteria they use and how they make their " +
-                  "purchase decisions."
-                }
-                color="light-pink"
-              >
-                <Participants
-                  title="Survey participants"
-                  desc1="15 people, age between 25-44"
-                  className="text-brown"
-                />
-                <KeyQuestions
-                  className="text-brown"
-                  questions={[
-                    "How often do you purchase skincare products?",
-                    "What websites do you use when you purchase skincare products, " +
-                      "and why did you choose those websites?",
-                    "What criteria do you use to select skincare products?",
-                  ]}
-                />
-                <ParticpantResponses
-                  className="text-brown"
-                  img="/pibu/survey-responses.svg"
-                  alt="Survey responses"
-                />
-              </ResearchMethod>
-              {/* user interview */}
-              <ResearchMethod
-                title="User interview"
-                desc={
-                  "The second research method I conducted was user interviews. I " +
-                  "gathered qualitative data on users' specific thoughts and " +
-                  "personal experiences. I particularly focused on users' " +
-                  "motivations and challenges related to purchasing skincare " +
-                  "products."
-                }
-                color="light-pink"
-              >
-                <Participants
-                  title="Interview participants"
-                  desc1="5 people who are interested in skincare products"
-                  desc2="Age between 27-37"
-                  className="text-brown"
-                />
-                <KeyQuestions
-                  className="text-brown"
-                  questions={[
-                    "Have you experienced any difficulties in selecting the right " +
-                      "skincare products?",
-                    "Have you ever had an experience where you were not satisfied " +
-                      "with a skincare product you purchased?",
-                    "If you have an opportunity to learn more about skincare, what " +
-                      "specific aspects would you like to know about?",
-                  ]}
-                />
-                <ParticpantResponses
-                  className="text-brown"
-                  img="/pibu/interview-responses.svg"
-                  alt="Interview responses"
-                />
-              </ResearchMethod>
-            </div>
-          </div>
-          {/* results */}
-          <div className="space-y-12">
-            <div className="font-manrope text-[1.75rem] font-extrabold tracking-[.02em] text-brown9 underline">
-              Results
-            </div>
-            <Text>
-              Through surveys and interviews, I was able to understand how
-              interested people are in skincare and what criteria they use to
-              select products. I also gained insights into the difficulties they
-              encounter and the information they expect when purchasing products
-              online. I recorded these key points on individual sticky notes and
-              created an affinity map, and and categorized the information by
-              topics and patterns.
-            </Text>
-            <div className="space-y-24">
-              <div className="space-y-7">
-                <div className="text-[26px] font-medium tracking-[.02em]">
-                  What is the biggest challenge when choosing skincare products?
-                </div>
-                <div className="relative w-full h-[578px]">
-                  <Image
-                    src="/pibu/affinity-map-1.svg"
-                    alt="Affinity map"
-                    fill
-                  />
-                </div>
-              </div>
-              <div className="space-y-7">
-                <div className="text-[26px] font-medium tracking-[.02em]">
-                  What do you expect from online purchases?
-                </div>
-                <div className="relative w-full h-[723px]">
-                  <Image
-                    src="/pibu/affinity-map-2.svg"
-                    alt="Affinity map"
-                    fill
-                  />
-                </div>
-                <FigmaLink href="https://www.figma.com/board/O6slDgrnsFVZaBVJnSHu3k/Capstone-2---Responsive-Web-Design?node-id=174-1452">
-                  View the full affinity map
-                </FigmaLink>
-              </div>
-              <Text>
-                By categorizing the points into topics and categories on the
-                affinity map, I was able to gain a deeper understanding of
-                users&apos; needs, the information they expect when purchasing
-                products, and the essential elements required for the pibu
-                website.
-              </Text>
-              {/* paper */}
-              <div className="rounded-3xl bg-light-ivory px-20 py-12 space-y-12">
-                <DiamondHeadedList
-                  color="brown9"
-                  title="Challenges when selecting skincare products"
-                  items={[
-                    "Find the right products",
-                    "Know the texture, scent, and potential for allergic reactions",
-                    "Understand skin type",
-                    "Trust reviews",
-                  ]}
-                />
-                <DiamondHeadedList
-                  color="brown9"
-                  title="Key factors when choosing skincare products"
-                  items={[
-                    "Other people’s opinions (reviews, ratings, recommendations)",
-                    "Personal opinions (skin concerns, skin type, preferences)",
-                    "Product details (ingredients, texture, scent, effectiveness, price)",
-                  ]}
-                />
-                <DiamondHeadedList
-                  color="brown9"
-                  title="Difficulties when purchasing products online"
-                  items={[
-                    "Can’t test samples",
-                    "Can’t see the product",
-                    "Lack of reviews",
-                  ]}
-                />
-              </div>
-              <Text>
-                Through the entire research process, I was able to identify key
-                points that enhance users&apos; purchase motivation. I also
-                gained a clear understanding of what is needed to meet
-                users&apos; needs.
-              </Text>
-              <DownArrow />
-              {/* key findings */}
-              <div className="px-24 py-12 space-y-7 rounded-3xl border-brown9 border-2">
-                <div className="text-3xl font-bold tracking-[.02em]">
-                  Key findings
-                </div>
-                <ul className="list-disc list-outside text-[26px] tracking-[.02em] pl-6 space-y-1">
-                  <li>Display trustworthy reviews and ratings</li>
-                  <li>
-                    Provide detailed product descriptions (ingredients, texture,
-                    scent, allergy reactions)
-                  </li>
-                  <li>
-                    Identify skin type & recommend products based on skin type
-                  </li>
-                  <li>Highlight expected benefits</li>
-                  <li>Offer competitive pricing</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </ResearchGoal>
-      </Section>
-      {/* DEFINE */}
-      <Section title="Define" underline="bg-green3" className="px-52">
-        <Text>
-          After conducting research, reviewing the findings, and organizing the
-          data, I created two personas in the early stages of the design process
-          to deepen my understanding of specific users.
-        </Text>
-        <Persona
-          title="Persona 1"
-          desc={
-            "Peter Cho is a 34-year-old software engineer in New York who, influenced " +
-            "by his partner and friends, has recently started using skincare " +
-            "products. He seeks to find effective products and establish a daily " +
-            "routine but struggles with determining his skin type and understanding " +
-            "the efficacy of various products due to the overwhelming amount of " +
-            "information available."
-          }
-          img="/pibu/persona-1.jpeg"
-          className="text-dark-green"
-        />
-        <Persona
-          title="Persona 2"
-          desc={
-            "Mary Harris is a 28-year-old kindergarten teacher from New York who is " +
-            "passionate about skincare and often seeks discounts online. She is " +
-            "currently concerned about dull skin and is eager to try new products, " +
-            "but hesitates due to the inability to test samples beforehand and " +
-            "worries about negative reviews. Her challenges include determining " +
-            "product suitability without samples and dealing with limited reviews."
-          }
-          img="/pibu/persona-2.jpeg"
-          className="text-dark-green"
-        />
-        <div className="w-full">
-          <FigmaLink href="https://www.figma.com/design/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?node-id=0-1">
-            View the personas
-          </FigmaLink>
-        </div>
-        <div className="space-y-12">
-          <Text>
-            To clarify the solutions needed to address specific user needs, I
-            created three POV statements based on the personas. Among them, I
-            selected the POV related to skin type as it is the most crucial for
-            achieving the personas&apos; goals.
-          </Text>
-          <Definition
-            title="POV (Point Of View) statement"
-            text={
-              "I'd like to explore ways to help people to find and understand their " +
-              "skin type because choosing the right skincare products becomes " +
-              "challenging without knowledge of their skin type."
-            }
-            className="bg-olive"
-          />
-        </div>
-        <div className="space-y-12">
-          <Text>
-            Then, I took the problems into clear questions that help find
-            creative and practical solutions.
-          </Text>
-          <Definition
-            title="HMW (How Might We) question"
-            text={
-              "How might we help people to effectively choose the appropriate skincare " +
-              "products based on their skin type?"
-            }
-            className="bg-olive"
-          />
-        </div>
-        <DownArrow />
-      </Section>
-      {/* DESIGN */}
-      <Section
-        title="Design"
-        underline="bg-dark-green"
-        className="px-52"
-        relaxed
-      >
-        <Text>
-          As a step to generate ideas to solve the persona&apos;s problems, I
-          set project goals based on the POV and brainstormed feature ideas to
-          address them.
-        </Text>
-        {/* project goals */}
-        <SubSection title="Project goals" color="text-dark-green">
-          <div className="relative w-[1040px] h-[950px]">
-            <Image src="/pibu/project-goals.svg" alt="Project goals" fill />
-          </div>
-          <FigmaLink href="https://www.figma.com/design/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?node-id=1-219">
-            View the project goals
-          </FigmaLink>
-        </SubSection>
-        {/* feature ideas */}
-        <SubSection title="Feature ideas" color="text-dark-green">
-          <Text>
-            While considering the technical aspects and input from stakeholders,
-            I brainstormed key features that align with both business goals and
-            user goals, with a particular focus on overlapping objectives to
-            build a website that effectively achieves these goals.
-          </Text>
-          <Image
-            src="/pibu/feature-ideas.svg"
-            alt="Feature ideas"
-            width={867}
-            height={604}
-            className="mx-auto"
-          />
-          <Transition
-            text={
-              "To design the structure of the website, I conducted a card sort based on these feature keywords"
-            }
-          />
-          <div className="space-y-12 pt-8">
-            <DiamondHeader
-              title="Card Sort"
-              color="dark-green"
-              className="space-x-7"
-            />
-            <Text>
-              I conducted a card sort with{" "}
-              <b className="font-semibold">37 cards</b> and 7 participants.
-              Using a <b className="font-semibold">hybrid card sort</b>, I
-              determined how users categorized the cards and decided on the menu
-              items and their associated content.
-            </Text>
-            <div className="text-[24px] tracking-[.02em]">Categories</div>
-            <div className="flex flex-wrap justify-around gap-[75px]">
-              <Category text="Shop" />
-              <Category text="Account" />
-              <Category text="Categories" />
-              <Category text="Blog" />
-              <Category text="Skin type" />
-              <Category text="Sales/Offers" />
-              <Category text="Cart" />
-              <Category text="Skin concerns" />
-              <Category text="About us" />
-            </div>
-            <div className="text-[24px] tracking-[.02em]">Card examples</div>
-            {/* cards */}
-            <div className="flex flex-wrap justify-between gap-[75px]">
-              <Card text="New arrivals" className="bg-light-olive" />
-              <Card text="Oily skin" className="bg-light-olive" />
-              <Card text="Check your skin type" className="bg-light-olive" />
-              <Card text="Shop all" className="bg-light-olive" />
-              <Card text="Toners" className="bg-light-olive" />
-              <Card text="Key ingredients" className="bg-light-olive" />
-              <Card text="Check out" className="bg-light-olive" />
-              <Card text="Anti-aging" className="bg-light-olive" />
-              <Card text="How to use" className="bg-light-olive" />
-            </div>
-          </div>
-          <Text className="py-12">
-            As a result of the card sort, there were no new categories added by
-            the users, and there was unanimous agreement on 15 out of the 37
-            cards. The results provided insights into how users want to access
-            information and helped in creating a design based on their
-            perspective.
-          </Text>
-        </SubSection>
-        {/* sitemap */}
-        <SubSection title="Sitemap" color="text-dark-green">
-          <Text>
-            Based on the results of the card sort, I created a sitemap for the
-            website structure. Since users expect to see not only products but
-            also categories like skin type and skin concerns as part of the
-            products, the structure was designed to ensure easy access to
-            detailed information from the shop section.
-          </Text>
-          <div className="relative w-[1040px] h-[523px]">
-            <Image src="/pibu/sitemap.svg" alt="Sitemap" fill />
-          </div>
-          <div className="ml-auto">
-            <FigmaLink href="https://www.figma.com/board/O6slDgrnsFVZaBVJnSHu3k/Capstone-2---Responsive-Web-Design?node-id=86-5125">
-              View the sitemap
-            </FigmaLink>
-          </div>
-        </SubSection>
-        <SubSection title="Task Flow" color="text-dark-green">
-          <Text>
-            To clarify the steps necessary for the personas to achieve their
-            goals and ensure a user-friendly experience, I developed two task
-            flows.
-          </Text>
-          <TaskFlow
-            title="Identify your skin type"
-            img="/pibu/task-flow-1.svg"
-            width={1495}
-            height={80}
-            className="w-[1495px]"
-          />
-          <TaskFlow
-            title="Purchase the right products for your skin type"
-            img="/pibu/task-flow-2.svg"
-            width={2815}
-            height={80}
-            className="w-[2815px]"
-          />
-          <div>
-            <FigmaLink href="https://www.figma.com/board/O6slDgrnsFVZaBVJnSHu3k/Capstone-2---Responsive-Web-Design?node-id=98-7778">
-              View the task flows
-            </FigmaLink>
-          </div>
-        </SubSection>
-        <SubSection
-          title="User Flow"
-          color="text-dark-green"
-          subtitle={
-            "I created a user flow to understand user needs and identify potential " +
-            "issues or confusing elements."
-          }
-          spacing="space-y-20"
-        >
-          <UserFlow
-            title="Purchase the right products for your skin type"
-            img="/pibu/user-flow.svg"
-            width={5330}
-            height={900}
-            className="w-[5330px] h-[1000px]"
-          />
-          <FigmaLink href="https://www.figma.com/board/O6slDgrnsFVZaBVJnSHu3k/Capstone-2---Responsive-Web-Design?node-id=70-2700">
-            View the user flow
-          </FigmaLink>
-        </SubSection>
-        <DownArrow />
-        <SubSection
-          title="Low-fidelity"
-          color="text-dark-green"
-          textAbove={
-            "I created the page layouts needed for users to complete tasks based on " +
-            "the user flow and task flow. Through interviews, I found that many " +
-            "people preferred using desktops when purchasing skincare products " +
-            "online, so I focused on the desktop design."
-          }
-        >
-          <div className="h-[486px] flex space-x-6">
-            <div className="flex flex-col w-1/3 space-y-2 text-center">
-              <div className="flex-none text-2xl tracking-[.02em]">Home</div>
-              <div className="relative flex-auto">
-                <Image src="/pibu/lofi-1.jpg" alt="Home" fill />
-              </div>
-            </div>
-            <div className="flex flex-col w-1/3 space-y-2 text-center">
-              <div className="flex-none text-2xl tracking-[.02em]">
-                How to check skin type
-              </div>
-              <div className="relative flex-auto">
-                <Image
-                  src="/pibu/lofi-2.jpg"
-                  alt="How to check skin type"
-                  fill
-                />
-              </div>
-            </div>
-            <div className="flex flex-col w-1/3 space-y-2 text-center">
-              <div className="flex-none text-2xl tracking-[.02em]">
-                How to check skin type
-              </div>
-              <div className="relative flex-auto">
-                <Image
-                  src="/pibu/lofi-3.jpg"
-                  alt="How to check skin type"
-                  fill
-                />
-              </div>
-            </div>
-          </div>
-          <FigmaLink href="https://www.figma.com/design/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?node-id=100-1673">
-            View the full low-fidelity
-          </FigmaLink>
-        </SubSection>
-        <SubSection
-          title="Mid-fidelity"
-          color="text-dark-green"
-          textAbove={
-            "Based on the low-fidelity sketches, I considered more detailed layouts " +
-            "and digitalized them to create mid-fidelity wireframes, making the " +
-            "detailed layout more tangible."
-          }
-        >
-          <div className="flex space-x-5">
-            <Carousel
-              width={500}
-              height={940}
-              items={[
-                "/pibu/midfi-1.svg",
-                "/pibu/midfi-2.svg",
-                "/pibu/midfi-3.svg",
-                "/pibu/midfi-4.svg",
-              ]}
-            />
-          </div>
-          <FigmaLink href="https://www.figma.com/design/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?node-id=1526-34763">
-            View the full mid-fidelity
-          </FigmaLink>
-        </SubSection>
-        {/* mid-fidelity test */}
-        <TestCard
-          title="Mid-fidelity test"
-          className="border-light-green"
-          textAbove={
-            "After creating the mid-fidelity wireframes, I conducted a quick test " +
-            "to check if users understood my design layout and if they found the " +
-            "interface user-friendly."
-          }
-        >
-          <Text>5 people (in person & online)</Text>
-          <div className="pt-7 space-y-20">
-            {/* test 1 */}
-            <div className="space-y-7">
-              <div className="text-[24px] tracking-[.02em]">
-                Determine and save your skin type
-              </div>
-              <Text sm>
-                → People were able to determine their skin type by looking at
-                the table, but they found it somewhat difficult to save their
-                skin type. The sections for each skin type weren’t clearly
-                defined, so some people ended up saving the wrong skin type.
-              </Text>
-              <Image
-                src="/pibu/midfi-test-1.svg"
-                alt="Determine and save your skin type"
-                width={940}
-                height={1338}
-              />
-            </div>
-            {/* test 2 */}
-            <div className="space-y-7">
-              <div className="text-[24px] tracking-[.02em]">
-                Compare products and purchase the one that best suits you
-              </div>
-              <Text sm>
-                → The comparison function was the biggest challenge. Because the
-                compare button was not clearly visible, people were unsure how
-                to compare products and were confused about what steps to take
-                next. It&apos;s essential to make it clear that a comparison
-                function exists and to ensure it&apos;s displayed in a way
-                that&apos;s easy to use.
-              </Text>
-              <Image
-                src="/pibu/midfi-test-2.svg"
-                alt="Compare products and purchase the one that best suits you"
-                width={940}
-                height={920}
-              />
-              <Image
-                src="/pibu/midfi-test-3.svg"
-                alt="Test"
-                width={940}
-                height={920}
-              />
-            </div>
-          </div>
-        </TestCard>
-        <Transition
-          text={
-            "Based on the results of the mid-fi test, I iterated on the design to " +
-            "make it more user-friendly and help users achieve their goals."
-          }
-          noPadding
-        />
-        <SubSection title="Mid-fidelity (iterations)" color="text-dark-green">
-          <div className="space-y-20 pb-8">
-            <Image
-              src="/pibu/midfi-iterations-1.svg"
-              alt="Mid-fidelity iterations"
-              width={1040}
-              height={1416}
-            />
-            <Separator className="bg-light-green" />
-            <Image
-              src="/pibu/midfi-iterations-2.svg"
-              alt="Mid-fidelity iterations"
-              width={1040}
-              height={1416}
-            />
-          </div>
-          <FigmaLink href="https://www.figma.com/design/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?node-id=1526-34765">
-            View the iterated mid-fidelity
-          </FigmaLink>
-        </SubSection>
-      </Section>
-      <Separator className="bg-brown" />
-      {/* BRANDING */}
-      <div className="space-y-12 w-[1040px] mx-auto">
-        {/* header */}
-        <div className="text-3xl font-bold tracking-[.02em]">Branding</div>
-        <Text>
-          Pibu already has a developed store image, including the logo and
-          aesthetic. Based on the brand image the stakeholders aim for, I chose
-          typography and colors to attract users.
-        </Text>
-        <div className="space-y-24 pb-24">
-          {/* brand value */}
-          <BrandSection
-            title="Style Tile"
-            className="space-y-8"
-            color="text-brown10"
-          >
-            <Text>
-              Based on Pibu’s brand values of clean, young, modern, and
-              refreshing, I created two style tiles: one with a blue theme and
-              one with a green theme. The blue style tile was selected by the
-              stakeholder as the one that best aligns with the brand image.
-            </Text>
-            <div className="text-[26px] font-medium tracking-[.02em]">
-              Clean / Young / Modern / Refreshing
-            </div>
-            <Image
-              src="/pibu/style-tile.png"
-              alt="Style Tile"
-              width={1040}
-              height={740}
-            />
-          </BrandSection>
-          <BrandSection
-            title="Typography"
-            className="space-y-12"
-            color="text-brown10"
-          >
-            <div className="flex">
-              <div className={`space-y-4 ${avenir.className}`}>
-                <div className="tracking-[.02em] text-[40px] font-medium">
-                  H1 - Avenir Next 40px
-                </div>
-                <div className="tracking-[.02em] text-[36px] font-medium">
-                  H2 - Avenir Next 36px
-                </div>
-                <div className="tracking-[.02em] text-[30px] font-medium">
-                  H3 - Avenir Next 30px
-                </div>
-                <div className="tracking-[.02em] text-[26px] font-normal">
-                  B1 - Avenir Next 26px
-                </div>
-                <div className="tracking-[.02em] text-[20px] font-normal">
-                  B2 - Avenir Next 20px
-                </div>
-                <div className="tracking-[.02em] text-[16px] font-normal">
-                  Function S- Avenir Next 16px
-                </div>
-                <div className="tracking-[.02em] text-[18px] font-medium">
-                  Function M- Avenir Next 18px
-                </div>
-              </div>
-              <Text className="w-[550px] ml-auto mt-auto" sm>
-                I chose Avenir Next because it offers a clean and modern look
-                that aligns perfectly with Pibu’s brand image. Its readability
-                and elegant design enhance the aesthetic of a skincare brand.
-              </Text>
-            </div>
-          </BrandSection>
-          <BrandSection
-            title="Colors"
-            className="space-y-12"
-            color="text-brown10"
-          >
-            <div className="flex">
-              <div className="space-y-5">
-                <div className="space-y-[10px]">
-                  <div className="font-manrope text-[20px] font-normal tracking-[.01em]">
-                    Primary
-                  </div>
-                  <div className="flex space-x-[10px]">
-                    <Color color="CCDBDE" className="bg-[#CCDBDE]" />
-                    <Color color="9ABBC2" className="bg-[#9ABBC2]" />
-                    <Color color="85999D" className="bg-[#85999D]" />
-                  </div>
-                </div>
-                <div className="space-y-[10px]">
-                  <div className="font-manrope text-[20px] font-normal tracking-[.01em]">
-                    Secondary
-                  </div>
-                  <div className="flex space-x-[10px]">
-                    <Color color="F0EAE3" className="bg-[#F0EAE3]" />
-                    <Color color="DBCFBF" className="bg-[#DBCFBF]" />
-                    <Color color="C3B29C" className="bg-[#C3B29C]" />
-                  </div>
-                </div>
-                <div className="space-y-[10px]">
-                  <div className="font-manrope text-[20px] font-normal tracking-[.01em]">
-                    Neutral
-                  </div>
-                  <div className="flex space-x-[10px]">
-                    <Color
-                      color="EFEFEF"
-                      className="bg-[#EFEFEF] border-[#5F4C35] border-[0.5px]"
-                    />
-                    <Color
-                      color="FFFFFF"
-                      className="bg-[#FFFFFF] border-[#5F4C35] border-[0.5px]"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="w-[550px] ml-auto pt-8">
-                <Text sm>
-                  For the main color, I chose a blue hue that conveys a clean
-                  and refreshing feel. Among these, a slightly muted blue
-                  provides a modern impression. For the secondary color, I
-                  selected earth tones that give a modern and minimal look,
-                  which closely aligns with the store’s image.
-                  <br />
-                  <br />
-                  In order to make a user-friendly website, I conducted an
-                  accessibility check to consider color contrast and
-                  color-blindness.
-                </Text>
-              </div>
-            </div>
-          </BrandSection>
-        </div>
-        <Separator className="bg-brown" />
-        <div className="py-5">
-          <Transition text="I applied all branding elements to the wireframes and created high-fidelity wireframes" />
-        </div>
-        <SubSection title="Hi-fidelity" color="text-dark-green">
-          <DoubleCarousel
-            itemClassName="relative w-[400px] h-[792px]"
-            items={[
-              "/pibu/hifi-1.png",
-              "/pibu/hifi-2.png",
-              "/pibu/hifi-3.png",
-              "/pibu/hifi-4.png",
-              "/pibu/hifi-5.png",
-              "/pibu/hifi-6.png",
-            ]}
-            nav={{
-              className: "relative w-[133px] h-[150px] cursor-default",
-              items: [
-                "/pibu/hifi-1-sm.png",
-                "/pibu/hifi-2-sm.png",
-                "/pibu/hifi-3-sm.png",
-                "/pibu/hifi-4-sm.png",
-                "/pibu/hifi-5-sm.png",
-                "/pibu/hifi-6-sm.png",
-              ],
-            }}
-          />
-          <FigmaLink href="https://www.figma.com/design/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?node-id=931-7844">
-            View the full hi-fidelity
-          </FigmaLink>
-        </SubSection>
-      </div>
-      {/* TEST */}
-      <Section title="Test" underline="bg-brown3" className="px-52 pb-24">
-        <Text>
-          To confirm whether high-fidelity wireframes can actually achieve user
-          goals, I conducted usability testing.
-        </Text>
-        {/* usability test */}
-        <TestCard title="Usability test" className="border-brown3">
-          <div className="text-[24px] tracking-[.02em]">
-            6 people (in person & online)
-          </div>
-          <ul className="list-disc list-outside text-[26px] tracking-[.02em] font-medium pl-6 space-y-7">
-            <li>Find out where you can determine your skin type</li>
-            <li>
-              Save your skin type and find a list of items that are good for
-              your skin type
-            </li>
-            <li>Compare products and purchase the one that best suits you</li>
-          </ul>
-        </TestCard>
-        <SubSection
-          title="Test results"
-          color="text-brown8"
-          spacing="space-y-24"
-        >
-          <div className="flex flex-wrap gap-y-[55px] justify-evenly">
-            <Avatar
-              name="Grace"
-              pronouns="she/her"
-              desc={
-                "She thought she could just click item images (instead of the check " +
-                "button) to compare products"
-              }
-            />
-            <Avatar
-              name="Peter"
-              pronouns="he/him"
-              desc={
-                "He was able to finish all tasks but the process of comparing the " +
-                "products was a little bit challenging for him"
-              }
-            />
-            <Avatar
-              name="Mayuri"
-              pronouns="she/her"
-              desc="She seemed unsure about where to click for each of the tasks"
-            />
-            <Avatar
-              name="Yingyang"
-              pronouns="she/her"
-              desc="She tried to click many different items to compare"
-            />
-            <Avatar
-              name="Natasha"
-              pronouns="she/her"
-              desc="She expected to complete the tasks in a different way"
-            />
-            <Avatar
-              name="Alexa"
-              pronouns="she/her"
-              desc="It wasn’t difficult for her to finish the tasks"
-            />
-          </div>
-          <Text>
-            The users found it easy to determine their skin type and view
-            product lists tailored to their skin type, but they struggled with
-            comparing and finding the items that suited them best. Even after
-            revising the item comparison process in the mid-fi prototype, they
-            encountered new difficulties and found the process unclear.
-          </Text>
-        </SubSection>
-        <SubSection title="Iterations" color="text-brown8" spacing="space-y-24">
-          <div className="space-y-7">
-            <div className="text-[24px] font-medium tracking-[.02em]">Home</div>
-            <div className="relative w-[1040px] h-[450px]">
-              <Image src="/pibu/iterations-1.png" alt="Home" fill />
-            </div>
-          </div>
-          <div className="space-y-7">
-            <div className="text-[24px] font-medium tracking-[.02em]">
-              Item list
-            </div>
-            <div className="relative w-[1040px] h-[450px]">
-              <Image src="/pibu/iterations-2.png" alt="Item list" fill />
-            </div>
-          </div>
-          <div className="space-y-7">
-            <div className="text-[24px] font-medium tracking-[.02em]">
-              Item list - choose items to compare
-            </div>
-            <div className="relative w-[1040px] h-[450px]">
-              <Image
-                src="/pibu/iterations-3.png"
-                alt="Item list - choose items to compare"
-                fill
-              />
-            </div>
-          </div>
-          <div className="space-y-7">
-            <div className="text-[24px] font-medium tracking-[.02em]">
-              Comparison
-            </div>
-            <div className="relative w-[1040px] h-[450px]">
-              <Image src="/pibu/iterations-4.png" alt="Comparison" fill />
-            </div>
-          </div>
-        </SubSection>
-        <Transition
-          text={
-            "After three iterations, I improved the design to prioritize usability, " +
-            "and users were able to finish the tasks easily."
-          }
-        />
-        <Image
-          src="/pibu/prototype.png"
-          alt="prototype"
-          width={1040}
-          height={630}
-        />
-        <div className="w-full flex justify-around items-center">
-          <Link
-            href="https://www.figma.com/proto/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?page-id=597%3A7713&node-id=807-7005&viewport=341%2C-827%2C0.03&t=WZCKh2jkLMYF6wKx-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=807%3A7005&show-proto-sidebar=1"
-            target="_blank"
-          >
-            <div
-              className={
-                "h-[70px] px-16 rounded-[64px] bg-brown text-white text-[22px] font-medium " +
-                "tracking-[.02em] flex items-center justify-center"
-              }
-            >
-              View the desktop prototype
-            </div>
-          </Link>
-          <Link
-            href="https://www.figma.com/proto/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?page-id=1270%3A16466&node-id=1270-16467&viewport=275%2C469%2C0.08&t=CHEsspLqyjlv47Dm-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1270%3A16467&show-proto-sidebar=1"
-            target="_blank"
-          >
-            <div
-              className={
-                "h-[70px] px-16 rounded-[64px] bg-brown text-white text-[22px] font-medium " +
-                "tracking-[.02em] flex items-center justify-center"
-              }
-            >
-              View the mobile prototype
-            </div>
-          </Link>
-        </div>
-      </Section>
-      {/* CONCLUSION */}
-      <Section
-        title="Conclusion"
-        underline="bg-brown"
-        className="px-52 pb-24"
-        bg="bg-base"
-      >
-        <Text>
-          Through this project, I gained valuable, realistic experience by
-          working directly with stakeholders to design the website. A key
-          achievement was developing a website that allows users to address
-          their primary challenge: identifying their skin type, based on
-          research findings and stakeholder requirements. The biggest challenge
-          was balancing research-based design decisions with stakeholder
-          feedback. Despite working within a limited timeframe, the fast-paced
-          changes in the cosmetics market emphasize the need for continuous
-          updates to keep the website user-friendly and support business growth.
-        </Text>
-      </Section>
-    </div>
+    <Project
+      hero={hero}
+      introduction={introduction}
+      designProcess={designProcess}
+      research={research}
+      define={define}
+      ideate={ideate}
+      prototype={prototype}
+      test={test}
+      nextSteps={nextSteps}
+    />
   );
 }
+
+const hero: HeroProps = {
+  title: "Pibu",
+  subtitle: "Skincare Store Website",
+  desc: "A website to introduce a local business and expand their business.",
+  role: "UX/UI Designer",
+  type: "Responsive Web Design",
+  timeline: "May - June 2024",
+  url: "https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&node-type=canvas&viewport=284%2C360%2C0.06&t=6NVbRlngR40WJKQQ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1",
+  children: (
+    <div className="flex space-x-[25px] py-[20px]">
+      <Image src="/pibu/desktop.png" alt="Pibu" width={775} height={454} />
+      <Image
+        src="/pibu/mobile.png"
+        alt="Pibu"
+        width={200}
+        height={454}
+        className="mt-auto"
+      />
+    </div>
+  ),
+};
+
+const introduction: IntroductionProps = {
+  background:
+    "Pibu is a family-owned Korean skincare store located in New York City. They opened their store in December 2023, and they target individuals of all genders in their 20s to 40s and offer a variety of skincare products. Their customers are mainly local residents, and they are considering the development of a website and an e-commerce platform to expand their business. They are hoping to have a website that matches to their target customers, and their aesthetic of the store.",
+  problems:
+    "Pibu has a clear target audience and brand aesthetic but struggles to align these with their website design. They are uncertain about the content that will encourage purchases and wish to create a unique, user-friendly website without relying on pre-made templates, ensuring they stand out from competitors.",
+  solutions:
+    "Developing a website to increase brand awareness and drive online sales, focusing on e-commerce for business expansion while emphasizing a user-friendly design that aligns with Pibu’s brand identity and appeals to their target audience. ",
+};
+
+const designProcess: DesignProcessProps = {
+  research: ["Competitive Analysis", "Survey", "User Interviews"],
+  define: [
+    "Affinity Map",
+    "User Personas",
+    "Problem Statement",
+    "Project Goals",
+  ],
+  ideate: ["Feature Ideas", "Card Sort", "Sitemap", "Task & User Flows"],
+  prototype: ["Wireframes", "Branding", "Prototyping"],
+  test: ["Usability Testing", "Iterations"],
+  nextSteps: ["Learning", "Different Approach"],
+};
+
+const research: ResearchProps = {
+  desc: "Understanding which information is beneficial for users and what motivates them will enhance their desire to make purchases. These insights will encourage users to shop at Pibu, thereby increasing brand recognition and supporting business expansion.",
+  goals: [
+    "Identify what users prioritize in choosing websites",
+    "Understand what kind of information users expect regarding skincare products",
+    "Determine what increases user’s purchasing desire",
+    "Understand the user's pain points when purchasing skincare products",
+  ],
+  researchCompetition: {
+    desc: "First, I conducted a competitive analysis to understand the structure and features of general skincare e-commerce sites. I compared two direct competitors specializing in K-beauty with one indirect competitor focusing on general skincare. Based on each site’s brand value and target audience, I identified how they present their websites.",
+    notes: [
+      "While all e-commerce websites share basic functionalities, each one incorporates unique features tailored to their target users. Direct competitors have fewer products but offer a simple and very user-friendly layout. On the other hand, indirect competitors, with a broader range of brands and products, use icons and other design elements to make the vast amount of information more accessible.",
+    ],
+    features: [
+      {
+        icon: "/icons/cart.svg",
+        label: "Smooth purchasing process",
+      },
+      {
+        icon: "/icons/smile-thin.svg",
+        label: "User-friendly and intuitive features",
+      },
+      {
+        icon: "/icons/tag.svg",
+        label: "Strong and impactful branding",
+      },
+      {
+        icon: "/icons/laptop.svg",
+        label: "Differentiating content from others",
+      },
+    ],
+    children: (
+      <div className="py-[20px] flex justify-between">
+        <Competitor
+          icon="/pibu/sentisenti.svg"
+          name="sentisenti"
+          pros={[
+            "For people who are interested in K-beauty",
+            "Competitive price",
+            "Extensive skincare and healthcare products",
+            "Points can be used like cash",
+          ]}
+          cons={["Some sections on the website are not well-functioning"]}
+          pibu
+        />
+        <Competitor
+          icon="/pibu/masksheets.svg"
+          name="Masksheets"
+          pros={[
+            "For people who are interested in Asian beauty",
+            "Offers brands that are hard to find in other shops",
+            "Consistent Branding",
+            "Staff picked items",
+          ]}
+          cons={["Unable to view all brands in a list"]}
+          pibu
+        />
+        <Competitor
+          icon="/pibu/sephora.svg"
+          name="Sephora"
+          pros={[
+            "For people who are interested in beauty and health",
+            "Wide selection of brands and products",
+            "Utilization of social media",
+            "Reliability",
+          ]}
+          cons={["There is too much information on the screen"]}
+          pibu
+        />
+      </div>
+    ),
+  },
+  researchExploration: {
+    title: "Exploring the Experiences of Purchasing Skincare Products",
+    survey: {
+      desc: (
+        <Paragraph>
+          I conducted a survey with <b>15 participants aged 25-44</b> to
+          understand their interest in skincare products, the criteria they use,
+          and how they make purchase decisions.
+        </Paragraph>
+      ),
+      questions: [
+        {
+          question:
+            "What websites do you use when you purchase skincare products, and why did you choose those websites?",
+          response:
+            "“I usually use Amazon or Target because I can check for discounts, view ingredient information, and read more honest reviews.”",
+          avatar: "/avatars/participant-1.svg",
+          name: "Participant 1",
+        },
+        {
+          question: "What criteria do you use to select skincare products?",
+          response:
+            "“I want to know if the product is effective for my skin type.”",
+          avatar: "/avatars/participant-2.svg",
+          name: "Participant 2",
+        },
+      ],
+    },
+    userInterview: {
+      desc: (
+        <Paragraph>
+          In order to collect qualitative data on users’ specific thoughts and
+          personal experiences, I conducted user interviews with{" "}
+          <b>5 participants aged 27-37</b>. I particularly focused on users’
+          motivations and challenges related to purchasing skincare products.
+        </Paragraph>
+      ),
+      questions: [
+        {
+          question:
+            "Have you experienced any difficulties in selecting the right skincare products?",
+          response:
+            "“I have had difficulties selecting the right skincare products because I didn’t know my skin type.” ",
+          avatar: "/avatars/participant-3.svg",
+          name: "Participant 1",
+        },
+        {
+          question:
+            "Have you ever had an experience where you were not satisfied with a skincare product you purchased?",
+          response:
+            "“There was a lot of trial and error in finding products that work for me.” ",
+          avatar: "/avatars/participant-4.svg",
+          name: "Participant 2",
+        },
+      ],
+    },
+    findings: [
+      {
+        icon: "/icons/sad.svg",
+        label: "Lack of knowledge about one’s skin type",
+        sublabel: "is common for participants",
+      },
+      {
+        icon: "/icons/magnifying-glass-thin.svg",
+        label: "Finding the right products for your skin",
+        sublabel: "can be challenging",
+      },
+      {
+        icon: "/icons/star-hollow.svg",
+        label: "Trust reviews, ratings, and recommendations",
+        sublabel: "are key factors when choosing skincare products",
+      },
+      {
+        icon: "/icons/research.svg",
+        label: "Texture, scent, and potential reactions",
+        sublabel: "are hard to determine when purchasing products online",
+      },
+    ],
+  },
+};
+
+const define: DefineProps = {
+  affinity: {
+    desc: "I recorded key points from the surveys and user interviews on individual sticky notes and created an affinity map. Then, I categorized the information by topics and patterns.",
+    maps: [
+      {
+        label: "What is most challenging when choosing skincare products?",
+        map: (
+          <div className="py-[20px] space-x-[50px] flex">
+            <Image
+              src="/pibu/affinity-map-1.svg"
+              alt="affinity map"
+              width={0}
+              height={0}
+              style={{ width: "auto", height: "535px" }}
+            />
+          </div>
+        ),
+      },
+      {
+        label: "What do you expect from online purchases?",
+        map: (
+          <div className="pb-[20px]">
+            <Image
+              src="/pibu/affinity-map-2.svg"
+              alt="affinity map"
+              width={0}
+              height={0}
+              style={{ width: "auto", height: "646px" }}
+            />
+          </div>
+        ),
+      },
+    ],
+    url: "https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=90-2022&t=Rh2UA7lbJbDJRhGN-1",
+    findings: [
+      {
+        label: "80% of participants",
+        sublabel:
+          "prefer buying skincare products online rather than in person",
+      },
+      {
+        label: "Many participants",
+        sublabel:
+          "expect convenience and a wide product selection for online purchases",
+      },
+      {
+        label: "75% of participants",
+        sublabel: "find choosing skincare products challenging",
+      },
+      {
+        label: "60% of participants",
+        sublabel:
+          "choose skincare products based on reviews, ratings or recommendations",
+      },
+    ],
+  },
+  personas: {
+    desc: "After conducting research, reviewing the findings, and organizing the data, I created two personas in the early stages of the design process to deepen my understanding of specific users and user needs.",
+    personas: [
+      {
+        name: "Persona 1",
+        desc: (
+          <Paragraph>
+            Peter Cho is a 34-year-old software engineer in New York who,
+            influenced by his partner and friends, has recently started using
+            skincare products. He seeks to find effective products and establish
+            a daily routine but <b>struggles with determining his skin type</b>{" "}
+            and <b>understanding the efficacy of various products</b> due to the
+            overwhelming amount of information available.
+          </Paragraph>
+        ),
+        image: "/pibu/persona-1.jpeg",
+      },
+      {
+        name: "Persona 2",
+        desc: (
+          <Paragraph>
+            Mary Harris is a 28-year-old kindergarten teacher from New York who
+            is passionate about skincare and often seeks discounts online. She
+            is currently concerned about dull skin and is eager to try new
+            products, but hesitates due to the inability to test samples
+            beforehand and worries about negative reviews. Her challenges
+            include <b>determining product suitability without samples</b> and
+            <b>dealing with limited reviews</b>.
+          </Paragraph>
+        ),
+        image: "/pibu/persona-2.jpeg",
+      },
+    ],
+    url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=0-1&t=6g8QSShYxUqXAJml-1",
+  },
+  exploring: {
+    desc: "To clarify the solutions needed to address specific user needs, I created three POV statements based on the personas. Among them, I selected the POV related to a skin type as it is the most crucial for achieving the personas’ goals.",
+    povStatement:
+      "I’d like to explore ways to help people to find and understand their skin type because choosing the right skincare products becomes challenging without knowledge of their skin type.",
+    summary:
+      "Then, I took the problem into a clear question that helps find creative and practical solutions.",
+    hmwQuestion:
+      "How might we help people to effectively choose the appropriate skincare products based on their skin type? ",
+  },
+  goals: {
+    desc: "As a step to generate ideas to solve the personas’ problems, I mapped out project goals based on the research findings.",
+    img: "/pibu/project-goals.svg",
+    url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1-278&t=6g8QSShYxUqXAJml-1",
+  },
+};
+
+const ideate: IdeateProps = {
+  brainstorm: {
+    desc: "While considering the technical aspects and input from stakeholders, I brainstormed key features that align with both business goals and user goals.  ",
+    content: (
+      <>
+        <div className="py-[20px] flex justify-between">
+          <div className="px-[20px] space-x-[20px] flex">
+            <Image
+              src="/avatars/user-needs.svg"
+              alt="avatar"
+              width={100}
+              height={100}
+              className="mt-auto"
+            />
+            <Image
+              src="/pibu/speech-bubble.svg"
+              alt="speech"
+              width={0}
+              height={0}
+              style={{ width: "auto", height: "100%" }}
+            />
+          </div>
+          <div className="flex px-[20px] space-x-[30px]">
+            <div className="space-y-[30px]">
+              <UserNeed icon="/icons/review.svg" title="Reviews" />
+              <UserNeed icon="/icons/star-hollow.svg" title="Ratings" />
+              <UserNeed icon="/icons/filter.svg" title="Filter" />
+              <UserNeed
+                icon="/icons/magnifying-glass-thin.svg"
+                title="Search"
+              />
+            </div>
+            <div className="space-y-[30px]">
+              <UserNeed icon="/icons/check-2.svg" title="Skin type checker" />
+              <UserNeed icon="/icons/book.svg" title="How to use the product" />
+              <UserNeed
+                icon="/icons/side-by-side.svg"
+                title="Side by side comparison"
+              />
+              <UserNeed icon="/icons/info.svg" title="Detailed product info" />
+            </div>
+          </div>
+        </div>
+        <Down />
+        <Paragraph>
+          I conducted a card sort with <b>37 cards</b> and <b>7 participants</b>
+          . Using a <b>hybrid card sort</b>, I determined how users categorized
+          the cards and decided on the menu items and their associated content.
+        </Paragraph>
+        <Paragraph>
+          As a result of the card sort, there were no new categories added by
+          the users, and there was unanimous agreement on 15 out of the 37
+          cards.
+        </Paragraph>
+        <Image
+          src="/pibu/card-sort.svg"
+          alt="card sort"
+          width={0}
+          height={0}
+          style={{ width: "100%", height: "auto" }}
+        />
+      </>
+    ),
+  },
+  sitemap: {
+    desc: "Based on the results of the card sort, I created a sitemap for the website structure. Since users expect to see not only products but also categories like skin type and skin concerns as part of the products, the structure was designed to ensure easy access to detailed information from the shop section.",
+    img: "/pibu/sitemap.svg",
+    url: "https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=35-1840&t=Rh2UA7lbJbDJRhGN-1",
+  },
+  refine: {
+    desc: "I created two task flows to clarify the steps necessary for users to achieve specific goals and promote a user-friendly approach.",
+    flows: [
+      {
+        label: "Identify your skin type",
+        img: "/pibu/user-flow-1.svg",
+      },
+      {
+        label: "Purchase the right products for your skin type",
+        img: "/pibu/user-flow-2.svg",
+      },
+    ],
+    url: "https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=42-8803&t=Rh2UA7lbJbDJRhGN-1",
+  },
+  map: {
+    desc: "To understand user needs and identify potential issues or confusing elements, I created a user flow.",
+    label: "Purchase the right products for your skin type",
+    img: (
+      <div className="py-[20px] w-[4723px] h-[1113px] relative">
+        <Image src="/pibu/task-flow.svg" alt="task flow" fill />
+      </div>
+    ),
+    url: "https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=80-1978&t=Rh2UA7lbJbDJRhGN-1",
+  },
+};
+
+const prototype: PrototypeProps = {
+  exploring: {
+    alternateTitle: "Sketching Out Ideas",
+    desc: "I created the page layouts needed for users to complete tasks based on the user flow and task flow. ",
+    lofi: {
+      images: ["/pibu/lofi-1.jpg", "/pibu/lofi-2.jpg", "/pibu/lofi-3.jpg"],
+      width: 315,
+      height: 400,
+      url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=46-55&t=6g8QSShYxUqXAJml-1",
+    },
+  },
+  adding: {
+    desc: "Based on the low-fidelity sketches, I considered more detailed layouts and digitalized them to create mid-fidelity wireframes, making the detailed layout more tangible. Although users will most likely engage with the product from a desktop, I wanted to make sure that all of the features would also work on a mobile screen.",
+    images: ["/pibu/midfi-1.svg", "/pibu/midfi-2.svg"],
+    imagesSm: ["/pibu/midfi-3.svg", "/pibu/midfi-4.svg"],
+    url: "https://www.figma.com/design/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?node-id=1526-34763&t=Ezlc7eUJ1xCvo01W-1",
+  },
+  tests: {
+    desc: (
+      <Paragraph>
+        After creating the mid-fidelity wireframes, I conducted a quick{" "}
+        <b>usability test</b> with <b>5 participants</b> to check if users
+        understood the design layouts and if they found the interface
+        user-friendly.
+      </Paragraph>
+    ),
+    images: ["/pibu/test-1.svg", "/pibu/test-2.svg"],
+  },
+  refining: {
+    desc: "Based on the results of the mid-fi usability test, I improved the designs to make them more user-friendly and easier for users to navigate.",
+    images: ["/pibu/iteration-1.svg", "/pibu/iteration-2.svg"],
+  },
+  building: {
+    desc: "Pibu already has a developed store image, including a logo and aesthetic. To confirm the website’s tone and direction with the stakeholders, I created two style tiles based on their brand values: one with a blue theme and one with a green theme. The stakeholder selected the blue style tile as the one that best aligns with the brand image.'s essential to build a brand image that attracts users. I established brand values that align with my vision of making searching for and booking restaurants less difficult.",
+    content: (
+      <div className="bg-white rounded-[20px] p-[10px]">
+        <Image
+          src="/pibu/moodboard.png"
+          alt="moodboard"
+          width={1000}
+          height={711}
+        />
+      </div>
+    ),
+  },
+  branding: {
+    desc: "I incorporated all branding elements into the wireframes to create high-fidelity designs.",
+    images: [
+      {
+        src: "/pibu/hifi-1.png",
+        width: 480,
+        height: 595,
+      },
+      {
+        src: "/pibu/hifi-2.png",
+        width: 200,
+        height: 540,
+      },
+      {
+        src: "/pibu/hifi-3.png",
+        width: 200,
+        height: 540,
+      },
+    ],
+    url: "https://www.figma.com/design/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?node-id=931-7844&t=Ezlc7eUJ1xCvo01W-1",
+  },
+};
+
+const test: TestProps = {
+  enhancing: {
+    desc: (
+      <Paragraph>
+        To confirm whether high-fidelity wireframes can actually achieve user
+        goals, I conducted <b>usability testing</b> with <b>6 participants</b>.
+      </Paragraph>
+    ),
+    taskFlows: (
+      <div className="py-[20px] space-y-[50px]">
+        <TaskFlowCard
+          title="Task Flow 1"
+          subtitle="Find out where you can determine your skin type"
+          participants={[
+            {
+              name: "Participant 1",
+              avatar: "/avatars/task-flow-1-1.svg",
+              comment:
+                "“Maybe a pop up on the bottom of the screen might help to find the skin type page.”",
+            },
+            {
+              name: "Participant 3",
+              avatar: "/avatars/task-flow-1-2.svg",
+              comment:
+                "“This was straight forward and I could find the page easily.”",
+            },
+          ]}
+          conclusions={["5/6 were able to complete the task easily"]}
+          image={{
+            src: "/pibu/task-flow-1.png",
+            width: 500,
+            height: 355,
+          }}
+        />
+        <TaskFlowCard
+          title="Task Flow 2"
+          subtitle="Save your skin type and find a list of items that are good for your skin type"
+          participants={[
+            {
+              name: "Participant 2",
+              avatar: "/avatars/task-flow-2-1.svg",
+              comment: "“It wasn’t obvious that I can save my skin type.”",
+            },
+            {
+              name: "Participant 5",
+              avatar: "/avatars/task-flow-2-2.svg",
+              comment:
+                "“Having an instruction how to save the skin type might help for people to understand well.”",
+            },
+          ]}
+          conclusions={[
+            "3/6 were confused about how to save the skin type, even though they were able to complete the task.",
+          ]}
+          image={{
+            src: "/pibu/task-flow-2.png",
+            width: 500,
+            height: 355,
+          }}
+        />
+        <TaskFlowCard
+          title="Task Flow 3"
+          subtitle="Compare products and purchase the one that best suits you"
+          participants={[
+            {
+              name: "Participant 3",
+              avatar: "/avatars/task-flow-3-1.svg",
+              comment:
+                "“I had to click and scroll too much when comparing products.”",
+            },
+            {
+              name: "Participant 4",
+              avatar: "/avatars/task-flow-3-2.svg",
+              comment:
+                "“The compare button can stay fixed, so you don’t need to scroll back to click it.”",
+            },
+          ]}
+          conclusions={[
+            "4/6 struggled to choose products for comparison and expressed a desire for a simplified comparison feature.",
+          ]}
+          image={{
+            src: "/pibu/task-flow-3.png",
+            width: 500,
+            height: 355,
+          }}
+        />
+      </div>
+    ),
+  },
+  iterating: {
+    desc: "I conducted repeated testing and iterations to ensure the feature works smoothly on both desktop and mobile screens, refining the design to make it more user-friendly.",
+    images: [
+      {
+        src: "/pibu/iteration-1.png",
+        width: 1000,
+        height: 400,
+      },
+      {
+        src: "/pibu/iteration-2.png",
+        width: 1000,
+        height: 400,
+      },
+      {
+        src: "/pibu/iteration-3.png",
+        width: 1000,
+        height: 400,
+      },
+      {
+        src: "/pibu/iteration-4.png",
+        width: 1000,
+        height: 400,
+      },
+    ],
+  },
+  final: {
+    header: "Skincare Store Website",
+    desc: "A website to introduce a local business and expand their business.",
+    wideSpace: true,
+    demos: [
+      {
+        video: {
+          src: "/pibu/final-1.mp4",
+          className: "w-[750px] h-[472px]",
+          addressBar: {
+            src: "/pibu/address-bar.png",
+            width: 750,
+            height: 27,
+          },
+        },
+        image: {
+          src: "/pibu/final-1.png",
+          width: 196,
+          height: 400,
+        },
+        header:
+          "Navigation to the skin type check page helps users choose products",
+        notes: [
+          "Assist users who are unsure about what to purchase",
+          "A unique feature that sets the Pibu’s website apart from others",
+        ],
+        vertical: true,
+      },
+      {
+        video: {
+          src: "/pibu/final-2.mp4",
+          className: "w-[750px] h-[472px]",
+          addressBar: {
+            src: "/pibu/address-bar.png",
+            width: 750,
+            height: 27,
+          },
+        },
+        image: {
+          src: "/pibu/final-2.png",
+          width: 196,
+          height: 400,
+        },
+        header:
+          "A skin type checker and saving function allow users to search for suitable products",
+        notes: [
+          "Users can find the right products by knowing their skin type",
+          "Reduce the stress of trial and error",
+        ],
+        vertical: true,
+      },
+      {
+        video: {
+          src: "/pibu/final-3.mp4",
+          className: "w-[750px] h-[472px]",
+          addressBar: {
+            src: "/pibu/address-bar.png",
+            width: 750,
+            height: 27,
+          },
+        },
+        image: {
+          src: "/pibu/final-3.png",
+          width: 196,
+          height: 400,
+        },
+        header: "A comparison feature simplifies product selection for users",
+        notes: [
+          "Enable better product choices",
+          "Easily see the differences between each item at a glance",
+        ],
+        vertical: true,
+      },
+    ],
+    urls: {
+      desktop:
+        "https://www.figma.com/proto/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?page-id=597%3A7713&node-id=807-7005&node-type=canvas&viewport=373%2C-836%2C0.03&t=gMvi3WuZgZoYEoEd-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=807%3A7005&show-proto-sidebar=1",
+      mobile:
+        "https://www.figma.com/proto/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?page-id=1270%3A16466&node-id=1270-16467&node-type=canvas&viewport=182%2C302%2C0.02&t=N8ufLRQptDTfWbhu-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1270%3A16467&show-proto-sidebar=1",
+    },
+  },
+};
+
+const nextSteps: NextStepsProps = {
+  learning:
+    "Through this project, I gained valuable, practical experience by collaborating directly with stakeholders to design the website. A key achievement was creating a site that enables users to identify their skin type, which addresses their primary challenge based on research findings and stakeholder requirements. The biggest challenge lay in balancing research-driven design decisions with stakeholder feedback. Despite the limited timeframe, the fast-paced changes in the cosmetics market highlight the need for ongoing updates to keep the website user-friendly and support business growth.' pain points and consider how to enhance the user experience in order to create a better product. Since everyone has different travel purposes and preferences when choosing a restaurant, it was crucial to identify the problems that diverse users face and what they desire. Throughout this project, I came to understand the importance of user feedback and the necessity of collecting valuable insights through research.",
+  opportunities: (
+    <Paragraph>
+      Since many people seek convenience when purchasing skincare products
+      online, the search function and checkout process need improvement. By
+      enabling customers to quickly find the products they are looking for and
+      reducing the hassle of entering information through card history, I can
+      enhance customer satisfaction.
+    </Paragraph>
+  ),
+};
