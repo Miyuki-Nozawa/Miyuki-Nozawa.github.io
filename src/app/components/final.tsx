@@ -48,7 +48,7 @@ export default function Final({
             height={video.addressBar.height}
           />
         )}
-        <video className={video.className} autoPlay muted loop>
+        <video className={`${video.className} object-cover`} autoPlay muted loop>
           <source src={video.src} type="video/mp4" />
         </video>
       </div>
