@@ -4,13 +4,19 @@ export default function KeyCard({
   label,
   icon,
   sublabel,
+  centered,
 }: {
   label: string;
   icon?: string;
   sublabel?: string;
+  centered?: boolean;
 }) {
   return (
-    <div className="p-[40px] bg-pink rounded-[20px] space-x-[30px] flex w-[485px]">
+    <div
+      className={`p-[40px] bg-pink rounded-[20px] space-x-[30px] flex w-[485px] ${
+        centered ? "justify-center" : ""
+      }`}
+    >
       {icon && (
         <Image
           src={icon}

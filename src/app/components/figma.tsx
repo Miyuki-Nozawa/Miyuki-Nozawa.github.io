@@ -11,7 +11,7 @@ export default function Figma({
 }) {
   return (
     <div
-      className="space-x-[20px] flex items-center"
+      className="space-x-[10px] flex items-center"
       onMouseEnter={handleCursorHoverStart}
       onMouseLeave={handleCursorHoverStop}
     >

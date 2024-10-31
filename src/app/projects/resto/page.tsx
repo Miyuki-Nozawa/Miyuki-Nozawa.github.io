@@ -42,7 +42,7 @@ const hero: HeroProps = {
   subtitle: "Dining App in Japan",
   desc: "A mobile app that simplifies restaurant discovery and reservation management for travelers in Japan.",
   role: "UX/UI Designer",
-  type: "End-to-end-application",
+  type: "End-to-end application",
   timeline: "June - Aug 2024",
   url: "https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&node-type=canvas&viewport=284%2C360%2C0.06&t=6NVbRlngR40WJKQQ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1",
   children: (
@@ -91,24 +91,28 @@ const research: ResearchProps = {
   researchCompetition: {
     desc: "Before diving into the interview, I compared two direct competitors (Japanese reservation apps) and one indirect competitor (a well-known American reservation app) to understand what features are available in existing apps. I compared their target users, focus, and trends to identify which features address specific needs.",
     notes: [
-      "The direct competitor excels in search and restaurant details but has not focused on the reservation system, making it confusing for users who are not familiar with it. On the other hand, the indirect competitor, an American site, does not provide as detailed restaurant descriptions but has an excellent reservation system and incorporates the latest trends.",
+      "The direct competitors excel in search and restaurant details but has not focused on the reservation system, making it confusing for users who are not familiar with it. On the other hand, the indirect competitor, an American site, does not provide as detailed restaurant descriptions but has an excellent reservation system and incorporates the latest trends.",
     ],
     features: [
       {
         icon: "/icons/calendar.svg",
         label: "Simple reservation system",
+        centered: true,
       },
       {
         icon: "/icons/gear.svg",
         label: "Flexible reservation methods",
+        centered: true,
       },
       {
         icon: "/icons/magnifying-glass-thin.svg",
         label: "User-friendly search function",
+        centered: true,
       },
       {
         icon: "/icons/book.svg",
         label: "Guide to popular spots and culture",
+        centered: true,
       },
     ],
     children: (
@@ -236,7 +240,7 @@ const research: ResearchProps = {
         sublabel: "can be difficult",
       },
       {
-        icon: "/icons/pencil.svg",
+        icon: "/icons/pencil-2.svg",
         label: "Reviewing & managing bookings",
         sublabel: "can be a struggle",
       },
@@ -319,7 +323,7 @@ const define: DefineProps = {
       {
         label: "Many participants",
         sublabel:
-          "find that the language barrier is the biggest challenge when making or changing reservations",
+          "find that the language barrier is the biggest challenge when making reservations",
       },
     ],
   },
@@ -401,22 +405,25 @@ const ideate: IdeateProps = {
           </div>
           <div className="flex px-[20px] space-x-[30px]">
             <div className="space-y-[30px]">
-              <UserNeed icon="/icons/filter.svg" title="Filter" />
-              <UserNeed
-                icon="/icons/magnifying-glass-thin.svg"
-                title="Search"
-              />
-              <UserNeed icon="/icons/map.svg" title="Map" />
-              <UserNeed icon="/icons/bell.svg" title="Notification" />
+              <UserNeed icon="/icons/ideate-filter.svg" title="Filter" />
+              <UserNeed icon="/icons/ideate-search.svg" title="Search" />
+              <UserNeed icon="/icons/ideate-map.svg" title="Map" />
+              <UserNeed icon="/icons/ideate-bell.svg" title="Notification" />
             </div>
             <div className="space-y-[30px]">
               <UserNeed
-                icon="/icons/star-hollow.svg"
+                icon="/icons/ideate-star.svg"
                 title="Reviews & Ratings"
               />
-              <UserNeed icon="/icons/smile.svg" title="Utilization of icons" />
-              <UserNeed icon="/icons/a.svg" title="Language Option" />
-              <UserNeed icon="/icons/calendar.svg" title="Simple Reservation" />
+              <UserNeed
+                icon="/icons/ideate-smile.svg"
+                title="Utilization of icons"
+              />
+              <UserNeed icon="/icons/ideate-a.svg" title="Language Option" />
+              <UserNeed
+                icon="/icons/ideate-calendar.svg"
+                title="Simple Reservation"
+              />
             </div>
           </div>
         </div>

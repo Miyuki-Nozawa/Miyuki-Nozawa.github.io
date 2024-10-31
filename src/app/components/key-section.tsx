@@ -12,8 +12,14 @@ export default function KeySection({
   return (
     <StarSection title={title}>
       <div className="py-[20px] flex flex-wrap gap-y-[24px] gap-x-[30px]">
-        {cards.map(({ icon, label, sublabel }, i) => (
-          <KeyCard key={i} icon={icon} label={label} sublabel={sublabel} />
+        {cards.map(({ icon, label, sublabel, centered }, i) => (
+          <KeyCard
+            key={i}
+            icon={icon}
+            label={label}
+            sublabel={sublabel}
+            centered={centered}
+          />
         ))}
       </div>
     </StarSection>
