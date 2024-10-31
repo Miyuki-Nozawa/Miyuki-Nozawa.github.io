@@ -14,7 +14,7 @@ export default function KeyCard({
   return (
     <div
       className={`p-[40px] bg-pink rounded-[20px] space-x-[30px] flex w-[485px] ${
-        centered ? "justify-center" : ""
+        centered ? "items-center" : ""
       }`}
     >
       {icon && (
@@ -23,7 +23,7 @@ export default function KeyCard({
           alt={label}
           width={66}
           height={66}
-          className="mb-auto"
+          className={centered ? "" : "mb-auto"}
         />
       )}
       <div className="space-y-[10px] my-auto">

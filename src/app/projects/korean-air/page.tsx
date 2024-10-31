@@ -93,18 +93,22 @@ const research: ResearchProps = {
       {
         icon: "/icons/laptop.svg",
         label: "Clear visibility of mileage or points",
+        centered: true,
       },
       {
         icon: "/icons/fire.svg",
         label: "Features that enhance user motivation",
+        centered: true,
       },
       {
-        icon: "/icons/hamburger.svg",
+        icon: "/icons/hamburger-2.svg",
         label: "Variety of redemption options",
+        centered: true,
       },
       {
         icon: "/icons/file.svg",
         label: "Clear display of redemption options",
+        centered: true,
       },
     ],
     children: (
