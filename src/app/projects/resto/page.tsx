@@ -480,7 +480,7 @@ const ideate: IdeateProps = {
 
 const prototype: PrototypeProps = {
   exploring: {
-    desc: "I created specific design layouts based on user flows, task flows, and observations of how users prefer to search and prevent duplicate reservations. Starting from low-fidelity sketches, I developed more detailed layouts, digitizing them into mid-fidelity wireframes to make the designs more tangible.",
+    desc: "I created specific design layouts based on the user flow, the task flow, and observations of how users prefer to search and prevent duplicate reservations. Starting from low-fidelity sketches, I developed more detailed layouts, digitizing them into mid-fidelity wireframes to make the designs more tangible.",
     lofi: {
       images: ["/resto/lofi-1.jpg", "/resto/lofi-2.jpg", "/resto/lofi-3.jpg"],
       width: 315,
@@ -489,10 +489,10 @@ const prototype: PrototypeProps = {
     },
     midfi: {
       images: [
-        "/resto/midfi-1.png",
-        "/resto/midfi-2.png",
-        "/resto/midfi-3.png",
-        "/resto/midfi-4.png",
+        "/resto/midfi-1.svg",
+        "/resto/midfi-2.svg",
+        "/resto/midfi-3.svg",
+        "/resto/midfi-4.svg",
       ],
       width: 220,
       height: 600,
@@ -502,9 +502,9 @@ const prototype: PrototypeProps = {
   tests: {
     desc: (
       <Paragraph>
-        After creating the mid-fidelity wireframes, I conducted a quick
+        After creating the mid-fidelity wireframes, I conducted a quick{" "}
         <b>usability test</b> with <b>6 participants</b> to check if users
-        understood my design layout and if they found the interface
+        understood the design layouts and if they found the interface
         user-friendly.
       </Paragraph>
     ),
@@ -701,7 +701,7 @@ const test: TestProps = {
                 "“The only thing that slowed me down in the process was finding the right tag. I guess I would like to type it if that’s possible.”",
             },
           ]}
-          conclusions={["4/5 were able to complete the task easily"]}
+          conclusions={["4/5 were able to complete the task easily."]}
           image={{
             src: "/resto/task-flow-1.svg",
             width: 220,
@@ -726,8 +726,8 @@ const test: TestProps = {
             },
           ]}
           conclusions={[
-            "3/5 had difficulties to find out which one is popular",
-            "2/5 didn’t use the filter function to narrow down the options",
+            "3/5 had difficulties to find out which one is popular.",
+            "2/5 didn’t use the filter function to narrow down the options.",
           ]}
           image={{
             src: "/resto/task-flow-2.svg",
@@ -754,7 +754,7 @@ const test: TestProps = {
             },
           ]}
           conclusions={[
-            "5/5 were able to complete the task without any issues",
+            "5/5 were able to complete the task without any issues.",
           ]}
           image={{
             src: "/resto/task-flow-3.svg",
@@ -780,8 +780,8 @@ const test: TestProps = {
             },
           ]}
           conclusions={[
-            "4/5 were unsure about another reservation until the end",
-            "3/5 wanted to see the notification when choosing the time slot",
+            "4/5 were unsure about another reservation until the end.",
+            "3/5 wanted to see the notification when choosing the time slot.",
           ]}
           image={{
             src: "/resto/task-flow-4.svg",

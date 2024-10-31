@@ -49,6 +49,7 @@ export default function Project({
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [isFooterVisible, setIsFooterVisible] = useState(false);
+  const [isArrowHovered, setIsArrowHovered] = useState(false);
 
   const refs = useMemo(
     () => ({
@@ -168,12 +169,22 @@ export default function Project({
             Back to Top
           </div>
           <Image
-            src="/icons/top-arrow.svg"
+            src={
+              isArrowHovered
+                ? "/icons/top-arrow-hover.svg"
+                : "/icons/top-arrow.svg"
+            }
             alt="top"
             width={70}
             height={70}
-            onMouseEnter={handleCursorHoverStart}
-            onMouseLeave={handleCursorHoverStop}
+            onMouseEnter={() => {
+              setIsArrowHovered(true);
+              handleCursorHoverStart();
+            }}
+            onMouseLeave={() => {
+              setIsArrowHovered(false);
+              handleCursorHoverStop();
+            }}
             onClick={goToTop}
           />
         </div>

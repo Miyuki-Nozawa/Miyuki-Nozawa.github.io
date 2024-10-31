@@ -25,6 +25,7 @@ const AboutSection = ({
 
 export default function About() {
   const [isFooterVisible, setIsFooterVisible] = useState(false);
+  const [isArrowHovered, setIsArrowHovered] = useState(false);
   const footerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -151,12 +152,22 @@ export default function About() {
             Back to Top
           </div>
           <Image
-            src="/icons/top-arrow.svg"
+            src={
+              isArrowHovered
+                ? "/icons/top-arrow-hover.svg"
+                : "/icons/top-arrow.svg"
+            }
             alt="top"
             width={70}
             height={70}
-            onMouseEnter={handleCursorHoverStart}
-            onMouseLeave={handleCursorHoverStop}
+            onMouseEnter={() => {
+              setIsArrowHovered(true);
+              handleCursorHoverStart();
+            }}
+            onMouseLeave={() => {
+              setIsArrowHovered(false);
+              handleCursorHoverStop();
+            }}
             onClick={goToTop}
           />
         </div>
