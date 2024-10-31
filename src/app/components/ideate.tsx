@@ -125,7 +125,9 @@ export default forwardRef(function Ideate(
                     {map.label}
                   </span>
                 </div>
-                <div className="pb-[30px] overflow-x-scroll">{map.img}</div>
+                <div className="pb-[30px] overflow-x-scroll scrollbar-always-visible">
+                  {map.img}
+                </div>
               </div>
               <Figma href={map.url}>View the User Flow</Figma>
             </div>

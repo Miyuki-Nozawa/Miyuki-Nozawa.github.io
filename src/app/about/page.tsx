@@ -1,12 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 import ProjectSection from "@/app/components/project-section";
 import Paragraph from "@/app/components/paragraph";
 import Bottom from "@/app/components/bottom";
-import { handleCursorHoverStart, handleCursorHoverStop } from "../cursor";
+import Connect from "@/app/components/connect";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const AboutSection = ({
   title,
@@ -24,36 +25,8 @@ const AboutSection = ({
 };
 
 export default function About() {
-  const [isFooterVisible, setIsFooterVisible] = useState(false);
-  const [isArrowHovered, setIsArrowHovered] = useState(false);
   const footerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsFooterVisible(entry.isIntersecting);
-      },
-      {
-        threshold: 0.75,
-      }
-    );
-
-    let ref = footerRef.current;
-
-    if (ref) {
-      observer.observe(ref);
-    }
-
-    return () => {
-      if (ref) {
-        observer.unobserve(ref);
-      }
-    };
-  }, []);
-
-  const goToTop = () => {
-    window.scrollTo({ top: 0 });
-  };
+  const isFooterVisible = useIntersectionObserver(footerRef);
 
   return (
     <main className="absolute top-0 space-y-[20px]">
@@ -147,30 +120,7 @@ export default function About() {
         </AboutSection>
       </ProjectSection>
       <Bottom ref={footerRef} visible={isFooterVisible}>
-        <div className="space-y-[10px] flex flex-col items-center">
-          <div className="text-[60px] font-bold text-white tracking-[.01em]">
-            Back to Top
-          </div>
-          <Image
-            src={
-              isArrowHovered
-                ? "/icons/top-arrow-hover.svg"
-                : "/icons/top-arrow.svg"
-            }
-            alt="top"
-            width={70}
-            height={70}
-            onMouseEnter={() => {
-              setIsArrowHovered(true);
-              handleCursorHoverStart();
-            }}
-            onMouseLeave={() => {
-              setIsArrowHovered(false);
-              handleCursorHoverStop();
-            }}
-            onClick={goToTop}
-          />
-        </div>
+        <Connect />
       </Bottom>
     </main>
   );

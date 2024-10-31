@@ -1,39 +1,16 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 import ProjectCard from "@/app/components/project-card";
-import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
 import Bottom from "@/app/components/bottom";
+import Connect from "@/app/components/connect";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 export default function Home() {
   const footerRef = useRef<HTMLDivElement>(null);
-  const [isFooterVisible, setIsFooterVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsFooterVisible(entry.isIntersecting);
-      },
-      {
-        threshold: 0.75,
-      }
-    );
-
-    let ref = footerRef.current;
-
-    if (ref) {
-      observer.observe(ref);
-    }
-
-    return () => {
-      if (ref) {
-        observer.unobserve(ref);
-      }
-    };
-  }, []);
+  const isFooterVisible = useIntersectionObserver(footerRef);
 
   return (
     <main className="bg-white">
@@ -93,45 +70,7 @@ export default function Home() {
       />
       {/* Footer */}
       <Bottom ref={footerRef} visible={isFooterVisible}>
-        <>
-          <div className="text-white font-bold text-[60.75px]">
-            Let&apos;s connect!
-          </div>
-          <div className="font-semibold text-[22px] flex space-x-[30px]">
-            <Link
-              href="mailto:nozawa.myk@gmail.com"
-              target="_blank"
-              onMouseEnter={handleCursorHoverStart}
-              onMouseLeave={handleCursorHoverStop}
-            >
-              <div className="flex items-center space-x-[20px] bg-beige rounded-[100px] px-[40px] py-[15px]">
-                <Image
-                  src="/icons/email.svg"
-                  alt="email"
-                  width={37}
-                  height={33}
-                />
-                <span>Email</span>
-              </div>
-            </Link>
-            <Link
-              href="https://linkedin.com/in/miyuki-nozawa"
-              target="_blank"
-              onMouseEnter={handleCursorHoverStart}
-              onMouseLeave={handleCursorHoverStop}
-            >
-              <div className="flex items-center space-x-[20px] bg-beige rounded-[100px] px-[40px] py-[15px]">
-                <Image
-                  src="/icons/linkedin.svg"
-                  alt="linkedin"
-                  width={33}
-                  height={33}
-                />
-                <span>LinkedIn</span>
-              </div>
-            </Link>
-          </div>
-        </>
+        <Connect />
       </Bottom>
     </main>
   );

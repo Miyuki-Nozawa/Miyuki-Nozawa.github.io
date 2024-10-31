@@ -16,7 +16,7 @@ import Prototype, { PrototypeProps } from "@/app/components/prototype";
 import Test, { TestProps } from "@/app/components/test";
 import NextSteps, { NextStepsProps } from "@/app/components/next-steps";
 import Bottom from "@/app/components/bottom";
-import Link from "next/link";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 export default function Project({
   hero,
@@ -48,8 +48,14 @@ export default function Project({
   const footerRef = useRef<HTMLDivElement>(null);
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [activeSection, setActiveSection] = useState("");
-  const [isFooterVisible, setIsFooterVisible] = useState(false);
   const [isArrowHovered, setIsArrowHovered] = useState(false);
+  const isFooterVisible = useIntersectionObserver(
+    footerRef,
+    { threshold: 0.25 },
+    (isIntersecting) => {
+      setIsNavVisible(isNavVisible && !isIntersecting);
+    }
+  );
 
   const refs = useMemo(
     () => ({
@@ -93,30 +99,6 @@ export default function Project({
       window.removeEventListener("scroll", handleScroll);
     };
   }, [activeSection, refs, isFooterVisible]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsFooterVisible(entry.isIntersecting);
-        setIsNavVisible(isNavVisible && !entry.isIntersecting);
-      },
-      {
-        threshold: 0.75,
-      }
-    );
-
-    let ref = footerRef.current;
-
-    if (ref) {
-      observer.observe(ref);
-    }
-
-    return () => {
-      if (ref) {
-        observer.unobserve(ref);
-      }
-    };
-  }, []);
 
   const handleNav = (section: Section) => {
     if (refs[section].current) {

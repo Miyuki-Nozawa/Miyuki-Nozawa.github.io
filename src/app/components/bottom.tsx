@@ -1,9 +1,18 @@
-import { forwardRef } from "react";
+import { forwardRef, useEffect } from "react";
 
 export default forwardRef(function Bottom(
   { visible, children }: { visible: boolean; children: React.ReactNode },
   ref: React.ForwardedRef<HTMLDivElement>
 ) {
+  useEffect(() => {
+    if (visible) {
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: "smooth",
+      });
+    }
+  }, [visible]);
+
   return (
     <div
       ref={ref}

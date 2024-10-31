@@ -450,8 +450,8 @@ const prototype: PrototypeProps = {
   },
   adding: {
     desc: "Based on the low-fidelity sketches, I considered more detailed layouts and digitalized them to create mid-fidelity wireframes, making the detailed layout more tangible. Although users will most likely engage with the product from a desktop, I wanted to make sure that all of the features would also work on a mobile screen.",
-    images: ["/pibu/midfi-1.svg", "/pibu/midfi-2.svg"],
-    imagesSm: ["/pibu/midfi-3.svg", "/pibu/midfi-4.svg"],
+    images: ["/pibu/midfi-1.png", "/pibu/midfi-2.png"],
+    imagesSm: ["/pibu/midfi-3.png", "/pibu/midfi-4.png"],
     url: "https://www.figma.com/design/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?node-id=1526-34763&t=Ezlc7eUJ1xCvo01W-1",
   },
   tests: {
@@ -470,7 +470,7 @@ const prototype: PrototypeProps = {
     images: ["/pibu/iteration-1.svg", "/pibu/iteration-2.svg"],
   },
   building: {
-    desc: "Pibu already has a developed store image, including a logo and aesthetic. To confirm the website’s tone and direction with the stakeholders, I created two style tiles based on their brand values: one with a blue theme and one with a green theme. The stakeholder selected the blue style tile as the one that best aligns with the brand image.'s essential to build a brand image that attracts users. I established brand values that align with my vision of making searching for and booking restaurants less difficult.",
+    desc: "Pibu already has a developed store image, including a logo and aesthetic. To confirm the website’s tone and direction with the stakeholders, I created two style tiles based on their brand values: one with a blue theme and one with a green theme. The stakeholder selected the blue style tile as the one that best aligns with the brand image.",
     content: (
       <div className="bg-white rounded-[20px] p-[10px]">
         <Image
@@ -509,7 +509,7 @@ const test: TestProps = {
   enhancing: {
     desc: (
       <Paragraph>
-        To confirm whether high-fidelity wireframes can actually achieve user
+        To confirm whether the high-fidelity wireframes can actually achieve user
         goals, I conducted <b>usability testing</b> with <b>6 participants</b>.
       </Paragraph>
     ),
@@ -532,12 +532,13 @@ const test: TestProps = {
                 "“This was straight forward and I could find the page easily.”",
             },
           ]}
-          conclusions={["5/6 were able to complete the task easily"]}
+          conclusions={["5/6 were able to complete the task easily."]}
           image={{
             src: "/pibu/task-flow-1.png",
             width: 500,
             height: 355,
           }}
+          horizontal
         />
         <TaskFlowCard
           title="Task Flow 2"
@@ -563,6 +564,7 @@ const test: TestProps = {
             width: 500,
             height: 355,
           }}
+          horizontal
         />
         <TaskFlowCard
           title="Task Flow 3"
@@ -589,6 +591,7 @@ const test: TestProps = {
             width: 500,
             height: 355,
           }}
+          horizontal
         />
       </div>
     ),
