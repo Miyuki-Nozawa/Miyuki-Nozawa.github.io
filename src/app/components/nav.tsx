@@ -52,23 +52,40 @@ export default function Nav() {
     setMobileProjectsVisible(!mobileProjectsVisible);
   };
 
-  const generateNavLink = (path: string, name: string, newTab?: boolean) => (
-    <div
-      className={`px-[30px] py-[10px] rounded-[55px] ${
-        isAboutPage ? "hover:bg-black/10" : "hover:bg-navHover"
-      }`}
-      onMouseEnter={handleCursorHoverStart}
-      onMouseLeave={handleCursorHoverStop}
-    >
-      <NavLink
-        href={path}
-        className={`${pathname === path ? "font-bold" : ""} cursor-default`}
-        target={newTab ? "_blank" : "_self"}
+  const generateNavLink = (path: string, name: string, newTab?: boolean) => {
+    const handleClick = (e: React.MouseEvent) => {
+      if (path === "/#work" && pathname === "/") {
+        e.preventDefault();
+        const workSection = document.getElementById("work");
+        if (workSection) {
+          const offset = workSection.offsetTop - 20;
+          window.scrollTo({
+            top: offset,
+            behavior: "smooth"
+          });
+        }
+      }
+    };
+
+    return (
+      <div
+        className={`px-[30px] py-[10px] rounded-[55px] ${
+          isAboutPage ? "hover:bg-black/10" : "hover:bg-navHover"
+        }`}
+        onMouseEnter={handleCursorHoverStart}
+        onMouseLeave={handleCursorHoverStop}
       >
-        {name}
-      </NavLink>
-    </div>
-  );
+        <NavLink
+          href={path}
+          className={`${pathname === path ? "font-bold" : ""} cursor-default`}
+          target={newTab ? "_blank" : "_self"}
+          onClick={handleClick}
+        >
+          {name}
+        </NavLink>
+      </div>
+    );
+  };
 
   const handleMobileNavLink = (event: React.MouseEvent, path: string) => {
     event.stopPropagation();
