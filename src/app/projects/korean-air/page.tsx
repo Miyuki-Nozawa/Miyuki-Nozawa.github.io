@@ -389,7 +389,7 @@ const define: DefineProps = {
       "How might we allow SKYPASS members to check their accumulated mileage against the required mileage at once?",
   },
   goals: {
-    desc: "As a step to generate ideas to solve the personas’ problems, I mapped out project goals based on the research findings.' problems, I mapped out project goals based on the research findings.",
+    desc: "As a step to generate ideas to solve the personas’ problems, I mapped out project goals based on the research findings.",
     img: "/korean-air/project-goals.svg",
     url: "https://www.figma.com/design/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=5-19&t=7ZhVcoHfPaWSlAut-1",
   },
