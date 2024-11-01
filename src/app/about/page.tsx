@@ -17,8 +17,10 @@ const AboutSection = ({
   children: React.ReactNode;
 }) => {
   return (
-    <div className="space-y-[30px]">
-      <div className="text-[27px] font-semibold tracking-[.01em]">{title}</div>
+    <div className="space-y-[5vw] lg:space-y-[30px]">
+      <div className="text-[5.8vw] lg:text-[27px] font-semibold tracking-[.01em]">
+        {title}
+      </div>
       {children}
     </div>
   );
@@ -31,15 +33,17 @@ export default function About() {
   return (
     <main className="absolute top-0 space-y-[20px]">
       {/* Hero */}
-      <div className="bg-[url('/about/hero.png')] bg-cover bg-center bg-no-repeat w-[1440px] h-[854px]">
-        <div className="relative top-[192px] h-[calc(100%-192px)] flex items-center w-[1000px] mx-auto text-black text-[60px] font-bold tracking-[.01em]">
+      <div className="bg-[url('/about/hero.png')] bg-cover bg-center bg-no-repeat w-[100vw] h-[75vw] lg:w-[1440px] lg:h-[854px] rounded-b-[54px] lg:rounded-b-[200px]">
+        <div className="relative top-[19vw] lg:top-[192px] h-[56vw] lg:h-[calc(100%-192px)] flex items-center w-[69vw] lg:w-[1000px] mx-auto text-black text-[7.4vw] lg:text-[60px] font-bold tracking-[.01em]">
           About Me
         </div>
       </div>
       {/* Content */}
       <ProjectSection>
-        <div className="text-[40px] font-bold tracking-[.01em]">
-          Hello. My name is Miyuki Nozawa.
+        <div className="text-[5.8vw] lg:text-[40px] font-semibold lg:font-bold tracking-[.01em]">
+          Hello.
+          <br />
+          My name is Miyuki Nozawa.
           <br />I am a UX/UI designer based in New York.
         </div>
         <AboutSection title="My Background">
@@ -50,7 +54,7 @@ export default function About() {
             from various countries and deepen my understanding of cultural
             differences.
           </Paragraph>
-          <div className="py-[20px] flex items-center justify-between">
+          <div className="py-[5vw] lg:py-[20px] flex flex-wrap lg:flex-nowrap items-center justify-between gap-y-[5vw]">
             {[
               {
                 src: "/about/niigata.png",
@@ -73,15 +77,20 @@ export default function About() {
                 label: "New York, USA",
               },
             ].map(({ src, alt, label }, i) => (
-              <div className="text-center space-y-[20px]" key={i}>
+              <div
+                className="text-center space-y-[2vw] lg:space-y-[20px]"
+                key={i}
+              >
                 <Image
                   src={src}
                   alt={alt}
                   width={200}
                   height={200}
-                  className="rounded-full object-cover"
+                  className="rounded-full object-cover w-[31vw] h-[31vw] lg:w-[200px] lg:h-[200px]"
                 />
-                <div className="text-[18px] tracking-[.01em]">{label}</div>
+                <div className="text-[3.6vw] lg:text-[18px] tracking-[.01em]">
+                  {label}
+                </div>
               </div>
             ))}
           </div>
