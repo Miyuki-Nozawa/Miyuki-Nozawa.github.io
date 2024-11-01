@@ -52,18 +52,20 @@ body {
   }
 }
 
-.cursor-wrapper {
-  pointer-events: none;
-  z-index: 9999;
-  width: 100px;
-  height: 100px;
-  background-image: url("/cursor.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  animation: rotateCursor 5s linear infinite;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+@media (min-width: 500px) {
+  .cursor-wrapper {
+    pointer-events: none;
+    z-index: 9999;
+    width: 100px;
+    height: 100px;
+    background-image: url("/cursor.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: rotateCursor 5s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
 }
 
 .cursor-wrapper.hovering {

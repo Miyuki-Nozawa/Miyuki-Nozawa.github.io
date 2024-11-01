@@ -104,18 +104,20 @@ export default function Nav() {
   );
 
   return (
-    <div className="relative mt-[10px] lg:mt-0 lg:block">
+    <div className="relative mt-0 lg:block">
       <div
         id="cursorWrapper"
-        className={`cursor-wrapper fixed ${cursorVisible ? "" : "hidden"}`}
+        className={`cursor-wrapper fixed ${
+          cursorVisible ? "lg:visible" : "hidden"
+        }`}
       ></div>
       <div
         className={
-          "absolute top-0 right-0 left-0 flex justify-between items-center lg:p-16 lg:h-[192px] z-20 " +
+          "absolute top-0 right-0 left-0 flex justify-between items-center p-[20px] lg:p-16 h-[75px] lg:h-[192px] z-20 " +
           `${isAboutPage ? "bg-transparent" : "bg-base"}`
         }
       >
-        <div className="mx-auto lg:mx-0 w-[75px] lg:w-[155px] h-[50px] lg:h-[105px]">
+        <div className="mx-auto lg:mx-0 w-[52px] lg:w-[155px] h-[35px] lg:h-[105px]">
           <Link href="/">
             <Image
               src="/icons/nav.svg"
@@ -138,7 +140,7 @@ export default function Nav() {
       </div>
       {/* hamburger */}
       <div
-        className="absolute left-[20px] w-[30px] h-[50px] flex justify-center items-center z-40 lg:hidden"
+        className="absolute left-[20px] top-[20px] w-[35px] h-[35px] flex justify-center items-center z-40 lg:hidden"
         onClick={openMobileNav}
       >
         <div className="w-full h-full relative">
