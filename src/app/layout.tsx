@@ -48,7 +48,7 @@ export default function RootLayout({
       >
         <Nav />
         {/* spacer */}
-        <div className="bg-base h-[75px] lg:h-[192px]"></div>
+        <div className="bg-base h-[19.2vw] lg:h-[192px]"></div>
         {children}
       </body>
     </html>
