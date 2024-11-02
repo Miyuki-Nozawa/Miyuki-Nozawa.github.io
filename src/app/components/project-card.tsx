@@ -56,7 +56,7 @@ export default function ProjectCard({
             </div>
           </div>
           <div className="pt-[2vw] lg:pt-0">
-            <Link href={page}>
+            <Link href={page} onClick={handleCursorHoverStop}>
               <button
                 className="w-full lg:w-auto inline-block relative overflow-hidden px-[2.75vw] lg:px-[40px] py-[2.5vw] lg:py-[15px] text-[4vw] lg:text-[20px] font-semibold bg-dark-green text-white rounded-[22px] lg:rounded-[32px] transition-colors duration-300 ease-in-out group tracking-[.01em]"
                 onMouseEnter={handleCursorHoverStart}

@@ -21,13 +21,13 @@ export default function Nav() {
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
       const cursorWrapper = document.getElementById("cursorWrapper");
-      if (!cursorWrapper) return;
-
+      if (!cursorWrapper) {
+        return;
+      }
       if (!cursorVisible) {
         cursorWrapper.style.opacity = "1";
         setCursorVisible(true);
       }
-
       cursorWrapper.style.left = `${event.clientX}px`;
       cursorWrapper.style.top = `${event.clientY}px`;
     };
@@ -61,7 +61,7 @@ export default function Nav() {
           const offset = workSection.offsetTop - 20;
           window.scrollTo({
             top: offset,
-            behavior: "smooth"
+            behavior: "smooth",
           });
         }
       }
