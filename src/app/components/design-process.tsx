@@ -22,7 +22,7 @@ export default function DesignProcess({
   return (
     <ProjectSection>
       <ProjectSubSection title="Design Process">
-        <div className="grid grid-rows-2 grid-cols-3 gap-[30px]">
+        <div className="space-y-[5vw] lg:grid lg:grid-rows-2 lg:grid-cols-3 lg:gap-[30px] py-[5vw] lg:py-0">
           <DesignCard
             icon="/icons/magnifying-glass.svg"
             title="RESEARCH"

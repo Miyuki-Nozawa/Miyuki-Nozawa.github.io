@@ -46,13 +46,36 @@ const hero: HeroProps = {
   timeline: "June - Aug 2024",
   url: "https://www.figma.com/proto/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?page-id=493%3A4780&node-id=493-9339&node-type=canvas&viewport=284%2C360%2C0.06&t=6NVbRlngR40WJKQQ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=493%3A9506&show-proto-sidebar=1",
   children: (
-    <div className="flex justify-between items-end my-[50px]">
-      <video className="w-[274px] h-[550px]" autoPlay muted loop>
+    <div className="flex justify-between items-end py-[10px]">
+      <video
+        className="w-[25.6vw] h-[51.2vw] lg:w-[274px] lg:h-[550px]"
+        autoPlay
+        muted
+        loop
+      >
         <source src="/resto/hero.mp4" type="video/mp4" />
       </video>
-      <Image src="/resto/screen-1.png" alt="Resto" width={206} height={453} />
-      <Image src="/resto/screen-2.png" alt="Resto" width={206} height={453} />
-      <Image src="/resto/screen-3.png" alt="Resto" width={206} height={453} />
+      <Image
+        src="/resto/screen-1.png"
+        alt="Resto"
+        width={206}
+        height={453}
+        className="w-[20.5vw] h-[45vw] lg:w-[206px] lg:h-[453px]"
+      />
+      <Image
+        src="/resto/screen-2.png"
+        alt="Resto"
+        width={206}
+        height={453}
+        className="w-[20.5vw] h-[45vw] lg:w-[206px] lg:h-[453px]"
+      />
+      <Image
+        src="/resto/screen-3.png"
+        alt="Resto"
+        width={206}
+        height={453}
+        className="w-0 h-0 lg:w-[206px] lg:h-[453px]"
+      />
     </div>
   ),
 };
@@ -116,7 +139,7 @@ const research: ResearchProps = {
       },
     ],
     children: (
-      <div className="py-[20px] flex justify-between">
+      <div className="py-[2.5vw] lg:py-[20px] space-y-[2.5vw] lg:space-y-0 lg:flex justify-between">
         <Competitor
           icon="/resto/gurunavi.svg"
           name="Gurunavi"

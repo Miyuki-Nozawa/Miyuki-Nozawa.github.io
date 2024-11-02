@@ -114,7 +114,7 @@ export default function Project({
     <div className="relative">
       {/* nav bar */}
       <div
-        className={`w-[150px] h-[500px] fixed top-20 right-0 transition-all duration-500 space-y-[20px] text-[18px] ${
+        className={`hidden lg:block w-[150px] h-[500px] fixed top-20 right-0 transition-all duration-500 space-y-[20px] text-[18px] ${
           isNavVisible
             ? "opacity-100 translate-x-0"
             : "opacity-0 translate-x-[100%]"
@@ -134,7 +134,7 @@ export default function Project({
           </div>
         ))}
       </div>
-      <div className="space-y-[20px] tracking-[.01em]">
+      <div className="space-y-[8px] lg:space-y-[20px] tracking-[.01em]">
         <Hero {...hero}>{hero.children}</Hero>
         <Introduction {...introduction} />
         <DesignProcess {...designProcess} />
