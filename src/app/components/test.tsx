@@ -15,7 +15,7 @@ export type TestProps = {
   };
   iterating: {
     desc: string;
-    images: Image[];
+    images: ImageT[];
   };
   final: {
     header: string;
@@ -30,15 +30,21 @@ export type TestProps = {
   };
 };
 
-type Image = {
-  src: string;
-  width: number;
-  height: number;
+export type ImageT = {
+  default: [number, number];
+  desktop: {
+    src: string;
+    className: string;
+  };
+  mobile: {
+    src: string;
+    className: string;
+  };
 };
 
 type Demo = {
   video: Video;
-  image?: Image;
+  image?: ImageT;
   header: string;
   notes: string[];
   mirror?: boolean;
@@ -60,21 +66,37 @@ export default forwardRef(function Test(
         </ProjectSubSection>
         <ProjectSubSection title="Iterating Designs for User-Centric Solutions">
           <Paragraph>{iterating.desc}</Paragraph>
-          <div className="py-[20px] space-y-[100px]">
-            {iterating.images.map(({ src, width, height }, i) => (
-              <Image
-                key={i}
-                src={src}
-                alt="iteration"
-                width={width}
-                height={height}
-              />
+          <div className="space-y-[5.13vw] lg:py-[20px] lg:space-y-[100px]">
+            {iterating.images.map((image, i) => (
+              <>
+                <Image
+                  key={i}
+                  src={image.desktop.src}
+                  alt="iteration"
+                  width={image.default[0]}
+                  height={image.default[1]}
+                  className={`hidden lg:block ${image.desktop.className}`}
+                />
+                <Image
+                  key={i}
+                  src={image.mobile.src}
+                  alt="iteration"
+                  width={image.default[0]}
+                  height={image.default[1]}
+                  className={`lg:hidden py-[2.56vw] ${image.mobile.className}`}
+                />
+              </>
             ))}
           </div>
         </ProjectSubSection>
         <ProjectSubSection title="Final Prototype">
-          <div className="py-[20px]">
-            <div className="bg-white rounded-[20px] px-[30px] py-[60px] space-y-[10px]">
+          <div className="lg:py-[20px]">
+            <div
+              className={
+                "bg-white rounded-[10px] px-[5.13vw] py-[3.85vw] space-y-[2.1vw] " +
+                "lg:rounded-[20px] lg:px-[30px] lg:py-[60px] lg:space-y-[10px]"
+              }
+            >
               <div className="text-[22px] tracking-[.01em] font-medium">
                 {final.header}
               </div>
@@ -110,8 +132,9 @@ export default forwardRef(function Test(
                 >
                   <div
                     className={
-                      "px-[60px] py-[15px] rounded-[75px] bg-brown3 text-[20px] font-semibold " +
-                      "tracking-[.01em] inline-block "
+                      "bg-brown3 font-semibold tracking-[.01em] " +
+                      "flex rounded-[22px] text-[4.10vw] w-[70.26vw] h-[11.28vw] items-center justify-center " +
+                      "lg:inline-block lg:w-auto lg:h-auto lg:px-[60px] lg:py-[15px] lg:rounded-[75px] lg:text-[20px]"
                     }
                   >
                     View Hi-fi Prototype

@@ -21,11 +21,17 @@ export type PrototypeProps = {
   };
   tests: {
     desc: React.ReactNode;
-    images: string[];
+    images: {
+      desktop: string[];
+      mobile: string[];
+    };
   };
   refining: {
     desc: string;
-    images: string[];
+    images: {
+      desktop: string[];
+      mobile: string[];
+    };
   };
   building?: {
     desc: string;
@@ -45,16 +51,18 @@ export type PrototypeProps = {
 
 type Image = {
   src: string;
-  width: number;
-  height: number;
+  default: [number, number];
+  desktop: string;
+  mobile: string;
 };
 
 type Images = {
   images: string[];
   descs?: string[];
   descClass?: string;
-  width: number;
-  height: number;
+  desktop: string;
+  mobile: string;
+  default: [number, number];
   url: string;
 };
 
@@ -82,16 +90,16 @@ export default forwardRef(function Prototype(
             }
           >
             <Paragraph>{exploring.desc}</Paragraph>
-            <div className="py-[20px] space-y-[30px]">
-              <div className="flex justify-between">
+            <div className="pb-[2.6vw] lg:pb-[20px] space-y-[5.1vw] lg:space-y-[30px]">
+              <div className="flex justify-between overflow-x-scroll space-x-[2.1vw] py-[2.6vw] lg:py-0 lg:space-x-0">
                 {exploring.lofi.images.map((img, i) => (
-                  <div key={i} className="space-y-[10px] flex-1">
+                  <div key={i} className="space-y-[10px] flex-shrink-0">
                     <Image
                       src={img}
                       alt="lofi"
-                      width={exploring.lofi.width}
-                      height={exploring.lofi.height}
-                      className="rounded-[10px]"
+                      width={exploring.lofi.default[0]}
+                      height={exploring.lofi.default[1]}
+                      className={`rounded-[10px] ${exploring.lofi.mobile} ${exploring.lofi.desktop}`}
                     />
                     {exploring.lofi.descs && (
                       <div
@@ -108,15 +116,16 @@ export default forwardRef(function Prototype(
               </Figma>
             </div>
             {exploring.midfi && (
-              <div className="py-[20px] space-y-[30px]">
-                <div className="flex justify-between">
+              <div className="pb-[2.6vw] lg:pb-[20px] space-y-[5.1vw] lg:space-y-[30px]">
+                <div className="flex justify-between overflow-x-scroll space-x-[2.1vw] py-[2.6vw] lg:py-0 lg:space-x-0">
                   {exploring.midfi.images.map((img, i) => (
                     <Image
                       key={i}
                       src={img}
                       alt="midfi"
-                      width={exploring.midfi?.width}
-                      height={exploring.midfi?.height}
+                      width={exploring.midfi?.default[0]}
+                      height={exploring.midfi?.default[1]}
+                      className={`rounded-[6.25px] lg:rounded-[10px] ${exploring.midfi?.mobile} ${exploring.midfi?.desktop}`}
                     />
                   ))}
                 </div>
@@ -138,7 +147,14 @@ export default forwardRef(function Prototype(
               </div>
               <div className="flex space-x-[20px]">
                 {adding.imagesSm.map((img, i) => (
-                  <Image key={i} src={img} alt="add" width={150} height={489} className="mt-auto" />
+                  <Image
+                    key={i}
+                    src={img}
+                    alt="add"
+                    width={150}
+                    height={489}
+                    className="mt-auto"
+                  />
                 ))}
               </div>
             </div>
@@ -147,8 +163,20 @@ export default forwardRef(function Prototype(
         )}
         <ProjectSubSection title="Ensuring Users Understand the Design Layouts">
           {tests.desc}
-          <div className="py-[20px] space-y-[50px]">
-            {tests.images.map((img, i) => (
+          <div className="lg:hidden py-[2.6vw] space-y-[3.5vw]">
+            {tests.images.mobile.map((img, i) => (
+              <Image
+                key={i}
+                src={img}
+                alt="test"
+                width={0}
+                height={0}
+                style={{ width: "100%", height: "auto" }}
+              />
+            ))}
+          </div>
+          <div className="hidden lg:block py-[20px] space-y-[50px]">
+            {tests.images.desktop.map((img, i) => (
               <Image
                 key={i}
                 src={img}
@@ -162,8 +190,20 @@ export default forwardRef(function Prototype(
         </ProjectSubSection>
         <ProjectSubSection title="Refining Designs through Iterated Mid-Fi Wireframes">
           <Paragraph>{refining.desc}</Paragraph>
-          <div className="py-[20px] space-y-[50px]">
-            {refining.images.map((img, i) => (
+          <div className="lg:hidden py-[2.6vw] space-y-[3.5vw]">
+            {refining.images.mobile.map((img, i) => (
+              <Image
+                key={i}
+                src={img}
+                alt="refine"
+                width={0}
+                height={0}
+                style={{ width: "100%", height: "auto" }}
+              />
+            ))}
+          </div>
+          <div className="hidden lg:block py-[20px] space-y-[50px]">
+            {refining.images.desktop.map((img, i) => (
               <Image
                 key={i}
                 src={img}
@@ -184,16 +224,16 @@ export default forwardRef(function Prototype(
         {branding && (
           <ProjectSubSection title="Applying Branding in Hi-Fi Wireframes">
             <Paragraph>{branding.desc}</Paragraph>
-            <div className="py-[20px] space-y-[30px]">
-              <div className="flex justify-between">
+            <div className="lg:py-[20px] space-y-[2.56vw] lg:space-y-[30px]">
+              <div className="py-[2.56vw] lg:py-0 flex flex-wrap gap-y-[2.56vw] lg:flex-nowrap justify-between">
                 {branding.images.map((img, i) => (
                   <Image
                     key={i}
                     src={img.src}
                     alt="branding"
-                    width={img.width}
-                    height={img.height}
-                    className="mt-auto"
+                    width={img.default[0]}
+                    height={img.default[1]}
+                    className={`mt-auto ${img.mobile} ${img.desktop}`}
                   />
                 ))}
               </div>

@@ -443,8 +443,9 @@ const prototype: PrototypeProps = {
     desc: "I created the page layouts needed for users to complete tasks based on the user flow and task flow. ",
     lofi: {
       images: ["/pibu/lofi-1.jpg", "/pibu/lofi-2.jpg", "/pibu/lofi-3.jpg"],
-      width: 315,
-      height: 400,
+      default: [315, 400],
+      desktop: "lg:w-[315px] lg:h-[400px]",
+      mobile: "w-[197px] h-[250px]",
       url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=46-55&t=6g8QSShYxUqXAJml-1",
     },
   },

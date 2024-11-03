@@ -410,31 +410,31 @@ const ideate: IdeateProps = {
     desc: "I brainstormed key features that address the intersection of business and user goals, while also considering technical feasibility to ensure both are met.",
     content: (
       <>
-        <div className="py-[20px] flex justify-between">
-          <div className="px-[20px] space-x-[20px] flex">
+        <div className="py-[20px] space-y-[5.1vw] lg:flex lg:space-x-[30px] lg:space-y-0">
+          <div className="px-[1.4vw] lg:px-[20px] lg:space-x-[20px] flex justify-between">
             <Image
               src="/avatars/user-needs.svg"
               alt="avatar"
               width={100}
               height={100}
-              className="mt-auto"
+              className="mt-auto w-[12.8vw] h-[12.8vw] lg:w-[100px] lg:h-[100px]"
             />
             <Image
               src="/resto/speech-bubble.svg"
               alt="speech"
               width={0}
               height={0}
-              style={{ width: "auto", height: "100%" }}
+              className="w-[51.3vw] h-[37.7vw] lg:w-[325px] lg:h-[248px]"
             />
           </div>
-          <div className="flex px-[20px] space-x-[30px]">
-            <div className="space-y-[30px]">
+          <div className="flex flex-auto justify-between lg:px-[20px]">
+            <div className="space-y-[2.1vw] lg:space-y-[30px]">
               <UserNeed icon="/icons/ideate-filter.svg" title="Filter" />
               <UserNeed icon="/icons/ideate-search.svg" title="Search" />
               <UserNeed icon="/icons/ideate-map.svg" title="Map" />
               <UserNeed icon="/icons/ideate-bell.svg" title="Notification" />
             </div>
-            <div className="space-y-[30px]">
+            <div className="space-y-[2.1vw] lg:space-y-[30px]">
               <UserNeed
                 icon="/icons/ideate-star.svg"
                 title="Reviews & Ratings"
@@ -459,13 +459,24 @@ const ideate: IdeateProps = {
           freely, most of them fell into <b>6 categories</b>. This helped us
           understand which content people want to see under each menu.
         </Paragraph>
-        <Image
-          src="/resto/card-sort.svg"
-          alt="card sort"
-          width={0}
-          height={0}
-          style={{ width: "100%", height: "auto" }}
-        />
+        <div className="py-[2.56vw] block lg:hidden">
+          <Image
+            src="/resto/card-sort-sm.svg"
+            alt="card sort"
+            width={0}
+            height={0}
+            style={{ width: "100%", height: "auto" }}
+          />
+        </div>
+        <div className="hidden lg:block">
+          <Image
+            src="/resto/card-sort.svg"
+            alt="card sort"
+            width={0}
+            height={0}
+            style={{ width: "100%", height: "auto" }}
+          />
+        </div>
       </>
     ),
   },
@@ -507,8 +518,9 @@ const prototype: PrototypeProps = {
     desc: "I created specific design layouts based on the user flow, the task flow, and observations of how users prefer to search and prevent duplicate reservations. Starting from low-fidelity sketches, I developed more detailed layouts, digitizing them into mid-fidelity wireframes to make the designs more tangible.",
     lofi: {
       images: ["/resto/lofi-1.jpg", "/resto/lofi-2.jpg", "/resto/lofi-3.jpg"],
-      width: 315,
-      height: 400,
+      default: [315, 400],
+      desktop: "lg:w-[315px] lg:h-[400px]",
+      mobile: "w-[197px] h-[250px]",
       url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=46-55&t=6g8QSShYxUqXAJml-1",
     },
     midfi: {
@@ -518,8 +530,9 @@ const prototype: PrototypeProps = {
         "/resto/midfi-3.svg",
         "/resto/midfi-4.svg",
       ],
-      width: 220,
-      height: 600,
+      default: [220, 600],
+      desktop: "lg:w-[220px] lg:h-[600px]",
+      mobile: "w-[110px] h-[300px]",
       url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1043-37036&t=6g8QSShYxUqXAJml-1",
     },
   },
@@ -532,30 +545,53 @@ const prototype: PrototypeProps = {
         user-friendly.
       </Paragraph>
     ),
-    images: ["/resto/test-1.svg", "/resto/test-2.svg", "/resto/test-3.svg"],
+    images: {
+      desktop: ["/resto/test-1.svg", "/resto/test-2.svg", "/resto/test-3.svg"],
+      mobile: [
+        "/resto/test-1-sm.svg",
+        "/resto/test-2-sm.svg",
+        "/resto/test-3-sm.svg",
+      ],
+    },
   },
   refining: {
     desc: "Based on the results of the mid-fi usability test, I iterated on the design to make it more user-friendly and help users achieve their goals.",
-    images: [
-      "/resto/iteration-1.svg",
-      "/resto/iteration-2.svg",
-      "/resto/iteration-3.svg",
-      "/resto/iteration-4.svg",
-    ],
+    images: {
+      desktop: [
+        "/resto/iteration-1.svg",
+        "/resto/iteration-2.svg",
+        "/resto/iteration-3.svg",
+        "/resto/iteration-4.svg",
+      ],
+      mobile: [
+        "/resto/iteration-1-sm.svg",
+        "/resto/iteration-2-sm.svg",
+        "/resto/iteration-3-sm.svg",
+        "/resto/iteration-4-sm.svg",
+      ],
+    },
   },
   building: {
     desc: "To create a user-centered product, it's essential to build a brand image that attracts users. I established brand values that align with my vision of making searching for and booking restaurants less difficult.",
     content: (
       <>
-        <div className="bg-white rounded-[20px] p-[10px]">
-          <Image
-            src="/resto/moodboard.png"
-            alt="moodboard"
-            width={980}
-            height={637}
-          />
+        <div
+          className={
+            "bg-white rounded-[10px] py-[2.56vw] relative overflow-x-scroll " +
+            "lg:rounded-[20px] lg:p-[10px]"
+          }
+        >
+          <div className="w-[116vw] h-[76vw] lg:w-[980px] lg:h-[637px]">
+            <Image
+              src="/resto/moodboard.png"
+              alt="moodboard"
+              width={980}
+              height={637}
+              className="w-[116vw] h-[76vw] lg:w-[980px] lg:h-[637px]"
+            />
+          </div>
         </div>
-        <div className="flex space-x-[30px]">
+        <div className="space-y-[2.56vw] lg:flex lg:space-x-[30px]">
           <MoodboardCard title="Colors">
             <ColorRow title="Primary" colors={["EE722B", "C65310", "953B1D"]} />
             <ColorRow
@@ -564,7 +600,7 @@ const prototype: PrototypeProps = {
             />
             <ColorRow title="Neutral" colors={["F9F9F7", "FFFFFF"]} border />
           </MoodboardCard>
-          <div className="flex-1 flex flex-col justify-between">
+          <div className="space-y-[2.56vw] lg:flex-1 lg:flex lg:flex-col lg:justify-between">
             <MoodboardCard title="Logo">
               <div className="flex justify-between">
                 <Image
@@ -572,6 +608,7 @@ const prototype: PrototypeProps = {
                   alt="logo"
                   width={168}
                   height={158}
+                  className="w-[24.1vw] h-[25.6vw] lg:w-[168px] lg:h-[158px]"
                 />
                 <div className="flex flex-col justify-between items-center">
                   <Image
@@ -579,6 +616,7 @@ const prototype: PrototypeProps = {
                     alt="logo"
                     width={100}
                     height={60}
+                    className="w-[12.9vw] h-[7.8vw] lg:w-[100px] lg:h-[60px]"
                   />
                   <div className="flex space-x-[30px] px-[15px]">
                     <Image
@@ -586,19 +624,21 @@ const prototype: PrototypeProps = {
                       alt="logo"
                       width={60}
                       height={60}
+                      className="w-[10.3vw] h-[10.3vw] lg:w-[60px] lg:h-[60px]"
                     />
                     <Image
                       src="/resto/logo-sm-2.svg"
                       alt="logo"
                       width={60}
                       height={60}
+                      className="w-[10.3vw] h-[10.3vw] lg:w-[60px] lg:h-[60px]"
                     />
                   </div>
                 </div>
               </div>
             </MoodboardCard>
             <MoodboardCard title="Icons">
-              <div className="gap-[18px] flex flex-wrap">
+              <div className="grid grid-cols-8 gap-y-[4.6vw] lg:flex lg:flex-wrap lg:gap-[18px]">
                 {[...Array(16)].map((_, i) => (
                   <Image
                     src={`/resto/icon-${i + 1}.svg`}
@@ -606,40 +646,43 @@ const prototype: PrototypeProps = {
                     width={35}
                     height={35}
                     key={i}
+                    className="w-[6.2vw] h-[6.2vw] lg:w-[35px] lg:h-[35px]"
                   />
                 ))}
               </div>
             </MoodboardCard>
           </div>
         </div>
-        <div className="flex space-x-[30px]">
+        <div className="space-y-[2.56vw] lg:space-y-0 lg:flex lg:space-x-[30px]">
           <MoodboardCard title="Typography">
-            <div className="space-y-[15px] px-[10px]">
-              <div className="font-manrope text-[24px] font-semibold tracking-[.03em]">
+            <div className="space-y-[1.25vw] lg:space-y-[15px] lg:px-[10px]">
+              <div className="font-manrope text-[4vw] lg:text-[24px] font-semibold tracking-[.03em]">
                 H1 - Manrope SemiBold 24px
               </div>
-              <div className="font-manrope text-[20px] font-medium tracking-[.03em]">
+              <div className="font-manrope text-[3.33vw] lg:text-[20px] font-medium tracking-[.03em]">
                 H2 - Manrope Medium 20px
               </div>
-              <div className="font-manrope text-[18px] font-medium tracking-[.03em]">
+              <div className="font-manrope text-[3vw] lg:text-[18px] font-medium tracking-[.03em]">
                 H3 - Manrope Medium 18px
               </div>
-              <div className="font-manrope text-[16px] tracking-[.03em]">
+              <div className="font-manrope text-[2.67vw] lg:text-[16px] tracking-[.03em]">
                 B1 - Manrope Regular 16px
               </div>
-              <div className="font-manrope text-[14px] tracking-[.03em]">
+              <div className="font-manrope text-[2.33vw] lg:text-[14px] tracking-[.03em]">
                 B2 - Manrope Regular 14px
               </div>
-              <div className="font-manrope text-[16px] font-medium tracking-[.03em]">
+              <div className="font-manrope text-[2.67vw] lg:text-[16px] font-medium tracking-[.03em]">
                 Button Text M - Manrope Medium 16px
               </div>
             </div>
           </MoodboardCard>
           <MoodboardCard title="Buttons">
-            <div className="flex space-x-[20px]">
-              <div className="space-y-[12px]">
-                <div className="text-[14px] tracking-[.01em]">Default</div>
-                <div className="space-y-[30px]">
+            <div className="space-y-[5.13vw] lg:space-y-0 lg:flex lg:space-x-[20px]">
+              <div className="space-y-[2.56vw] lg:space-y-[12px]">
+                <div className="text-[2.56vw] lg:text-[14px] tracking-[.01em]">
+                  Default
+                </div>
+                <div className="space-y-[2.56vw] lg:space-y-[30px]">
                   <Button className="bg-cream text-[#303030]">Search</Button>
                   <Button className="bg-dark-orange text-[#FEFEFE]">
                     Reserve Now
@@ -649,9 +692,11 @@ const prototype: PrototypeProps = {
                   </Button>
                 </div>
               </div>
-              <div className="space-y-[12px]">
-                <div className="text-[14px] tracking-[.01em]">Disabled</div>
-                <div className="space-y-[30px]">
+              <div className="space-y-[2.56vw] lg:space-y-[12px]">
+                <div className="text-[2.56vw] lg:text-[14px] tracking-[.01em]">
+                  Disabled
+                </div>
+                <div className="space-y-[2.56vw] lg:space-y-[30px]">
                   <Button className="bg-[rgba(223,213,189,0.50)] text-[rgba(48,48,48,0.50)]">
                     Search
                   </Button>
@@ -674,23 +719,27 @@ const prototype: PrototypeProps = {
     images: [
       {
         src: "/resto/hifi-1.png",
-        width: 220,
-        height: 476,
+        default: [220, 476],
+        desktop: "lg:w-[220px] lg:h-[476px]",
+        mobile: "w-[33.33vw] h-[72.05]",
       },
       {
         src: "/resto/hifi-2.png",
-        width: 220,
-        height: 476,
+        default: [220, 476],
+        desktop: "lg:w-[220px] lg:h-[476px]",
+        mobile: "w-[33.33vw] h-[72.05]",
       },
       {
         src: "/resto/hifi-3.png",
-        width: 220,
-        height: 476,
+        default: [220, 476],
+        desktop: "lg:w-[220px] lg:h-[476px]",
+        mobile: "w-[33.33vw] h-[72.05]",
       },
       {
         src: "/resto/hifi-4.png",
-        width: 220,
-        height: 476,
+        default: [220, 476],
+        desktop: "lg:w-[220px] lg:h-[476px]",
+        mobile: "w-[33.33vw] h-[72.05]",
       },
     ],
     url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=692-48559&t=6g8QSShYxUqXAJml-1",
@@ -707,7 +756,7 @@ const test: TestProps = {
       </Paragraph>
     ),
     taskFlows: (
-      <div className="py-[20px] space-y-[50px]">
+      <div className="py-[2.56vw] lg:py-[20px] space-y-[2.56vw] lg:space-y-[50px]">
         <TaskFlowCard
           title="Task Flow 1"
           subtitle="Search for restaurants that have an English menu"
@@ -723,13 +772,15 @@ const test: TestProps = {
               avatar: "/avatars/task-flow-1-2.svg",
               comment:
                 "“The only thing that slowed me down in the process was finding the right tag. I guess I would like to type it if that’s possible.”",
+              mirror: true,
             },
           ]}
           conclusions={["4/5 were able to complete the task easily."]}
           image={{
             src: "/resto/task-flow-1.svg",
-            width: 220,
-            height: 440,
+            default: [220, 440],
+            desktop: "lg:w-[220px] lg:h-[440px]",
+            mobile: "w-[33.33vw] h-[66.67vw]",
           }}
         />
         <TaskFlowCard
@@ -747,6 +798,7 @@ const test: TestProps = {
               avatar: "/avatars/task-flow-2-2.svg",
               comment:
                 "“I want to see a list of restaurants instead of checking everything on the map.”",
+              mirror: true,
             },
           ]}
           conclusions={[
@@ -755,8 +807,9 @@ const test: TestProps = {
           ]}
           image={{
             src: "/resto/task-flow-2.svg",
-            width: 220,
-            height: 440,
+            default: [220, 440],
+            desktop: "lg:w-[220px] lg:h-[440px]",
+            mobile: "w-[33.33vw] h-[66.67vw]",
           }}
           mirror
         />
@@ -775,6 +828,7 @@ const test: TestProps = {
               avatar: "/avatars/task-flow-3-2.svg",
               comment:
                 "“This was very easy, and it’s helpful for finding restaurants when my schedule is packed.”",
+              mirror: true,
             },
           ]}
           conclusions={[
@@ -782,8 +836,9 @@ const test: TestProps = {
           ]}
           image={{
             src: "/resto/task-flow-3.svg",
-            width: 220,
-            height: 440,
+            default: [220, 440],
+            desktop: "lg:w-[220px] lg:h-[440px]",
+            mobile: "w-[33.33vw] h-[66.67vw]",
           }}
         />
         <TaskFlowCard
@@ -801,6 +856,7 @@ const test: TestProps = {
               avatar: "/avatars/task-flow-4-2.svg",
               comment:
                 "“It would be better if a notification appears when clicking on an available time slot if there is already another reservation.”",
+              mirror: true,
             },
           ]}
           conclusions={[
@@ -809,8 +865,9 @@ const test: TestProps = {
           ]}
           image={{
             src: "/resto/task-flow-4.svg",
-            width: 220,
-            height: 440,
+            default: [220, 440],
+            desktop: "lg:w-[220px] lg:h-[440px]",
+            mobile: "w-[33.33vw] h-[66.67vw]",
           }}
           mirror
         />
@@ -821,24 +878,48 @@ const test: TestProps = {
     desc: "Based on the usability testing, I refined the design of the app to make it easier for travelers to book and manage restaurant reservations.",
     images: [
       {
-        src: "/resto/iteration-1.png",
-        width: 1000,
-        height: 512,
+        default: [1000, 512],
+        desktop: {
+          src: "/resto/iteration-1.png",
+          className: "lg:w-[1000px] lg:h-[512px]",
+        },
+        mobile: {
+          src: "/resto/iteration-1-sm.png",
+          className: "w-[70.26vw] h-auto",
+        },
       },
       {
-        src: "/resto/iteration-2.png",
-        width: 1000,
-        height: 512,
+        default: [1000, 512],
+        desktop: {
+          src: "/resto/iteration-2.png",
+          className: "lg:w-[1000px] lg:h-[512px]",
+        },
+        mobile: {
+          src: "/resto/iteration-2-sm.png",
+          className: "w-[70.26vw] h-auto",
+        },
       },
       {
-        src: "/resto/iteration-3.png",
-        width: 1000,
-        height: 512,
+        default: [1000, 512],
+        desktop: {
+          src: "/resto/iteration-3.png",
+          className: "lg:w-[1000px] lg:h-[512px]",
+        },
+        mobile: {
+          src: "/resto/iteration-3-sm.png",
+          className: "w-[70.26vw] h-auto",
+        },
       },
       {
-        src: "/resto/iteration-4.png",
-        width: 1000,
-        height: 512,
+        default: [1000, 512],
+        desktop: {
+          src: "/resto/iteration-4.png",
+          className: "lg:w-[1000px] lg:h-[512px]",
+        },
+        mobile: {
+          src: "/resto/iteration-4-sm.png",
+          className: "w-[70.26vw] h-auto",
+        },
       },
     ],
   },
@@ -849,7 +930,7 @@ const test: TestProps = {
       {
         video: {
           src: "/resto/final-1.mp4",
-          className: "w-[300px] h-[600px]",
+          className: "w-[29.03vw] h-auto lg:w-[300px] lg:h-[600px]",
         },
         header:
           "A search function that allows users to search based on their needs",
@@ -861,7 +942,7 @@ const test: TestProps = {
       {
         video: {
           src: "/resto/final-2.mp4",
-          className: "w-[300px] h-[600px]",
+          className: "w-[29.03vw] h-auto lg:w-[300px] lg:h-[600px]",
         },
         header:
           "Clear and trustworthy reviews help users effortlessly choose their ideal restaurant",
@@ -874,7 +955,7 @@ const test: TestProps = {
       {
         video: {
           src: "/resto/final-3.mp4",
-          className: "w-[300px] h-[600px]",
+          className: "w-[29.03vw] h-auto lg:w-[300px] lg:h-[600px]",
         },
         header:
           "Searching for restaurants near landmarks helps users quickly find dining options",
@@ -886,7 +967,7 @@ const test: TestProps = {
       {
         video: {
           src: "/resto/final-4.mp4",
-          className: "w-[300px] h-[600px]",
+          className: "w-[29.03vw] h-auto lg:w-[300px] lg:h-[600px]",
         },
         header:
           "A seamless reservation system empowers travelers to plan smooth journeys",
@@ -902,9 +983,9 @@ const nextSteps: NextStepsProps = {
   learning:
     "Throughout the process, from research to design, it is essential to understand users' pain points and consider how to enhance the user experience in order to create a better product. Since everyone has different travel purposes and preferences when choosing a restaurant, it was crucial to identify the problems that diverse users face and what they desire. Throughout this project, I came to understand the importance of user feedback and the necessity of collecting valuable insights through research.",
   opportunities: (
-    <>
-      <div className="space-y-[10px]">
-        <div className="text-[22px] font-medium tracking-[.01em]">
+    <div className="space-y-[5.13vw] lg:space-y-[50px]">
+      <div className="space-y-[0.69vw] lg:space-y-[10px]">
+        <div className="text-[3.65vw] lg:text-[22px] font-medium tracking-[.01em]">
           Search Function
         </div>
         <Paragraph>
@@ -916,8 +997,8 @@ const nextSteps: NextStepsProps = {
           efficient search experience.
         </Paragraph>
       </div>
-      <div className="space-y-[10px]">
-        <div className="text-[22px] font-medium tracking-[.01em]">
+      <div className="space-y-[0.69vw] lg:space-y-[10px]">
+        <div className="text-[3.65vw] lg:text-[22px] font-medium tracking-[.01em]">
           Multilingual Support
         </div>
         <Paragraph>
@@ -929,6 +1010,6 @@ const nextSteps: NextStepsProps = {
           seamlessly.
         </Paragraph>
       </div>
-    </>
+    </div>
   ),
 };

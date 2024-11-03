@@ -5,6 +5,7 @@ export type Participant = {
   name: string;
   avatar: string;
   comment: string;
+  mirror?: boolean;
 };
 
 export default function TaskFlowCard({
@@ -20,8 +21,9 @@ export default function TaskFlowCard({
   subtitle: string;
   image: {
     src: string;
-    width: number;
-    height: number;
+    default: [number, number];
+    desktop: string;
+    mobile: string;
   };
   participants: Participant[];
   conclusions: string[];
@@ -29,32 +31,41 @@ export default function TaskFlowCard({
   horizontal?: boolean;
 }) {
   const header = (
-    <div className="space-y-[10px]">
-      <div className="text-[18px] tracking-[.01em]">{title}</div>
-      <div className="text-[22px] font-medium tracking-[.01em]">{subtitle}</div>
+    <div className="space-y-[2.05vw] lg:space-y-[10px]">
+      <div className="text-[3.08vw] lg:text-[18px] tracking-[.01em]">
+        {title}
+      </div>
+      <div className="text-[3.65vw] lg:text-[22px] font-medium tracking-[.01em]">
+        {subtitle}
+      </div>
     </div>
   );
 
   const body = (
     <>
-      <div className="space-y-[30px]">
+      <div className="space-y-[2.05vw] lg:space-y-[30px]">
         {participants.map((participant) => (
           <div
             key={participant.name}
-            className="flex space-x-[20px] items-center"
+            className="flex gap-x-[2.05vw] lg:gap-x-[20px] items-center"
           >
-            <div className="flex-shrink-0 text-center p-[2px]">
-              <div className="w-[68px] h-[68px] relative">
+            <div
+              className={`flex-shrink-0 text-center lg:p-[2px] mt-auto ${
+                participant.mirror ? "order-last lg:order-first" : ""
+              }`}
+            >
+              <div className="w-[12.82vw] h-[12.82vw] lg:w-[68px] lg:h-[68px] relative">
                 <Image src={participant.avatar} alt="participant" fill />
               </div>
-              <div className="text-[11px] tracking-[.01em]">
+              <div className="text-[2.56vw] lg:text-[11px] tracking-[.01em]">
                 {participant.name}
               </div>
             </div>
             <div
               className={
-                "text-[14px] px-[22px] py-[22px] bg-beige rounded-[10px] flex " +
-                "items-center justify-center tracking-[.01em]"
+                "bg-beige items-center justify-center tracking-[.01em] flex" +
+                "text-[2.82vw] px-[5.13vw] py-[3.85vw] rounded-[10px] " +
+                "lg:text-[14px] lg:px-[22px] lg:py-[22px] lg:rounded-[10px] "
               }
             >
               {participant.comment}
@@ -63,17 +74,22 @@ export default function TaskFlowCard({
         ))}
       </div>
       <Down sm />
-      <div className="space-y-[10px] mx-auto">
+      <div className="space-y-[2.05vw] lg:space-y-[10px] mx-auto">
         {conclusions.map((conclusion) => (
-          <div key={conclusion} className="flex space-x-[10px] mx-auto">
+          <div
+            key={conclusion}
+            className="flex space-x-[2.05vw] lg:space-x-[10px] mx-auto"
+          >
             <Image
               alt="star"
               src="/icons/star-filled.svg"
               width={27}
               height={27}
-              className="mb-auto"
+              className="mb-auto w-[5.38vw] h-[5.38vw] lg:w-[27px] lg:h-[27px]"
             />
-            <span className="text-[18px] tracking-[.01em]">{conclusion}</span>
+            <span className="text-[3.65vw] lg:text-[18px] tracking-[.01em]">
+              {conclusion}
+            </span>
           </div>
         ))}
       </div>
@@ -81,19 +97,23 @@ export default function TaskFlowCard({
   );
 
   const flow = (
-    <Image
-      src={image.src}
-      alt="task flow"
-      width={image.width}
-      height={image.height}
-    />
+    <div
+      className={`relative mx-auto flex-shrink-0 ${image.mobile} ${image.desktop}`}
+    >
+      <Image
+        src={image.src}
+        alt="task flow"
+        fill
+        className="py-[2.56vw] lg:py-0 "
+      />
+    </div>
   );
 
   return (
     <div
       className={
-        "bg-white rounded-[20px] p-[30px] shadow-[2px_2px_2px_0px_rgba(0,0,0,0.10)] " +
-        "flex space-x-[50px] "
+        "bg-white py-[5.13vw] px-[3.85vw] rounded-[10px] shadow-[0.54px_0.54px_0.54px_0px_rgba(0,0,0,0.10)] " +
+        "lg:flex lg:rounded-[20px] lg:p-[30px] lg:space-x-[50px] lg:shadow-[2px_2px_2px_0px_rgba(0,0,0,0.10)]"
       }
     >
       {horizontal ? (
@@ -101,24 +121,26 @@ export default function TaskFlowCard({
           {header}
           <div className="flex space-x-[40px]">
             <div className="flex flex-col justify-between">{body}</div>
-            {flow}
+            <div className="hidden lg:block">{flow}</div>
           </div>
         </div>
       ) : mirror ? (
         <>
-          {flow}
-          <div className="flex flex-col justify-between">
+          <div className="hidden lg:block">{flow}</div>
+          <div className="py-[2.56vw] lg:py-0 space-y-[2.56vw] lg:space-y-0 lg:flex lg:flex-col lg:justify-between">
             {header}
+            <div className="lg:hidden">{flow}</div>
             {body}
           </div>
         </>
       ) : (
         <>
-          <div className="flex flex-col justify-between">
+          <div className="py-[2.56vw] lg:py-0 space-y-[2.56vw] lg:space-y-0 lg:flex lg:flex-col lg:justify-between">
             {header}
+            <div className="lg:hidden">{flow}</div>
             {body}
           </div>
-          {flow}
+          <div className="hidden lg:block">{flow}</div>
         </>
       )}
     </div>

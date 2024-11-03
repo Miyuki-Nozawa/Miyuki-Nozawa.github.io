@@ -148,8 +148,8 @@ export default function Project({
         <NextSteps ref={nextStepsRef} {...nextSteps} />
       </div>
       <Bottom ref={footerRef} visible={isFooterVisible}>
-        <div className="space-y-[10px] flex flex-col items-center">
-          <div className="text-[60px] font-bold text-white tracking-[.01em]">
+        <div className="space-y-[0.69vw] lg:space-y-[10px] flex flex-col items-center">
+          <div className="text-[7.25vw] lg:text-[60px] font-bold text-white tracking-[.01em]">
             Back to Top
           </div>
           <Image
@@ -161,6 +161,7 @@ export default function Project({
             alt="top"
             width={70}
             height={70}
+            className="w-[8.75vw] h-[8.75vw] lg:w-[70px] lg:h-[70px]"
             onMouseEnter={() => {
               setIsArrowHovered(true);
               handleCursorHoverStart();

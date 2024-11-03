@@ -76,23 +76,26 @@ export default forwardRef(function Ideate(
         {refine && (
           <ProjectSubSection title="Refining Key Design Decisions">
             <Paragraph>{refine.desc}</Paragraph>
-            <div className="py-[20px] space-y-[30px]">
-              <div className="space-y-[50px]">
+            <div className="py-[2.6vw] lg:py-[20px] space-y-[5.1vw] lg:space-y-[30px]">
+              <div className="space-y-[5.1vw] lg:space-y-[50px]">
                 {refine.flows.map(({ label, img }, i) => (
-                  <div key={i} className="py-[20px] space-y-[30px]">
-                    <div className="flex space-x-[10px]">
+                  <div
+                    key={i}
+                    className="py-[2.6vw] lg:py-[20px] space-y-[2.6vw] lg:space-y-[30px]"
+                  >
+                    <div className="flex space-x-[2vw] lg:space-x-[10px]">
                       <Image
                         src="/icons/star-brown.svg"
                         alt="star"
                         width={33}
                         height={33}
-                        className="mb-auto"
+                        className="mb-auto w-[6.2vw] h-[6.2vw] lg:w-[33px] lg:h-[33px]"
                       />
-                      <span className="text-[22px] font-medium tracking-[.01em]">
+                      <span className="text-[4.1vw] lg:text-[22px] font-medium tracking-[.01em]">
                         {label}
                       </span>
                     </div>
-                    <div className="py-[20px]">
+                    <div className="py-[2.6vw] lg:py-[20px]">
                       <Image
                         src={img}
                         alt="user flow"
@@ -111,21 +114,21 @@ export default forwardRef(function Ideate(
         {map && (
           <ProjectSubSection title="Mapping out User Needs and Goals">
             <Paragraph>{map.desc}</Paragraph>
-            <div className="py-[20px] space-y-[30px]">
-              <div className="py-[20px] space-y-[30px]">
-                <div className="flex space-x-[10px]">
+            <div className="py-[2.6vw] lg:py-[20px] space-y-[5.1vw] lg:space-y-[30px]">
+              <div className="py-[2.6vw] lg:py-[20px] space-y-[5.1vw] lg:space-y-[30px]">
+                <div className="flex space-x-[2.1vw] lg:space-x-[10px]">
                   <Image
                     src="/icons/star-brown.svg"
                     alt="star"
                     width={33}
                     height={33}
-                    className="mb-auto"
+                    className="mb-auto w-[6.2vw] h-[6.2vw] lg:w-[33px] lg:h-[33px]"
                   />
-                  <span className="text-[22px] font-medium tracking-[.01em]">
+                  <span className="text-[4.1vw] lg:text-[22px] font-medium tracking-[.01em]">
                     {map.label}
                   </span>
                 </div>
-                <div className="pb-[30px] overflow-x-scroll scrollbar-always-visible">
+                <div className="pb-[5.1vw] lg:pb-[30px] overflow-x-scroll scrollbar-always-visible">
                   {map.img}
                 </div>
               </div>
@@ -143,12 +146,13 @@ export default forwardRef(function Ideate(
                   alt="star"
                   width={33}
                   height={33}
+                  className="w-[6.2vw] h-[6.2vw] lg:w-[33px] lg:h-[33px]"
                 />
-                <span className="text-[22px] font-medium tracking-[.01em]">
+                <span className="text-[4.1vw] lg:text-[22px] font-medium tracking-[.01em]">
                   {taskFlow.label}
                 </span>
               </div>
-              <div className="py-[20px]">
+              <div className="py-[2.6vw] lg:py-[20px]">
                 <Image
                   src={taskFlow.img}
                   alt="task flow"
@@ -164,19 +168,19 @@ export default forwardRef(function Ideate(
         {userFlow && (
           <ProjectSubSection title="User Flow: Mapping Out User Needs and Goals">
             <Paragraph>{userFlow.desc}</Paragraph>
-            <div className="py-[20px] space-y-[30px]">
-              <div className="flex space-x-[10px]">
+            <div className="py-[2.6vw] lg:py-[20px] space-y-[5.1vw] lg:space-y-[30px]">
+              <div className="flex space-x-[2.1vw] lg:space-x-[10px]">
                 <Image
                   src="/icons/star-brown.svg"
                   alt="star"
                   width={33}
                   height={33}
                 />
-                <span className="text-[22px] font-medium tracking-[.01em]">
+                <span className="text-[4.1vw] lg:text-[22px] font-medium tracking-[.01em]">
                   {userFlow.label}
                 </span>
               </div>
-              <div className="pt-[20px] pb-[50px] overflow-x-scroll">
+              <div className="pt-[2.6vw] pb-[5.1vw] lg:pt-[20px] lg:pb-[30px] overflow-x-scroll">
                 <div className="w-[2346px] h-[625px]">
                   <Image
                     src={userFlow.img}
