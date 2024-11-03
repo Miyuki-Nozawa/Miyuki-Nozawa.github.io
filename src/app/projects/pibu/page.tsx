@@ -464,11 +464,17 @@ const prototype: PrototypeProps = {
         user-friendly.
       </Paragraph>
     ),
-    images: ["/pibu/test-1.svg", "/pibu/test-2.svg"],
+    images: {
+      desktop: ["/pibu/test-1.svg", "/pibu/test-2.svg"],
+      mobile: ["/pibu/test-1-mobile.svg", "/pibu/test-2-mobile.svg"],
+    },
   },
   refining: {
     desc: "Based on the results of the mid-fi usability test, I improved the designs to make them more user-friendly and easier for users to navigate.",
-    images: ["/pibu/iteration-1.svg", "/pibu/iteration-2.svg"],
+    images: {
+      desktop: ["/pibu/iteration-1.svg", "/pibu/iteration-2.svg"],
+      mobile: ["/pibu/iteration-1-mobile.svg", "/pibu/iteration-2-mobile.svg"],
+    },
   },
   building: {
     desc: "Pibu already has a developed store image, including a logo and aesthetic. To confirm the website’s tone and direction with the stakeholders, I created two style tiles based on their brand values: one with a blue theme and one with a green theme. The stakeholder selected the blue style tile as the one that best aligns with the brand image.",
@@ -488,18 +494,21 @@ const prototype: PrototypeProps = {
     images: [
       {
         src: "/pibu/hifi-1.png",
-        width: 480,
-        height: 595,
+        default: [480, 595],
+        desktop: "lg:w-[480px] lg:h-[595px]",
+        mobile: "w-[200px] h-[270px]",
       },
       {
         src: "/pibu/hifi-2.png",
-        width: 200,
-        height: 540,
+        default: [200, 540],
+        desktop: "lg:w-[200px] lg:h-[540px]",
+        mobile: "w-[100px] h-[270px]",
       },
       {
         src: "/pibu/hifi-3.png",
-        width: 200,
-        height: 540,
+        default: [200, 540],
+        desktop: "lg:w-[200px] lg:h-[540px]",
+        mobile: "w-[100px] h-[270px]",
       },
     ],
     url: "https://www.figma.com/design/RbkCKTmRORmmiispxyOpXz/Capstone-2---Responsive-Web-Design?node-id=931-7844&t=Ezlc7eUJ1xCvo01W-1",
@@ -510,8 +519,9 @@ const test: TestProps = {
   enhancing: {
     desc: (
       <Paragraph>
-        To confirm whether the high-fidelity wireframes can actually achieve user
-        goals, I conducted <b>usability testing</b> with <b>6 participants</b>.
+        To confirm whether the high-fidelity wireframes can actually achieve
+        user goals, I conducted <b>usability testing</b> with{" "}
+        <b>6 participants</b>.
       </Paragraph>
     ),
     taskFlows: (
@@ -536,8 +546,9 @@ const test: TestProps = {
           conclusions={["5/6 were able to complete the task easily."]}
           image={{
             src: "/pibu/task-flow-1.png",
-            width: 500,
-            height: 355,
+            default: [500, 355],
+            desktop: "lg:w-[500px] lg:h-[355px]",
+            mobile: "w-[250px] h-[178px]",
           }}
           horizontal
         />
@@ -562,8 +573,9 @@ const test: TestProps = {
           ]}
           image={{
             src: "/pibu/task-flow-2.png",
-            width: 500,
-            height: 355,
+            default: [500, 355],
+            desktop: "lg:w-[500px] lg:h-[355px]",
+            mobile: "w-[250px] h-[178px]",
           }}
           horizontal
         />
@@ -589,8 +601,9 @@ const test: TestProps = {
           ]}
           image={{
             src: "/pibu/task-flow-3.png",
-            width: 500,
-            height: 355,
+            default: [500, 355],
+            desktop: "lg:w-[500px] lg:h-[355px]",
+            mobile: "w-[250px] h-[178px]",
           }}
           horizontal
         />
@@ -601,24 +614,48 @@ const test: TestProps = {
     desc: "I conducted repeated testing and iterations to ensure the feature works smoothly on both desktop and mobile screens, refining the design to make it more user-friendly.",
     images: [
       {
-        src: "/pibu/iteration-1.png",
-        width: 1000,
-        height: 400,
+        default: [1000, 400],
+        desktop: {
+          src: "/pibu/iteration-1.png",
+          className: "lg:w-[1000px] lg:h-[400px]",
+        },
+        mobile: {
+          src: "/pibu/iteration-1.png",
+          className: "w-[500px] h-[200px]",
+        },
       },
       {
-        src: "/pibu/iteration-2.png",
-        width: 1000,
-        height: 400,
+        default: [1000, 400],
+        desktop: {
+          src: "/pibu/iteration-2.png",
+          className: "lg:w-[1000px] lg:h-[400px]",
+        },
+        mobile: {
+          src: "/pibu/iteration-2.png",
+          className: "w-[500px] h-[200px]",
+        },
       },
       {
-        src: "/pibu/iteration-3.png",
-        width: 1000,
-        height: 400,
+        default: [1000, 400],
+        desktop: {
+          src: "/pibu/iteration-3.png",
+          className: "lg:w-[1000px] lg:h-[400px]",
+        },
+        mobile: {
+          src: "/pibu/iteration-3.png",
+          className: "w-[500px] h-[200px]",
+        },
       },
       {
-        src: "/pibu/iteration-4.png",
-        width: 1000,
-        height: 400,
+        default: [1000, 400],
+        desktop: {
+          src: "/pibu/iteration-4.png",
+          className: "lg:w-[1000px] lg:h-[400px]",
+        },
+        mobile: {
+          src: "/pibu/iteration-4.png",
+          className: "w-[500px] h-[200px]",
+        },
       },
     ],
   },
@@ -638,9 +675,15 @@ const test: TestProps = {
           },
         },
         image: {
-          src: "/pibu/final-1.png",
-          width: 196,
-          height: 400,
+          default: [196, 400],
+          desktop: {
+            src: "/pibu/final-1.png",
+            className: "lg:w-[196px] lg:h-[400px]",
+          },
+          mobile: {
+            src: "/pibu/final-1.png",
+            className: "w-[100px] h-[200px]",
+          },
         },
         header:
           "Navigation to the skin type check page helps users choose products",
@@ -661,9 +704,15 @@ const test: TestProps = {
           },
         },
         image: {
-          src: "/pibu/final-2.png",
-          width: 196,
-          height: 400,
+          default: [196, 400],
+          desktop: {
+            src: "/pibu/final-2.png",
+            className: "lg:w-[196px] lg:h-[400px]",
+          },
+          mobile: {
+            src: "/pibu/final-2.png",
+            className: "w-[100px] h-[200px]",
+          },
         },
         header:
           "A skin type checker and saving function allow users to search for suitable products",
@@ -684,9 +733,15 @@ const test: TestProps = {
           },
         },
         image: {
-          src: "/pibu/final-3.png",
-          width: 196,
-          height: 400,
+          default: [196, 400],
+          desktop: {
+            src: "/pibu/final-3.png",
+            className: "lg:w-[196px] lg:h-[400px]",
+          },
+          mobile: {
+            src: "/pibu/final-3.png",
+            className: "w-[100px] h-[200px]",
+          },
         },
         header: "A comparison feature simplifies product selection for users",
         notes: [
