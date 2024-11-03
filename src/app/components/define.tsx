@@ -56,13 +56,16 @@ export default forwardRef(function Define(
       <ProjectSection title="Define">
         <ProjectSubSection title="Gaining a Deeper Understanding of User Needs and Pain Points">
           <Paragraph>{affinity.desc}</Paragraph>
-          <div className="py-[20px] space-y-[30px]">
+          <div className="space-y-[5.1vw] lg:space-y-[30px]">
             {affinity.maps.map(({ label, map }, i) => (
               <div
                 key={i}
-                className="w-full px-[30px] py-[50px] space-y-[30px] bg-white rounded-[20px]"
+                className={
+                  "w-full px-[5.1vw] lg:px-[30px] py-[3.8vw] lg:py-[50px] space-y-[2.6vw] " +
+                  "lg:space-y-[30px] bg-white rounded-[10px] lg:rounded-[20px] "
+                }
               >
-                <div className="text-[22px] font-medium tracking-[.01em]">
+                <div className="text-[3.1vw] lg:text-[22px] font-medium tracking-[.01em]">
                   {label}
                 </div>
                 {map}
@@ -74,22 +77,27 @@ export default forwardRef(function Define(
         </ProjectSubSection>
         <ProjectSubSection title="Transforming Insights into Personas">
           <Paragraph>{personas.desc}</Paragraph>
-          <div className="space-y-[20px]">
+          <div className="space-y-[2.6vw] lg:space-y-[20px]">
             {personas.personas.map(({ name, desc, image }, i) => (
-              <div key={i} className="space-y-[30px] pb-[20px]">
-                <div className="space-y-[10px]">
-                  <div className="text-[22px] font-medium tracking-[.01em]">
+              <div
+                key={i}
+                className="space-y-[2.6vw] lg:space-y-[30px] pb-[2.5vw] lg:pb-[20px]"
+              >
+                <div className="space-y-[2.6vw] lg:space-y-[10px]">
+                  <div className="text-[4.1vw] lg:text-[22px] font-semibold lg:font-medium tracking-[.01em]">
                     {name}
                   </div>
                   {desc}
                 </div>
-                <Image
-                  src={image}
-                  alt="persona"
-                  width={1000}
-                  height={984}
-                  className="rounded-[20px]"
-                />
+                <div className="py-[2.5vw] lg:py-[10px]">
+                  <Image
+                    src={image}
+                    alt="persona"
+                    width={1000}
+                    height={984}
+                    className="rounded-[10px] lg:rounded-[20px]"
+                  />
+                </div>
               </div>
             ))}
           </div>

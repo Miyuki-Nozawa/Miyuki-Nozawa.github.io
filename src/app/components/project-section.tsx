@@ -6,7 +6,12 @@ export default function ProjectSection({
   children: React.ReactNode;
 }) {
   return (
-    <div className="bg-light-ivory py-[12.8vw] lg:py-[150px] rounded-[54px] lg:rounded-[200px] mx-[2vw] lg:mx-[20px]">
+    <div
+      className={
+        "bg-light-ivory py-[12.8vw] rounded-[54px] mx-[2vw] " +
+        "lg:py-[150px] lg:mx-[20px] lg:rounded-[200px]"
+      }
+    >
       <div className="max-w-[70vw] lg:max-w-default mx-auto space-y-[10px]">
         {title && (
           <div className="text-[4vw] lg:text-[27px] font-semibold lg:mb-[10px]">

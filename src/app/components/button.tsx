@@ -7,7 +7,11 @@ export default function Button({
 }) {
   return (
     <div
-      className={`w-[190px] h-[43px] rounded-[10px] py-[10px] text-[15.2px] font-manrope font-medium flex items-center justify-center ${className}`}
+      className={
+        "w-[190px] h-[43px] rounded-[10px] py-[10px] text-[15.2px] font-manrope font-medium " +
+        "flex items-center justify-center " +
+        className
+      }
     >
       {children}
     </div>

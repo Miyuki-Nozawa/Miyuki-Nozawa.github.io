@@ -69,9 +69,10 @@ export default function Nav() {
 
     return (
       <div
-        className={`px-[30px] py-[10px] rounded-[55px] ${
-          isAboutPage ? "hover:bg-black/10" : "hover:bg-navHover"
-        }`}
+        className={
+          "px-[30px] py-[10px] rounded-[55px] " +
+          (isAboutPage ? "hover:bg-black/10" : "hover:bg-navHover")
+        }
         onMouseEnter={handleCursorHoverStart}
         onMouseLeave={handleCursorHoverStop}
       >
@@ -113,8 +114,9 @@ export default function Nav() {
       ></div>
       <div
         className={
-          "absolute top-0 right-0 left-0 flex justify-between items-center p-[5vw] lg:p-16 h-[19.2vw] lg:h-[192px] z-20 " +
-          `${isAboutPage ? "bg-transparent" : "bg-base"}`
+          "absolute top-0 right-0 left-0 flex justify-between items-center p-[5vw] " +
+          "lg:p-16 h-[19.2vw] lg:h-[192px] z-20 " +
+          (isAboutPage ? "bg-transparent" : "bg-base")
         }
       >
         <div className="mx-auto lg:mx-0 w-[13.3vw] lg:w-[155px] h-[9vw] lg:h-[105px]">
@@ -140,7 +142,10 @@ export default function Nav() {
       </div>
       {/* hamburger */}
       <div
-        className="absolute left-[5vw] top-[5vw] w-[9vw] h-[9vw] flex justify-center items-center z-40 lg:hidden"
+        className={
+          "absolute left-[5vw] top-[5vw] w-[9vw] h-[9vw] flex justify-center " +
+          "items-center z-40 lg:hidden "
+        }
         onClick={openMobileNav}
       >
         <div className="w-full h-full relative">
@@ -149,21 +154,22 @@ export default function Nav() {
       </div>
       {/* mobile nav */}
       <div
-        className={`${
-          mobileNavVisible
+        className={
+          (mobileNavVisible
             ? "translate-x-0"
-            : "-translate-x-full pointer-events-none"
-        } fixed w-[100vw] h-[100vh] z-40 bg-black top-0 bottom-0 left-0 right-0 opacity-20`}
+            : "-translate-x-full pointer-events-none") +
+          " fixed w-[100vw] h-[100vh] z-40 bg-black top-0 bottom-0 left-0 right-0 opacity-20"
+        }
         onClick={closeMobileNav}
       ></div>
       <div
         className={
-          `fixed w-[60vw] h-[100vh] z-50 bg-base top-0 bottom-0 left-0 right-0 text-[16px] tracking-[.02em] space-y-4 py-6 px-5 ` +
-          `${
-            mobileNavVisible
-              ? "translate-x-0"
-              : "-translate-x-full pointer-events-none"
-          } transition-all duration-300 overflow-auto`
+          "fixed w-[60vw] h-[100vh] z-50 bg-base top-0 bottom-0 left-0 right-0 " +
+          "text-[16px] tracking-[.02em] space-y-4 py-6 px-5 " +
+          (mobileNavVisible
+            ? "translate-x-0"
+            : "-translate-x-full pointer-events-none") +
+          " transition-all duration-300 overflow-auto"
         }
       >
         {generateMobileNavLink("/", "Home")}

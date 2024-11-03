@@ -15,7 +15,12 @@ export default function Connect() {
           onMouseEnter={handleCursorHoverStart}
           onMouseLeave={handleCursorHoverStop}
         >
-          <div className="flex items-center space-x-[1.25vw] lg:space-x-[20px] bg-beige rounded-[27px] lg:rounded-[100px] px-[5vw] lg:px-[40px] py-[2.5vw] lg:py-[15px]">
+          <div
+            className={
+              "flex items-center space-x-[1.25vw] lg:space-x-[20px] bg-beige " +
+              "rounded-[27px] lg:rounded-[100px] px-[5vw] lg:px-[40px] py-[2.5vw] lg:py-[15px] "
+            }
+          >
             <Image
               src="/icons/email.svg"
               alt="email"
@@ -32,7 +37,12 @@ export default function Connect() {
           onMouseEnter={handleCursorHoverStart}
           onMouseLeave={handleCursorHoverStop}
         >
-          <div className="flex items-center space-x-[1.25vw] lg:space-x-[20px] bg-beige rounded-[27px] lg:rounded-[100px] px-[5vw] lg:px-[40px] py-[2.5vw] lg:py-[15px]">
+          <div
+            className={
+              "flex items-center space-x-[1.25vw] lg:space-x-[20px] bg-beige rounded-[27px] " +
+              "lg:rounded-[100px] px-[5vw] lg:px-[40px] py-[2.5vw] lg:py-[15px] "
+            }
+          >
             <Image
               src="/icons/linkedin.svg"
               alt="linkedin"

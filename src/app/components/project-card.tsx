@@ -20,25 +20,40 @@ export default function ProjectCard({
   mirror?: boolean;
 }) {
   return (
-    <div className="bg-light-ivory rounded-[60px] lg:rounded-[200px] m-[8px] lg:m-5 px-[60px] py-[50px] lg:py-[160px]">
-      <div className="flex flex-col lg:flex-row tracking-[.01em] space-y-[30px] lg:space-y-0 lg:space-x-5 lg:max-w-[1280px] mx-auto">
+    <div
+      className={
+        "bg-light-ivory rounded-[60px] lg:rounded-[200px] m-[8px] lg:m-5 " +
+        "px-[60px] py-[50px] lg:py-[160px]"
+      }
+    >
+      <div
+        className={
+          "flex flex-col lg:flex-row tracking-[.01em] space-y-[30px] " +
+          "lg:space-y-0 lg:space-x-5 lg:max-w-[1280px] mx-auto "
+        }
+      >
         <div
-          className={`px-[10px] lg:px-0 mx-auto w-[65vw] min-h-[200px] lg:w-1/2 relative ${
-            mirror ? "lg:order-2" : "lg:order-1"
-          }`}
+          className={
+            "px-[10px] lg:px-0 mx-auto w-[65vw] min-h-[200px] lg:w-1/2 relative " +
+            (mirror ? "lg:order-2" : "lg:order-1")
+          }
         >
           <Image src={img} alt={title} className="object-contain" fill />
         </div>
         <div
-          className={`w-full lg:w-1/2 px-0 lg:px-[35px] space-y-[4vw] lg:space-y-[30px] ${
-            mirror ? "lg:order-1" : "lg:order-2"
-          }`}
+          className={
+            "w-full lg:w-1/2 px-0 lg:px-[35px] space-y-[4vw] lg:space-y-[30px] " +
+            (mirror ? "lg:order-1" : "lg:order-2")
+          }
         >
           <div className="flex space-x-[1.5vw] lg:space-x-[20px]">
             {tags.map((tag) => (
               <div
                 key={tag}
-                className="bg-base3 px-[2.5vw] lg:px-[30px] py-[1.75vw] lg:py-[12px] text-[10px] lg:text-[16px] tracking-[.01em] rounded-[5px] lg:rounded-[10px] flex"
+                className={
+                  "bg-base3 px-[2.5vw] lg:px-[30px] py-[1.75vw] lg:py-[12px] text-[10px] " +
+                  "lg:text-[16px] tracking-[.01em] rounded-[5px] lg:rounded-[10px] flex "
+                }
               >
                 {tag}
               </div>
@@ -58,14 +73,25 @@ export default function ProjectCard({
           <div className="pt-[2vw] lg:pt-0">
             <Link href={page} onClick={handleCursorHoverStop}>
               <button
-                className="w-full lg:w-auto inline-block relative overflow-hidden px-[2.75vw] lg:px-[40px] py-[2.5vw] lg:py-[15px] text-[4vw] lg:text-[20px] font-semibold bg-dark-green text-white rounded-[22px] lg:rounded-[32px] transition-colors duration-300 ease-in-out group tracking-[.01em]"
+                className={
+                  "w-full lg:w-auto inline-block relative overflow-hidden px-[2.75vw] lg:px-[40px] " +
+                  "py-[2.5vw] lg:py-[15px] text-[4vw] lg:text-[20px] font-semibold bg-dark-green " +
+                  "text-white rounded-[22px] lg:rounded-[32px] transition-colors duration-300 " +
+                  "ease-in-out group tracking-[.01em] "
+                }
                 onMouseEnter={handleCursorHoverStart}
                 onMouseLeave={handleCursorHoverStop}
               >
                 <span className="relative z-10 group-hover:text-black transition-all duration-500">
                   View Case Study
                 </span>
-                <span className="absolute w-[250px] h-[250px] inset-0 bg-projectCardButtonHover rounded-full translate-y-[20%] group-hover:translate-y-0 scale-0 group-hover:scale-125 transition-transform duration-500 ease-out origin-bottom"></span>
+                <span
+                  className={
+                    "absolute w-[250px] h-[250px] inset-0 bg-projectCardButtonHover rounded-full " +
+                    "translate-y-[20%] group-hover:translate-y-0 scale-0 group-hover:scale-125 " +
+                    "transition-transform duration-500 ease-out origin-bottom "
+                  }
+                ></span>
               </button>
             </Link>
           </div>

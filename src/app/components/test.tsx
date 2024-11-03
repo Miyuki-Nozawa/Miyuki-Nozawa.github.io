@@ -108,7 +108,12 @@ export default forwardRef(function Test(
                   onMouseEnter={handleCursorHoverStart}
                   onMouseLeave={handleCursorHoverStop}
                 >
-                  <div className="px-[60px] py-[15px] rounded-[75px] bg-brown3 text-[20px] font-semibold tracking-[.01em] inline-block">
+                  <div
+                    className={
+                      "px-[60px] py-[15px] rounded-[75px] bg-brown3 text-[20px] font-semibold " +
+                      "tracking-[.01em] inline-block "
+                    }
+                  >
                     View Hi-fi Prototype
                   </div>
                 </Link>
@@ -122,7 +127,12 @@ export default forwardRef(function Test(
                       onMouseEnter={handleCursorHoverStart}
                       onMouseLeave={handleCursorHoverStop}
                     >
-                      <div className="px-[60px] py-[15px] rounded-[75px] bg-brown3 text-[20px] font-semibold tracking-[.01em] inline-block">
+                      <div
+                        className={
+                          "px-[60px] py-[15px] rounded-[75px] bg-brown3 text-[20px] font-semibold " +
+                          "tracking-[.01em] inline-block"
+                        }
+                      >
                         View Desktop Prototype
                       </div>
                     </Link>
@@ -134,7 +144,12 @@ export default forwardRef(function Test(
                       onMouseEnter={handleCursorHoverStart}
                       onMouseLeave={handleCursorHoverStop}
                     >
-                      <div className="px-[60px] py-[15px] rounded-[75px] bg-brown3 text-[20px] font-semibold tracking-[.01em] inline-block">
+                      <div
+                        className={
+                          "px-[60px] py-[15px] rounded-[75px] bg-brown3 text-[20px] font-semibold " +
+                          "tracking-[.01em] inline-block "
+                        }
+                      >
                         View Mobile Prototype
                       </div>
                     </Link>

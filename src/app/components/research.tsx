@@ -32,7 +32,12 @@ export default forwardRef(function Research(
       <ProjectSection title="Research">
         <ProjectSubSection title="Research Goal">
           <Paragraph md>{desc}</Paragraph>
-          <div className="space-y-[2.5vw] lg:grid lg:grid-cols-2 lg:gap-[30px] py-[2.5vw] lg:py-[20px]">
+          <div
+            className={
+              "space-y-[2.5vw] lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-[30px] " +
+              "py-[2.5vw] lg:py-[20px] "
+            }
+          >
             {goals.map((goal, i) => (
               <ResearchGoalCard key={i}>{goal}</ResearchGoalCard>
             ))}

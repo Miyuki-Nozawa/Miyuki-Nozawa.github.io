@@ -16,13 +16,13 @@ export default function ResearchCompetition({
   children,
 }: ResearchCompetitionProps) {
   return (
-    <>
+    <div className="space-y-[5.1vw] lg:space-y-0">
       <Paragraph>{desc}</Paragraph>
       {children}
       {notes.map((note, i) => (
         <Paragraph key={i}>{note}</Paragraph>
       ))}
       <KeySection title="Key Features" cards={features} />
-    </>
+    </div>
   );
 }

@@ -23,23 +23,39 @@ export default function Competitor({
 
   return (
     <div
-      className={`space-y-[5vw] lg:space-y-[20px] bg-white rounded-[10px] lg:rounded-[20px] shadow-[0px_2px_2px_0px_rgba(0,0,0,0.25)] ${width} ${padding}`}
+      className={
+        "space-y-[5vw] lg:space-y-[20px] bg-white rounded-[10px] lg:rounded-[20px] " +
+        "shadow-[0px_2px_2px_0px_rgba(0,0,0,0.25)] " +
+        `${width} ${padding}`
+      }
     >
       <div
-        className={`flex space-x-[8px] lg:space-x-[10px] ${
-          wide || pibu ? "justify-center" : ""
-        } ${pibu ? "lg:py-[20px]" : ""}`}
+        className={
+          "flex space-x-[8px] lg:space-x-[10px] " +
+          (wide || pibu ? "justify-center " : "") +
+          (pibu ? "lg:py-[20px]" : "")
+        }
       >
         <Image
           src={icon}
           alt={name}
           width={logoW}
           height={logoH}
-          className={`${wide ? "lg:w-[222px] lg:h-[50px]" : pibu ? "lg:w-[163px] lg:h-[30px]" : "w-[12.8vw] h-[12.8vw] lg:w-[100px] lg:h-[100px]"}`}
+          className={
+            wide
+              ? "lg:w-[222px] lg:h-[50px]"
+              : pibu
+              ? "lg:w-[163px] lg:h-[30px]"
+              : "w-[12.8vw] h-[12.8vw] lg:w-[100px] lg:h-[100px]"
+          }
         />
         {desc && (
           <div className="flex flex-col justify-evenly">
-            <div className="text-[4.1vw] lg:text-[18px] font-medium lg:font-semibold tracking-[.01em]">
+            <div
+              className={
+                "text-[4.1vw] lg:text-[18px] font-medium lg:font-semibold tracking-[.01em]"
+              }
+            >
               {name}
             </div>
             <div className="text-[3vw] lg:text-[14px] tracking-[.01em]">

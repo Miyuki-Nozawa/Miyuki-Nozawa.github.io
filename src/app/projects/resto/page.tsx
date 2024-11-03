@@ -212,10 +212,10 @@ const research: ResearchProps = {
             "“I decide restaurants based on reviews from locals or Google. I usually want to go to restaurants that are famous among both tourists and locals.”",
           avatar: "/avatars/participant-2.svg",
           name: "Participant 2",
+          mirror: true,
         },
       ],
     },
-
     userInterview: {
       desc: (
         <Paragraph>
@@ -243,6 +243,7 @@ const research: ResearchProps = {
             "“I wish Google Maps had a filter for location, showing food types or price ranges.”",
           avatar: "/avatars/participant-4.svg",
           name: "Participant 2",
+          mirror: true,
         },
       ],
     },

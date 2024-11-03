@@ -51,7 +51,12 @@ export default function TaskFlowCard({
                 {participant.name}
               </div>
             </div>
-            <div className="text-[14px] px-[22px] py-[22px] bg-beige rounded-[10px] flex items-center justify-center tracking-[.01em]">
+            <div
+              className={
+                "text-[14px] px-[22px] py-[22px] bg-beige rounded-[10px] flex " +
+                "items-center justify-center tracking-[.01em]"
+              }
+            >
               {participant.comment}
             </div>
           </div>
@@ -60,10 +65,7 @@ export default function TaskFlowCard({
       <Down sm />
       <div className="space-y-[10px] mx-auto">
         {conclusions.map((conclusion) => (
-          <div
-            key={conclusion}
-            className="flex space-x-[10px] mx-auto"
-          >
+          <div key={conclusion} className="flex space-x-[10px] mx-auto">
             <Image
               alt="star"
               src="/icons/star-filled.svg"
@@ -88,7 +90,12 @@ export default function TaskFlowCard({
   );
 
   return (
-    <div className="bg-white rounded-[20px] p-[30px] shadow-[2px_2px_2px_0px_rgba(0,0,0,0.10)] flex space-x-[50px]">
+    <div
+      className={
+        "bg-white rounded-[20px] p-[30px] shadow-[2px_2px_2px_0px_rgba(0,0,0,0.10)] " +
+        "flex space-x-[50px] "
+      }
+    >
       {horizontal ? (
         <div className="space-y-[30px]">
           {header}

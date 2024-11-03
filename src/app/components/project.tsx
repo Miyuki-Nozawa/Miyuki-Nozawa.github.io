@@ -114,11 +114,13 @@ export default function Project({
     <div className="relative">
       {/* nav bar */}
       <div
-        className={`hidden lg:block w-[150px] h-[500px] fixed top-20 right-0 transition-all duration-500 space-y-[20px] text-[18px] ${
-          isNavVisible
+        className={
+          "hidden lg:block w-[150px] h-[500px] fixed top-20 right-0 transition-all duration-500 " +
+          "space-y-[20px] text-[18px] " +
+          (isNavVisible
             ? "opacity-100 translate-x-0"
-            : "opacity-0 translate-x-[100%]"
-        }`}
+            : "opacity-0 translate-x-[100%]")
+        }
       >
         {SECTIONS.map((section) => (
           <div

@@ -48,7 +48,12 @@ export default function Final({
             height={video.addressBar.height}
           />
         )}
-        <video className={`${video.className} object-cover`} autoPlay muted loop>
+        <video
+          className={`${video.className} object-cover`}
+          autoPlay
+          muted
+          loop
+        >
           <source src={video.src} type="video/mp4" />
         </video>
       </div>
@@ -66,9 +71,11 @@ export default function Final({
 
   return (
     <div
-      className={`flex items-center ${
-        wide ? "space-x-[30px]" : vertical ? "" : "space-x-[80px]"
-      } ${vertical ? "flex-col space-y-[50px]" : "flex-row"}`}
+      className={
+        "flex items-center " +
+        (wide ? "space-x-[30px] " : vertical ? "" : "space-x-[80px] ") +
+        (vertical ? "flex-col space-y-[50px] " : "flex-row")
+      }
     >
       {!mirror && media}
       <div className={`${vertical ? "w-full" : ""} space-y-[30px]`}>

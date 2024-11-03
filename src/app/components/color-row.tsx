@@ -14,9 +14,10 @@ export default function ColorRow({
         {colors.map((color) => (
           <div
             key={color}
-            className={`rounded-[8px] pb-[3px] w-[100px] h-[100px] flex items-end justify-center ${
-              border ? "border-[0.5px] border-[#5F4C35]" : ""
-            }`}
+            className={
+              "rounded-[8px] pb-[3px] w-[100px] h-[100px] flex items-end justify-center " +
+              (border ? "border-[0.5px] border-[#5F4C35]" : "")
+            }
             style={{ backgroundColor: `#${color}` }}
           >
             <span>{color}</span>
