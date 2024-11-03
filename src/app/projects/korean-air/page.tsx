@@ -495,15 +495,28 @@ const prototype: PrototypeProps = {
         to use than the original Korean Air design.
       </Paragraph>
     ),
-    images: [
-      "/korean-air/test-1.svg",
-      "/korean-air/test-2.svg",
-      "/korean-air/test-3.svg",
-    ],
+    images: {
+      desktop: [
+        "/korean-air/test-1.svg",
+        "/korean-air/test-2.svg",
+        "/korean-air/test-3.svg",
+      ],
+      mobile: [
+        "/korean-air/test-1-mobile.svg",
+        "/korean-air/test-2-mobile.svg",
+        "/korean-air/test-3-mobile.svg",
+      ],
+    },
   },
   refining: {
     desc: "Based on the results of the mid-fi usability test, I iterated on the design to make it more user-friendly and help users achieve their goals.",
-    images: ["/korean-air/iteration-1.svg", "/korean-air/iteration-2.svg"],
+    images: {
+      desktop: ["/korean-air/iteration-1.svg", "/korean-air/iteration-2.svg"],
+      mobile: [
+        "/korean-air/iteration-1-mobile.svg",
+        "/korean-air/iteration-2-mobile.svg",
+      ],
+    },
   },
   final: {
     desc: "Considering Korean Air's image colors and existing design, I applied the brand colors to the added features.",
@@ -548,8 +561,9 @@ const test: TestProps = {
           conclusions={["5/5 were able to complete the task easily"]}
           image={{
             src: "/korean-air/task-flow-1.png",
-            width: 500,
-            height: 355,
+            default: [500, 355],
+            desktop: "lg:w-[500px] lg:h-[355px]",
+            mobile: "w-[300px] h-[215px]",
           }}
           horizontal
         />
@@ -575,8 +589,9 @@ const test: TestProps = {
           ]}
           image={{
             src: "/korean-air/task-flow-2.png",
-            width: 500,
-            height: 355,
+            default: [500, 355],
+            desktop: "lg:w-[500px] lg:h-[355px]",
+            mobile: "w-[300px] h-[215px]",
           }}
           horizontal
         />
@@ -602,8 +617,9 @@ const test: TestProps = {
           ]}
           image={{
             src: "/korean-air/task-flow-3.png",
-            width: 500,
-            height: 355,
+            default: [500, 355],
+            desktop: "lg:w-[500px] lg:h-[355px]",
+            mobile: "w-[300px] h-[215px]",
           }}
           horizontal
         />
@@ -614,19 +630,37 @@ const test: TestProps = {
     desc: "Based on the usability testing, I refined the design of the feature that makes it easy for users to see their accumulated mileage and redemption options.",
     images: [
       {
-        src: "/korean-air/iterating-1.svg",
-        width: 1000,
-        height: 355,
+        default: [1000, 355],
+        desktop: {
+          src: "/korean-air/iterating-1.svg",
+          className: "lg:w-[1000px] lg:h-[355px]",
+        },
+        mobile: {
+          src: "/korean-air/iterating-1-mobile.svg",
+          className: "w-[600px] h-[215px]",
+        },
       },
       {
-        src: "/korean-air/iterating-2.svg",
-        width: 1000,
-        height: 474,
+        default: [1000, 474],
+        desktop: {
+          src: "/korean-air/iterating-2.svg",
+          className: "lg:w-[1000px] lg:h-[474px]",
+        },
+        mobile: {
+          src: "/korean-air/iterating-2-mobile.svg",
+          className: "w-[600px] h-[215px]",
+        },
       },
       {
-        src: "/korean-air/iterating-3.svg",
-        width: 1000,
-        height: 355,
+        default: [1000, 355],
+        desktop: {
+          src: "/korean-air/iterating-3.svg",
+          className: "lg:w-[1000px] lg:h-[355px]",
+        },
+        mobile: {
+          src: "/korean-air/iterating-3-mobile.svg",
+          className: "w-[600px] h-[215px]",
+        },
       },
     ],
   },
