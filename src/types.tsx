@@ -13,3 +13,15 @@ export type KeyCardT = {
   sublabel?: string;
   centered?: boolean;
 }[];
+
+export type ImageT = {
+  default: [number, number];
+  desktop: {
+    src: string;
+    className: string;
+  };
+  mobile: {
+    src: string;
+    className: string;
+  };
+};

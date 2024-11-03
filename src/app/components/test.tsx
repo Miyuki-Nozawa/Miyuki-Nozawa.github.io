@@ -7,6 +7,7 @@ import ProjectSection from "@/app/components/project-section";
 import ProjectSubSection from "@/app/components/project-subsection";
 import Final, { Video } from "@/app/components/final";
 import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
+import { ImageT } from "@/types";
 
 export type TestProps = {
   enhancing: {
@@ -27,18 +28,6 @@ export type TestProps = {
       mobile?: string;
     };
     wideSpace?: boolean;
-  };
-};
-
-export type ImageT = {
-  default: [number, number];
-  desktop: {
-    src: string;
-    className: string;
-  };
-  mobile: {
-    src: string;
-    className: string;
   };
 };
 

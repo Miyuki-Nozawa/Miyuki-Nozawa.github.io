@@ -39,7 +39,7 @@ export type PrototypeProps = {
   };
   branding?: {
     desc: string;
-    images: Image[];
+    images: ImageT[];
     url: string;
   };
   final?: {
@@ -49,7 +49,7 @@ export type PrototypeProps = {
   };
 };
 
-type Image = {
+type ImageT = {
   src: string;
   default: [number, number];
   desktop: string;

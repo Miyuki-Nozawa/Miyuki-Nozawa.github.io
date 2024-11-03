@@ -1,5 +1,6 @@
 import Image from "next/image";
-import type { ImageT } from "./test";
+
+import { ImageT } from "@/types";
 
 export type Video = {
   src: string;
