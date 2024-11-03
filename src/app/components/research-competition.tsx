@@ -16,7 +16,7 @@ export default function ResearchCompetition({
   children,
 }: ResearchCompetitionProps) {
   return (
-    <div className="space-y-[5.1vw] lg:space-y-0">
+    <div className="space-y-[5.1vw] lg:space-y-[30px]">
       <Paragraph>{desc}</Paragraph>
       {children}
       {notes.map((note, i) => (

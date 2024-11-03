@@ -15,7 +15,7 @@ export default function KeyCard({
     <div
       className={
         "px-[5vw] py-[3.8vw] lg:px-[50px] lg:py-[50px] bg-pink rounded-[10px] lg:rounded-[20px] " +
-        "space-x-[2vw] lg:space-x-[30px] flex w-[70vw] h-auto lg:w-[485px] lg:h-[166px] " +
+        "space-x-[2vw] lg:space-x-[30px] flex w-[70vw] lg:w-[485px] " +
         (centered ? "items-center" : "")
       }
     >
