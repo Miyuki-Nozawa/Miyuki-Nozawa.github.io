@@ -48,6 +48,7 @@ export default function Final({
           autoPlay
           muted
           loop
+          playsInline
         >
           <source src={video.src} type="video/mp4" />
         </video>

@@ -52,6 +52,7 @@ const hero: HeroProps = {
         autoPlay
         muted
         loop
+        playsInline
       >
         <source src="/resto/hero.mp4" type="video/mp4" />
       </video>
