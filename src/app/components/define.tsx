@@ -32,6 +32,7 @@ export type DefineProps = {
     desc: string;
     img: string;
     url: string;
+    className: string;
   };
 };
 
@@ -116,14 +117,12 @@ export default forwardRef(function Define(
         </ProjectSubSection>
         <ProjectSubSection title="Establishing Balanced Goals for Project Success">
           <Paragraph>{goals.desc}</Paragraph>
-          <div className="py-[20px] space-y-[30px]">
-            <Image
-              src={goals.img}
-              alt="project goals"
-              width={0}
-              height={0}
-              style={{ width: "100%", height: "auto" }}
-            />
+          <div className="py-[2.56vw] lg:py-[20px] space-y-[3.8vw] lg:space-y-[30px]">
+            <div className="py-[5.13vw] lg:py-[20px] overflow-x-scroll scrollbar-always-visible">
+              <div className={goals.className}>
+                <Image src={goals.img} alt="project goals" fill />
+              </div>
+            </div>
             <Figma href={goals.url}>View the Project Goals</Figma>
           </div>
         </ProjectSubSection>

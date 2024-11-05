@@ -280,50 +280,19 @@ const define: DefineProps = {
       {
         label: "How was your experience when finding restaurants or cafes?",
         map: (
-          <div className="py-[20px] space-x-[50px] flex">
-            <Image
-              src="/resto/affinity-map-1-1.svg"
-              alt="affinity map"
-              width={0}
-              height={0}
-              style={{ width: "auto", height: "500px" }}
-            />
-            <Image
-              src="/resto/affinity-map-1-2.svg"
-              alt="affinity map"
-              width={0}
-              height={0}
-              style={{ width: "auto", height: "500px" }}
-            />
+          <div className="py-[2.56vw] lg:py-[20px] overflow-x-scroll">
+            <div className="w-[133.84vw] h-[76.92vw] lg:w-full lg:h-[545px] relative">
+              <Image src="/resto/affinity-map-1.svg" alt="affinity map" fill />
+            </div>
           </div>
         ),
       },
       {
         label: "What criteria do you use when selecting restaurants?",
         map: (
-          <div className="pb-[20px]">
-            <div className="pt-[20px] pb-[40px] space-x-[25px] flex overflow-x-scroll">
-              <Image
-                src="/resto/affinity-map-2-1.svg"
-                alt="affinity map"
-                width={0}
-                height={0}
-                style={{ width: "auto", height: "500px" }}
-              />
-              <Image
-                src="/resto/affinity-map-2-2.svg"
-                alt="affinity map"
-                width={0}
-                height={0}
-                style={{ width: "auto", height: "500px" }}
-              />
-              <Image
-                src="/resto/affinity-map-2-3.svg"
-                alt="affinity map"
-                width={0}
-                height={0}
-                style={{ width: "auto", height: "500px" }}
-              />
+          <div className="py-[5.13vw] lg:py-[20px] overflow-x-scroll">
+            <div className="w-[184.30vw] h-[76.92vw] lg:w-[1422px] lg:h-[628px] relative">
+              <Image src="/resto/affinity-map-2.svg" alt="affinity map" fill />
             </div>
           </div>
         ),
@@ -403,6 +372,7 @@ const define: DefineProps = {
     desc: "As a step to generate ideas to solve the personas' problems, I mapped out project goals based on the research findings.",
     img: "/resto/project-goals.svg",
     url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1-278&t=6g8QSShYxUqXAJml-1",
+    className: "w-[101.11vw] h-[102.56vw] lg:w-[1000px] lg:h-[1014px] relative",
   },
 };
 
@@ -485,6 +455,7 @@ const ideate: IdeateProps = {
     desc: "Based on the results of the card sort, I designed the app's structure and created a sitemap while referring to the research, which showed that travelers tend to struggle with searching for restaurants and managing reservations.",
     img: "/resto/sitemap.svg",
     url: "https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=35-1840&t=Rh2UA7lbJbDJRhGN-1",
+    className: "w-[137.95vw] h-[102.56vw] lg:w-[1000px] lg:h-[703px] relative",
   },
   refine: {
     desc: "I created two task flows to clarify the steps necessary for users to achieve specific goals and promote a user-friendly approach.",
@@ -493,11 +464,13 @@ const ideate: IdeateProps = {
         label:
           "Discover restaurants or cafes and make reservations those tailored to your preferences",
         img: "/resto/user-flow-1.svg",
+        className: "w-[161.28vw] h-[33.33vw] lg:w-[1000px] lg:h-[213px] relative",
       },
       {
         label:
           "Check the reservations and the saved restaurants to plan your dining schedule during the trip",
         img: "/resto/user-flow-2.svg",
+        className: "w-[161.03vw] h-[51.28vw] lg:w-[1000px] lg:h-[312px] relative",
       },
     ],
     url: "https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=42-8803&t=Rh2UA7lbJbDJRhGN-1",
@@ -505,11 +478,8 @@ const ideate: IdeateProps = {
   map: {
     desc: "I created a user flow to understand user needs and identify potential issues or confusing elements that are related to “search” and “reservations”.",
     label: "Discover restaurants or cafes and make reservations",
-    img: (
-      <div className="py-[20px] w-[4626px] h-[875px] relative">
-        <Image src="/resto/task-flow.svg" alt="task flow" fill />
-      </div>
-    ),
+    img: "/resto/task-flow.svg",
+    className: "w-[677.80vw] h-[128.21vw] lg:w-[4626px] lg:h-[875px] relative",
     url: "https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=80-1978&t=Rh2UA7lbJbDJRhGN-1",
   },
 };

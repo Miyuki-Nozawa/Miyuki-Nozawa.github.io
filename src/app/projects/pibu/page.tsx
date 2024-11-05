@@ -339,6 +339,7 @@ const define: DefineProps = {
     desc: "As a step to generate ideas to solve the personas’ problems, I mapped out project goals based on the research findings.",
     img: "/pibu/project-goals.svg",
     url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1-278&t=6g8QSShYxUqXAJml-1",
+    className: "w-[101.11vw] h-[102.56vw] lg:w-[1000px] lg:h-[1014px] relative",
   },
 };
 
@@ -410,6 +411,7 @@ const ideate: IdeateProps = {
     desc: "Based on the results of the card sort, I created a sitemap for the website structure. Since users expect to see not only products but also categories like skin type and skin concerns as part of the products, the structure was designed to ensure easy access to detailed information from the shop section.",
     img: "/pibu/sitemap.svg",
     url: "https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=35-1840&t=Rh2UA7lbJbDJRhGN-1",
+    className: "w-[137.95vw] h-[102.56vw] lg:w-[1000px] lg:h-[703px] relative",
   },
   refine: {
     desc: "I created two task flows to clarify the steps necessary for users to achieve specific goals and promote a user-friendly approach.",
@@ -417,10 +419,14 @@ const ideate: IdeateProps = {
       {
         label: "Identify your skin type",
         img: "/pibu/user-flow-1.svg",
+        className:
+          "w-[161.28vw] h-[33.33vw] lg:w-[1000px] lg:h-[213px] relative",
       },
       {
         label: "Purchase the right products for your skin type",
         img: "/pibu/user-flow-2.svg",
+        className:
+          "w-[161.03vw] h-[51.28vw] lg:w-[1000px] lg:h-[312px] relative",
       },
     ],
     url: "https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=42-8803&t=Rh2UA7lbJbDJRhGN-1",
@@ -428,11 +434,8 @@ const ideate: IdeateProps = {
   map: {
     desc: "To understand user needs and identify potential issues or confusing elements, I created a user flow.",
     label: "Purchase the right products for your skin type",
-    img: (
-      <div className="py-[20px] w-[4723px] h-[1113px] relative">
-        <Image src="/pibu/task-flow.svg" alt="task flow" fill />
-      </div>
-    ),
+    img: "/pibu/task-flow.svg",
+    className: "py-[20px] w-[4723px] h-[1113px] relative",
     url: "https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=80-1978&t=Rh2UA7lbJbDJRhGN-1",
   },
 };

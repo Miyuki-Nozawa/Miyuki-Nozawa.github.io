@@ -15,6 +15,7 @@ export type IdeateProps = {
     desc: string;
     img: string;
     url: string;
+    className: string;
   };
   refine?: {
     desc: string;
@@ -24,8 +25,9 @@ export type IdeateProps = {
   map?: {
     desc: string;
     label: string;
-    img: React.ReactNode;
+    img: string;
     url: string;
+    className: string;
   };
   taskFlow?: {
     desc: string;
@@ -44,6 +46,7 @@ export type IdeateProps = {
 type Flow = {
   label: string;
   img: string;
+  className: string;
 };
 
 export default forwardRef(function Ideate(
@@ -62,13 +65,11 @@ export default forwardRef(function Ideate(
           <ProjectSubSection title="Designing the App Structure with a Sitemap">
             <Paragraph>{sitemap.desc}</Paragraph>
             <div className="space-y-[30px]">
-              <Image
-                src={sitemap.img}
-                alt="sitemap"
-                width={0}
-                height={0}
-                style={{ width: "100%", height: "auto" }}
-              />
+              <div className="overflow-x-scroll scrollbar-always-visible">
+                <div className={sitemap.className}>
+                  <Image src={sitemap.img} alt="sitemap" fill />
+                </div>
+              </div>
               <Figma href={sitemap.url}>View the Sitemap</Figma>
             </div>
           </ProjectSubSection>
@@ -78,7 +79,7 @@ export default forwardRef(function Ideate(
             <Paragraph>{refine.desc}</Paragraph>
             <div className="py-[2.6vw] lg:py-[20px] space-y-[5.1vw] lg:space-y-[30px]">
               <div className="space-y-[5.1vw] lg:space-y-[50px]">
-                {refine.flows.map(({ label, img }, i) => (
+                {refine.flows.map(({ label, img, className }, i) => (
                   <div
                     key={i}
                     className="py-[2.6vw] lg:py-[20px] space-y-[2.6vw] lg:space-y-[30px]"
@@ -95,14 +96,10 @@ export default forwardRef(function Ideate(
                         {label}
                       </span>
                     </div>
-                    <div className="py-[2.6vw] lg:py-[20px]">
-                      <Image
-                        src={img}
-                        alt="user flow"
-                        width={0}
-                        height={0}
-                        style={{ width: "100%", height: "auto" }}
-                      />
+                    <div className="py-[5.13vw] lg:py-[20px] overflow-x-scroll scrollbar-always-visible">
+                      <div className={className}>
+                        <Image src={img} alt="user flow" fill />
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -129,7 +126,9 @@ export default forwardRef(function Ideate(
                   </span>
                 </div>
                 <div className="pb-[5.1vw] lg:pb-[30px] overflow-x-scroll scrollbar-always-visible">
-                  {map.img}
+                  <div className={map.className}>
+                    <Image src={map.img} alt="user flow" fill />
+                  </div>
                 </div>
               </div>
               <Figma href={map.url}>View the User Flow</Figma>
@@ -180,7 +179,7 @@ export default forwardRef(function Ideate(
                   {userFlow.label}
                 </span>
               </div>
-              <div className="pt-[2.6vw] pb-[5.1vw] lg:pt-[20px] lg:pb-[30px] overflow-x-scroll">
+              <div className="pt-[2.6vw] pb-[5.1vw] lg:pt-[20px] lg:pb-[30px] overflow-x-scroll scrollbar-always-visible">
                 <div className="w-[2346px] h-[625px]">
                   <Image
                     src={userFlow.img}
