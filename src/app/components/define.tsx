@@ -57,7 +57,7 @@ export default forwardRef(function Define(
       <ProjectSection title="Define">
         <ProjectSubSection title="Gaining a Deeper Understanding of User Needs and Pain Points">
           <Paragraph>{affinity.desc}</Paragraph>
-          <div className="space-y-[5.1vw] lg:space-y-[30px]">
+          <div className="py-[5.13vw] space-y-[5.1vw] lg:space-y-[30px]">
             {affinity.maps.map(({ label, map }, i) => (
               <div
                 key={i}

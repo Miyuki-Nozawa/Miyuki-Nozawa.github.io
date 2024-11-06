@@ -13,7 +13,7 @@ export default function KeySection({
     <StarSection title={title}>
       <div
         className={
-          "py-[2.5vw] lg:py-[20px] flex flex-col lg:flex-row lg:flex-wrap gap-y-[2.5vw] " +
+          "pt-[5.13vw] lg:pt-[20px] flex flex-col lg:flex-row lg:flex-wrap gap-y-[2.5vw] " +
           "lg:gap-y-[24px] lg:justify-between"
         }
       >

@@ -196,6 +196,7 @@ const research: ResearchProps = {
           response: "“I have no idea how much mileage I’ve accumulated.”",
           avatar: "/avatars/participant-2.svg",
           name: "Participant 2",
+          mirror: true,
         },
       ],
     },
@@ -222,6 +223,7 @@ const research: ResearchProps = {
             "“Redeeming mileage was a bit challenging because the website design is not good and complicates the process.”",
           avatar: "/avatars/participant-4.svg",
           name: "Participant 2",
+          mirror: true,
         },
       ],
     },
@@ -247,6 +249,7 @@ const research: ResearchProps = {
             "“It is difficult to see where the mileage is displayed, it would be nice if it was next to the name.” ",
           avatar: "/avatars/participant-2.svg",
           name: "Participant 2",
+          mirror: true,
         },
       ],
     },
@@ -401,39 +404,41 @@ const ideate: IdeateProps = {
     desc: "I brainstormed key features that address the intersection of business and user goals, while also considering technical feasibility to ensure both are met.",
     content: (
       <>
-        <div className="py-[20px] flex justify-between">
-          <div className="px-[20px] space-x-[20px] flex">
+        <div className="py-[20px] space-y-[5.1vw] lg:flex lg:space-x-[30px] lg:space-y-0">
+          <div className="px-[1.4vw] lg:px-[20px] lg:space-x-[20px] flex justify-between">
             <Image
               src="/avatars/user-needs.svg"
               alt="avatar"
               width={100}
               height={100}
-              className="mt-auto"
+              className="mt-auto w-[12.8vw] h-[12.8vw] lg:w-[100px] lg:h-[100px]"
             />
             <Image
-              src="/korean-air/speech-bubble.svg"
+              src="/resto/speech-bubble.svg"
               alt="speech"
               width={0}
               height={0}
-              style={{ width: "auto", height: "100%" }}
+              className="w-[51.3vw] h-[37.7vw] lg:w-[325px] lg:h-[248px]"
             />
           </div>
-          <div className="py-[20px] space-y-[30px] max-w-[462px]">
+          <div className="py-[2.5vw] lg:py-[20px] space-y-[2.5vw] lg:space-y-[30px] lg:max-w-[462px]">
             {[
               "Simplify the explanation about the mileage program",
               "Category icons for redemption options",
               "Mileage redemption info in my page",
               "Display mileage count on a booking calendar",
             ].map((label, i) => (
-              <div key={i} className="flex space-x-[10px]">
+              <div key={i} className="flex space-x-[2.1vw] lg:space-x-[10px]">
                 <Image
                   alt="feature"
                   src="/icons/brown-diamond-2.svg"
                   width={27}
                   height={27}
-                  className="mb-auto"
+                  className="mb-auto w-[4.62vw] h-[4.62vw] lg:w-[27px] lg:h-[27px]"
                 />
-                <span className="text-[18px] tracking-[.01em]">{label}</span>
+                <span className="text-[3.6vw] lg:text-[18px] tracking-[.01em]">
+                  {label}
+                </span>
               </div>
             ))}
           </div>
@@ -490,7 +495,7 @@ const prototype: PrototypeProps = {
   tests: {
     desc: (
       <Paragraph>
-        After creating the mid-fidelity wireframes, I conducted a quick
+        After creating the mid-fidelity wireframes, I conducted a quick{" "}
         <b>usability test</b> with <b>3 participants</b> to check if users
         understood the design layout and whether they found the interface easier
         to use than the original Korean Air design.

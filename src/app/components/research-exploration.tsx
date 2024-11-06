@@ -90,7 +90,7 @@ export default function ResearchExploration({
             </div>
             <Paragraph>{usabilityTesting.desc}</Paragraph>
           </div>
-          <div className="py-[50px] space-y-[2.5vw] lg:space-y-[30px]">
+          <div className="py-[2.5vw] lg:py-[50px] space-y-[2.5vw] lg:space-y-[30px]">
             {usabilityTesting.questions.map(
               ({ question, response, avatar, name, mirror }, i) => (
                 <QuestionResponse
