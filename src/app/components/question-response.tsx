@@ -53,7 +53,10 @@ export default function QuestionResponse({
               alt="avatar"
               width={37}
               height={40}
-              className="lg:w-[74px] lg:h-[80px] mx-auto"
+              className={
+                "lg:w-[74px] lg:h-[80px] mx-auto " +
+                (mirror ? "scale-x-[-1]" : "")
+              }
             />
           </div>
           <div className="text-[2.6vw] lg:text-[14px] font-normal tracking-[.01em] whitespace-nowrap">

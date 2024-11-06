@@ -73,7 +73,9 @@ export default function TaskFlowCard({
           </div>
         ))}
       </div>
-      <Down sm />
+      <div className="my-[5.13vw] lg:my-0">
+        <Down sm />
+      </div>
       <div className="space-y-[2.05vw] lg:space-y-[10px] mx-auto">
         {conclusions.map((conclusion) => (
           <div

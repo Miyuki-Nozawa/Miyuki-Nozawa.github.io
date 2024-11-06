@@ -117,7 +117,7 @@ export default forwardRef(function Define(
         </ProjectSubSection>
         <ProjectSubSection title="Establishing Balanced Goals for Project Success">
           <Paragraph>{goals.desc}</Paragraph>
-          <div className="py-[2.56vw] lg:py-[20px] space-y-[3.8vw] lg:space-y-[30px]">
+          <div className="py-[2.56vw] lg:py-[20px] space-y-[5.13vw] lg:space-y-[30px]">
             <div className="py-[5.13vw] lg:py-[20px] overflow-x-scroll scrollbar-always-visible">
               <div className={goals.className}>
                 <Image src={goals.img} alt="project goals" fill />

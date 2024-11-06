@@ -103,7 +103,7 @@ export default forwardRef(function Prototype(
                     />
                     {exploring.lofi.descs && (
                       <div
-                        className={`text-[18px] tracking-[.01em] ${exploring.lofi.descClass}`}
+                        className={`text-[2.6vw] lg:text-[18px] tracking-[.01em] ${exploring.lofi.descClass}`}
                       >
                         {exploring.lofi.descs[i]}
                       </div>

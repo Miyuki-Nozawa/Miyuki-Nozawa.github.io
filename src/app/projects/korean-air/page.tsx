@@ -280,63 +280,26 @@ const define: DefineProps = {
       {
         label: "What do you want to do with your mileage or points?",
         map: (
-          <div className="py-[20px] space-x-[50px] flex">
-            <Image
-              src="/korean-air/affinity-map-1-1.svg"
-              alt="affinity map"
-              width={0}
-              height={0}
-              style={{ width: "auto", height: "455px" }}
-            />
-            <Image
-              src="/korean-air/affinity-map-1-2.svg"
-              alt="affinity map"
-              width={0}
-              height={0}
-              style={{ width: "auto", height: "455px" }}
-            />
-            <Image
-              src="/korean-air/affinity-map-1-3.svg"
-              alt="affinity map"
-              width={0}
-              height={0}
-              style={{ width: "auto", height: "455px" }}
-            />
+          <div className="py-[2.56vw] lg:py-[20px] overflow-x-scroll">
+            <div className="w-[118.68vw] h-[76.92vw] lg:w-full lg:h-[545px] relative">
+              <Image
+                src="/korean-air/affinity-map-1.svg"
+                alt="affinity map"
+                fill
+              />
+            </div>
           </div>
         ),
       },
       {
         label: "Pain points when using the Korean Air website",
         map: (
-          <div className="pb-[20px]">
-            <div className="py-[20px] space-x-[50px] flex">
+          <div className="py-[2.56vw] lg:py-[20px] overflow-x-scroll">
+            <div className="w-[127.47vw] h-[94.84vw] lg:w-full lg:h-[545px] relative">
               <Image
-                src="/korean-air/affinity-map-2-1.svg"
+                src="/korean-air/affinity-map-2.svg"
                 alt="affinity map"
-                width={0}
-                height={0}
-                style={{ width: "auto", height: "560px" }}
-              />
-              <Image
-                src="/korean-air/affinity-map-2-2.svg"
-                alt="affinity map"
-                width={0}
-                height={0}
-                style={{ width: "auto", height: "560px" }}
-              />
-              <Image
-                src="/korean-air/affinity-map-2-3.svg"
-                alt="affinity map"
-                width={0}
-                height={0}
-                style={{ width: "auto", height: "560px" }}
-              />
-              <Image
-                src="/korean-air/affinity-map-2-4.svg"
-                alt="affinity map"
-                width={0}
-                height={0}
-                style={{ width: "auto", height: "560px" }}
+                fill
               />
             </div>
           </div>
@@ -450,12 +413,14 @@ const ideate: IdeateProps = {
     desc: "I created a task flow to clarify the steps necessary for the persona to achieve her goals and ensure a user-friendly experience.",
     label: "Check the required mileage for exchanging award tickets",
     img: "/korean-air/task-flow.svg",
+    className: "w-[161.28vw] h-[33.33vw] lg:w-[1000px] lg:h-[213px] relative",
     url: "https://www.figma.com/board/reZSsCdxDbS1QbXJlNEqFR/Capstone-1---Adding-a-Feature?node-id=78-2052&t=kbOQafEoUowSmyvq-1",
   },
   userFlow: {
     desc: "To understand user needs and identify potential issues or confusing elements, I created a task flow.",
     label: "Check the required mileage for exchanging award tickets",
     img: "/korean-air/user-flow.svg",
+    className: "w-[362vw] h-[96.44vw] lg:w-[2346px] lg:h-[625px] relative",
     url: "https://www.figma.com/board/reZSsCdxDbS1QbXJlNEqFR/Capstone-1---Adding-a-Feature?node-id=30-430&t=kbOQafEoUowSmyvq-1",
   },
 };
@@ -474,7 +439,7 @@ const prototype: PrototypeProps = {
         "Display what the miles can be redeemed for and how many miles are needed in graphs",
         "Below the accumulated mileage number, display mileage redemption options",
       ],
-      descClass: "max-w-[300px]",
+      descClass: "max-w-[197px] lg:max-w-[300px]",
       default: [300, 215],
       desktop: "lg:w-[300px] lg:h-[215px]",
       mobile: "w-[197px] h-[130px]",

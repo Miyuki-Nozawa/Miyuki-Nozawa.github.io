@@ -34,12 +34,14 @@ export type IdeateProps = {
     label: string;
     img: string;
     url: string;
+    className: string;
   };
   userFlow?: {
     desc: string;
     label: string;
     img: string;
     url: string;
+    className: string;
   };
 };
 
@@ -138,8 +140,8 @@ export default forwardRef(function Ideate(
         {taskFlow && (
           <ProjectSubSection title="Task Flow: Refining Key Design Decisions">
             <Paragraph>{taskFlow.desc}</Paragraph>
-            <div className="py-[20px] space-y-[30px]">
-              <div className="flex space-x-[10px]">
+            <div className="py-[2.56vw] lg:py-[20px] space-y-[5.13vw] lg:space-y-[30px]">
+              <div className="flex space-x-[2.1vw] lg:space-x-[10px]">
                 <Image
                   src="/icons/star-brown.svg"
                   alt="star"
@@ -151,14 +153,10 @@ export default forwardRef(function Ideate(
                   {taskFlow.label}
                 </span>
               </div>
-              <div className="py-[2.6vw] lg:py-[20px]">
-                <Image
-                  src={taskFlow.img}
-                  alt="task flow"
-                  width={0}
-                  height={0}
-                  style={{ width: "100%", height: "auto" }}
-                />
+              <div className="py-[5.13vw] lg:py-[20px] overflow-x-scroll scrollbar-always-visible">
+                <div className={taskFlow.className}>
+                  <Image src={taskFlow.img} alt="task flow" fill />
+                </div>
               </div>
               <Figma href={taskFlow.url}>View the Task Flow</Figma>
             </div>
@@ -179,14 +177,9 @@ export default forwardRef(function Ideate(
                   {userFlow.label}
                 </span>
               </div>
-              <div className="pt-[2.6vw] pb-[5.1vw] lg:pt-[20px] lg:pb-[30px] overflow-x-scroll scrollbar-always-visible">
-                <div className="w-[2346px] h-[625px]">
-                  <Image
-                    src={userFlow.img}
-                    alt="user flow"
-                    width={2346}
-                    height={625}
-                  />
+              <div className="py-[5.13vw] lg:py-[20px] overflow-x-scroll scrollbar-always-visible">
+                <div className={userFlow.className}>
+                  <Image src={userFlow.img} alt="user flow" fill />
                 </div>
               </div>
               <Figma href={userFlow.url}>View the User Flow</Figma>
