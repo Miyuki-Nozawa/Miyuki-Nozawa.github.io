@@ -69,14 +69,14 @@ export default function Final({
   const mobileClass = "space-y-[5.12vw]";
 
   const lgClass =
-    "lg:flex lg:items-center lg:space-y-0 " +
-    (wide ? "lg:space-x-[30px] " : vertical ? "" : "lg:space-x-[80px] ") +
-    (vertical ? "lg:flex-col lg:space-y-[50px] " : "lg:flex-row");
+    "lg:flex lg:items-center lg:gap-y-0 lg:space-y-0 " +
+    (wide ? "lg:gap-x-[30px] " : vertical ? "" : "lg:gap-x-[80px] ") +
+    (vertical ? "lg:flex-col lg:gap-y-[50px] " : "lg:flex-row");
 
   return (
     <div className={`${mobileClass} ${lgClass}`}>
       <div className="lg:hidden">{media}</div>
-      <div className="hidden lg:block lg:flex-shrink-0">{!mirror && media}</div>
+      {!mirror && <div className="hidden lg:block lg:flex-shrink-0">{media}</div>}
       <div
         className={`${
           vertical ? "w-full" : ""
@@ -102,7 +102,9 @@ export default function Final({
           ))}
         </div>
       </div>
-      <div className="hidden lg:block lg:flex-shrink-0">{mirror && media}</div>
+      {mirror && (
+        <div className="hidden lg:block lg:flex-shrink-0">{media}</div>
+      )}
     </div>
   );
 }
