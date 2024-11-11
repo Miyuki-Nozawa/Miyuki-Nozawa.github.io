@@ -13,8 +13,8 @@ export default function KeySection({
     <StarSection title={title}>
       <div
         className={
-          "pt-[5.13vw] lg:pt-[20px] flex flex-col lg:flex-row lg:flex-wrap gap-y-[2.5vw] " +
-          "lg:gap-y-[24px] lg:justify-between"
+          "flex flex-col pt-[5.13vw] gap-y-[2.5vw] " +
+          "lg:flex-row lg:pt-[20px] lg:gap-y-[24px] lg:flex-wrap lg:justify-between"
         }
       >
         {cards.map(({ icon, label, sublabel, centered }, i) => (

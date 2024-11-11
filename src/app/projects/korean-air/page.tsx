@@ -255,17 +255,22 @@ const research: ResearchProps = {
     },
     findings: [
       {
-        icon: "/icons/gift.svg",
+        icon: "/icons/gift-2.svg",
         label: "Redeeming miles for flight tickets",
         sublabel: "is the most popular way to use the mileage",
       },
       {
-        icon: "/icons/book-2.svg",
+        icon: "/icons/research-2.svg",
+        label: "Restaurant search methods",
+        sublabel: "vary by age group",
+      },
+      {
+        icon: "/icons/book-3.svg",
         label: "Understanding the mileage system",
         sublabel: "is difficult for users",
       },
       {
-        icon: "/icons/file.svg",
+        icon: "/icons/file-2.svg",
         label: "Mileage display on Korean Air website",
         sublabel: "can cause confusion",
       },
