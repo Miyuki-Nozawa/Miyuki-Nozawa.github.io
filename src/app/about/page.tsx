@@ -44,7 +44,7 @@ export default function About() {
           Hello.
           <br />
           My name is Miyuki Nozawa.
-          <br />I am a UX/UI designer based in New York.
+          <br />I am a Product Designer based in New York.
         </div>
         <AboutSection title="My Background">
           <Paragraph>

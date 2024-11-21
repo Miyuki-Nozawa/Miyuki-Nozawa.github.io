@@ -134,7 +134,7 @@ export default function Nav() {
           {generateNavLink("/#work", "Work")}
           {generateNavLink("/about", "About")}
           {generateNavLink(
-            "https://drive.google.com/file/d/1yQAmS53BZt76VrnzwTMF22o4CABhC1IJ/view?usp=sharing",
+            "https://drive.google.com/file/d/1jklEDqHkPSd1TwSWxEKTRjrvFd8HDATX/view",
             "Resume",
             true
           )}
@@ -193,7 +193,6 @@ export default function Nav() {
             </div>
           )}
         </div>
-        {generateMobileNavLink("/resume", "Resume")}
       </div>
     </div>
   );

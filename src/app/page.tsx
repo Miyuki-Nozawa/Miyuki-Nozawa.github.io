@@ -29,7 +29,7 @@ export default function Home() {
               Miyuki Nozawa
             </div>
             <div className="font-bold text-[6.4vw] lg:text-[46px] lg:leading-[69px] tracking-[.01em]">
-              UX/UI designer
+              Product Designer
             </div>
           </div>
           <div className="pt-[2vw] lg:pt-0 lg:py-[30px] font-medium text-[4.6vw] lg:text-[36px] lg:leading-[54px] tracking-[.01em] text-[#222222] text-left">
