@@ -1,29 +1,27 @@
 import KeySection from "@/app/components/key-section";
 import Paragraph from "@/app/components/paragraph";
-import QuestionResponse from "@/app/components/question-response";
+import Comments from "@/app/components/comments";
 import { KeyCardT } from "@/types";
 
 export type ResearchExplorationProps = {
   survey: {
     desc: React.ReactNode;
-    questions: QuestionResponseT;
+    comments: CommentsT;
   };
-  userInterview: {
+  userInterview?: {
     desc: React.ReactNode;
-    questions: QuestionResponseT;
+    comments: CommentsT;
   };
   usabilityTesting?: {
     desc: React.ReactNode;
-    questions: QuestionResponseT;
+    comments: CommentsT;
   };
   findings: KeyCardT;
 };
 
-type QuestionResponseT = {
-  question?: string;
-  response: string;
+type CommentsT = {
+  comment: string;
   avatar: string;
-  name: string;
   mirror?: boolean;
 }[];
 
@@ -35,52 +33,42 @@ export default function ResearchExploration({
 }: ResearchExplorationProps) {
   return (
     <div className="space-y-[20px] lg:space-y-[50px]">
-      {/* survey */}
       <div className="space-y-[2.5vw] lg:space-y-[30px]">
-        <div className="space-y-[2.5vw] lg:space-y-[10px]">
-          <div className="text-[4.1vw] lg:text-[27px] font-semibold tracking-[.01em]">
-            Survey
-          </div>
-          {survey.desc}
-        </div>
+        <div className="space-y-[2.5vw] lg:space-y-[10px]">{survey.desc}</div>
         <div className="py-[2.5vw] lg:py-[50px] space-y-[2.5vw] lg:space-y-[30px]">
-          {survey.questions.map(
-            ({ question, response, avatar, name, mirror }, i) => (
-              <QuestionResponse
-                key={i}
-                question={question}
-                response={response}
-                avatar={avatar}
-                name={name}
-                mirror={mirror}
-              />
-            )
-          )}
+          {survey.comments.map(({ comment, avatar, mirror }, i) => (
+            <Comments
+              key={i}
+              comment={comment}
+              avatar={avatar}
+              mirror={mirror}
+            />
+          ))}
         </div>
       </div>
       {/* user interview */}
-      <div className="space-y-[2.5vw] lg:space-y-[30px]">
-        <div className="space-y-[2.5vw] lg:space-y-[10px]">
-          <div className="text-[4.1vw] lg:text-[27px] font-semibold tracking-[.01em]">
-            User Interview
+      {userInterview && (
+        <div className="space-y-[2.5vw] lg:space-y-[30px]">
+          <div className="space-y-[2.5vw] lg:space-y-[10px]">
+            <div className="text-[4.1vw] lg:text-[27px] font-semibold tracking-[.01em]">
+              User Interview
+            </div>
+            <Paragraph>{userInterview.desc}</Paragraph>
           </div>
-          <Paragraph>{userInterview.desc}</Paragraph>
+          <div className="py-[2.5vw] lg:py-[50px] space-y-[2.5vw] lg:space-y-[30px]">
+            {userInterview.comments.map(
+              ({ comment: response, avatar, mirror }, i) => (
+                <Comments
+                  key={i}
+                  comment={response}
+                  avatar={avatar}
+                  mirror={mirror}
+                />
+              )
+            )}
+          </div>
         </div>
-        <div className="py-[2.5vw] lg:py-[50px] space-y-[2.5vw] lg:space-y-[30px]">
-          {userInterview.questions.map(
-            ({ question, response, avatar, name, mirror }, i) => (
-              <QuestionResponse
-                key={i}
-                question={question}
-                response={response}
-                avatar={avatar}
-                name={name}
-                mirror={mirror}
-              />
-            )
-          )}
-        </div>
-      </div>
+      )}
       {/* usability testing */}
       {usabilityTesting && (
         <>
@@ -91,14 +79,12 @@ export default function ResearchExploration({
             <Paragraph>{usabilityTesting.desc}</Paragraph>
           </div>
           <div className="py-[2.5vw] lg:py-[50px] space-y-[2.5vw] lg:space-y-[30px]">
-            {usabilityTesting.questions.map(
-              ({ question, response, avatar, name, mirror }, i) => (
-                <QuestionResponse
+            {usabilityTesting.comments.map(
+              ({ comment: response, avatar, mirror }, i) => (
+                <Comments
                   key={i}
-                  question={question}
-                  response={response}
+                  comment={response}
                   avatar={avatar}
-                  name={name}
                   mirror={mirror}
                 />
               )

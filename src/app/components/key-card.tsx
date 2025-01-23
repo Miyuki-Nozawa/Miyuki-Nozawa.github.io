@@ -39,7 +39,7 @@ export default function KeyCard({
             {label}
           </div>
           {sublabel && (
-            <div className="text-[3.1vw] lg:text-[18px] tracking-[.01em]">
+            <div className="text-[3.1vw] lg:text-[16px] tracking-[.01em]">
               {sublabel}
             </div>
           )}

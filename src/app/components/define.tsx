@@ -18,8 +18,8 @@ export type DefineProps = {
     findings: KeyCardT;
   };
   personas: {
-    desc: string;
-    personas: Persona[];
+    desc: string | React.ReactNode;
+    personas: string[];
     url: string;
   };
   exploring: {
@@ -28,7 +28,7 @@ export type DefineProps = {
     hmwQuestion: string;
     summary: string;
   };
-  goals: {
+  goals?: {
     desc: string;
     img: string;
     url: string;
@@ -79,27 +79,15 @@ export default forwardRef(function Define(
         <ProjectSubSection title="Transforming Insights into Personas">
           <Paragraph>{personas.desc}</Paragraph>
           <div className="space-y-[2.6vw] lg:space-y-[20px]">
-            {personas.personas.map(({ name, desc, image }, i) => (
-              <div
+            {personas.personas.map((image, i) => (
+              <Image
                 key={i}
-                className="space-y-[2.6vw] lg:space-y-[30px] pb-[2.5vw] lg:pb-[20px]"
-              >
-                <div className="space-y-[2.6vw] lg:space-y-[10px]">
-                  <div className="text-[4.1vw] lg:text-[22px] font-semibold lg:font-medium tracking-[.01em]">
-                    {name}
-                  </div>
-                  {desc}
-                </div>
-                <div className="py-[2.5vw] lg:py-[10px]">
-                  <Image
-                    src={image}
-                    alt="persona"
-                    width={1000}
-                    height={984}
-                    className="rounded-[10px] lg:rounded-[20px]"
-                  />
-                </div>
-              </div>
+                src={image}
+                alt="persona"
+                width={1000}
+                height={984}
+                className="rounded-[10px] lg:rounded-[20px]"
+              />
             ))}
           </div>
           <Figma href={personas.url}>View the Personas</Figma>
@@ -115,17 +103,19 @@ export default forwardRef(function Define(
             {exploring.hmwQuestion}
           </OutlinedCard>
         </ProjectSubSection>
-        <ProjectSubSection title="Establishing Balanced Goals for Project Success">
-          <Paragraph>{goals.desc}</Paragraph>
-          <div className="py-[2.56vw] lg:py-[20px] space-y-[5.13vw] lg:space-y-[30px]">
-            <div className="py-[5.13vw] lg:py-[20px] overflow-x-scroll scrollbar-always-visible">
-              <div className={goals.className}>
-                <Image src={goals.img} alt="project goals" fill />
+        {goals && (
+          <ProjectSubSection title="Establishing Balanced Goals for Project Success">
+            <Paragraph>{goals.desc}</Paragraph>
+            <div className="py-[2.56vw] lg:py-[20px] space-y-[5.13vw] lg:space-y-[30px]">
+              <div className="py-[5.13vw] lg:py-[20px] overflow-x-scroll scrollbar-always-visible">
+                <div className={goals.className}>
+                  <Image src={goals.img} alt="project goals" fill />
+                </div>
               </div>
+              <Figma href={goals.url}>View the Project Goals</Figma>
             </div>
-            <Figma href={goals.url}>View the Project Goals</Figma>
-          </div>
-        </ProjectSubSection>
+          </ProjectSubSection>
+        )}
       </ProjectSection>
     </div>
   );

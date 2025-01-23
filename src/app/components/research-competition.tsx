@@ -3,8 +3,8 @@ import Paragraph from "@/app/components/paragraph";
 import { KeyCardT } from "@/types";
 
 export type ResearchCompetitionProps = {
-  desc: string;
-  notes: string[];
+  desc: string | React.ReactNode;
+  notes: string[] | React.ReactNode[];
   features: KeyCardT;
   children: React.ReactNode;
 };

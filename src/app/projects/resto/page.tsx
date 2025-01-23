@@ -4,8 +4,6 @@ import Image from "next/image";
 
 import Button from "@/app/components/button";
 import ColorRow from "@/app/components/color-row";
-import Competitor from "@/app/components/competitor";
-import Down from "@/app/components/down";
 import MoodboardCard from "@/app/components/moodboard-card";
 import Paragraph from "@/app/components/paragraph";
 import Project from "@/app/components/project";
@@ -82,12 +80,34 @@ const hero: HeroProps = {
 };
 
 const introduction: IntroductionProps = {
-  background:
-    "After the pandemic, travel has become more accessible, allowing many people to explore various countries. According to a World Economic Forum report, Japan is one of the best tourist destinations for 2024, with 9.62 million foreign tourists visiting in 2023. Many people look forward to experiencing Japan's food culture, but for those unfamiliar with the language and culture, finding and booking suitable restaurants or cafes can be challenging. Additionally, organizing all the reservations and saved restaurants across different apps can be disorganized and sometimes difficult.",
-  problems:
-    "Travelers often face difficulties in discovering suitable restaurants in Japan and managing their reservations efficiently.",
-  solutions:
-    "Developing an app that allows travelers to search for restaurants that match their preferences and manage reservations easily, without being hindered by language barriers.",
+  background: (
+    <>
+      After the pandemic, travel has become more accessible, allowing many
+      people to explore various countries. According to a World Economic Forum
+      report, <b>Japan is one of the best tourist destinations</b> for 2024,
+      with <b>9.62 million foreign tourists</b> visiting in 2023. Many people
+      look forward to experiencing Japan&apos;s food culture, but for those
+      unfamiliar with the language and culture,{" "}
+      <b>
+        finding and booking suitable restaurants or cafes can be challenging
+      </b>
+      . Additionally, organizing all the reservations and saved restaurants
+      across different apps can be disorganized and sometimes difficult.
+    </>
+  ),
+  problems: (
+    <>
+      Travelers often face difficulties in discovering suitable restaurants in
+      Japan and managing their reservations efficiently.
+    </>
+  ),
+  solutions: (
+    <>
+      Developing an app that allows travelers to search for restaurants that
+      match their preferences and manage reservations easily, without being
+      hindered by language barriers.
+    </>
+  ),
 };
 
 const designProcess: DesignProcessProps = {
@@ -105,18 +125,26 @@ const designProcess: DesignProcessProps = {
 };
 
 const research: ResearchProps = {
-  desc: "Understanding what users prioritize when searching for restaurants as well as their experiences and issues with reservations despite language barriers.",
-  goals: [
-    "Identify what users prioritize in choosing restaurants when traveling",
-    "Understand how people plan their trips and what kind of information is required for them",
-    "Discover the key factors and challenges users face when searching for and selecting restaurants",
-    "Understand how users manage their desired destinations and planned locations",
-  ],
+  desc: (
+    <>
+      Understanding what users prioritize when searching for restaurants, along
+      with their experiences and challenges, including issues with reservations
+      despite language barriers.
+    </>
+  ),
+  goals: [],
   researchCompetition: {
-    desc: "Before diving into the interview, I compared two direct competitors (Japanese reservation apps) and one indirect competitor (a well-known American reservation app) to understand what features are available in existing apps. I compared their target users, focus, and trends to identify which features address specific needs.",
-    notes: [
-      "The direct competitors excel in search and restaurant details but has not focused on the reservation system, making it confusing for users who are not familiar with it. On the other hand, the indirect competitor, an American site, does not provide as detailed restaurant descriptions but has an excellent reservation system and incorporates the latest trends.",
-    ],
+    desc: (
+      <>
+        Before diving into the interview, I compared two direct competitors
+        (Japanese reservation apps) and one indirect competitor (a well-known
+        American reservation app) to understand what features are available in
+        existing apps. The Japanese apps are strong in search and details but
+        have unclear reservation system, while the American app focuses on a
+        smooth, modern reservation process instead of detailed descriptions.
+      </>
+    ),
+    notes: [],
     features: [
       {
         icon: "/icons/calendar.svg",
@@ -140,110 +168,47 @@ const research: ResearchProps = {
       },
     ],
     children: (
-      <div className="py-[2.5vw] lg:py-[20px] space-y-[2.5vw] lg:space-y-0 lg:flex justify-between">
-        <Competitor
-          icon="/resto/gurunavi.svg"
-          name="Gurunavi"
-          desc="A reservation app in Japan"
-          pros={[
-            "For people who are looking for casual restaurants",
-            "Points system",
-            "COVID-19 safety display",
-            "No cancellation fee",
-            "Introduces food-related culture",
-          ]}
-          cons={[
-            "Multiple steps are required to modify reservations",
-            "Only partial English support",
-          ]}
-        />
-        <Competitor
-          icon="/resto/tabelog.svg"
-          name="Tabelog"
-          desc="A reservation app in Japan"
-          pros={[
-            "For people who want to discover new places and want to see reviews",
-            "Occasion based suggestion",
-            "Incorporates user reviews",
-            "Nationwide restaurant listings",
-          ]}
-          cons={[
-            "Only allows booking of course menus",
-            "Multiple steps are required to modify reservations",
-          ]}
-        />
-        <Competitor
-          icon="/resto/resy.svg"
-          name="Resy"
-          desc="A reservation app in the United States"
-          pros={[
-            "For people who want to make reservations and discover new places",
-            "Waiting list (Notification)",
-            "Introducing trendy spots",
-            "Able to send special requests to restaurants",
-          ]}
-          cons={["Cannot make more than one reservation at the same time"]}
-        />
+      <div className="flex space-x-[1.3vw]">
+        {[
+          { src: "/resto/gurunavi.svg", alt: "Gurunavi" },
+          { src: "/resto/tabelog.svg", alt: "Tabelog" },
+          { src: "/resto/resy.svg", alt: "Resy" },
+        ].map(({ src, alt }, i) => (
+          <Image
+            key={i}
+            src={src}
+            alt={alt}
+            width={80}
+            height={80}
+            className="w-[80px] h-[80px]"
+          />
+        ))}
       </div>
     ),
   },
   researchExploration: {
-    title: "Exploring Travel Dining Experiences",
+    title:
+      "Exploring Travel Dining Experiences through Surveys and User Interviews",
     survey: {
       desc: (
         <Paragraph>
-          To understand travelers&apos; interests and priorities regarding the
-          importance of dining and travel planning, I conducted a survey to
-          gather quantitative data from a diverse group of travelers. The survey
-          included <b>17 participants aged 18-34</b>, all of whom had travel
-          experience, with <b>12 having traveled to Japan</b>.
+          To understand travelers’ interests and priorities regarding dining and
+          personal experiences, I conducted <b>surveys with 17 participants</b>{" "}
+          and
+          <b>user interviews with 5 participants</b>, all of whom are interested
+          in traveling to Japan or have previously visited the country.
         </Paragraph>
       ),
-      questions: [
+      comments: [
         {
-          question: "How important is dining out while traveling to you?",
-          response:
+          comment:
             "“Dining at restaurants is a priority, but I want to avoid calling them for reservations due to language barriers.”",
           avatar: "/avatars/participant-1.svg",
-          name: "Participant 1",
         },
         {
-          question: "How do you search for restaurants during your travels?",
-          response:
+          comment:
             "“I decide restaurants based on reviews from locals or Google. I usually want to go to restaurants that are famous among both tourists and locals.”",
           avatar: "/avatars/participant-2.svg",
-          name: "Participant 2",
-          mirror: true,
-        },
-      ],
-    },
-    userInterview: {
-      desc: (
-        <Paragraph>
-          Then, in order to collect qualitative data on users&apos; specific
-          thoughts and personal experiences, I conducted user interviews with{" "}
-          <b>5 participants aged 23-68</b>. To better understand their
-          experiences traveling to Japan and the unique aspects of Japanese
-          culture, I interviewed <b>4 participants who had visited Japan</b> and{" "}
-          <b>1 Japanese participant</b>.
-        </Paragraph>
-      ),
-      questions: [
-        {
-          question:
-            "How was your experience when searching for and deciding on restaurants while traveling in Japan?",
-          response:
-            "“It was difficult because there were too many choices, and I didn’t know how to choose the right one.” ",
-          avatar: "/avatars/participant-3.svg",
-          name: "Participant 1",
-        },
-        {
-          question:
-            "Are there any struggles or difficulties you encounter when managing your restaurant list?",
-          response:
-            "“I wish Google Maps had a filter for location, showing food types or price ranges.”",
-          avatar: "/avatars/participant-4.svg",
-          name: "Participant 2",
           mirror: true,
         },
       ],
@@ -277,16 +242,6 @@ const define: DefineProps = {
   affinity: {
     desc: "I recorded the points and ideas obtained from the surveys and user interviews on individual sticky notes. Then I grouped them by interview topics, further categorized them into patterns, and created an affinity map.",
     maps: [
-      {
-        label: "How was your experience when finding restaurants or cafes?",
-        map: (
-          <div className="py-[2.56vw] lg:py-[20px] overflow-x-scroll">
-            <div className="w-[133.84vw] h-[76.92vw] lg:w-full lg:h-[545px] relative">
-              <Image src="/resto/affinity-map-1.svg" alt="affinity map" fill />
-            </div>
-          </div>
-        ),
-      },
       {
         label: "What criteria do you use when selecting restaurants?",
         map: (
@@ -322,41 +277,13 @@ const define: DefineProps = {
     ],
   },
   personas: {
-    desc: "After conducting research, reviewing the findings, and organizing the data, I created two personas in the early stages of the design process to deepen my understanding of specific users and user needs.",
-    personas: [
-      {
-        name: "Persona 1",
-        desc: (
-          <Paragraph>
-            Matt Kim, a 30-year-old product manager from San Francisco, loves
-            traveling to Japan and exploring local dining spots. He faces
-            challenges due to the <b>language barrier</b>, making it difficult
-            to find and reserve restaurants popular among locals. His main
-            frustrations include the{" "}
-            <b>time-consuming process of translating Japanese information</b>{" "}
-            and the <b>difficulty of making phone reservations</b>.
-          </Paragraph>
-        ),
-        image: "/resto/persona-1.jpeg",
-      },
-      {
-        name: "Persona 2",
-        desc: (
-          <Paragraph>
-            Sarah Laine, a 26-year-old interior designer from New York, is
-            planning her first trip to Japan with friends and is excited to
-            explore Japanese cuisine. She faces challenges{" "}
-            <b>managing and sharing restaurant reservations among her group</b>{" "}
-            and is worried about{" "}
-            <b>keeping track of them amidst a packed schedule</b>. Her goals
-            include{" "}
-            <b>visiting many tourist spots and sticking to their travel plan</b>
-            .
-          </Paragraph>
-        ),
-        image: "/resto/persona-2.jpeg",
-      },
-    ],
+    desc: (
+      <>
+        By gaining insights through surveys, user interviews, and affinity
+        mapping, I created a user persona to highlight key patterns.
+      </>
+    ),
+    personas: ["/resto/persona-1.jpeg"],
     url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=0-1&t=6g8QSShYxUqXAJml-1",
   },
   exploring: {
@@ -368,17 +295,17 @@ const define: DefineProps = {
     hmwQuestion:
       "How might we design a reservation system that easily accommodates people facing language barriers, ensuring smooth booking experiences?",
   },
-  goals: {
-    desc: "As a step to generate ideas to solve the personas' problems, I mapped out project goals based on the research findings.",
-    img: "/resto/project-goals.svg",
-    url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1-278&t=6g8QSShYxUqXAJml-1",
-    className: "w-[101.11vw] h-[102.56vw] lg:w-[1000px] lg:h-[1014px] relative",
-  },
 };
 
 const ideate: IdeateProps = {
   brainstorm: {
-    desc: "I brainstormed key features that address the intersection of business and user goals, while also considering technical feasibility to ensure both are met.",
+    desc: (
+      <>
+        I brainstormed key features that address the intersection of business
+        and user goals, considering technical feasibility, and used a card sort
+        to determine the site structure.
+      </>
+    ),
     content: (
       <>
         <div className="py-[20px] space-y-[5.1vw] lg:flex lg:space-x-[30px] lg:space-y-0">
@@ -422,62 +349,24 @@ const ideate: IdeateProps = {
             </div>
           </div>
         </div>
-        <Down />
-        <Paragraph>
-          I conducted an <b>open card sort</b> using feature keywords with{" "}
-          <b>28 cards</b>, targeting <b>8 participants</b>, to identify how
-          users categorize them. When the participants categorized the cards
-          freely, most of them fell into <b>6 categories</b>. This helped us
-          understand which content people want to see under each menu.
-        </Paragraph>
-        <div className="py-[2.56vw] block lg:hidden">
-          <Image
-            src="/resto/card-sort-sm.svg"
-            alt="card sort"
-            width={0}
-            height={0}
-            style={{ width: "100%", height: "auto" }}
-          />
-        </div>
-        <div className="hidden lg:block">
-          <Image
-            src="/resto/card-sort.svg"
-            alt="card sort"
-            width={0}
-            height={0}
-            style={{ width: "100%", height: "auto" }}
-          />
-        </div>
       </>
     ),
   },
   sitemap: {
-    desc: "Based on the results of the card sort, I designed the app's structure and created a sitemap while referring to the research, which showed that travelers tend to struggle with searching for restaurants and managing reservations.",
+    desc: (
+      <>
+        Based on the results of the card sort and research showing that
+        travelers struggle with searching for restaurants and managing
+        reservations, I designed a sitemap to structure the app.
+      </>
+    ),
     img: "/resto/sitemap.svg",
     url: "https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=35-1840&t=Rh2UA7lbJbDJRhGN-1",
     className: "w-[137.95vw] h-[102.56vw] lg:w-[1000px] lg:h-[703px] relative",
   },
-  refine: {
-    desc: "I created two task flows to clarify the steps necessary for users to achieve specific goals and promote a user-friendly approach.",
-    flows: [
-      {
-        label:
-          "Discover restaurants or cafes and make reservations those tailored to your preferences",
-        img: "/resto/user-flow-1.svg",
-        className: "w-[161.28vw] h-[33.33vw] lg:w-[1000px] lg:h-[213px] relative",
-      },
-      {
-        label:
-          "Check the reservations and the saved restaurants to plan your dining schedule during the trip",
-        img: "/resto/user-flow-2.svg",
-        className: "w-[161.03vw] h-[51.28vw] lg:w-[1000px] lg:h-[312px] relative",
-      },
-    ],
-    url: "https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=42-8803&t=Rh2UA7lbJbDJRhGN-1",
-  },
   map: {
     desc: "I created a user flow to understand user needs and identify potential issues or confusing elements that are related to “search” and “reservations”.",
-    label: "Discover restaurants or cafes and make reservations",
+    label: "Discover restaurants and make a reservation",
     img: "/resto/task-flow.svg",
     className: "w-[677.80vw] h-[128.21vw] lg:w-[4626px] lg:h-[875px] relative",
     url: "https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=80-1978&t=Rh2UA7lbJbDJRhGN-1",
@@ -486,7 +375,13 @@ const ideate: IdeateProps = {
 
 const prototype: PrototypeProps = {
   exploring: {
-    desc: "I created specific design layouts based on the user flow, the task flow, and observations of how users prefer to search and prevent duplicate reservations. Starting from low-fidelity sketches, I developed more detailed layouts, digitizing them into mid-fidelity wireframes to make the designs more tangible.",
+    desc: (
+      <>
+        I created specific design layouts based on the user flow, task flow, and
+        observations of how users prefer to search for and make reservations
+        effectively.
+      </>
+    ),
     lofi: {
       images: ["/resto/lofi-1.jpg", "/resto/lofi-2.jpg", "/resto/lofi-3.jpg"],
       default: [315, 400],
@@ -494,199 +389,31 @@ const prototype: PrototypeProps = {
       mobile: "w-[197px] h-[250px]",
       url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=46-55&t=6g8QSShYxUqXAJml-1",
     },
-    midfi: {
-      images: [
-        "/resto/midfi-1.svg",
-        "/resto/midfi-2.svg",
-        "/resto/midfi-3.svg",
-        "/resto/midfi-4.svg",
-      ],
-      default: [220, 600],
-      desktop: "lg:w-[220px] lg:h-[600px]",
-      mobile: "w-[110px] h-[300px]",
-      url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=1043-37036&t=6g8QSShYxUqXAJml-1",
-    },
   },
   tests: {
     desc: (
-      <Paragraph>
-        After creating the mid-fidelity wireframes, I conducted a quick{" "}
-        <b>usability test</b> with <b>6 participants</b> to check if users
-        understood the design layouts and if they found the interface
-        user-friendly.
-      </Paragraph>
+      <>
+        After creating the mid-fidelity wireframes, I conducted a quick
+        usability test to evaluate whether users understood the design layouts.
+        Based on the feedback, I made iterative improvements to enhance clarity
+        and usability.
+      </>
     ),
-    images: {
-      desktop: ["/resto/test-1.svg", "/resto/test-2.svg", "/resto/test-3.svg"],
-      mobile: [
-        "/resto/test-1-sm.svg",
-        "/resto/test-2-sm.svg",
-        "/resto/test-3-sm.svg",
-      ],
-    },
-  },
-  refining: {
-    desc: "Based on the results of the mid-fi usability test, I iterated on the design to make it more user-friendly and help users achieve their goals.",
     images: {
       desktop: [
         "/resto/iteration-1.svg",
         "/resto/iteration-2.svg",
         "/resto/iteration-3.svg",
-        "/resto/iteration-4.svg",
       ],
       mobile: [
         "/resto/iteration-1-sm.svg",
         "/resto/iteration-2-sm.svg",
         "/resto/iteration-3-sm.svg",
-        "/resto/iteration-4-sm.svg",
       ],
     },
   },
-  building: {
-    desc: "To create a user-centered product, it's essential to build a brand image that attracts users. I established brand values that align with my vision of making searching for and booking restaurants less difficult.",
-    content: (
-      <>
-        <div
-          className={
-            "bg-white rounded-[10px] py-[2.56vw] relative overflow-x-scroll " +
-            "lg:rounded-[20px] lg:p-[10px]"
-          }
-        >
-          <div className="w-[116vw] h-[76vw] lg:w-[980px] lg:h-[637px]">
-            <Image
-              src="/resto/moodboard.png"
-              alt="moodboard"
-              width={980}
-              height={637}
-              className="w-[116vw] h-[76vw] lg:w-[980px] lg:h-[637px]"
-            />
-          </div>
-        </div>
-        <div className="space-y-[2.56vw] lg:flex lg:space-x-[30px]">
-          <MoodboardCard title="Colors">
-            <ColorRow title="Primary" colors={["EE722B", "C65310", "953B1D"]} />
-            <ColorRow
-              title="Secondary"
-              colors={["B8AE94", "F4F0E0", "DFD5BD"]}
-            />
-            <ColorRow title="Neutral" colors={["F9F9F7", "FFFFFF"]} border />
-          </MoodboardCard>
-          <div className="space-y-[2.56vw] lg:flex-1 lg:flex lg:flex-col lg:justify-between">
-            <MoodboardCard title="Logo">
-              <div className="flex justify-between">
-                <Image
-                  src="/resto/logo-lg.svg"
-                  alt="logo"
-                  width={168}
-                  height={158}
-                  className="w-[24.1vw] h-[25.6vw] lg:w-[168px] lg:h-[158px]"
-                />
-                <div className="flex flex-col justify-between items-center">
-                  <Image
-                    src="/resto/logo-md.svg"
-                    alt="logo"
-                    width={100}
-                    height={60}
-                    className="w-[12.9vw] h-[7.8vw] lg:w-[100px] lg:h-[60px]"
-                  />
-                  <div className="flex space-x-[30px] px-[15px]">
-                    <Image
-                      src="/resto/logo-sm-1.svg"
-                      alt="logo"
-                      width={60}
-                      height={60}
-                      className="w-[10.3vw] h-[10.3vw] lg:w-[60px] lg:h-[60px]"
-                    />
-                    <Image
-                      src="/resto/logo-sm-2.svg"
-                      alt="logo"
-                      width={60}
-                      height={60}
-                      className="w-[10.3vw] h-[10.3vw] lg:w-[60px] lg:h-[60px]"
-                    />
-                  </div>
-                </div>
-              </div>
-            </MoodboardCard>
-            <MoodboardCard title="Icons">
-              <div className="grid grid-cols-8 gap-y-[4.6vw] lg:flex lg:flex-wrap lg:gap-[18px]">
-                {[...Array(16)].map((_, i) => (
-                  <Image
-                    src={`/resto/icon-${i + 1}.svg`}
-                    alt="icon"
-                    width={35}
-                    height={35}
-                    key={i}
-                    className="w-[6.2vw] h-[6.2vw] lg:w-[35px] lg:h-[35px]"
-                  />
-                ))}
-              </div>
-            </MoodboardCard>
-          </div>
-        </div>
-        <div className="space-y-[2.56vw] lg:space-y-0 lg:flex lg:space-x-[30px]">
-          <MoodboardCard title="Typography">
-            <div className="space-y-[1.25vw] lg:space-y-[15px] lg:px-[10px]">
-              <div className="font-manrope text-[4vw] lg:text-[24px] font-semibold tracking-[.03em]">
-                H1 - Manrope SemiBold 24px
-              </div>
-              <div className="font-manrope text-[3.33vw] lg:text-[20px] font-medium tracking-[.03em]">
-                H2 - Manrope Medium 20px
-              </div>
-              <div className="font-manrope text-[3vw] lg:text-[18px] font-medium tracking-[.03em]">
-                H3 - Manrope Medium 18px
-              </div>
-              <div className="font-manrope text-[2.67vw] lg:text-[16px] tracking-[.03em]">
-                B1 - Manrope Regular 16px
-              </div>
-              <div className="font-manrope text-[2.33vw] lg:text-[14px] tracking-[.03em]">
-                B2 - Manrope Regular 14px
-              </div>
-              <div className="font-manrope text-[2.67vw] lg:text-[16px] font-medium tracking-[.03em]">
-                Button Text M - Manrope Medium 16px
-              </div>
-            </div>
-          </MoodboardCard>
-          <MoodboardCard title="Buttons">
-            <div className="space-y-[5.13vw] lg:space-y-0 lg:flex lg:space-x-[20px]">
-              <div className="space-y-[2.56vw] lg:space-y-[12px]">
-                <div className="text-[2.56vw] lg:text-[14px] tracking-[.01em]">
-                  Default
-                </div>
-                <div className="space-y-[2.56vw] lg:space-y-[30px]">
-                  <Button className="bg-cream text-[#303030]">Search</Button>
-                  <Button className="bg-dark-orange text-[#FEFEFE]">
-                    Reserve Now
-                  </Button>
-                  <Button className="bg-[#E8DFBA] text-[#303030] shadow-[0px_1.9px_1.9px_0px_rgba(0,0,0,0.25)_inset]">
-                    Add filters
-                  </Button>
-                </div>
-              </div>
-              <div className="space-y-[2.56vw] lg:space-y-[12px]">
-                <div className="text-[2.56vw] lg:text-[14px] tracking-[.01em]">
-                  Disabled
-                </div>
-                <div className="space-y-[2.56vw] lg:space-y-[30px]">
-                  <Button className="bg-[rgba(223,213,189,0.50)] text-[rgba(48,48,48,0.50)]">
-                    Search
-                  </Button>
-                  <Button className="bg-[rgba(198,83,16,0.50)] text-white">
-                    Reserve Now
-                  </Button>
-                  <Button className="bg-[rgba(244,240,224,0.50)] text-[rgba(48,48,48,0.50)]">
-                    Add filters
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </MoodboardCard>
-        </div>
-      </>
-    ),
-  },
   branding: {
-    desc: "I incorporated all branding elements into the wireframes to create high-fidelity designs.",
+    title: "Applying Japanese Branding to Hi-Fi Designs",
     images: [
       {
         src: "/resto/hifi-1.png",
@@ -718,185 +445,41 @@ const prototype: PrototypeProps = {
 };
 
 const test: TestProps = {
-  enhancing: {
-    desc: (
-      <Paragraph>
-        To confirm whether my high-fidelity wireframes can achieve my user
-        goals, I conducted <b>usability testing</b> with <b>5 participants</b>,
-        including men and women in their 20s to 60s.
-      </Paragraph>
-    ),
-    taskFlows: (
-      <div className="py-[2.56vw] lg:py-[20px] space-y-[2.56vw] lg:space-y-[50px]">
-        <TaskFlowCard
-          title="Task Flow 1"
-          subtitle="Search for restaurants that have an English menu"
-          participants={[
-            {
-              name: "Participant 1",
-              avatar: "/avatars/task-flow-1-1.svg",
-              comment:
-                "“I like filtering and narrowing down the options if there are many displayed on the map.”",
-            },
-            {
-              name: "Participant 3",
-              avatar: "/avatars/task-flow-1-2.svg",
-              comment:
-                "“The only thing that slowed me down in the process was finding the right tag. I guess I would like to type it if that’s possible.”",
-              mirror: true,
-            },
-          ]}
-          conclusions={["4/5 were able to complete the task easily."]}
-          image={{
-            src: "/resto/task-flow-1.svg",
-            default: [220, 440],
-            desktop: "lg:w-[220px] lg:h-[440px]",
-            mobile: "w-[33.33vw] h-[66.67vw]",
-          }}
-        />
-        <TaskFlowCard
-          title="Task Flow 2"
-          subtitle="Choose a restaurant that is popular among locals"
-          participants={[
-            {
-              name: "Participant 2",
-              avatar: "/avatars/task-flow-2-1.svg",
-              comment:
-                "“Location icon colors look similar and I didn’t realize that they are different colors and have different meanings.”",
-            },
-            {
-              name: "Participant 5",
-              avatar: "/avatars/task-flow-2-2.svg",
-              comment:
-                "“I want to see a list of restaurants instead of checking everything on the map.”",
-              mirror: true,
-            },
-          ]}
-          conclusions={[
-            "3/5 had difficulties to find out which one is popular.",
-            "2/5 didn’t use the filter function to narrow down the options.",
-          ]}
-          image={{
-            src: "/resto/task-flow-2.svg",
-            default: [220, 440],
-            desktop: "lg:w-[220px] lg:h-[440px]",
-            mobile: "w-[33.33vw] h-[66.67vw]",
-          }}
-          mirror
-        />
-        <TaskFlowCard
-          title="Task Flow 3"
-          subtitle="Search for restaurants near a famous landmark"
-          participants={[
-            {
-              name: "Participant 3",
-              avatar: "/avatars/task-flow-3-1.svg",
-              comment:
-                "“I think this was pretty straightforward and a great feature.”",
-            },
-            {
-              name: "Participant 4",
-              avatar: "/avatars/task-flow-3-2.svg",
-              comment:
-                "“This was very easy, and it’s helpful for finding restaurants when my schedule is packed.”",
-              mirror: true,
-            },
-          ]}
-          conclusions={[
-            "5/5 were able to complete the task without any issues.",
-          ]}
-          image={{
-            src: "/resto/task-flow-3.svg",
-            default: [220, 440],
-            desktop: "lg:w-[220px] lg:h-[440px]",
-            mobile: "w-[33.33vw] h-[66.67vw]",
-          }}
-        />
-        <TaskFlowCard
-          title="Task Flow 4"
-          subtitle="Make a reservation without scheduling conflicts"
-          participants={[
-            {
-              name: "Participant 1",
-              avatar: "/avatars/task-flow-4-1.svg",
-              comment:
-                "“I want to see the notification before the completion page. Otherwise I have to go back to the previous page to select a different time again.”",
-            },
-            {
-              name: "Participant 5",
-              avatar: "/avatars/task-flow-4-2.svg",
-              comment:
-                "“It would be better if a notification appears when clicking on an available time slot if there is already another reservation.”",
-              mirror: true,
-            },
-          ]}
-          conclusions={[
-            "4/5 were unsure about another reservation until the end.",
-            "3/5 wanted to see the notification when choosing the time slot.",
-          ]}
-          image={{
-            src: "/resto/task-flow-4.svg",
-            default: [220, 440],
-            desktop: "lg:w-[220px] lg:h-[440px]",
-            mobile: "w-[33.33vw] h-[66.67vw]",
-          }}
-          mirror
-        />
-      </div>
-    ),
-  },
   iterating: {
-    desc: "Based on the usability testing, I refined the design of the app to make it easier for travelers to book and manage restaurant reservations.",
+    title: "Refining Designs through Feedback for User-Centric Solutions",
+    desc: (
+      <>
+        To address users’ challenges with navigating the app, finding
+        restaurants, and making reservations, I conducted usability testing to
+        gain insights into their interactions. Based on the feedback, I iterated
+        on the design to simplify the process and better meet user needs,
+        ensuring a more seamless experience.
+      </>
+    ),
     images: [
-      {
-        default: [1000, 512],
-        desktop: {
-          src: "/resto/iteration-1.png",
-          className: "lg:w-[1000px] lg:h-[512px]",
-        },
-        mobile: {
-          src: "/resto/iteration-1-sm.png",
-          className: "w-[70.26vw] h-auto",
-        },
+      ["/resto/iteration-1.png", "/resto/iteration-1-sm.png"],
+      ["/resto/iteration-2.png", "/resto/iteration-2-sm.png"],
+      ["/resto/iteration-3.png", "/resto/iteration-3-sm.png"],
+    ].map(([src, smSrc], i) => ({
+      default: [1000, 512],
+      desktop: {
+        src,
+        className: "lg:w-[1000px] lg:h-[512px]",
       },
-      {
-        default: [1000, 512],
-        desktop: {
-          src: "/resto/iteration-2.png",
-          className: "lg:w-[1000px] lg:h-[512px]",
-        },
-        mobile: {
-          src: "/resto/iteration-2-sm.png",
-          className: "w-[70.26vw] h-auto",
-        },
+      mobile: {
+        src: smSrc,
+        className: "w-[70.26vw] h-auto",
       },
-      {
-        default: [1000, 512],
-        desktop: {
-          src: "/resto/iteration-3.png",
-          className: "lg:w-[1000px] lg:h-[512px]",
-        },
-        mobile: {
-          src: "/resto/iteration-3-sm.png",
-          className: "w-[70.26vw] h-auto",
-        },
-      },
-      {
-        default: [1000, 512],
-        desktop: {
-          src: "/resto/iteration-4.png",
-          className: "lg:w-[1000px] lg:h-[512px]",
-        },
-        mobile: {
-          src: "/resto/iteration-4-sm.png",
-          className: "w-[70.26vw] h-auto",
-        },
-      },
-    ],
+    })),
   },
   final: {
     header: "Resto - Dining App in Japan",
-    desc: "A mobile app that simplifies restaurant discovery and reservation management for travelers in Japan.",
+    desc: (
+      <>
+        Dining App in Japan - A mobile app that simplifies restaurant discovery
+        and reservation management for travelers in Japan
+      </>
+    ),
     demos: [
       {
         video: {
@@ -942,7 +525,7 @@ const test: TestProps = {
         },
         header:
           "A seamless reservation system empowers travelers to plan smooth journeys",
-        notes: ["Eliminate double bookings for a perfectly organized trip"],
+        notes: ["Avoid overlapping reservations for a seamlessly organized trip"],
         mirror: true,
       },
     ],

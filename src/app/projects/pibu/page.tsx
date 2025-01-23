@@ -164,21 +164,16 @@ const research: ResearchProps = {
           and how they make purchase decisions.
         </Paragraph>
       ),
-      questions: [
+      comments: [
         {
-          question:
-            "What websites do you use when you purchase skincare products, and why did you choose those websites?",
-          response:
+          comment:
             "“I usually use Amazon or Target because I can check for discounts, view ingredient information, and read more honest reviews.”",
           avatar: "/avatars/participant-1.svg",
-          name: "Participant 1",
         },
         {
-          question: "What criteria do you use to select skincare products?",
-          response:
+          comment:
             "“I want to know if the product is effective for my skin type.”",
           avatar: "/avatars/participant-2.svg",
-          name: "Participant 2",
         },
       ],
     },
@@ -191,22 +186,16 @@ const research: ResearchProps = {
           motivations and challenges related to purchasing skincare products.
         </Paragraph>
       ),
-      questions: [
+      comments: [
         {
-          question:
-            "Have you experienced any difficulties in selecting the right skincare products?",
-          response:
+          comment:
             "“I have had difficulties selecting the right skincare products because I didn’t know my skin type.” ",
           avatar: "/avatars/participant-3.svg",
-          name: "Participant 1",
         },
         {
-          question:
-            "Have you ever had an experience where you were not satisfied with a skincare product you purchased?",
-          response:
+          comment:
             "“There was a lot of trial and error in finding products that work for me.” ",
           avatar: "/avatars/participant-4.svg",
-          name: "Participant 2",
         },
       ],
     },
@@ -293,37 +282,7 @@ const define: DefineProps = {
   },
   personas: {
     desc: "After conducting research, reviewing the findings, and organizing the data, I created two personas in the early stages of the design process to deepen my understanding of specific users and user needs.",
-    personas: [
-      {
-        name: "Persona 1",
-        desc: (
-          <Paragraph>
-            Peter Cho is a 34-year-old software engineer in New York who,
-            influenced by his partner and friends, has recently started using
-            skincare products. He seeks to find effective products and establish
-            a daily routine but <b>struggles with determining his skin type</b>{" "}
-            and <b>understanding the efficacy of various products</b> due to the
-            overwhelming amount of information available.
-          </Paragraph>
-        ),
-        image: "/pibu/persona-1.jpeg",
-      },
-      {
-        name: "Persona 2",
-        desc: (
-          <Paragraph>
-            Mary Harris is a 28-year-old kindergarten teacher from New York who
-            is passionate about skincare and often seeks discounts online. She
-            is currently concerned about dull skin and is eager to try new
-            products, but hesitates due to the inability to test samples
-            beforehand and worries about negative reviews. Her challenges
-            include <b>determining product suitability without samples</b> and
-            <b>dealing with limited reviews</b>.
-          </Paragraph>
-        ),
-        image: "/pibu/persona-2.jpeg",
-      },
-    ],
+    personas: ["/pibu/persona-1.jpeg"],
     url: "https://www.figma.com/design/LV5sMpEKJ8JlL6TBeFPdVS/Capstone-3---End-to-End-Application?node-id=0-1&t=6g8QSShYxUqXAJml-1",
   },
   exploring: {
@@ -460,12 +419,12 @@ const prototype: PrototypeProps = {
   },
   tests: {
     desc: (
-      <Paragraph>
+      <>
         After creating the mid-fidelity wireframes, I conducted a quick{" "}
         <b>usability test</b> with <b>5 participants</b> to check if users
         understood the design layouts and if they found the interface
         user-friendly.
-      </Paragraph>
+      </>
     ),
     images: {
       desktop: ["/pibu/test-1.svg", "/pibu/test-2.svg"],
@@ -480,6 +439,7 @@ const prototype: PrototypeProps = {
     },
   },
   building: {
+    title: "Building a Strong Brand",
     desc: "Pibu already has a developed store image, including a logo and aesthetic. To confirm the website’s tone and direction with the stakeholders, I created two style tiles based on their brand values: one with a blue theme and one with a green theme. The stakeholder selected the blue style tile as the one that best aligns with the brand image.",
     content: (
       <div className="bg-white rounded-[20px] p-[10px]">
@@ -521,11 +481,11 @@ const prototype: PrototypeProps = {
 const test: TestProps = {
   enhancing: {
     desc: (
-      <Paragraph>
+      <>
         To confirm whether the high-fidelity wireframes can actually achieve
         user goals, I conducted <b>usability testing</b> with{" "}
         <b>6 participants</b>.
-      </Paragraph>
+      </>
     ),
     taskFlows: (
       <div className="py-[20px] space-y-[50px]">

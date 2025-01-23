@@ -10,17 +10,19 @@ import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
 import { ImageT } from "@/types";
 
 export type TestProps = {
-  enhancing: {
+  enhancing?: {
+    title?: string;
     desc: React.ReactNode;
     taskFlows: React.ReactNode;
   };
   iterating: {
-    desc: string;
+    title?: string;
+    desc: string | React.ReactNode;
     images: ImageT[];
   };
   final: {
     header: string;
-    desc: string;
+    desc: string | React.ReactNode;
     demos: Demo[];
     url?: string;
     urls?: {
@@ -49,11 +51,19 @@ export default forwardRef(function Test(
     <div>
       <div ref={ref}></div>
       <ProjectSection title="Test">
-        <ProjectSubSection title="Enhancing Design for Better Usability">
-          {enhancing.desc}
-          {enhancing.taskFlows}
-        </ProjectSubSection>
-        <ProjectSubSection title="Iterating Designs for User-Centric Solutions">
+        {enhancing && (
+          <ProjectSubSection
+            title={enhancing.title || "Enhancing Design for Better Usability"}
+          >
+            <Paragraph>{enhancing.desc}</Paragraph>
+            {enhancing.taskFlows}
+          </ProjectSubSection>
+        )}
+        <ProjectSubSection
+          title={
+            iterating.title || "Iterating Designs for User-Centric Solutions"
+          }
+        >
           <Paragraph>{iterating.desc}</Paragraph>
           <div className="space-y-[5.13vw] lg:py-[20px] lg:space-y-[100px]">
             {iterating.images.map((image, i) => (
@@ -80,16 +90,8 @@ export default forwardRef(function Test(
         </ProjectSubSection>
         <ProjectSubSection title="Final Prototype">
           <div className="lg:py-[20px]">
-            <div
-              className={
-                "bg-white rounded-[10px] px-[5.13vw] py-[3.85vw] space-y-[2.1vw] " +
-                "lg:rounded-[20px] lg:px-[30px] lg:py-[60px] lg:space-y-[10px]"
-              }
-            >
-              <div className="text-[22px] tracking-[.01em] font-medium">
-                {final.header}
-              </div>
-              <div className="text-[18px] tracking-[.01em]">{final.desc}</div>
+            <div className="text-[22px] font-medium tracking-[.01em]">
+              {final.desc}
             </div>
           </div>
           <div

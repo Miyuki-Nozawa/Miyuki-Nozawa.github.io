@@ -12,7 +12,7 @@ import ResearchExploration, {
 } from "@/app/components/research-exploration";
 
 export type ResearchProps = {
-  desc: string;
+  desc: string | React.ReactNode;
   goals: string[];
   researchCompetition: ResearchCompetitionProps & {
     children: React.ReactNode;

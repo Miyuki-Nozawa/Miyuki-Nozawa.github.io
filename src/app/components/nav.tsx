@@ -70,7 +70,7 @@ export default function Nav() {
     return (
       <div
         className={
-          "px-[30px] py-[10px] rounded-[55px] " +
+          "px-[25px] py-[10px] rounded-[55px] " +
           (isAboutPage ? "hover:bg-black/10" : "hover:bg-navHover")
         }
         onMouseEnter={handleCursorHoverStart}
@@ -134,7 +134,7 @@ export default function Nav() {
           {generateNavLink("/#work", "Work")}
           {generateNavLink("/about", "About")}
           {generateNavLink(
-            "https://drive.google.com/file/d/1jklEDqHkPSd1TwSWxEKTRjrvFd8HDATX/view",
+            "https://drive.google.com/file/d/1yQAmS53BZt76VrnzwTMF22o4CABhC1IJ/view",
             "Resume",
             true
           )}

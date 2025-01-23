@@ -8,11 +8,11 @@ import ProjectSubSection from "@/app/components/project-subsection";
 
 export type IdeateProps = {
   brainstorm: {
-    desc: string;
+    desc: string | React.ReactNode;
     content: React.ReactNode;
   };
   sitemap?: {
-    desc: string;
+    desc: string | React.ReactNode;
     img: string;
     url: string;
     className: string;

@@ -8,7 +8,7 @@ import ProjectSubSection from "@/app/components/project-subsection";
 
 export type PrototypeProps = {
   exploring: {
-    desc: string;
+    desc: string | React.ReactNode;
     alternateTitle?: string;
     lofi: Images;
     midfi?: Images;
@@ -20,25 +20,28 @@ export type PrototypeProps = {
     url: string;
   };
   tests: {
-    desc: React.ReactNode;
+    desc: string | React.ReactNode;
     images: {
       desktop: string[];
       mobile: string[];
     };
   };
-  refining: {
-    desc: string;
+  refining?: {
+    title?: string;
+    desc?: string;
     images: {
       desktop: string[];
       mobile: string[];
     };
   };
   building?: {
-    desc: string;
+    title: string;
+    desc?: string;
     content: React.ReactNode;
   };
   branding?: {
-    desc: string;
+    title?: string;
+    desc?: string;
     images: ImageT[];
     url: string;
   };
@@ -84,10 +87,7 @@ export default forwardRef(function Prototype(
       <ProjectSection title="Prototype">
         {exploring && (
           <ProjectSubSection
-            title={
-              exploring.alternateTitle ||
-              "Exploring Ideas from Low-Fi to Mid-Fi"
-            }
+            title={exploring.alternateTitle || "Exploring Ideas"}
           >
             <Paragraph>{exploring.desc}</Paragraph>
             <div className="pb-[2.6vw] lg:pb-[20px] space-y-[5.1vw] lg:space-y-[30px]">
@@ -111,9 +111,6 @@ export default forwardRef(function Prototype(
                   </div>
                 ))}
               </div>
-              <Figma href={exploring.lofi.url}>
-                View the Low-Fi Wireframes
-              </Figma>
             </div>
             {exploring.midfi && (
               <div className="pb-[2.6vw] lg:pb-[20px] space-y-[5.1vw] lg:space-y-[30px]">
@@ -162,7 +159,7 @@ export default forwardRef(function Prototype(
           </ProjectSubSection>
         )}
         <ProjectSubSection title="Ensuring Users Understand the Design Layouts">
-          {tests.desc}
+          <Paragraph>{tests.desc}</Paragraph>
           <div className="lg:hidden py-[2.6vw] space-y-[3.5vw]">
             {tests.images.mobile.map((img, i) => (
               <Image
@@ -188,42 +185,49 @@ export default forwardRef(function Prototype(
             ))}
           </div>
         </ProjectSubSection>
-        <ProjectSubSection title="Refining Designs through Iterated Mid-Fi Wireframes">
-          <Paragraph>{refining.desc}</Paragraph>
-          <div className="lg:hidden py-[2.6vw] space-y-[3.5vw]">
-            {refining.images.mobile.map((img, i) => (
-              <Image
-                key={i}
-                src={img}
-                alt="refine"
-                width={0}
-                height={0}
-                style={{ width: "100%", height: "auto" }}
-              />
-            ))}
-          </div>
-          <div className="hidden lg:block py-[20px] space-y-[50px]">
-            {refining.images.desktop.map((img, i) => (
-              <Image
-                key={i}
-                src={img}
-                alt="refine"
-                width={0}
-                height={0}
-                style={{ width: "100%", height: "auto" }}
-              />
-            ))}
-          </div>
-        </ProjectSubSection>
+        {refining && (
+          <ProjectSubSection
+            title={
+              refining.title ||
+              "Refining Designs through Iterated Mid-Fi Wireframes"
+            }
+          >
+            {refining.desc && <Paragraph>{refining.desc}</Paragraph>}
+            <div className="lg:hidden py-[2.6vw] space-y-[3.5vw]">
+              {refining.images.mobile.map((img, i) => (
+                <Image
+                  key={i}
+                  src={img}
+                  alt="refine"
+                  width={0}
+                  height={0}
+                  style={{ width: "100%", height: "auto" }}
+                />
+              ))}
+            </div>
+            <div className="hidden lg:block py-[20px] space-y-[50px]">
+              {refining.images.desktop.map((img, i) => (
+                <Image
+                  key={i}
+                  src={img}
+                  alt="refine"
+                  width={0}
+                  height={0}
+                  style={{ width: "100%", height: "auto" }}
+                />
+              ))}
+            </div>
+          </ProjectSubSection>
+        )}
         {building && (
-          <ProjectSubSection title="Building a Strong Brand">
+          <ProjectSubSection title={building.title}>
             <Paragraph>{building.desc}</Paragraph>
             {building.content}
           </ProjectSubSection>
         )}
         {branding && (
-          <ProjectSubSection title="Applying Branding in Hi-Fi Wireframes">
-            <Paragraph>{branding.desc}</Paragraph>
+          <ProjectSubSection title={branding.title || "Applying Branding in Hi-Fi Wireframes"}>
+            {branding.desc && <Paragraph>{branding.desc}</Paragraph>}
             <div className="lg:py-[20px] space-y-[2.56vw] lg:space-y-[30px]">
               <div className="py-[2.56vw] lg:py-0 flex flex-wrap gap-y-[2.56vw] lg:flex-nowrap justify-between">
                 {branding.images.map((img, i) => (

@@ -181,22 +181,15 @@ const research: ResearchProps = {
           were familiar with airline mileage or credit card point systems.
         </Paragraph>
       ),
-      questions: [
+      comments: [
         {
-          question:
-            "Have you redeemed your mileage (or credit card points), and what did you use it for?",
-          response:
+          comment:
             "“I haven’t redeemed my mileage because I’m accumulating mileage and want to exchange for a flight in the future.”",
           avatar: "/avatars/participant-1.svg",
-          name: "Participant 1",
         },
         {
-          question:
-            "Are you aware of your mileage (or credit card points) balance?",
-          response: "“I have no idea how much mileage I’ve accumulated.”",
+          comment: "“I have no idea how much mileage I’ve accumulated.”",
           avatar: "/avatars/participant-2.svg",
-          name: "Participant 2",
-          mirror: true,
         },
       ],
     },
@@ -209,20 +202,15 @@ const research: ResearchProps = {
           program.
         </Paragraph>
       ),
-      questions: [
+      comments: [
         {
-          question: "What do you want to do with your mileage?",
-          response: "“I’ve accumulated miles to exchange for a flight ticket.”",
+          comment: "“I’ve accumulated miles to exchange for a flight ticket.”",
           avatar: "/avatars/participant-3.svg",
-          name: "Participant 1",
         },
         {
-          question:
-            "Have you redeemed your mileage, and was there a time where you found redeeming your mileage to be challenging?",
-          response:
+          comment:
             "“Redeeming mileage was a bit challenging because the website design is not good and complicates the process.”",
           avatar: "/avatars/participant-4.svg",
-          name: "Participant 2",
           mirror: true,
         },
       ],
@@ -236,19 +224,16 @@ const research: ResearchProps = {
           that need improvement.
         </Paragraph>
       ),
-      questions: [
+      comments: [
         {
-          question: "Show me how to find your accumulated mileage.",
-          response:
+          comment:
             "“I wanted to go to my page to see my mileage, but I didn't know where to click.“",
           avatar: "/avatars/participant-1.svg",
-          name: "Participant 1",
         },
         {
-          response:
+          comment:
             "“It is difficult to see where the mileage is displayed, it would be nice if it was next to the name.” ",
           avatar: "/avatars/participant-2.svg",
-          name: "Participant 2",
           mirror: true,
         },
       ],
@@ -330,24 +315,7 @@ const define: DefineProps = {
   },
   personas: {
     desc: "After completing all the research, I created a persona in the early stages of the design process to deepen my understanding of specific users and user needs.",
-    personas: [
-      {
-        name: "Persona",
-        desc: (
-          <Paragraph>
-            Lina Kim is a 30-year-old product manager living in Los Angeles who
-            frequently flies with Korean Air to visit her family in Korea.
-            Although she accumulates mileage with Korean Air’s SKYPASS program,
-            she finds the process of redeeming miles for tickets complicated and
-            has never used them. Her main goals are to understand how to redeem
-            her mileage and to save costs on her trips to Korea, but she is
-            frustrated by the complexity of the website and the time it takes to
-            find the necessary information.
-          </Paragraph>
-        ),
-        image: "/korean-air/persona.jpeg",
-      },
-    ],
+    personas: ["/korean-air/persona.jpeg"],
     url: "https://www.figma.com/design/r91kC7CV7Rf6DdH7Dk6iQG/Capstone-1---Add-a-feature?node-id=1-128&t=7ZhVcoHfPaWSlAut-1",
   },
   exploring: {
@@ -464,12 +432,12 @@ const prototype: PrototypeProps = {
   },
   tests: {
     desc: (
-      <Paragraph>
+      <>
         After creating the mid-fidelity wireframes, I conducted a quick{" "}
         <b>usability test</b> with <b>3 participants</b> to check if users
         understood the design layout and whether they found the interface easier
         to use than the original Korean Air design.
-      </Paragraph>
+      </>
     ),
     images: {
       desktop: [
@@ -509,11 +477,11 @@ const prototype: PrototypeProps = {
 const test: TestProps = {
   enhancing: {
     desc: (
-      <Paragraph>
+      <>
         To confirm whether high-fidelity wireframes can actually achieve user
         goals, I conducted <b>usability testing</b> with{" "}
         <b>5 participants aged between 27-68</b>.
-      </Paragraph>
+      </>
     ),
     taskFlows: (
       <div className="py-[20px] space-y-[50px]">

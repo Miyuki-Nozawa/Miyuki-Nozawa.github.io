@@ -41,7 +41,7 @@ export default function Home() {
       {/* Resto */}
       <div id="work">
         <ProjectCard
-          tags={["UX/UI design", "Mobile", "End-to-end"]}
+          tags={["Mobile", "End-to-end", "Personal Project"]}
           title="Resto"
           subtitle="Dining App in Japan"
           description="A mobile app that simplifies restaurant discovery and reservations for travelers in Japan"
@@ -51,7 +51,7 @@ export default function Home() {
       </div>
       {/* Korean Air */}
       <ProjectCard
-        tags={["UX/UI design", "Website", "Add a feature"]}
+        tags={["Web App", "Redesign", "Responsive Design"]}
         title="Korean Air"
         subtitle="Mileage Optimizer"
         description="A feature that enables effective utilization of mileage"
@@ -61,12 +61,22 @@ export default function Home() {
       />
       {/* Pibu */}
       <ProjectCard
-        tags={["UX/UI design", "Responsive Website"]}
+        tags={["E-commerce", "Responsive Design"]}
         title="Pibu"
         subtitle="Skincare Store Website"
         description="A website to introduce a local business and expand their business"
         img="/home/pibu.png"
         page="/projects/pibu"
+      />
+      {/* Tochigami */}
+      <ProjectCard
+        tags={["Web App", "Redesign", "Responsive Design"]}
+        title="Tochigami"
+        subtitle="Real Estate Agent Finder"
+        description="A web app to match users with the right real estate agents and help them find their ideal home"
+        img="/home/tochigami.png"
+        page="/projects/tochigami"
+        mirror
       />
       {/* Footer */}
       <Bottom ref={footerRef} visible={isFooterVisible}>

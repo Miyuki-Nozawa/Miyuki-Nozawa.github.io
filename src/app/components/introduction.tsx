@@ -3,9 +3,9 @@ import ProjectSection from "@/app/components/project-section";
 import ProjectSubSection from "@/app/components/project-subsection";
 
 export type IntroductionProps = {
-  background: string;
-  problems: string;
-  solutions: string;
+  background: string | React.ReactNode;
+  problems: string | React.ReactNode;
+  solutions: string | React.ReactNode;
 };
 
 export default function Introduction({
