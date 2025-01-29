@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Manrope, Poppins } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 import Nav from "@/app/components/nav";
 import "./globals.css";
 
@@ -51,6 +53,7 @@ export default function RootLayout({
         <div className="bg-base h-[19.2vw] lg:h-[192px]"></div>
         {children}
       </body>
+      <GoogleAnalytics gaId="G-5YHDQ27JBX" />
     </html>
   );
 }
