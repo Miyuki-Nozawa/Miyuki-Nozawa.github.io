@@ -51,7 +51,7 @@ export default function Home() {
       </div>
       {/* Korean Air */}
       <ProjectCard
-        tags={["Web App", "Redesign", "Responsive Design"]}
+        tags={["Web App", "Add a feature", "Responsive Design"]}
         title="Korean Air"
         subtitle="Mileage Optimizer"
         description="A feature that enables effective utilization of mileage"
@@ -77,6 +77,7 @@ export default function Home() {
         img="/home/tochigami.png"
         page="/projects/tochigami"
         mirror
+        disabled
       />
       {/* Footer */}
       <Bottom ref={footerRef} visible={isFooterVisible}>

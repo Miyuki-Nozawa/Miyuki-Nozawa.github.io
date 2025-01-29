@@ -10,6 +10,7 @@ export default function ProjectCard({
   img,
   page,
   mirror,
+  disabled,
 }: {
   tags: string[];
   title: string;
@@ -18,6 +19,7 @@ export default function ProjectCard({
   img: string;
   page: string;
   mirror?: boolean;
+  disabled?: boolean;
 }) {
   return (
     <div
@@ -71,29 +73,41 @@ export default function ProjectCard({
             </div>
           </div>
           <div className="pt-[2vw] lg:pt-0">
-            <Link href={page} onClick={handleCursorHoverStop}>
-              <button
+            {disabled ? (
+              <div
                 className={
-                  "w-full lg:w-auto inline-block relative overflow-hidden px-[2.75vw] lg:px-[40px] " +
-                  "py-[2.5vw] lg:py-[15px] text-[4vw] lg:text-[20px] font-semibold bg-dark-green " +
-                  "text-white rounded-[22px] lg:rounded-[32px] transition-colors duration-300 " +
-                  "ease-in-out group tracking-[.01em] "
+                  "w-full lg:w-auto inline-block relative overflow-hidden px-[2.75vw] lg:px-[40px] py-[2.5vw] " +
+                  "lg:py-[15px] text-[4vw] lg:text-[20px] font-semibold bg-dark-green text-white rounded-[22px] " +
+                  "lg:rounded-[32px] transition-colors duration-300 ease-in-out group tracking-[.01em] opacity-50"
                 }
-                onMouseEnter={handleCursorHoverStart}
-                onMouseLeave={handleCursorHoverStop}
               >
-                <span className="relative z-10 group-hover:text-black transition-all duration-500">
-                  View Case Study
-                </span>
-                <span
+                Coming Soon!
+              </div>
+            ) : (
+              <Link href={page} onClick={handleCursorHoverStop}>
+                <button
                   className={
-                    "absolute w-[250px] h-[250px] inset-0 bg-projectCardButtonHover rounded-full " +
-                    "translate-y-[20%] group-hover:translate-y-0 scale-0 group-hover:scale-125 " +
-                    "transition-transform duration-500 ease-out origin-bottom "
+                    "w-full lg:w-auto inline-block relative overflow-hidden px-[2.75vw] lg:px-[40px] " +
+                    "py-[2.5vw] lg:py-[15px] text-[4vw] lg:text-[20px] font-semibold bg-dark-green " +
+                    "text-white rounded-[22px] lg:rounded-[32px] transition-colors duration-300 " +
+                    "ease-in-out group tracking-[.01em] "
                   }
-                ></span>
-              </button>
-            </Link>
+                  onMouseEnter={handleCursorHoverStart}
+                  onMouseLeave={handleCursorHoverStop}
+                >
+                  <span className="relative z-10 group-hover:text-black transition-all duration-500">
+                    View Case Study
+                  </span>
+                  <span
+                    className={
+                      "absolute w-[250px] h-[250px] inset-0 bg-projectCardButtonHover rounded-full " +
+                      "translate-y-[20%] group-hover:translate-y-0 scale-0 group-hover:scale-125 " +
+                      "transition-transform duration-500 ease-out origin-bottom "
+                    }
+                  ></span>
+                </button>
+              </Link>
+            )}
           </div>
         </div>
       </div>

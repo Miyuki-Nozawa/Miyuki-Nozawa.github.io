@@ -134,7 +134,7 @@ export default function Nav() {
           {generateNavLink("/#work", "Work")}
           {generateNavLink("/about", "About")}
           {generateNavLink(
-            "https://drive.google.com/file/d/1yQAmS53BZt76VrnzwTMF22o4CABhC1IJ/view",
+            "https://drive.google.com/file/d/1WQw0gkvyUVhAQX2aHkptffkKL_liMNok/view",
             "Resume",
             true
           )}
