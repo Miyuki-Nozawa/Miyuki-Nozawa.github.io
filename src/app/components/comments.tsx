@@ -32,10 +32,10 @@ export default function Comments({
             <Image
               src={avatar}
               alt="avatar"
-              width={37}
-              height={40}
+              width={50}
+              height={50}
               className={
-                "lg:w-[74px] lg:h-[80px] mx-auto " +
+                "lg:w-[100px] lg:h-[100px] mx-auto " +
                 (mirror ? "scale-x-[-1]" : "")
               }
             />

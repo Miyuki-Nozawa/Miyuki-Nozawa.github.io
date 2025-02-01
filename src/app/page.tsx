@@ -51,7 +51,7 @@ export default function Home() {
       </div>
       {/* Korean Air */}
       <ProjectCard
-        tags={["Web App", "Add a feature", "Responsive Design"]}
+        tags={["Web App", "Add a feature", "Personal Project"]}
         title="Korean Air"
         subtitle="Mileage Optimizer"
         description="A feature that enables effective utilization of mileage"
@@ -70,7 +70,7 @@ export default function Home() {
       />
       {/* Tochigami */}
       <ProjectCard
-        tags={["Web App", "Redesign", "Responsive Design"]}
+        tags={["Web App", "Add a feature", "Redesign"]}
         title="Tochigami"
         subtitle="Real Estate Agent Finder"
         description="A web app to match users with the right real estate agents and help them find their ideal home"

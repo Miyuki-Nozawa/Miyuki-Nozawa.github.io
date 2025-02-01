@@ -55,7 +55,7 @@ export default forwardRef(function Test(
           <ProjectSubSection
             title={enhancing.title || "Enhancing Design for Better Usability"}
           >
-            <Paragraph>{enhancing.desc}</Paragraph>
+            {enhancing.desc}
             {enhancing.taskFlows}
           </ProjectSubSection>
         )}

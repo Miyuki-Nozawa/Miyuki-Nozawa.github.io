@@ -477,11 +477,11 @@ const prototype: PrototypeProps = {
 const test: TestProps = {
   enhancing: {
     desc: (
-      <>
+      <Paragraph>
         To confirm whether high-fidelity wireframes can actually achieve user
         goals, I conducted <b>usability testing</b> with{" "}
         <b>5 participants aged between 27-68</b>.
-      </>
+      </Paragraph>
     ),
     taskFlows: (
       <div className="py-[20px] space-y-[50px]">

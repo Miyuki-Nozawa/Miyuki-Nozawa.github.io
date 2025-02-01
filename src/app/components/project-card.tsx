@@ -53,8 +53,8 @@ export default function ProjectCard({
               <div
                 key={tag}
                 className={
-                  "bg-base3 px-[2.5vw] lg:px-[30px] py-[1.75vw] lg:py-[12px] text-[10px] " +
-                  "lg:text-[16px] tracking-[.01em] rounded-[5px] lg:rounded-[10px] flex "
+                  "bg-[rgba(210,211,196,0.60)] px-[2.5vw] lg:px-[30px] py-[1.75vw] lg:py-[12px] text-[#364922] " +
+                  "text-[10px] lg:text-[16px] tracking-[.01em] rounded-[5px] lg:rounded-[10px] flex "
                 }
               >
                 {tag}

@@ -194,9 +194,9 @@ const research: ResearchProps = {
         <Paragraph>
           To understand travelers’ interests and priorities regarding dining and
           personal experiences, I conducted <b>surveys with 17 participants</b>{" "}
-          and
-          <b>user interviews with 5 participants</b>, all of whom are interested
-          in traveling to Japan or have previously visited the country.
+          and <b>user interviews with 5 participants</b>, all of whom are
+          interested in traveling to Japan or have previously visited the
+          country.
         </Paragraph>
       ),
       comments: [
@@ -226,7 +226,7 @@ const research: ResearchProps = {
       },
       {
         icon: "/icons/find.svg",
-        label: "Restaurant discovery",
+        label: "Discovering and searching for restaurants",
         sublabel: "can be difficult",
       },
       {
@@ -365,7 +365,11 @@ const ideate: IdeateProps = {
     className: "w-[137.95vw] h-[102.56vw] lg:w-[1000px] lg:h-[703px] relative",
   },
   map: {
-    desc: "I created a user flow to understand user needs and identify potential issues or confusing elements that are related to “search” and “reservations”.",
+    desc: (
+      "To better understand user needs and identify potential pain points or confusing elements related to the " +
+      "“search” and “reservation” processes, I created several user flows and task flows. This helped visualize the " +
+      "user’s journey and pinpoint areas for improvement."
+    ),
     label: "Discover restaurants and make a reservation",
     img: "/resto/task-flow.svg",
     className: "w-[677.80vw] h-[128.21vw] lg:w-[4626px] lg:h-[875px] relative",
@@ -475,10 +479,10 @@ const test: TestProps = {
   final: {
     header: "Resto - Dining App in Japan",
     desc: (
-      <>
+      <Paragraph>
         Dining App in Japan - A mobile app that simplifies restaurant discovery
         and reservation management for travelers in Japan
-      </>
+      </Paragraph>
     ),
     demos: [
       {
@@ -525,7 +529,9 @@ const test: TestProps = {
         },
         header:
           "A seamless reservation system empowers travelers to plan smooth journeys",
-        notes: ["Avoid overlapping reservations for a seamlessly organized trip"],
+        notes: [
+          "Avoid overlapping reservations for a seamlessly organized trip",
+        ],
         mirror: true,
       },
     ],
