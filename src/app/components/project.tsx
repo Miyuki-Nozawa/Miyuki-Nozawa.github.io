@@ -1,56 +1,34 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import Image from "next/image";
-
-import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
-import Hero, { HeroProps } from "@/app/components/hero";
-import Introduction, { IntroductionProps } from "@/app/components/introduction";
-import DesignProcess, {
-  DesignProcessProps,
-} from "@/app/components/design-process";
-import Research, { ResearchProps } from "@/app/components/research";
-import Define, { DefineProps } from "@/app/components/define";
-import Ideate, { IdeateProps } from "@/app/components/ideate";
-import Prototype, { PrototypeProps } from "@/app/components/prototype";
-import Test, { TestProps } from "@/app/components/test";
-import NextSteps, { NextStepsProps } from "@/app/components/next-steps";
 import Bottom from "@/app/components/bottom";
+import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import Image from "next/image";
+import { createContext, useEffect, useMemo, useRef, useState } from "react";
 
-export default function Project({
-  hero,
-  introduction,
-  designProcess,
-  research,
-  define,
-  ideate,
-  prototype,
-  test,
-  nextSteps,
-}: {
-  hero: HeroProps;
-  introduction: IntroductionProps;
-  designProcess: DesignProcessProps;
-  research: ResearchProps;
-  define: DefineProps;
-  ideate: IdeateProps;
-  prototype: PrototypeProps;
-  test: TestProps;
-  nextSteps: NextStepsProps;
-}) {
-  const researchRef = useRef<HTMLDivElement>(null);
-  const defineRef = useRef<HTMLDivElement>(null);
-  const ideateRef = useRef<HTMLDivElement>(null);
-  const prototypeRef = useRef<HTMLDivElement>(null);
-  const testRef = useRef<HTMLDivElement>(null);
-  const nextStepsRef = useRef<HTMLDivElement>(null);
-  const footerRef = useRef<HTMLDivElement>(null);
+interface ProjectRefs {
+  research: React.RefObject<HTMLDivElement>;
+  define: React.RefObject<HTMLDivElement>;
+  ideate: React.RefObject<HTMLDivElement>;
+  design: React.RefObject<HTMLDivElement>;
+  test: React.RefObject<HTMLDivElement>;
+  nextSteps: React.RefObject<HTMLDivElement>;
+}
+export const ProjectRefsContext = createContext<ProjectRefs | null>(null);
+
+export default function Project({ children }: { children: React.ReactNode }) {
+  const research = useRef<HTMLDivElement>(null);
+  const define = useRef<HTMLDivElement>(null);
+  const ideate = useRef<HTMLDivElement>(null);
+  const design = useRef<HTMLDivElement>(null);
+  const test = useRef<HTMLDivElement>(null);
+  const nextSteps = useRef<HTMLDivElement>(null);
+  const footer = useRef<HTMLDivElement>(null);
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [isArrowHovered, setIsArrowHovered] = useState(false);
   const isFooterVisible = useIntersectionObserver(
-    footerRef,
+    footer,
     { threshold: 0.25 },
     (isIntersecting) => {
       setIsNavVisible(isNavVisible && !isIntersecting);
@@ -59,12 +37,12 @@ export default function Project({
 
   const refs = useMemo(
     () => ({
-      [Section.RESEARCH]: researchRef,
-      [Section.DEFINE]: defineRef,
-      [Section.IDEATE]: ideateRef,
-      [Section.PROTOTYPE]: prototypeRef,
-      [Section.TEST]: testRef,
-      [Section.NEXTSTEPS]: nextStepsRef,
+      [Category.RESEARCH]: research,
+      [Category.DEFINE]: define,
+      [Category.IDEATE]: ideate,
+      [Category.DESIGN]: design,
+      [Category.TEST]: test,
+      [Category.NEXTSTEPS]: nextSteps,
     }),
     []
   );
@@ -100,7 +78,7 @@ export default function Project({
     };
   }, [activeSection, refs, isFooterVisible]);
 
-  const handleNav = (section: Section) => {
+  const handleNav = (section: Category) => {
     if (refs[section].current) {
       refs[section].current.scrollIntoView();
     }
@@ -136,18 +114,21 @@ export default function Project({
           </div>
         ))}
       </div>
-      <div className="space-y-[8px] lg:space-y-[20px] tracking-[.01em]">
-        <Hero {...hero}>{hero.children}</Hero>
-        <Introduction {...introduction} />
-        <DesignProcess {...designProcess} />
-        <Research ref={researchRef} {...research} />
-        <Define ref={defineRef} {...define} />
-        <Ideate ref={ideateRef} {...ideate} />
-        <Prototype ref={prototypeRef} {...prototype} />
-        <Test ref={testRef} {...test} />
-        <NextSteps ref={nextStepsRef} {...nextSteps} />
-      </div>
-      <Bottom ref={footerRef} visible={isFooterVisible}>
+      <ProjectRefsContext.Provider
+        value={{
+          research,
+          define,
+          ideate,
+          design,
+          test,
+          nextSteps,
+        }}
+      >
+        <div className="space-y-[8px] lg:space-y-[20px] tracking-[.01em]">
+          {children}
+        </div>
+      </ProjectRefsContext.Provider>
+      <Bottom ref={footer} visible={isFooterVisible}>
         <div className="space-y-[0.69vw] lg:space-y-[10px] flex flex-col items-center">
           <div className="text-[7.25vw] lg:text-[60px] font-bold text-white tracking-[.01em]">
             Back to Top
@@ -178,20 +159,20 @@ export default function Project({
   );
 }
 
-enum Section {
+enum Category {
   RESEARCH = "RESEARCH",
   DEFINE = "DEFINE",
   IDEATE = "IDEATE",
-  PROTOTYPE = "PROTOTYPE",
+  DESIGN = "DESIGN",
   TEST = "TEST",
   NEXTSTEPS = "NEXT STEPS",
 }
 
 const SECTIONS = [
-  Section.RESEARCH,
-  Section.DEFINE,
-  Section.IDEATE,
-  Section.PROTOTYPE,
-  Section.TEST,
-  Section.NEXTSTEPS,
+  Category.RESEARCH,
+  Category.DEFINE,
+  Category.IDEATE,
+  Category.DESIGN,
+  Category.TEST,
+  Category.NEXTSTEPS,
 ];

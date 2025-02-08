@@ -9,6 +9,7 @@ export type DiamondColor =
 
 export type KeyCardT = {
   icon?: string;
+  iconSm?: string;
   label: string;
   sublabel?: string;
   centered?: boolean;

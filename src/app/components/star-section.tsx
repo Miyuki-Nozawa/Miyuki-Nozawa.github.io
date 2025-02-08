@@ -19,7 +19,7 @@ export default function StarSection({
         />
         <span
           className={
-            "text-[4.1vw] lg:text-[22px] font-semibold lg:font-medium tracking-[.01em]"
+            "text-[4.1vw] lg:text-[22px] font-medium tracking-[.01em]"
           }
         >
           {title}

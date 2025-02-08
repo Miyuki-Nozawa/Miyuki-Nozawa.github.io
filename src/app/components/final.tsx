@@ -32,7 +32,7 @@ export default function Final({
   const media = (
     <div
       className={`mx-auto lg:flex-shrink-0 lg:flex lg:justify-between ${
-        vertical ? "lg:w-full" : ""
+        vertical ? "lg:w-full lg:space-x-[50px]" : ""
       }`}
     >
       <div className="flex flex-col items-center">

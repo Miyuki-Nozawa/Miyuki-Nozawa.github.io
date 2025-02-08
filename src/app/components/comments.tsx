@@ -23,7 +23,7 @@ export default function Comments({
             "lg:rounded-[20px] bg-beige space-y-[2vw] lg:space-y-[10px] w-[51.5vw] lg:w-[600px]"
           }
         >
-          <div className="text-[2.8vw] lg:text-[18px] tracking-[.01em] font-medium">
+          <div className="text-[2.8vw] lg:text-[18px] tracking-[.01em]">
             {comment}
           </div>
         </div>

@@ -3,11 +3,13 @@ import Image from "next/image";
 export default function KeyCard({
   label,
   icon,
+  iconSm,
   sublabel,
   centered,
 }: {
   label: string;
   icon?: string;
+  iconSm?: string;
   sublabel?: string;
   centered?: boolean;
 }) {
@@ -29,9 +31,18 @@ export default function KeyCard({
           <Image
             src={icon}
             alt={label}
-            width={21}
-            height={21}
-            className={"lg:w-[66px] lg:h-[66px] " + (centered ? "" : "mb-auto")}
+            width={42}
+            height={42}
+            className={"hidden lg:block lg:w-[66px] lg:h-[66px] " + (centered ? "" : "mb-auto")}
+          />
+        )}
+        {iconSm && (
+          <Image
+            src={iconSm}
+            alt={label}
+            width={42}
+            height={42}
+            className={"lg:hidden lg:w-[66px] lg:h-[66px] " + (centered ? "" : "mb-auto")}
           />
         )}
         <div className="space-y-[2vw] lg:space-y-[10px] my-auto">

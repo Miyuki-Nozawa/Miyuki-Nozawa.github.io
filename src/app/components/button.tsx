@@ -1,20 +1,67 @@
+import { useRouter } from "next/navigation";
+import { handleCursorHoverStart, handleCursorHoverStop } from "../cursor";
+
 export default function Button({
-  className,
+  url,
+  disabled,
+  action,
   children,
 }: {
-  className: string;
+  url?: string;
+  disabled?: boolean;
+  action?: () => void;
   children: React.ReactNode;
 }) {
-  return (
-    <div
-      className={
-        "font-manrope font-medium flex items-center justify-center " +
-        "w-full h-[10vw] rounded-[10px] py-[10px] text-[2.56vw] " +
-        "lg:w-[190px] lg:h-[43px] lg:rounded-[10px] lg:py-[10px] lg:text-[15.2px] " +
-        className
+  const router = useRouter();
+
+  if (disabled) {
+    return (
+      <div
+        className={
+          "w-full lg:w-auto inline-block relative overflow-hidden px-[2.75vw] lg:px-[40px] py-[2.5vw] " +
+          "lg:py-[15px] text-[4vw] lg:text-[20px] font-semibold bg-dark-green text-white rounded-[22px] " +
+          "lg:rounded-[32px] transition-colors duration-300 ease-in-out group tracking-[.01em] opacity-50"
+        }
+      >
+        {children}
+      </div>
+    );
+  }
+
+  const handler = action
+    ? () => {
+        handleCursorHoverStop();
+        action();
       }
+    : () => {
+        handleCursorHoverStop();
+        if (url) {
+          router.push(url);
+        }
+      };
+
+  return (
+    <button
+      className={
+        "w-full lg:w-auto inline-block relative overflow-hidden px-[2.75vw] lg:px-[40px] " +
+        "py-[2.5vw] lg:py-[15px] text-[4vw] lg:text-[20px] font-semibold bg-dark-green " +
+        "text-white rounded-[22px] lg:rounded-[32px] transition-colors duration-300 " +
+        "ease-in-out group tracking-[.01em] "
+      }
+      onMouseEnter={handleCursorHoverStart}
+      onMouseLeave={handleCursorHoverStop}
+      onClick={handler}
     >
-      {children}
-    </div>
+      <span className="relative z-10 group-hover:text-black transition-all duration-500">
+        {children}
+      </span>
+      <span
+        className={
+          "absolute w-[250px] h-[250px] inset-0 bg-projectCardButtonHover rounded-full " +
+          "translate-y-[20%] group-hover:translate-y-0 scale-0 group-hover:scale-125 " +
+          "transition-transform duration-500 ease-out origin-bottom "
+        }
+      ></span>
+    </button>
   );
 }

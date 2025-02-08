@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { handleCursorHoverStart, handleCursorHoverStop } from "../cursor";
 import Link from "next/link";
+import Button from "./button";
 
 export default function ProjectCard({
   tags,
@@ -11,6 +12,8 @@ export default function ProjectCard({
   page,
   mirror,
   disabled,
+  locked,
+  action,
 }: {
   tags: string[];
   title: string;
@@ -20,6 +23,8 @@ export default function ProjectCard({
   page: string;
   mirror?: boolean;
   disabled?: boolean;
+  locked?: boolean;
+  action?: () => void;
 }) {
   return (
     <div
@@ -48,13 +53,13 @@ export default function ProjectCard({
             (mirror ? "lg:order-1" : "lg:order-2")
           }
         >
-          <div className="flex space-x-[1.5vw] lg:space-x-[20px]">
+          <div className="flex flex-wrap gap-[1.5vw] lg:gap-[20px]">
             {tags.map((tag) => (
               <div
                 key={tag}
                 className={
                   "bg-[rgba(210,211,196,0.60)] px-[2.5vw] lg:px-[30px] py-[1.75vw] lg:py-[12px] text-[#364922] " +
-                  "text-[10px] lg:text-[16px] tracking-[.01em] rounded-[5px] lg:rounded-[10px] flex "
+                  "text-[10px] lg:text-[16px] tracking-[.01em] rounded-[5px] lg:rounded-[10px] flex"
                 }
               >
                 {tag}
@@ -72,41 +77,28 @@ export default function ProjectCard({
               {description}
             </div>
           </div>
-          <div className="pt-[2vw] lg:pt-0">
-            {disabled ? (
-              <div
-                className={
-                  "w-full lg:w-auto inline-block relative overflow-hidden px-[2.75vw] lg:px-[40px] py-[2.5vw] " +
-                  "lg:py-[15px] text-[4vw] lg:text-[20px] font-semibold bg-dark-green text-white rounded-[22px] " +
-                  "lg:rounded-[32px] transition-colors duration-300 ease-in-out group tracking-[.01em] opacity-50"
-                }
-              >
-                Coming Soon!
+          <div className="flex space-x-[20px]">
+            <div className="pt-[2vw] lg:pt-0">
+              {disabled ? (
+                <Button disabled>Coming Soon!</Button>
+              ) : locked ? (
+                <Button action={action}>View Case Study</Button>
+              ) : (
+                <Button url={page}>View Case Study</Button>
+              )}
+            </div>
+            {locked && (
+              <div className="flex items-center space-x-[8px]">
+                <Image
+                  src="/icons/lock.svg"
+                  alt="lock"
+                  width={30}
+                  height={30}
+                />
+                <span className="text-[18px] font-medium tracking-[.01em]">
+                  Password Required
+                </span>
               </div>
-            ) : (
-              <Link href={page} onClick={handleCursorHoverStop}>
-                <button
-                  className={
-                    "w-full lg:w-auto inline-block relative overflow-hidden px-[2.75vw] lg:px-[40px] " +
-                    "py-[2.5vw] lg:py-[15px] text-[4vw] lg:text-[20px] font-semibold bg-dark-green " +
-                    "text-white rounded-[22px] lg:rounded-[32px] transition-colors duration-300 " +
-                    "ease-in-out group tracking-[.01em] "
-                  }
-                  onMouseEnter={handleCursorHoverStart}
-                  onMouseLeave={handleCursorHoverStop}
-                >
-                  <span className="relative z-10 group-hover:text-black transition-all duration-500">
-                    View Case Study
-                  </span>
-                  <span
-                    className={
-                      "absolute w-[250px] h-[250px] inset-0 bg-projectCardButtonHover rounded-full " +
-                      "translate-y-[20%] group-hover:translate-y-0 scale-0 group-hover:scale-125 " +
-                      "transition-transform duration-500 ease-out origin-bottom "
-                    }
-                  ></span>
-                </button>
-              </Link>
             )}
           </div>
         </div>
