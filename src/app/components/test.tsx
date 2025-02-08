@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import Paragraph from "@/app/components/paragraph";
 import ProjectSection from "@/app/components/project-section";
-import ProjectSubSection from "@/app/components/project-subsection";
+import Subsection from "@/app/components/subsection";
 import Final, { Video } from "@/app/components/final";
 import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
 import { ImageT } from "@/types";
@@ -52,14 +52,14 @@ export default forwardRef(function Test(
       <div ref={ref}></div>
       <ProjectSection title="Test">
         {enhancing && (
-          <ProjectSubSection
+          <Subsection
             title={enhancing.title || "Enhancing Design for Better Usability"}
           >
             {enhancing.desc}
             {enhancing.taskFlows}
-          </ProjectSubSection>
+          </Subsection>
         )}
-        <ProjectSubSection
+        <Subsection
           title={
             iterating.title || "Iterating Designs for User-Centric Solutions"
           }
@@ -87,8 +87,8 @@ export default forwardRef(function Test(
               </>
             ))}
           </div>
-        </ProjectSubSection>
-        <ProjectSubSection title="Final Prototype">
+        </Subsection>
+        <Subsection title="Final Prototype">
           <div className="lg:py-[20px]">
             <div className="text-[22px] font-medium tracking-[.01em]">
               {final.desc}
@@ -172,7 +172,7 @@ export default forwardRef(function Test(
               )}
             </div>
           </div>
-        </ProjectSubSection>
+        </Subsection>
       </ProjectSection>
     </div>
   );

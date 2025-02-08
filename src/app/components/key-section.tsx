@@ -17,10 +17,11 @@ export default function KeySection({
           "lg:flex-row lg:pt-[20px] lg:gap-y-[24px] lg:flex-wrap lg:justify-between"
         }
       >
-        {cards.map(({ icon, label, sublabel, centered }, i) => (
+        {cards.map(({ icon, iconSm, label, sublabel, centered }, i) => (
           <KeyCard
             key={i}
             icon={icon}
+            iconSm={iconSm}
             label={label}
             sublabel={sublabel}
             centered={centered}

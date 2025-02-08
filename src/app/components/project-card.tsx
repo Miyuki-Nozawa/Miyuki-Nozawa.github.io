@@ -48,13 +48,13 @@ export default function ProjectCard({
             (mirror ? "lg:order-1" : "lg:order-2")
           }
         >
-          <div className="flex space-x-[1.5vw] lg:space-x-[20px]">
+          <div className="flex flex-wrap gap-[1.5vw] lg:gap-[20px]">
             {tags.map((tag) => (
               <div
                 key={tag}
                 className={
                   "bg-[rgba(210,211,196,0.60)] px-[2.5vw] lg:px-[30px] py-[1.75vw] lg:py-[12px] text-[#364922] " +
-                  "text-[10px] lg:text-[16px] tracking-[.01em] rounded-[5px] lg:rounded-[10px] flex "
+                  "text-[10px] lg:text-[16px] tracking-[.01em] rounded-[5px] lg:rounded-[10px] flex"
                 }
               >
                 {tag}

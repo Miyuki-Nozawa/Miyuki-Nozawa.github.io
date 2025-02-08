@@ -1,4 +1,4 @@
-export default function ProjectSubSection({
+export default function Subsection({
   title,
   children,
 }: {

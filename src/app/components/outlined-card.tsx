@@ -12,7 +12,7 @@ export default function OutlinedCard({
         "rounded-[10px] lg:rounded-[20px] bg-[rgba(70,96,31,0.2)]"
       }
     >
-      <div className="text-[4.1vw] lg:text-[18px] font-semibold lg:font-normal tracking-[.01em]">
+      <div className="text-[4.1vw] lg:text-[18px] font-normal tracking-[.01em]">
         {title}
       </div>
       <div className="text-[3.6vw] lg:text-[22px] font-medium tracking-[.01em]">

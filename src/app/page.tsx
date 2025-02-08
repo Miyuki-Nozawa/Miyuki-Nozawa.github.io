@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <main className="bg-white">
       {/* Hero */}
-      <div className="px-[60px] pt-[30px] pb-[50px] lg:py-[120px] rounded-b-[60px] lg:rounded-b-[200px] w-full bg-base">
+      <div className="px-[60px] pt-[30px] pb-[120px] rounded-b-[60px] lg:rounded-b-[200px] w-full bg-base">
         <div className="space-y-[2.5vw] lg:space-y-[30px] text-center lg:max-w-[890px] mx-auto">
           <Image
             className="mx-auto w-[25vw] h-[25vw] lg:w-[210px] lg:h-[210px]"
@@ -28,27 +28,49 @@ export default function Home() {
             <div className="font-bold text-[8.3vw] tracking-[.01em] lg:text-[80px] lg:leading-[120px] lg:tracking-[.05em]">
               Miyuki Nozawa
             </div>
-            <div className="font-bold text-[6.4vw] lg:text-[46px] lg:leading-[69px] tracking-[.01em]">
-              Product Designer
-            </div>
           </div>
-          <div className="pt-[2vw] lg:pt-0 lg:py-[30px] font-medium text-[4.6vw] lg:text-[36px] lg:leading-[54px] tracking-[.01em] text-[#222222] text-left">
-            Solving problems with a global perspective to create intuitive and
-            impactful user experiences.
+          <div
+            className={
+              "pt-0 font-medium text-[4.6vw] lg:text-[36px] " +
+              "tracking-[.01em] text-[#222222] text-center"
+            }
+          >
+            I am a <span className="font-semibold">Product Designer</span> based
+            in New York
           </div>
         </div>
       </div>
-      {/* Resto */}
       <div id="work">
+        {/* Pibu */}
         <ProjectCard
-          tags={["Mobile", "End-to-end", "Personal Project"]}
-          title="Resto"
-          subtitle="Dining App in Japan"
-          description="A mobile app that simplifies restaurant discovery and reservations for travelers in Japan"
-          img="/home/resto.png"
-          page="/projects/resto"
+          tags={["E-commerce", "Responsive Design"]}
+          title="Pibu"
+          subtitle="Skincare Store Website"
+          description="A website to introduce a local business and expand their business"
+          img="/home/pibu.png"
+          page="/projects/pibu"
         />
       </div>
+      {/* Tochigami */}
+      <ProjectCard
+        tags={["Web App", "Add a feature", "Redesign"]}
+        title="Tochigami"
+        subtitle="Real Estate Agent Finder"
+        description="A web app to match users with the right real estate agents and help them find their ideal home"
+        img="/home/tochigami.png"
+        page="/projects/tochigami"
+        mirror
+        disabled
+      />
+      {/* Resto */}
+      <ProjectCard
+        tags={["Mobile", "End-to-end", "Personal Project"]}
+        title="Resto"
+        subtitle="Dining App in Japan"
+        description="A mobile app that simplifies restaurant discovery and reservations for travelers in Japan"
+        img="/home/resto.png"
+        page="/projects/resto"
+      />
       {/* Korean Air */}
       <ProjectCard
         tags={["Web App", "Add a feature", "Personal Project"]}
@@ -59,24 +81,14 @@ export default function Home() {
         page="/projects/korean-air"
         mirror
       />
-      {/* Pibu */}
+      {/* Kama-Asa */}
       <ProjectCard
-        tags={["E-commerce", "Responsive Design"]}
-        title="Pibu"
-        subtitle="Skincare Store Website"
-        description="A website to introduce a local business and expand their business"
-        img="/home/pibu.png"
-        page="/projects/pibu"
-      />
-      {/* Tochigami */}
-      <ProjectCard
-        tags={["Web App", "Add a feature", "Redesign"]}
-        title="Tochigami"
-        subtitle="Real Estate Agent Finder"
-        description="A web app to match users with the right real estate agents and help them find their ideal home"
-        img="/home/tochigami.png"
-        page="/projects/tochigami"
-        mirror
+        tags={["E-commerce", "Redesign", "Responsive Design"]}
+        title="KAMA-ASA"
+        subtitle="New US Online Store"
+        description="An e-commerce platform redesigned for the US market"
+        img="/home/kama-asa.png"
+        page="/projects/kama-asa"
         disabled
       />
       {/* Footer */}

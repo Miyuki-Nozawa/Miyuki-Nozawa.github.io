@@ -4,7 +4,7 @@ import Image from "next/image";
 import Figma from "@/app/components/figma";
 import Paragraph from "@/app/components/paragraph";
 import ProjectSection from "@/app/components/project-section";
-import ProjectSubSection from "@/app/components/project-subsection";
+import Subsection from "@/app/components/subsection";
 
 export type IdeateProps = {
   brainstorm: {
@@ -59,12 +59,12 @@ export default forwardRef(function Ideate(
     <div>
       <div ref={ref}></div>
       <ProjectSection title="Ideate">
-        <ProjectSubSection title="Prioritizing Features that Align Business and User Needs">
+        <Subsection title="Prioritizing Features that Align Business and User Needs">
           <Paragraph>{brainstorm.desc}</Paragraph>
           {brainstorm.content}
-        </ProjectSubSection>
+        </Subsection>
         {sitemap && (
-          <ProjectSubSection title="Designing the App Structure with a Sitemap">
+          <Subsection title="Designing the App Structure with a Sitemap">
             <Paragraph>{sitemap.desc}</Paragraph>
             <div className="space-y-[30px]">
               <div className="overflow-x-scroll scrollbar-always-visible">
@@ -74,10 +74,10 @@ export default forwardRef(function Ideate(
               </div>
               <Figma href={sitemap.url}>View the Sitemap</Figma>
             </div>
-          </ProjectSubSection>
+          </Subsection>
         )}
         {refine && (
-          <ProjectSubSection title="Refining Key Design Decisions">
+          <Subsection title="Refining Key Design Decisions">
             <Paragraph>{refine.desc}</Paragraph>
             <div className="py-[2.6vw] lg:py-[20px] space-y-[5.1vw] lg:space-y-[30px]">
               <div className="space-y-[5.1vw] lg:space-y-[50px]">
@@ -108,10 +108,10 @@ export default forwardRef(function Ideate(
               </div>
               <Figma href={refine.url}>View the Task Flows</Figma>
             </div>
-          </ProjectSubSection>
+          </Subsection>
         )}
         {map && (
-          <ProjectSubSection title="Mapping out User Needs and Goals">
+          <Subsection title="Mapping out User Needs and Goals">
             <Paragraph>{map.desc}</Paragraph>
             <div className="py-[2.6vw] lg:py-[20px] space-y-[5.1vw] lg:space-y-[30px]">
               <div className="py-[2.6vw] lg:py-[20px] space-y-[5.1vw] lg:space-y-[30px]">
@@ -135,10 +135,10 @@ export default forwardRef(function Ideate(
               </div>
               <Figma href={map.url}>View the User Flow</Figma>
             </div>
-          </ProjectSubSection>
+          </Subsection>
         )}
         {taskFlow && (
-          <ProjectSubSection title="Task Flow: Refining Key Design Decisions">
+          <Subsection title="Task Flow: Refining Key Design Decisions">
             <Paragraph>{taskFlow.desc}</Paragraph>
             <div className="py-[2.56vw] lg:py-[20px] space-y-[5.13vw] lg:space-y-[30px]">
               <div className="flex space-x-[2.1vw] lg:space-x-[10px]">
@@ -160,10 +160,10 @@ export default forwardRef(function Ideate(
               </div>
               <Figma href={taskFlow.url}>View the Task Flow</Figma>
             </div>
-          </ProjectSubSection>
+          </Subsection>
         )}
         {userFlow && (
-          <ProjectSubSection title="User Flow: Mapping Out User Needs and Goals">
+          <Subsection title="User Flow: Mapping Out User Needs and Goals">
             <Paragraph>{userFlow.desc}</Paragraph>
             <div className="py-[2.6vw] lg:py-[20px] space-y-[5.1vw] lg:space-y-[30px]">
               <div className="flex space-x-[2.1vw] lg:space-x-[10px]">
@@ -184,7 +184,7 @@ export default forwardRef(function Ideate(
               </div>
               <Figma href={userFlow.url}>View the User Flow</Figma>
             </div>
-          </ProjectSubSection>
+          </Subsection>
         )}
       </ProjectSection>
     </div>

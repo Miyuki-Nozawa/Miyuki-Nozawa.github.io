@@ -30,6 +30,7 @@ const config: Config = {
         "dark-green": "#46601F",
         dark: "#222222",
         "dark-orange": "#C65310",
+        "dark-brown": "#705429",
         brown: "#705429",
         brown2: "#5D3F11",
         brown3: "#B7966E",

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Figma from "@/app/components/figma";
 import Paragraph from "@/app/components/paragraph";
 import ProjectSection from "@/app/components/project-section";
-import ProjectSubSection from "@/app/components/project-subsection";
+import Subsection from "@/app/components/subsection";
 import KeySection from "@/app/components/key-section";
 import OutlinedCard from "@/app/components/outlined-card";
 import Down from "@/app/components/down";
@@ -55,7 +55,7 @@ export default forwardRef(function Define(
     <div>
       <div ref={ref}></div>
       <ProjectSection title="Define">
-        <ProjectSubSection title="Gaining a Deeper Understanding of User Needs and Pain Points">
+        <Subsection title="Gaining a Deeper Understanding of User Needs and Pain Points">
           <Paragraph>{affinity.desc}</Paragraph>
           <div className="py-[5.13vw] space-y-[5.1vw] lg:space-y-[30px]">
             {affinity.maps.map(({ label, map }, i) => (
@@ -75,8 +75,8 @@ export default forwardRef(function Define(
             <Figma href={affinity.url}>View the Affinity Map</Figma>
           </div>
           <KeySection title="Key Findings" cards={affinity.findings} />
-        </ProjectSubSection>
-        <ProjectSubSection title="Transforming Insights into Personas">
+        </Subsection>
+        <Subsection title="Transforming Insights into Personas">
           <Paragraph>{personas.desc}</Paragraph>
           <div className="space-y-[2.6vw] lg:space-y-[20px]">
             {personas.personas.map((image, i) => (
@@ -91,8 +91,8 @@ export default forwardRef(function Define(
             ))}
           </div>
           <Figma href={personas.url}>View the Personas</Figma>
-        </ProjectSubSection>
-        <ProjectSubSection title="Exploring and Clarifying Solutions for User Needs">
+        </Subsection>
+        <Subsection title="Exploring and Clarifying Solutions for User Needs">
           <Paragraph>{exploring.desc}</Paragraph>
           <OutlinedCard title="POV (Point Of View) statement">
             {exploring.povStatement}
@@ -102,9 +102,9 @@ export default forwardRef(function Define(
           <OutlinedCard title="HMW (How Might We) question">
             {exploring.hmwQuestion}
           </OutlinedCard>
-        </ProjectSubSection>
+        </Subsection>
         {goals && (
-          <ProjectSubSection title="Establishing Balanced Goals for Project Success">
+          <Subsection title="Establishing Balanced Goals for Project Success">
             <Paragraph>{goals.desc}</Paragraph>
             <div className="py-[2.56vw] lg:py-[20px] space-y-[5.13vw] lg:space-y-[30px]">
               <div className="py-[5.13vw] lg:py-[20px] overflow-x-scroll scrollbar-always-visible">
@@ -114,7 +114,7 @@ export default forwardRef(function Define(
               </div>
               <Figma href={goals.url}>View the Project Goals</Figma>
             </div>
-          </ProjectSubSection>
+          </Subsection>
         )}
       </ProjectSection>
     </div>

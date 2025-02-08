@@ -48,11 +48,10 @@ export default function About() {
         </div>
         <AboutSection title="My Background">
           <Paragraph>
-            With a background in international business law, I have lived in
-            Asia, Europe, and America, and I’ve worked in multiple international
-            companies. This experience has allowed me to interact with people
-            from various countries and deepen my understanding of cultural
-            differences.
+            With a background in international business law, I’ve lived in Asia,
+            Europe, and America, working for several international companies.
+            This experience has enabled me to engage with people from diverse
+            cultures and gain a deeper understanding of cultural differences.
           </Paragraph>
           <div className="py-[5vw] lg:py-[20px] flex flex-wrap lg:flex-nowrap items-center justify-between gap-y-[5vw]">
             {[

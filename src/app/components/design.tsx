@@ -4,9 +4,9 @@ import Image from "next/image";
 import Figma from "@/app/components/figma";
 import Paragraph from "@/app/components/paragraph";
 import ProjectSection from "@/app/components/project-section";
-import ProjectSubSection from "@/app/components/project-subsection";
+import Subsection from "@/app/components/subsection";
 
-export type PrototypeProps = {
+export type DesignProps = {
   exploring: {
     desc: string | React.ReactNode;
     alternateTitle?: string;
@@ -69,7 +69,7 @@ type Images = {
   url: string;
 };
 
-export default forwardRef(function Prototype(
+export default forwardRef(function Design(
   {
     exploring,
     adding,
@@ -78,15 +78,15 @@ export default forwardRef(function Prototype(
     building,
     branding,
     final,
-  }: PrototypeProps,
+  }: DesignProps,
   ref: React.ForwardedRef<HTMLDivElement>
 ) {
   return (
     <div>
       <div ref={ref}></div>
-      <ProjectSection title="Prototype">
+      <ProjectSection title="Design">
         {exploring && (
-          <ProjectSubSection
+          <Subsection
             title={exploring.alternateTitle || "Exploring Ideas"}
           >
             <Paragraph>{exploring.desc}</Paragraph>
@@ -131,10 +131,10 @@ export default forwardRef(function Prototype(
                 </Figma>
               </div>
             )}
-          </ProjectSubSection>
+          </Subsection>
         )}
         {adding && (
-          <ProjectSubSection title="Adding Detail to the Layouts">
+          <Subsection title="Adding Detail to the Layouts">
             <Paragraph>{adding.desc}</Paragraph>
             <div className="py-[20px] flex justify-between">
               <div className="flex space-x-[20px]">
@@ -156,9 +156,9 @@ export default forwardRef(function Prototype(
               </div>
             </div>
             <Figma href={adding.url}>View the Mid-Fi Wireframes</Figma>
-          </ProjectSubSection>
+          </Subsection>
         )}
-        <ProjectSubSection title="Ensuring Users Understand the Design Layouts">
+        <Subsection title="Ensuring Users Understand the Design Layouts">
           <Paragraph>{tests.desc}</Paragraph>
           <div className="lg:hidden py-[2.6vw] space-y-[3.5vw]">
             {tests.images.mobile.map((img, i) => (
@@ -184,9 +184,9 @@ export default forwardRef(function Prototype(
               />
             ))}
           </div>
-        </ProjectSubSection>
+        </Subsection>
         {refining && (
-          <ProjectSubSection
+          <Subsection
             title={
               refining.title ||
               "Refining Designs through Iterated Mid-Fi Wireframes"
@@ -217,16 +217,16 @@ export default forwardRef(function Prototype(
                 />
               ))}
             </div>
-          </ProjectSubSection>
+          </Subsection>
         )}
         {building && (
-          <ProjectSubSection title={building.title}>
+          <Subsection title={building.title}>
             <Paragraph>{building.desc}</Paragraph>
             {building.content}
-          </ProjectSubSection>
+          </Subsection>
         )}
         {branding && (
-          <ProjectSubSection title={branding.title || "Applying Branding in Hi-Fi Wireframes"}>
+          <Subsection title={branding.title || "Applying Branding in Hi-Fi Wireframes"}>
             {branding.desc && <Paragraph>{branding.desc}</Paragraph>}
             <div className="lg:py-[20px] space-y-[2.56vw] lg:space-y-[30px]">
               <div className="py-[2.56vw] lg:py-0 flex flex-wrap gap-y-[2.56vw] lg:flex-nowrap justify-between">
@@ -243,10 +243,10 @@ export default forwardRef(function Prototype(
               </div>
               <Figma href={branding.url}>View the Hi-Fi Wireframes</Figma>
             </div>
-          </ProjectSubSection>
+          </Subsection>
         )}
         {final && (
-          <ProjectSubSection title="Adding the Feature to Korean Air’s Website in Hi-Fi Wireframes">
+          <Subsection title="Adding the Feature to Korean Air’s Website in Hi-Fi Wireframes">
             <Paragraph>{final.desc}</Paragraph>
             <div className="py-[20px] space-y-[30px]">
               <div className="flex flex-wrap justify-between gap-[30px]">
@@ -262,7 +262,7 @@ export default forwardRef(function Prototype(
               </div>
               <Figma href={final.url}>View the Hi-Fi Wireframes</Figma>
             </div>
-          </ProjectSubSection>
+          </Subsection>
         )}
       </ProjectSection>
     </div>
