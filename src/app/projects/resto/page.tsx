@@ -21,7 +21,6 @@ import UserNeed from "@/app/components/user-need";
 import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
 import Link from "next/link";
 import Flow from "@/app/components/flow";
-import Sitemap from "@/app/components/sitemap";
 import Speech from "@/app/components/speech";
 import UserNeeds from "@/app/components/user-needs";
 
@@ -355,11 +354,16 @@ export default function Resto() {
             travelers struggle with searching for restaurants and managing
             reservations, I designed a sitemap to structure the app.
           </Paragraph>
-          <Sitemap
-            src="/resto/sitemap.svg"
-            url="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=35-1840&t=Rh2UA7lbJbDJRhGN-1"
-            className="w-[137.95vw] h-[102.56vw] lg:w-[1000px] lg:h-[703px] relative"
-          />
+          <div className="space-y-[30px]">
+            <div className="overflow-x-scroll scrollbar-always-visible">
+              <div className="w-[137.95vw] h-[102.56vw] lg:w-[1000px] lg:h-[703px] relative">
+                <Image src="sitemap" alt="sitemap" fill />
+              </div>
+            </div>
+            <Figma href="https://www.figma.com/board/63QeyiJMgUu0SL6h2rmDcv/Capstone-3---End-to-End-Application?node-id=35-1840&t=Rh2UA7lbJbDJRhGN-1">
+              View the Sitemap
+            </Figma>
+          </div>
         </Subsection>
         <Subsection title="Mapping out User Needs and Goals">
           <Paragraph>

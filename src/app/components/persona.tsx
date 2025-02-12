@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Figma from "./figma";
+import Figma from "@/app/components/figma";
 
 export default function Persona({ src, url }: { src: string; url: string }) {
   return (

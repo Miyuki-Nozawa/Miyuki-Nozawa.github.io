@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation";
-import { handleCursorHoverStart, handleCursorHoverStop } from "../cursor";
+import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
 
 export default function Button({
   url,

@@ -1,7 +1,5 @@
 import Image from "next/image";
-import { handleCursorHoverStart, handleCursorHoverStop } from "../cursor";
-import Link from "next/link";
-import Button from "./button";
+import Button from "@/app/components/button";
 
 export default function ProjectCard({
   tags,

@@ -1,4 +1,4 @@
-import UserNeed from "./user-need";
+import UserNeed from "@/app/components/user-need";
 
 export default function UserNeeds({
   left,

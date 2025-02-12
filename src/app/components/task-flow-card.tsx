@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Down from "./down";
+import Down from "@/app/components/down";
 
 export type Participant = {
   name: string;

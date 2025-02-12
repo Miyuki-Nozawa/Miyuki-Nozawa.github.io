@@ -8,7 +8,7 @@ import Bottom from "@/app/components/bottom";
 import Connect from "@/app/components/connect";
 import ProjectCard from "@/app/components/project-card";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-import { AuthContext } from "./authContext";
+import { AuthContext } from "@/app/authContext";
 import {
   handleCursorHoverStart,
   handleCursorHoverStartText,

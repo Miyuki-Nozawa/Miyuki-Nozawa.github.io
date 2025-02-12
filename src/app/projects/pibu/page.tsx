@@ -17,16 +17,15 @@ import Paragraph from "@/app/components/paragraph";
 import Persona from "@/app/components/persona";
 import Project, { ProjectRefsContext } from "@/app/components/project";
 import Section from "@/app/components/section";
+import Speech from "@/app/components/speech";
 import Subsection from "@/app/components/subsection";
-import TaskFlowCard from "@/app/components/task-flow-card";
-import UserNeed from "@/app/components/user-need";
+import UserNeeds from "@/app/components/user-needs";
 import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
 import Link from "next/link";
-import Speech from "@/app/components/speech";
-import UserNeeds from "@/app/components/user-needs";
 
 export default function Resto() {
   const refs = useContext(ProjectRefsContext);
+
   return (
     <Project>
       <Hero

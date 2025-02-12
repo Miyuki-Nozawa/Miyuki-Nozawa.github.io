@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
-import NavLink from "./nav-link";
-import { handleCursorHoverStart, handleCursorHoverStop } from "../cursor";
+import NavLink from "@/app/components/nav-link";
+import { handleCursorHoverStart, handleCursorHoverStop } from "@/app/cursor";
 
 const PROJECTS = ["resto", "korean-air", "pibu"];
 

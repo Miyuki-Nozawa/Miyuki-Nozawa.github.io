@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Inter, Manrope, Poppins } from "next/font/google";
 
 import Nav from "@/app/components/nav";
-import { AuthProvider } from "./authContext";
+import { AuthProvider } from "@/app/authContext";
 import "./globals.css";
 
 const poppins = Poppins({
